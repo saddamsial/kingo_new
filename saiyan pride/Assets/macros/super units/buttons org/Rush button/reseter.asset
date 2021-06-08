@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1893448595, guid: a040fb66244a7f54289914d98ea4ef7d, type: 3}
+  m_Name: reseter
+  m_EditorClassIdentifier: 
+  _data:
+    _json: '{"graph":{"variables":{"collection":{"$content":[],"$version":"A"},"$version":"A"},"controlInputDefinitions":[{"key":"i","label":null,"summary":null,"hideLabel":false}],"controlOutputDefinitions":[],"valueInputDefinitions":[],"valueOutputDefinitions":[],"title":null,"summary":null,"pan":{"x":0.0,"y":0.0},"zoom":1.0,"elements":[{"defaultValues":{},"position":{"x":-46.0,"y":-132.0},"guid":"f214179b-1bf9-4dd7-b246-dc1a2cac3937","$version":"A","$type":"Bolt.Branch","$id":"10"},{"numeric":true,"defaultValues":{"b":{"$content":0.0,"$type":"System.Single"}},"position":{"x":-56.0,"y":-34.0},"guid":"8d328260-e71f-426f-a800-c89f1db5ee66","$version":"A","$type":"Bolt.Greater","$id":"12"},{"specifyFallback":false,"kind":"Application","defaultValues":{"name":{"$content":"energy
+      bar","$type":"System.String"}},"position":{"x":-68.0,"y":72.0},"guid":"a9339fd3-0ac2-4750-840e-b8648e24a267","$version":"A","$type":"Bolt.GetVariable","$id":"14"},{"defaultValues":{},"position":{"x":-156.0,"y":-128.0},"guid":"1f027141-f036-429f-834d-d7a15b2b2a74","$version":"A","$type":"Bolt.GraphInput","$id":"16"},{"sourceUnit":{"$ref":"16"},"sourceKey":"i","destinationUnit":{"$ref":"10"},"destinationKey":"enter","guid":"c8e240e8-e462-41d4-95fe-fca12cc2c91b","$type":"Bolt.ControlConnection"},{"sourceUnit":{"$ref":"12"},"sourceKey":"comparison","destinationUnit":{"$ref":"10"},"destinationKey":"condition","guid":"3180651a-b65c-4f7a-91b5-dbfa2e7b0852","$type":"Bolt.ValueConnection"},{"sourceUnit":{"$ref":"14"},"sourceKey":"value","destinationUnit":{"$ref":"12"},"destinationKey":"a","guid":"94f1e89e-5334-49ec-9f7a-94adef77ad00","$type":"Bolt.ValueConnection"},{"position":{"xMin":-217.0,"yMin":-176.0,"xMax":117.0,"yMax":177.0},"label":"Rester","comment":null,"color":{"r":0.05395204,"g":0.0,"b":0.4622642,"a":1.0},"guid":"4473cf96-1c8b-4fee-b37a-9e10188696b8","$version":"A","$type":"Ludiq.GraphGroup"}],"$version":"A"}}'
+    _objectReferences: []

@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1893448595, guid: a040fb66244a7f54289914d98ea4ef7d, type: 3}
+  m_Name: energy to take
+  m_EditorClassIdentifier: 
+  _data:
+    _json: '{"graph":{"variables":{"collection":{"$content":[],"$version":"A"},"$version":"A"},"controlInputDefinitions":[{"key":"i","label":null,"summary":null,"hideLabel":false}],"controlOutputDefinitions":[],"valueInputDefinitions":[],"valueOutputDefinitions":[],"title":null,"summary":null,"pan":{"x":0.0,"y":0.0},"zoom":1.0,"elements":[{"specifyFallback":false,"kind":"Application","defaultValues":{"name":{"$content":"energy
+      bar","$type":"System.String"}},"position":{"x":-224.0,"y":-79.0},"guid":"fda2604b-11f9-44cb-8315-8232df3d0e40","$version":"A","$type":"Bolt.GetVariable","$id":"10"},{"kind":"Application","defaultValues":{"name":{"$content":"energy
+      bar","$type":"System.String"}},"position":{"x":90.0,"y":-99.0},"guid":"fe84462d-9201-49c2-b37c-231fb9476d76","$version":"A","$type":"Bolt.SetVariable","$id":"12"},{"defaultValues":{},"position":{"x":-48.0,"y":-63.0},"guid":"5c9f56b8-3717-4c11-ae30-3bead2cf37d3","$version":"A","$type":"Bolt.GenericSubtract","$id":"14"},{"type":"System.Single","value":{"$content":0.002,"$type":"System.Single"},"defaultValues":{},"position":{"x":-162.0,"y":18.0},"guid":"4803c968-8bb7-44b4-ab3f-739f998a7b0a","$version":"A","$type":"Bolt.Literal","$id":"16"},{"defaultValues":{},"position":{"x":-34.0,"y":-145.0},"guid":"7b828480-bc5f-453c-bc02-acf19f7dc90b","$version":"A","$type":"Bolt.GraphInput","$id":"18"},{"sourceUnit":{"$ref":"18"},"sourceKey":"i","destinationUnit":{"$ref":"12"},"destinationKey":"assign","guid":"ab9662a4-5b3f-46a9-9466-7d3c117103d7","$type":"Bolt.ControlConnection"},{"sourceUnit":{"$ref":"10"},"sourceKey":"value","destinationUnit":{"$ref":"14"},"destinationKey":"minuend","guid":"31c57a36-18d5-42b5-ad75-2055c7bcf122","$type":"Bolt.ValueConnection"},{"sourceUnit":{"$ref":"14"},"sourceKey":"difference","destinationUnit":{"$ref":"12"},"destinationKey":"input","guid":"424b8e0d-cd8e-4dc9-9c66-827b6d046668","$type":"Bolt.ValueConnection"},{"sourceUnit":{"$ref":"16"},"sourceKey":"output","destinationUnit":{"$ref":"14"},"destinationKey":"subtrahend","guid":"a9aaf4d7-2005-4021-8f75-4ca107c6165b","$type":"Bolt.ValueConnection"}],"$version":"A"}}'
+    _objectReferences: []

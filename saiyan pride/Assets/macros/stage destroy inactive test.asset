@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1893448595, guid: a040fb66244a7f54289914d98ea4ef7d, type: 3}
+  m_Name: stage destroy inactive test
+  m_EditorClassIdentifier: 
+  _data:
+    _json: '{"graph":{"variables":{"collection":{"$content":[],"$version":"A"},"$version":"A"},"controlInputDefinitions":[],"controlOutputDefinitions":[],"valueInputDefinitions":[],"valueOutputDefinitions":[],"title":null,"summary":null,"pan":{"x":-79.05225,"y":-158.6775},"zoom":1.0,"elements":[{"coroutine":false,"defaultValues":{"target":null},"position":{"x":-368.0,"y":-352.0},"guid":"e631bbbc-f75a-46c8-97bf-26826ada3cc1","$version":"A","$type":"Bolt.OnButtonClick","$id":"9"},{"chainable":false,"member":{"name":"DontDestroyOnLoad","parameterTypes":["UnityEngine.Object"],"targetType":"UnityEngine.GameObject","targetTypeName":"UnityEngine.GameObject","$version":"A"},"defaultValues":{"%target":null},"position":{"x":-124.0,"y":-347.0},"guid":"e4207f56-ac88-413b-936f-44c0f3630e71","$version":"A","$type":"Bolt.InvokeMember","$id":"11"},{"specifyFallback":false,"kind":"Scene","defaultValues":{"name":{"$content":"BG
+      FX","$type":"System.String"}},"position":{"x":-266.0,"y":-244.0},"guid":"66f8592c-1047-436f-a643-010af25da22f","$version":"A","$type":"Bolt.GetVariable","$id":"14"},{"sourceUnit":{"$ref":"9"},"sourceKey":"trigger","destinationUnit":{"$ref":"11"},"destinationKey":"enter","guid":"5e408b3f-2a1a-4d12-ad36-ed24e21b9a45","$type":"Bolt.ControlConnection"},{"sourceUnit":{"$ref":"14"},"sourceKey":"value","destinationUnit":{"$ref":"11"},"destinationKey":"%target","guid":"edca286a-7160-4d5a-bb66-2694f677cc7a","$type":"Bolt.ValueConnection"}],"$version":"A"}}'
+    _objectReferences: []

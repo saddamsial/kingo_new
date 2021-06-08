@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1893448595, guid: a040fb66244a7f54289914d98ea4ef7d, type: 3}
+  m_Name: load scene in 10 seconds
+  m_EditorClassIdentifier: 
+  _data:
+    _json: '{"graph":{"variables":{"collection":{"$content":[],"$version":"A"},"$version":"A"},"controlInputDefinitions":[],"controlOutputDefinitions":[],"valueInputDefinitions":[],"valueOutputDefinitions":[],"title":null,"summary":null,"pan":{"x":0.0,"y":0.0},"zoom":1.0,"elements":[{"coroutine":false,"defaultValues":{},"position":{"x":-204.0,"y":-144.0},"guid":"4961da95-5042-4dd2-971b-7de3f014b6bc","$version":"A","$type":"Bolt.Start","$id":"9"},{"chainable":false,"member":{"name":"SceneLoader","parameterTypes":["System.Int32"],"targetType":"LoadScene","targetTypeName":"LoadScene","$version":"A"},"defaultValues":{"target":null,"%SceneIndex":{"$content":9,"$type":"System.Int32"}},"position":{"x":114.0,"y":-102.0},"guid":"3476dc56-40ea-4b53-a659-39f2e0b33e3c","$version":"A","$type":"Bolt.InvokeMember","$id":"11"},{"sourceUnit":{"$ref":"9"},"sourceKey":"trigger","destinationUnit":{"$ref":"11"},"destinationKey":"enter","guid":"139c8684-94bf-401c-b8ba-78f4ac7b66f4","$type":"Bolt.ControlConnection"}],"$version":"A"}}'
+    _objectReferences: []

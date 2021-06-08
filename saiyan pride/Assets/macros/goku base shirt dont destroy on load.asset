@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1893448595, guid: a040fb66244a7f54289914d98ea4ef7d, type: 3}
+  m_Name: goku base shirt dont destroy on load
+  m_EditorClassIdentifier: 
+  _data:
+    _json: '{"graph":{"variables":{"collection":{"$content":[],"$version":"A"},"$version":"A"},"controlInputDefinitions":[],"controlOutputDefinitions":[],"valueInputDefinitions":[],"valueOutputDefinitions":[],"title":null,"summary":null,"pan":{"x":412.0927,"y":117.3682},"zoom":1.0,"elements":[{"coroutine":false,"defaultValues":{"target":null},"position":{"x":-109.0,"y":-69.0},"guid":"6b13869d-23e1-47cd-b159-ad9d81ab5d3b","$version":"A","$type":"Bolt.OnButtonClick","$id":"9"},{"chainable":false,"member":{"name":"DontDestroyOnLoad","parameterTypes":["UnityEngine.Object"],"targetType":"UnityEngine.GameObject","targetTypeName":"UnityEngine.GameObject","$version":"A"},"defaultValues":{"%target":{"$content":0,"$type":"UnityEngine.Object"}},"position":{"x":365.0,"y":-18.0},"guid":"eefc9ae0-2950-480c-9cff-7f630881b621","$version":"A","$type":"Bolt.InvokeMember","$id":"11"},{"chainable":false,"member":{"name":"SetActive","parameterTypes":["System.Boolean"],"targetType":"UnityEngine.GameObject","targetTypeName":"UnityEngine.GameObject","$version":"A"},"defaultValues":{"target":null,"%value":{"$content":false,"$type":"System.Boolean"}},"position":{"x":595.0,"y":25.0},"guid":"c6628648-366e-485e-908e-9502856b6af2","$version":"A","$type":"Bolt.InvokeMember","$id":"14"},{"specifyFallback":false,"kind":"Scene","defaultValues":{"name":{"$content":"character
+      select1","$type":"System.String"}},"position":{"x":414.0,"y":141.0},"guid":"dfbb15df-4cd5-4708-acfe-31f2ade55acb","$version":"A","$type":"Bolt.GetVariable","$id":"17"},{"sourceUnit":{"$ref":"11"},"sourceKey":"exit","destinationUnit":{"$ref":"14"},"destinationKey":"enter","guid":"ff88f8f1-c41f-45f8-93dc-e919980e7414","$type":"Bolt.ControlConnection"},{"sourceUnit":{"$ref":"9"},"sourceKey":"trigger","destinationUnit":{"$ref":"11"},"destinationKey":"enter","guid":"6a7f1dc1-73a0-468a-b3a7-b9cca67116ac","$type":"Bolt.ControlConnection"},{"sourceUnit":{"$ref":"17"},"sourceKey":"value","destinationUnit":{"$ref":"14"},"destinationKey":"target","guid":"540fd7fa-7711-4aa8-bc94-92f281c4cda6","$type":"Bolt.ValueConnection"}],"$version":"A"}}'
+    _objectReferences:
+    - {fileID: 34011047052218605, guid: 427e56f005834634ca81b2021dac3c58, type: 3}

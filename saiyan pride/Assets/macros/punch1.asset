@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1893448595, guid: a040fb66244a7f54289914d98ea4ef7d, type: 3}
+  m_Name: punch1
+  m_EditorClassIdentifier: 
+  _data:
+    _json: '{"graph":{"variables":{"collection":{"$content":[],"$version":"A"},"$version":"A"},"controlInputDefinitions":[],"controlOutputDefinitions":[],"valueInputDefinitions":[],"valueOutputDefinitions":[],"title":null,"summary":null,"pan":{"x":111.5994,"y":-273.6434},"zoom":1.0,"elements":[{"coroutine":true,"defaultValues":{},"position":{"x":-130.0,"y":-584.0},"guid":"d1b5554d-09be-4d42-86e2-93949babda39","$version":"A","$type":"Bolt.Start","$id":"9"},{"chainable":false,"member":{"name":"Destroy","parameterTypes":["UnityEngine.Object"],"targetType":"UnityEngine.Object","targetTypeName":"UnityEngine.Object","$version":"A"},"defaultValues":{"%obj":null},"position":{"x":378.0,"y":-644.0},"guid":"a3cf439d-7f81-44b1-b21b-e78d818b53c8","$version":"A","$type":"Bolt.InvokeMember","$id":"11"},{"defaultValues":{},"position":{"x":166.0,"y":-664.0},"guid":"4d75996c-deba-47af-965f-5a8f75e2e8a7","$version":"A","$type":"Bolt.Self","$id":"14"},{"chainable":false,"member":{"name":"localScale","parameterTypes":null,"targetType":"UnityEngine.Transform","targetTypeName":"UnityEngine.Transform","$version":"A"},"defaultValues":{"target":null,"input":{"x":0.0,"y":0.0,"z":0.0,"$type":"UnityEngine.Vector3"}},"position":{"x":14.0,"y":-444.0},"guid":"f2c6885d-4005-4b6a-80c5-a86e74501536","$version":"A","$type":"Bolt.SetMember"},{"defaultValues":{"seconds":{"$content":0.3,"$type":"System.Single"},"unscaledTime":{"$content":false,"$type":"System.Boolean"}},"position":{"x":218.0,"y":-532.0},"guid":"f03fbbef-29af-40f2-85e5-01eab84638e0","$version":"A","$type":"Bolt.WaitForSecondsUnit","$id":"19"},{"member":{"name":"localScale","parameterTypes":null,"targetType":"UnityEngine.Transform","targetTypeName":"UnityEngine.Transform","$version":"A"},"defaultValues":{"target":null},"position":{"x":-364.0,"y":-261.0},"guid":"27392fbf-50ff-4119-b5e2-5e622016347d","$version":"A","$type":"Bolt.GetMember"},{"sourceUnit":{"$ref":"19"},"sourceKey":"exit","destinationUnit":{"$ref":"11"},"destinationKey":"enter","guid":"4eb4a45e-55c0-44e3-a287-ca39ad69c76e","$type":"Bolt.ControlConnection"},{"sourceUnit":{"$ref":"9"},"sourceKey":"trigger","destinationUnit":{"$ref":"19"},"destinationKey":"enter","guid":"785d3ca0-96e7-4bda-a4fb-8d8c9ec73520","$type":"Bolt.ControlConnection"},{"sourceUnit":{"$ref":"14"},"sourceKey":"self","destinationUnit":{"$ref":"11"},"destinationKey":"%obj","guid":"6980b49a-d694-4954-9caf-df4cdcf95ce5","$type":"Bolt.ValueConnection"}],"$version":"A"}}'
+    _objectReferences: []

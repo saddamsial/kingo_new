@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1893448595, guid: a040fb66244a7f54289914d98ea4ef7d, type: 3}
+  m_Name: ai goku base shirt loader
+  m_EditorClassIdentifier: 
+  _data:
+    _json: '{"graph":{"variables":{"collection":{"$content":[],"$version":"A"},"$version":"A"},"controlInputDefinitions":[],"controlOutputDefinitions":[],"valueInputDefinitions":[],"valueOutputDefinitions":[],"title":null,"summary":null,"pan":{"x":17.2026,"y":86.475},"zoom":1.0,"elements":[{"coroutine":false,"defaultValues":{"target":null},"position":{"x":-422.0,"y":-56.0},"guid":"8e0aa251-a82e-4395-9cb4-8b9801414f60","$version":"A","$type":"Bolt.OnButtonClick","$id":"9"},{"chainable":false,"member":{"name":"DontDestroyOnLoad","parameterTypes":["UnityEngine.Object"],"targetType":"UnityEngine.GameObject","targetTypeName":"UnityEngine.GameObject","$version":"A"},"defaultValues":{"%target":null},"position":{"x":76.0,"y":6.0},"guid":"ed75e43c-5b43-41ec-835b-bceb8af188e7","$version":"A","$type":"Bolt.InvokeMember","$id":"11"},{"chainable":false,"member":{"name":"SetActive","parameterTypes":["System.Boolean"],"targetType":"UnityEngine.GameObject","targetTypeName":"UnityEngine.GameObject","$version":"A"},"defaultValues":{"target":null,"%value":{"$content":false,"$type":"System.Boolean"}},"position":{"x":323.0,"y":10.0},"guid":"e686291a-d619-4873-8b6a-2c61fa3bb612","$version":"A","$type":"Bolt.InvokeMember","$id":"14"},{"specifyFallback":false,"kind":"Scene","defaultValues":{"name":{"$content":"goku
+      select 2","$type":"System.String"}},"position":{"x":124.0,"y":153.0},"guid":"8155e92e-9c07-4f85-86f9-bfafac99b272","$version":"A","$type":"Bolt.GetVariable","$id":"17"},{"specifyFallback":false,"kind":"Scene","defaultValues":{"name":{"$content":"goku
+      base ai shirt","$type":"System.String"}},"position":{"x":-399.0,"y":170.0},"guid":"83c0be7d-2bb3-4c81-84c7-53dfc092d1a1","$version":"A","$type":"Bolt.GetVariable"},{"chainable":false,"member":{"name":"FindGameObjectWithTag","parameterTypes":["System.String"],"targetType":"UnityEngine.GameObject","targetTypeName":"UnityEngine.GameObject","$version":"A"},"defaultValues":{"%tag":{"$content":"base
+      shirt ai","$type":"System.String"}},"position":{"x":-198.0,"y":52.0},"guid":"1afae753-40a8-476a-aa14-5a8645c3a132","$version":"A","$type":"Bolt.InvokeMember","$id":"21"},{"sourceUnit":{"$ref":"11"},"sourceKey":"exit","destinationUnit":{"$ref":"14"},"destinationKey":"enter","guid":"ba068247-b285-472c-b11e-1705fc7188d3","$type":"Bolt.ControlConnection"},{"sourceUnit":{"$ref":"9"},"sourceKey":"trigger","destinationUnit":{"$ref":"21"},"destinationKey":"enter","guid":"e7533985-760e-4573-a2d0-3103b3f2ad9c","$type":"Bolt.ControlConnection"},{"sourceUnit":{"$ref":"21"},"sourceKey":"exit","destinationUnit":{"$ref":"11"},"destinationKey":"enter","guid":"ec2d542a-a03d-478a-836c-bf9839516c2b","$type":"Bolt.ControlConnection"},{"sourceUnit":{"$ref":"17"},"sourceKey":"value","destinationUnit":{"$ref":"14"},"destinationKey":"target","guid":"adce9109-6ada-4a04-8e6e-4ac25e4990eb","$type":"Bolt.ValueConnection"},{"sourceUnit":{"$ref":"21"},"sourceKey":"result","destinationUnit":{"$ref":"11"},"destinationKey":"%target","guid":"70c5d116-e622-4748-bb00-f481f8d92fcc","$type":"Bolt.ValueConnection"}],"$version":"A"}}'
+    _objectReferences: []
