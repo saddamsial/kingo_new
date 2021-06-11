@@ -943,9 +943,6 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: hurt
-    m_EventTreshold: 0
-  - m_ConditionMode: 1
     m_ConditionEvent: kicked
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
@@ -1857,9 +1854,6 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 1
     m_ConditionEvent: kicked
-    m_EventTreshold: 0
-  - m_ConditionMode: 1
-    m_ConditionEvent: hurt
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1828276329777165738}
