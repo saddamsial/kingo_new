@@ -783,6 +783,8 @@ GameObject:
   - component: {fileID: 81494812660490124}
   - component: {fileID: 81494812660490123}
   - component: {fileID: 81494812660490122}
+  - component: {fileID: 6663926631712222916}
+  - component: {fileID: 5677328575889386869}
   m_Layer: 0
   m_Name: Destruction (Up1RED)
   m_TagString: Untagged
@@ -843,7 +845,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 81494812660490121}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d2fe5546f775c47d2820aa5e8a715f53, type: 3}
   m_Name: 
@@ -851,6 +853,165 @@ MonoBehaviour:
   _data:
     _json: '{"nest":{"source":"Embed","macro":null,"embed":{"variables":{"collection":{"$content":[],"$version":"A"},"$version":"A"},"controlInputDefinitions":[],"controlOutputDefinitions":[],"valueInputDefinitions":[],"valueOutputDefinitions":[],"title":null,"summary":null,"pan":{"x":0.0,"y":0.0},"zoom":1.0,"elements":[{"coroutine":false,"defaultValues":{},"position":{"x":-158.0,"y":-12.0},"guid":"c2bff64e-f932-43ee-9262-9058c10cc2c7","$version":"A","$type":"Unity.VisualScripting.Update","$id":"10"},{"chainable":false,"member":{"name":"Rotate","parameterTypes":["UnityEngine.Vector3"],"targetType":"UnityEngine.Transform","targetTypeName":"UnityEngine.Transform","$version":"A"},"defaultValues":{"target":null,"%eulers":{"x":0.0,"y":1.0,"z":0.0,"$type":"UnityEngine.Vector3"}},"position":{"x":10.0,"y":-66.0},"guid":"8b59de68-fdc6-4ad5-8ca2-f23c49170884","$version":"A","$type":"Unity.VisualScripting.InvokeMember","$id":"12"},{"sourceUnit":{"$ref":"10"},"sourceKey":"trigger","destinationUnit":{"$ref":"12"},"destinationKey":"enter","guid":"9d801445-b0cd-4fc2-b54e-08749c5f48c8","$type":"Unity.VisualScripting.ControlConnection"}],"$version":"A"}}}'
     _objectReferences: []
+--- !u!114 &6663926631712222916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 81494812660490121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00bf0dc6ae04cf040b6ba6afb034b3c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  openCloseEvents: 0
+  openCloseWindow: 1
+  selectedToolbar: 7
+  weaponCategory: RPG
+  shootFrequency: 1
+  isInfinityAmmo: 0
+  ammo: 1
+  ignoreTags: []
+  hitLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  projectile: {fileID: 1273478506532076, guid: 51167016d084309499498271caa6d1c7, type: 3}
+  muzzle: {fileID: 467730, guid: f6cc7cc521bf3f645ac452fc1de8b8c4, type: 3}
+  projectilesPerShot: 1
+  dispersion: 0
+  velocity: 30
+  damageByDistance: 0
+  minDamageDistance: 8
+  maxDamageDistance: 50
+  minDamage: 50
+  maxDamage: 85
+  source: {fileID: 8253728, guid: f6cc7cc521bf3f645ac452fc1de8b8c4, type: 3}
+  fireClip: {fileID: 8300000, guid: a16c0f7348674944f84b445509080684, type: 3}
+  emptyClip: {fileID: 8300000, guid: 86e4a8709e440314e8fe56622c9e6162, type: 3}
+  testShootEffect: 0
+  lightOnShot: {fileID: 10825716, guid: f6cc7cc521bf3f645ac452fc1de8b8c4, type: 3}
+  emittShurykenParticle:
+  - {fileID: 198458278022641726, guid: f6cc7cc521bf3f645ac452fc1de8b8c4, type: 3}
+  - {fileID: 198829943024615112, guid: f6cc7cc521bf3f645ac452fc1de8b8c4, type: 3}
+  onDestroy:
+    m_PersistentCalls:
+      m_Calls: []
+  onShot:
+    m_PersistentCalls:
+      m_Calls: []
+  onEmptyClip:
+    m_PersistentCalls:
+      m_Calls: []
+  onInstantiateProjectile:
+    m_PersistentCalls:
+      m_Calls: []
+  isLeftWeapon: 0
+  chargeWeapon: 0
+  autoShotOnFinishCharge: 0
+  chargeSpeed: 0.1
+  chargeDamageMultiplier: 2
+  changeVelocityByCharge: 1
+  chargeVelocityMultiplier: 2
+  automaticWeapon: 0
+  reloadTime: 1
+  reloadOneByOne: 0
+  clipSize: 1
+  dontUseReload: 0
+  autoReload: 0
+  ammoID: 18
+  moveSetID: 1
+  upperBodyID: 4
+  shotID: 4
+  reloadID: 4
+  equipID: 0
+  alignRightHandToAim: 0
+  alignRightUpperArmToAim: 1
+  raycastAimTarget: 1
+  useIkOnIdle: 1
+  useIkOnFree: 0
+  useIkOnStrafe: 1
+  useIkAttacking: 0
+  disableIkOnShot: 0
+  useIKOnAiming: 1
+  handIKTarget: {fileID: 464114, guid: f6cc7cc521bf3f645ac452fc1de8b8c4, type: 3}
+  secundaryWeapon: {fileID: 0}
+  aimReference: {fileID: 426458, guid: f6cc7cc521bf3f645ac452fc1de8b8c4, type: 3}
+  cameraStability: 0
+  recoilRight: 8
+  recoilLeft: -8
+  recoilUp: 8
+  reloadSource: {fileID: 0}
+  reloadClip: {fileID: 8300000, guid: f529edf069c022b44a8225230b947f85, type: 3}
+  finishReloadClip: {fileID: 0}
+  onlyUseScopeUIView: 0
+  useUI: 0
+  scopeID: 3
+  scopeZoom: 35
+  customAimCameraState: 
+  customScopeCameraState: ScopeAiming
+  scopeTarget: {fileID: 403246, guid: f6cc7cc521bf3f645ac452fc1de8b8c4, type: 3}
+  zoomScopeCamera: {fileID: 0}
+  keepScopeCameraRotationZ: 1
+  isAiming: 0
+  usingScope: 0
+  onReload:
+    m_PersistentCalls:
+      m_Calls: []
+  onCancelReload:
+    m_PersistentCalls:
+      m_Calls: []
+  onFinishReload:
+    m_PersistentCalls:
+      m_Calls: []
+  onFinishAmmo:
+    m_PersistentCalls:
+      m_Calls: []
+  onEnableAim:
+    m_PersistentCalls:
+      m_Calls: []
+  onDisableAim:
+    m_PersistentCalls:
+      m_Calls: []
+  onEnableScope:
+    m_PersistentCalls:
+      m_Calls: []
+  onDisableScope:
+    m_PersistentCalls:
+      m_Calls: []
+  onFullPower:
+    m_PersistentCalls:
+      m_Calls: []
+  onDisable:
+    m_PersistentCalls:
+      m_Calls: []
+  onChangerPowerCharger:
+    m_PersistentCalls:
+      m_Calls: []
+  root: {fileID: 0}
+  isSecundaryWeapon: 0
+--- !u!114 &5677328575889386869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 81494812660490121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b37cb9a443aef1842ae80a6a984cbe35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  openCloseEvents: 0
+  openCloseWindow: 0
+  selectedToolbar: 0
+  onEquip:
+    m_PersistentCalls:
+      m_Calls: []
+  onUnequip:
+    m_PersistentCalls:
+      m_Calls: []
+  referenceItem: {fileID: 0}
 --- !u!1 &81494812736246696
 GameObject:
   m_ObjectHideFlags: 0
