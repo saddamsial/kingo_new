@@ -9,10 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3768817978428659683}
-  - component: {fileID: 279887758616926278}
   - component: {fileID: 2595950419608300684}
+  - component: {fileID: 5124738624929424686}
+  - component: {fileID: 4645848537922989300}
   m_Layer: 0
-  m_Name: BLOCKYGON_BUS STATION
+  m_Name: BGN_BUS STATION
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,14 +33,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &279887758616926278
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4541413305992400217}
-  m_Mesh: {fileID: 1743737261499303449, guid: 8bdb290906e51ac45ac6cd249119ca6b, type: 3}
 --- !u!23 &2595950419608300684
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -84,3 +77,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &5124738624929424686
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4541413305992400217}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.5686483, y: 2.2562847, z: 1.2558893}
+  m_Center: {x: -0.27099812, y: 0.6281426, z: -0.034448355}
+--- !u!33 &4645848537922989300
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4541413305992400217}
+  m_Mesh: {fileID: 1743737261499303449, guid: 8bdb290906e51ac45ac6cd249119ca6b, type: 3}
