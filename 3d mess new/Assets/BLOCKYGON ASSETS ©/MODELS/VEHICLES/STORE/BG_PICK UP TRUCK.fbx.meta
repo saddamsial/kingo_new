@@ -3,7 +3,17 @@ guid: 618b4e48b6a7f344b9aead812c0d46bd
 ModelImporter:
   serializedVersion: 21100
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TIRE_PACK
+    second: {fileID: 2100000, guid: 4b93d7b329d197348900ed24cda5d20f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: blue_pick_up_truck_
+    second: {fileID: 2100000, guid: b2d4d223bc1121a4c888cc1c2b4db992, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -85,7 +95,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.011
+    globalScale: 1.1
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0

@@ -3,7 +3,17 @@ guid: 7eec9fb70c31b9342959206450576fd3
 ModelImporter:
   serializedVersion: 21100
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BLACK_DEFAULT_CAR
+    second: {fileID: 2100000, guid: 16c9043e357e036479c8da4b75919ffa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TIRE_PACK
+    second: {fileID: 2100000, guid: 4b93d7b329d197348900ed24cda5d20f, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -85,7 +95,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.0095
+    globalScale: 0.95
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
