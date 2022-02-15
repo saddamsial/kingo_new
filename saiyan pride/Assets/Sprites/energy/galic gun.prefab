@@ -30,7 +30,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 409430248181648855}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.198, y: -0.0020008087, z: 0}
+  m_LocalPosition: {x: 2.5179377, y: -0.0020008087, z: 0}
   m_LocalScale: {x: 20, y: 20, z: 1}
   m_Children: []
   m_Father: {fileID: 8284812671366903707}
@@ -120,8 +120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _data:
     _json: '{"declarations":{"collection":{"$content":[{"name":"collider","value":null,"$version":"A"},{"name":"IN
-      IT","value":{"$content":false,"$type":"System.Boolean"},"$version":"A"},{"name":"player
-      or enemy","value":{"$content":false,"$type":"System.Boolean"},"$version":"A"}],"$version":"A"},"$version":"A"}}'
+      IT","value":{"$content":false,"$type":"System.Boolean"},"$version":"A"}],"$version":"A"},"$version":"A"}}'
     _objectReferences: []
 --- !u!114 &2562854873801582530
 MonoBehaviour:
@@ -248,7 +247,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.015482232, y: 0}
+  m_Offset: {x: 0.019205183, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -259,7 +258,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5890355, y: 0.58}
+  m_Size: {x: 0.40763205, y: 0.58}
   m_EdgeRadius: 0
 --- !u!1 &1120464983521655892
 GameObject:
@@ -336,9 +335,9 @@ GameObject:
   - component: {fileID: 5197914256893395789}
   - component: {fileID: 8385824328175756179}
   - component: {fileID: 7044710171752413915}
-  - component: {fileID: 1637938081316852003}
   - component: {fileID: 764130983721792889}
   - component: {fileID: 5528213785120084632}
+  - component: {fileID: 8960352207499010181}
   m_Layer: 9
   m_Name: body
   m_TagString: Untagged
@@ -354,7 +353,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4586736202183824015}
   m_LocalRotation: {x: -1, y: -0, z: -0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 8.715938, y: 0, z: 0}
   m_LocalScale: {x: 4.068914, y: 19.98, z: 1}
   m_Children:
   - {fileID: 2308197949288648555}
@@ -441,10 +440,39 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _data:
-    _json: '{"declarations":{"collection":{"$content":[{"name":"IN IT","value":{"$content":false,"$type":"System.Boolean"},"$version":"A"},{"name":"collider","value":null,"$version":"A"},{"name":"player
-      or enemy","value":{"$content":true,"$type":"System.Boolean"},"$version":"A"}],"$version":"A"},"$version":"A"}}'
+    _json: '{"declarations":{"collection":{"$content":[{"name":"collider","value":null,"$version":"A"},{"name":"IN
+      IT","value":{"$content":false,"$type":"System.Boolean"},"$version":"A"}],"$version":"A"},"$version":"A"}}'
     _objectReferences: []
---- !u!114 &1637938081316852003
+--- !u!114 &764130983721792889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4586736202183824015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -57143145, guid: a040fb66244a7f54289914d98ea4ef7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _data:
+    _json: '{"nest":{"source":"Embed","macro":null,"embed":{"variables":{"collection":{"$content":[],"$version":"A"},"$version":"A"},"controlInputDefinitions":[],"controlOutputDefinitions":[],"valueInputDefinitions":[],"valueOutputDefinitions":[],"title":"energy
+      travel","summary":null,"pan":{"x":95.48985,"y":22.60686},"zoom":1.0,"elements":[{"member":{"name":"localScale","parameterTypes":null,"targetType":"UnityEngine.Transform","targetTypeName":"UnityEngine.Transform","$version":"A"},"defaultValues":{"target":null},"position":{"x":-140.0,"y":-95.0},"guid":"8599d624-bfc7-49ca-bd42-3ec26f3fa51d","$version":"A","$type":"Bolt.GetMember","$id":"10"},{"coroutine":false,"defaultValues":{},"position":{"x":102.0,"y":-201.0},"guid":"8ecc0956-668d-40ca-8550-b40744425dbf","$version":"A","$type":"Bolt.Update","$id":"13"},{"chainable":false,"member":{"name":"localScale","parameterTypes":null,"targetType":"UnityEngine.Transform","targetTypeName":"UnityEngine.Transform","$version":"A"},"defaultValues":{"target":null,"input":{"x":0.0,"y":0.0,"z":0.0,"$type":"UnityEngine.Vector3"}},"position":{"x":245.0,"y":-159.0},"guid":"a2609e18-787a-4b53-923a-f743a3175a4a","$version":"A","$type":"Bolt.SetMember","$id":"15"},{"defaultValues":{"b":{"x":3.0,"y":0.0,"z":0.0,"$type":"UnityEngine.Vector3"}},"position":{"x":48.0,"y":-58.0},"guid":"e725e4f8-4c5e-4dfd-9490-7660637350bb","$version":"A","$type":"Bolt.Vector3Add","$id":"18"},{"defaultValues":{"input":{"x":200.0,"y":0.0,"$type":"UnityEngine.Vector2"}},"position":{"x":-128.0,"y":39.0},"guid":"0cf69ef4-aaba-4d61-aad0-16fc9c2c461f","$version":"A","$type":"Bolt.Vector2PerSecond","$id":"20"},{"sourceUnit":{"$ref":"13"},"sourceKey":"trigger","destinationUnit":{"$ref":"15"},"destinationKey":"assign","guid":"2a1f64bb-f1dd-4a51-a0e6-456c87f1378e","$type":"Bolt.ControlConnection"},{"sourceUnit":{"$ref":"10"},"sourceKey":"value","destinationUnit":{"$ref":"18"},"destinationKey":"a","guid":"4e757437-0d38-4865-9118-5bbd2e3f451a","$type":"Bolt.ValueConnection"},{"sourceUnit":{"$ref":"18"},"sourceKey":"sum","destinationUnit":{"$ref":"15"},"destinationKey":"input","guid":"aa004bcc-6fc3-432a-9d3a-c5d01ae1c3a0","$type":"Bolt.ValueConnection"},{"sourceUnit":{"$ref":"20"},"sourceKey":"output","destinationUnit":{"$ref":"18"},"destinationKey":"b","guid":"f15e4207-63da-49b0-acf8-a968901e0e06","$type":"Bolt.ValueConnection"},{"position":{"xMin":227.0,"yMin":-174.0,"xMax":405.0,"yMax":-15.0},"label":"launch","comment":null,"color":{"r":0.0,"g":0.0,"b":0.0,"a":1.0},"guid":"076c2e7c-3974-4621-8efe-9fdb07577325","$version":"A","$type":"Ludiq.GraphGroup"}],"$version":"A"}}}'
+    _objectReferences: []
+--- !u!65 &5528213785120084632
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4586736202183824015}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.64, y: 0.18, z: 0.2}
+  m_Center: {x: 0.32, y: 0.000000014901161, z: 0}
+--- !u!114 &8960352207499010181
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -460,35 +488,6 @@ MonoBehaviour:
     _json: '{"nest":{"source":"Macro","macro":0,"embed":null}}'
     _objectReferences:
     - {fileID: 11400000, guid: 093d30296a490974caf4109d9730e4b8, type: 2}
---- !u!114 &764130983721792889
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4586736202183824015}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -57143145, guid: a040fb66244a7f54289914d98ea4ef7d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _data:
-    _json: '{"nest":{"source":"Embed","macro":null,"embed":{"variables":{"collection":{"$content":[],"$version":"A"},"$version":"A"},"controlInputDefinitions":[],"controlOutputDefinitions":[],"valueInputDefinitions":[],"valueOutputDefinitions":[],"title":"energy
-      travel","summary":null,"pan":{"x":132.5867,"y":-80.19536},"zoom":1.0,"elements":[{"member":{"name":"localScale","parameterTypes":null,"targetType":"UnityEngine.Transform","targetTypeName":"UnityEngine.Transform","$version":"A"},"defaultValues":{"target":null},"position":{"x":-140.0,"y":-95.0},"guid":"8599d624-bfc7-49ca-bd42-3ec26f3fa51d","$version":"A","$type":"Bolt.GetMember","$id":"10"},{"coroutine":false,"defaultValues":{},"position":{"x":102.0,"y":-201.0},"guid":"8ecc0956-668d-40ca-8550-b40744425dbf","$version":"A","$type":"Bolt.Update","$id":"13"},{"chainable":false,"member":{"name":"localScale","parameterTypes":null,"targetType":"UnityEngine.Transform","targetTypeName":"UnityEngine.Transform","$version":"A"},"defaultValues":{"target":null,"input":{"x":0.0,"y":0.0,"z":0.0,"$type":"UnityEngine.Vector3"}},"position":{"x":245.0,"y":-159.0},"guid":"a2609e18-787a-4b53-923a-f743a3175a4a","$version":"A","$type":"Bolt.SetMember","$id":"15"},{"defaultValues":{"b":{"x":4.0,"y":0.0,"z":0.0,"$type":"UnityEngine.Vector3"}},"position":{"x":48.0,"y":-58.0},"guid":"e725e4f8-4c5e-4dfd-9490-7660637350bb","$version":"A","$type":"Bolt.Vector3Add","$id":"18"},{"sourceUnit":{"$ref":"13"},"sourceKey":"trigger","destinationUnit":{"$ref":"15"},"destinationKey":"assign","guid":"2a1f64bb-f1dd-4a51-a0e6-456c87f1378e","$type":"Bolt.ControlConnection"},{"sourceUnit":{"$ref":"10"},"sourceKey":"value","destinationUnit":{"$ref":"18"},"destinationKey":"a","guid":"4e757437-0d38-4865-9118-5bbd2e3f451a","$type":"Bolt.ValueConnection"},{"sourceUnit":{"$ref":"18"},"sourceKey":"sum","destinationUnit":{"$ref":"15"},"destinationKey":"input","guid":"aa004bcc-6fc3-432a-9d3a-c5d01ae1c3a0","$type":"Bolt.ValueConnection"},{"position":{"xMin":227.0,"yMin":-174.0,"xMax":405.0,"yMax":-15.0},"label":"launch","comment":null,"color":{"r":0.0,"g":0.0,"b":0.0,"a":1.0},"guid":"076c2e7c-3974-4621-8efe-9fdb07577325","$version":"A","$type":"Ludiq.GraphGroup"}],"$version":"A"}}}'
-    _objectReferences: []
---- !u!65 &5528213785120084632
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4586736202183824015}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.64, y: 0.18, z: 0.2}
-  m_Center: {x: 0.32, y: 0.000000014901161, z: 0}
 --- !u!1 &6177769762964900170
 GameObject:
   m_ObjectHideFlags: 0
@@ -517,7 +516,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6177769762964900170}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.604062, y: -0.006000519, z: 0}
+  m_LocalPosition: {x: 11.32, y: -0.006000519, z: 0}
   m_LocalScale: {x: 20, y: 20, z: 1}
   m_Children: []
   m_Father: {fileID: 8284812671366903707}
@@ -602,7 +601,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _data:
-    _json: '{"nest":{"source":"Embed","macro":null,"embed":{"variables":{"collection":{"$content":[],"$version":"A"},"$version":"A"},"controlInputDefinitions":[],"controlOutputDefinitions":[],"valueInputDefinitions":[],"valueOutputDefinitions":[],"title":null,"summary":null,"pan":{"x":-4.348712,"y":-49.02105},"zoom":0.65,"elements":[{"chainable":false,"member":{"name":"position","parameterTypes":null,"targetType":"UnityEngine.Transform","targetTypeName":"UnityEngine.Transform","$version":"A"},"defaultValues":{"target":null,"input":{"x":0.0,"y":0.0,"z":0.0,"$type":"UnityEngine.Vector3"}},"position":{"x":138.0,"y":-98.0},"guid":"5c924f17-ce51-4d88-ac64-6cf80a042038","$version":"A","$type":"Bolt.SetMember","$id":"10"},{"argumentCount":1,"coroutine":false,"defaultValues":{"target":null,"name":{"$content":"pos","$type":"System.String"}},"position":{"x":-76.0,"y":-87.0},"guid":"1e8f1b85-1a13-4d74-9345-e3746f561254","$version":"A","$type":"Bolt.CustomEvent","$id":"13"},{"sourceUnit":{"$ref":"13"},"sourceKey":"trigger","destinationUnit":{"$ref":"10"},"destinationKey":"assign","guid":"fadd6a76-8a56-4210-b70a-4cec92791f1c","$type":"Bolt.ControlConnection"},{"sourceUnit":{"$ref":"13"},"sourceKey":"argument_0","destinationUnit":{"$ref":"10"},"destinationKey":"input","guid":"1d16a4fe-ab92-47b0-95db-998c6b324258","$type":"Bolt.ValueConnection"}],"$version":"A"}}}'
+    _json: '{"nest":{"source":"Embed","macro":null,"embed":{"variables":{"collection":{"$content":[],"$version":"A"},"$version":"A"},"controlInputDefinitions":[],"controlOutputDefinitions":[],"valueInputDefinitions":[],"valueOutputDefinitions":[],"title":null,"summary":null,"pan":{"x":37.98914,"y":-70.15342},"zoom":1.0,"elements":[{"chainable":false,"member":{"name":"position","parameterTypes":null,"targetType":"UnityEngine.Transform","targetTypeName":"UnityEngine.Transform","$version":"A"},"defaultValues":{"target":null,"input":{"x":0.0,"y":0.0,"z":0.0,"$type":"UnityEngine.Vector3"}},"position":{"x":138.0,"y":-98.0},"guid":"5c924f17-ce51-4d88-ac64-6cf80a042038","$version":"A","$type":"Bolt.SetMember","$id":"10"},{"argumentCount":1,"coroutine":false,"defaultValues":{"target":null,"name":{"$content":"pos","$type":"System.String"}},"position":{"x":-76.0,"y":-87.0},"guid":"1e8f1b85-1a13-4d74-9345-e3746f561254","$version":"A","$type":"Bolt.CustomEvent","$id":"13"},{"sourceUnit":{"$ref":"13"},"sourceKey":"trigger","destinationUnit":{"$ref":"10"},"destinationKey":"assign","guid":"fadd6a76-8a56-4210-b70a-4cec92791f1c","$type":"Bolt.ControlConnection"},{"sourceUnit":{"$ref":"13"},"sourceKey":"argument_0","destinationUnit":{"$ref":"10"},"destinationKey":"input","guid":"1d16a4fe-ab92-47b0-95db-998c6b324258","$type":"Bolt.ValueConnection"}],"$version":"A"}}}'
     _objectReferences: []
 --- !u!61 &6630502969786262858
 BoxCollider2D:
@@ -641,7 +640,7 @@ GameObject:
   - component: {fileID: 8284812671366903707}
   - component: {fileID: 8111982980545168301}
   - component: {fileID: 1524160316737740011}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: galic gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -656,7 +655,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8438279042526005333}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.271999, y: -18.467999, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 412070100595172364}
@@ -678,7 +677,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _data:
-    _json: '{"declarations":{"collection":{"$content":[],"$version":"A"},"$version":"A"}}'
+    _json: '{"declarations":{"collection":{"$content":[{"name":"player or enemy","value":{"$content":true,"$type":"System.Boolean"},"$version":"A"}],"$version":"A"},"$version":"A"}}'
     _objectReferences: []
 --- !u!114 &1524160316737740011
 MonoBehaviour:
