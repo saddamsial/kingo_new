@@ -3,7 +3,12 @@ guid: b7bcdd18575f2c04ebc4cc4568f1e049
 ModelImporter:
   serializedVersion: 21100
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FUSE_BOX
+    second: {fileID: 2100000, guid: ff54952bb79501d4f993bcf81df1205c, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -85,7 +90,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.008
+    globalScale: 0.8
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
