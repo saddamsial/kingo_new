@@ -3,11 +3,21 @@ guid: d6fcda877661bf74d92ed28bbc7152ce
 ModelImporter:
   serializedVersion: 21100
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BLOCKYGON_DOOR_PACK
+    second: {fileID: 2100000, guid: 5b3dc91b41af1524bbbce8a62c12e66f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: stone_texture
+    second: {fileID: 2100000, guid: 93f034dd868fbce4c91d9379896fe633, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
-    materialSearch: 1
+    materialSearch: 2
     materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
