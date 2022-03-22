@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: cc421da483ed06c49933077a621bff25, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.087250605, g: 0.059647992, b: 0.14133106, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -194,6 +194,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 447b575feb5cd9d4cb819100e1f97aa9, type: 3}
       propertyPath: m_Name
       value: BGN_BROKEN GLASS (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 447b575feb5cd9d4cb819100e1f97aa9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 447b575feb5cd9d4cb819100e1f97aa9, type: 3}
@@ -1934,6 +1938,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BGN_BROKEN GLASS (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 447b575feb5cd9d4cb819100e1f97aa9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 447b575feb5cd9d4cb819100e1f97aa9, type: 3}
 --- !u!4 &252764311 stripped
@@ -2040,7 +2048,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh347068
+  m_Name: pb_Mesh585930
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -21363,7 +21371,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh346476
+  m_Name: pb_Mesh585378
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -38419,6 +38427,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BGN_BROKEN GLASS (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 447b575feb5cd9d4cb819100e1f97aa9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 447b575feb5cd9d4cb819100e1f97aa9, type: 3}
 --- !u!4 &800601683 stripped
@@ -38572,7 +38584,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _data:
-    _json: '{"declarations":{"collection":{"$content":[{"name":"speed","value":{"$content":100.0,"$type":"System.Single"},"$version":"A"},{"name":"Vertical","value":{"$content":0.0,"$type":"System.Single"},"$version":"A"},{"name":"Horizontal","value":{"$content":0.0,"$type":"System.Single"},"$version":"A"},{"name":"Grounded","value":{"$content":false,"$type":"System.Boolean"},"$version":"A"},{"name":"Jump
+    _json: '{"declarations":{"collection":{"$content":[{"name":"speed","value":{"$content":1.0,"$type":"System.Single"},"$version":"A"},{"name":"Vertical","value":{"$content":0.0,"$type":"System.Single"},"$version":"A"},{"name":"Horizontal","value":{"$content":0.0,"$type":"System.Single"},"$version":"A"},{"name":"Grounded","value":{"$content":false,"$type":"System.Boolean"},"$version":"A"},{"name":"Jump
       Height","value":{"$content":10.0,"$type":"System.Single"},"$version":"A"}],"$version":"A"},"$version":"A"}}'
     _objectReferences: []
 --- !u!114 &833918806
@@ -39855,6 +39867,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BGN_BROKEN GLASS (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 447b575feb5cd9d4cb819100e1f97aa9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 447b575feb5cd9d4cb819100e1f97aa9, type: 3}
 --- !u!4 &989601848 stripped
@@ -40983,6 +40999,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BGN_BROKEN GLASS (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 447b575feb5cd9d4cb819100e1f97aa9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 447b575feb5cd9d4cb819100e1f97aa9, type: 3}
 --- !u!4 &1152673204 stripped
@@ -41501,7 +41521,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1216876562
 Transform:
   m_ObjectHideFlags: 0
@@ -42461,6 +42481,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BGN_BROKEN GLASS (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 447b575feb5cd9d4cb819100e1f97aa9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 447b575feb5cd9d4cb819100e1f97aa9, type: 3}
 --- !u!4 &1354062101 stripped
@@ -42989,7 +43013,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh346000
+  m_Name: pb_Mesh584892
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -46464,6 +46488,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BGN_BROKEN GLASS
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 447b575feb5cd9d4cb819100e1f97aa9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 447b575feb5cd9d4cb819100e1f97aa9, type: 3}
 --- !u!4 &1743547174 stripped
@@ -48309,6 +48337,68 @@ Transform:
   m_Father: {fileID: 652065296}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 4.85, y: -0.903, z: 0.543}
+--- !u!1 &1812487555
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1812487558}
+  - component: {fileID: 1812487557}
+  - component: {fileID: 1812487556}
+  m_Layer: 0
+  m_Name: FPS SET
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1812487556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1812487555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2fe5546f775c47d2820aa5e8a715f53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _data:
+    _json: '{"nest":{"source":"Embed","macro":null,"embed":{"variables":{"collection":{"$content":[],"$version":"A"},"$version":"A"},"controlInputDefinitions":[],"controlOutputDefinitions":[],"valueInputDefinitions":[],"valueOutputDefinitions":[],"title":null,"summary":null,"pan":{"x":0.0,"y":0.0},"zoom":1.0,"elements":[{"coroutine":false,"defaultValues":{},"position":{"x":-270.0,"y":-37.0},"guid":"006deadc-cd89-4edb-b4df-eaf8cc1ada75","$version":"A","$type":"Unity.VisualScripting.Start","$id":"10"},{"chainable":false,"member":{"name":"targetFrameRate","parameterTypes":null,"targetType":"UnityEngine.Application","targetTypeName":"UnityEngine.Application","$version":"A"},"defaultValues":{"input":{"$content":165,"$type":"System.Int32"}},"position":{"x":-107.0,"y":-45.0},"guid":"a462368f-ee20-422c-a721-c69540b3a9ce","$version":"A","$type":"Unity.VisualScripting.SetMember","$id":"12"},{"coroutine":false,"defaultValues":{},"position":{"x":-314.0,"y":92.0},"guid":"b0def7f3-83a2-4a75-91ce-18871212c818","$version":"A","$type":"Unity.VisualScripting.Update"},{"sourceUnit":{"$ref":"10"},"sourceKey":"trigger","destinationUnit":{"$ref":"12"},"destinationKey":"assign","guid":"c61cabf9-9fef-4e42-b5df-baaaa19c123e","$type":"Unity.VisualScripting.ControlConnection"}],"$version":"A"}}}'
+    _objectReferences: []
+--- !u!114 &1812487557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1812487555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e741851cba3ad425c91ecf922cc6b379, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _data:
+    _json: '{"declarations":{"collection":{"$content":[],"$version":"A"},"$version":"A"}}'
+    _objectReferences: []
+--- !u!4 &1812487558
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1812487555}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 66.20328, y: 1.8182495, z: -780.1226}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1813349746
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -48678,7 +48768,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh346946
+  m_Name: pb_Mesh585808
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -48865,7 +48955,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1849369969
 Transform:
   m_ObjectHideFlags: 0
@@ -51738,7 +51828,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2063368177
 Transform:
   m_ObjectHideFlags: 0
