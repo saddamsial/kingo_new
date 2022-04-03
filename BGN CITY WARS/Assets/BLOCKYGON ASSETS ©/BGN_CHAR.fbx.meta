@@ -79,59 +79,9 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events: []
-      transformMask:
-      - path: 
-        weight: 1
-      - path: BGN_CJ_RIGGED
-        weight: 1
-      - path: BGN_CJ_RIGGED/LEG_L
-        weight: 1
-      - path: BGN_CJ_RIGGED/LEG_L/THIGH_L
-        weight: 1
-      - path: BGN_CJ_RIGGED/LEG_L/THIGH_L/KNEE_L
-        weight: 1
-      - path: BGN_CJ_RIGGED/LEG_L/THIGH_L/KNEE_L/FOOT_L
-        weight: 1
-      - path: BGN_CJ_RIGGED/LEG_R
-        weight: 1
-      - path: BGN_CJ_RIGGED/LEG_R/THIGH_R
-        weight: 1
-      - path: BGN_CJ_RIGGED/LEG_R/THIGH_R/KNEE_R
-        weight: 1
-      - path: BGN_CJ_RIGGED/LEG_R/THIGH_R/KNEE_R/FOOT_R
-        weight: 1
-      - path: BGN_CJ_RIGGED/SPINE
-        weight: 1
-      - path: BGN_CJ_RIGGED/SPINE/spine2
-        weight: 1
-      - path: BGN_CJ_RIGGED/SPINE/spine2/spine3
-        weight: 1
-      - path: BGN_CJ_RIGGED/SPINE/spine2/spine3/spine3_end
-        weight: 1
-      - path: BGN_CJ_RIGGED/SPINE/spine2/spine3/spine3_end/head
-        weight: 1
-      - path: BGN_CJ_RIGGED/SPINE/spine2/spine3/spine3_end/head/head_end
-        weight: 1
-      - path: BGN_CJ_RIGGED/SPINE/spine2/spine3/spine3_end/SHOULDER_L
-        weight: 1
-      - path: BGN_CJ_RIGGED/SPINE/spine2/spine3/spine3_end/SHOULDER_L/ARM_L
-        weight: 1
-      - path: BGN_CJ_RIGGED/SPINE/spine2/spine3/spine3_end/SHOULDER_L/ARM_L/ELBOW_L
-        weight: 1
-      - path: BGN_CJ_RIGGED/SPINE/spine2/spine3/spine3_end/SHOULDER_L/ARM_L/ELBOW_L/HAND_L
-        weight: 1
-      - path: BGN_CJ_RIGGED/SPINE/spine2/spine3/spine3_end/SHOULDER_R
-        weight: 1
-      - path: BGN_CJ_RIGGED/SPINE/spine2/spine3/spine3_end/SHOULDER_R/ARM_R
-        weight: 1
-      - path: BGN_CJ_RIGGED/SPINE/spine2/spine3/spine3_end/SHOULDER_R/ARM_R/ELBOW_R
-        weight: 1
-      - path: BGN_CJ_RIGGED/SPINE/spine2/spine3/spine3_end/SHOULDER_R/ARM_R/ELBOW_R/HAND_R
-        weight: 1
-      - path: MESH
-        weight: 1
-      maskType: 0
-      maskSource: {fileID: 31900000, guid: 50466d0105ff4c348ad7faa21b119e83, type: 2}
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: STRAFE RIGHT FORWARD
@@ -390,7 +340,7 @@ ModelImporter:
     legStretch: 0.05
     feetSpacing: 0
     globalScale: 1
-    rootMotionBoneName: BGN_CJ_RIGGED
+    rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
