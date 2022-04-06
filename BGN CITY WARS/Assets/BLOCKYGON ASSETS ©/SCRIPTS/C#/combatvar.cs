@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Animations;
+using Cinemachine;
 
 public class combatvar : MonoBehaviour
 {
@@ -11,19 +12,11 @@ public class combatvar : MonoBehaviour
     public GameObject Combatlook;
     public Animator Animator;
 
+
     void Update()
     {
-        if (combat == true)
-        {
-            Combatlook.SetActive(true);
-            FreeLook.SetActive(false);
-        }
-        else
-        {
-            Combatlook.SetActive(false);
-            FreeLook.SetActive(true);
 
-        }
+        
 
 
         ////animator set
