@@ -940,6 +940,32 @@ AnimatorStateMachine:
   m_ExitPosition: {x: 50, y: 540, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
   m_DefaultState: {fileID: 5175046737640825179}
+--- !u!1102 &-3268334512144758103
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: RUN RIGHT
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: 5ebeb55d0fbbd6f4d8a3d27a3e22537b, type: 2}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
 --- !u!1101 &-3088925578988604626
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -1681,7 +1707,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: pistol reload
-  m_Speed: 1
+  m_Speed: 0.7
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -3441575788066027865}
@@ -2819,6 +2845,9 @@ AnimatorStateMachine:
   - serializedVersion: 1
     m_State: {fileID: -804940681787637113}
     m_Position: {x: 730, y: 550, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: -3268334512144758103}
+    m_Position: {x: 765, y: 615, z: 0}
   m_ChildStateMachines:
   - serializedVersion: 1
     m_StateMachine: {fileID: -4747750135612908806}
