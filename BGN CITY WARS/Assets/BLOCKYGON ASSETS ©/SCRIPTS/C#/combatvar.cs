@@ -20,7 +20,7 @@ public class combatvar : MonoBehaviour
 
 
         ////animator set
-        Animator.SetBool("combat", combat);
+       // Animator.SetBool("combat", combat);
         
         }
 
