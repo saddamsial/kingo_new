@@ -19,7 +19,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: {x: 68.416, y: 110.442, z: 109.082}
+        value: {x: 62.186, y: 135.382, z: 131.835}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -137,7 +137,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: {x: 26.389, y: 0, z: 0}
+        value: {x: 36.241, y: 0, z: 0}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -171,7 +171,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: {x: 18.387, y: 0, z: 0}
+        value: {x: 28.239, y: 0, z: 0}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -444,7 +444,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 68.416
+        value: 62.186
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -481,7 +481,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 110.442
+        value: 135.382
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -518,7 +518,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 109.082
+        value: 131.835
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -834,7 +834,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 26.389
+        value: 36.241
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -945,7 +945,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 18.387
+        value: 28.239
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -1533,7 +1533,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: BGN_CJ-RIGGED/SPINE
+    path: BGN_CJ-RIGGED/SPINE/SPINE2/SPINE3/SHOULDER.R
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1543,7 +1543,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: BGN_CJ-RIGGED/SPINE
+    path: BGN_CJ-RIGGED/SPINE/SPINE2/SPINE3/SHOULDER.R
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1553,7 +1553,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: BGN_CJ-RIGGED/SPINE
+    path: BGN_CJ-RIGGED/SPINE/SPINE2/SPINE3/SHOULDER.R
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1593,7 +1593,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: BGN_CJ-RIGGED/LEG.R/THIGH.R/KNEE.R
+    path: BGN_CJ-RIGGED/SPINE
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1603,7 +1603,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: BGN_CJ-RIGGED/LEG.R/THIGH.R/KNEE.R
+    path: BGN_CJ-RIGGED/SPINE
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1613,7 +1613,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: BGN_CJ-RIGGED/LEG.R/THIGH.R/KNEE.R
+    path: BGN_CJ-RIGGED/SPINE
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1683,7 +1683,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: BGN_CJ-RIGGED/LEG.L/THIGH.L/KNEE.L
+    path: BGN_CJ-RIGGED/LEG.R/THIGH.R/KNEE.R
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1693,7 +1693,17 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: BGN_CJ-RIGGED/LEG.L/THIGH.L/KNEE.L
+    path: BGN_CJ-RIGGED/LEG.R/THIGH.R/KNEE.R
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.x
+    path: BGN_CJ-RIGGED/LEG.R/THIGH.R/KNEE.R
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1712,18 +1722,8 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.x
-    path: BGN_CJ-RIGGED/SPINE/SPINE2/SPINE3/SHOULDER.R
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: BGN_CJ-RIGGED/SPINE/SPINE2/SPINE3/SHOULDER.R
+    path: BGN_CJ-RIGGED/LEG.L/THIGH.L/KNEE.L
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -1733,7 +1733,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: BGN_CJ-RIGGED/SPINE/SPINE2/SPINE3/SHOULDER.R
+    path: BGN_CJ-RIGGED/LEG.L/THIGH.L/KNEE.L
     classID: 4
     script: {fileID: 0}
   m_HasGenericRootTransform: 0
