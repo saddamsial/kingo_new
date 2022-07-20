@@ -20,6 +20,10 @@ public class PUNforVS : MonoBehaviour
         
         CustomEvent.Trigger(triggertarget,(" OnPhotonSerializedView"),writing,reading,info);
 
+
+
+
+
     
     }
 }
