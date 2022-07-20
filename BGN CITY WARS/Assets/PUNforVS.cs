@@ -11,7 +11,8 @@ public class PUNforVS : MonoBehaviourPun,IPunObservable
     public Transform head;
     public Transform spine;
     public Transform spine2;
-
+    public Transform cam;
+    public Transform rig;
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
@@ -38,6 +39,15 @@ public class PUNforVS : MonoBehaviourPun,IPunObservable
 
 
 
+            stream.SendNext(cam.position);
+
+            stream.SendNext(cam.rotation);
+
+
+
+            stream.SendNext(rig.position);
+
+            stream.SendNext(rig.rotation);
 
 
 
@@ -65,12 +75,13 @@ public class PUNforVS : MonoBehaviourPun,IPunObservable
 
 
 
+            cam.position = (Vector3)stream.ReceiveNext();
+            cam.rotation = (Quaternion)stream.ReceiveNext();
 
 
 
-
-
-
+            rig.position = (Vector3)stream.ReceiveNext();
+            rig.rotation = (Quaternion)stream.ReceiveNext();
 
 
 
