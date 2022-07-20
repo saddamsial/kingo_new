@@ -8,7 +8,9 @@ using Photon;
 public class PUNforVS : MonoBehaviourPun,IPunObservable
 {
     public GameObject triggertarget;
-    public Transform rig;
+    public Transform head;
+    public Transform spine;
+    public Transform spine2;
 
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
@@ -16,38 +18,84 @@ public class PUNforVS : MonoBehaviourPun,IPunObservable
 
         if (stream.IsWriting)
         {
-            stream.SendNext(rig.position);
 
-            stream.SendNext(rig.rotation);
 
-          }
-                else if (stream.IsReading)
+            stream.SendNext(head.position);
+
+            stream.SendNext(head.rotation);
+
+
+
+            stream.SendNext(spine.position);
+
+            stream.SendNext(spine.rotation);
+
+
+
+            stream.SendNext(spine2.position);
+
+            stream.SendNext(spine2.rotation);
+
+
+
+
+
+
+
+
+
+
+
+
+        }
+        else if (stream.IsReading)
         {
 
-            rig.position = (Vector3)stream.ReceiveNext();
-            rig.rotation = (Quaternion)stream.ReceiveNext();
+            head.position = (Vector3)stream.ReceiveNext();
+            head.rotation = (Quaternion)stream.ReceiveNext();
+
+
+            spine.position = (Vector3)stream.ReceiveNext();
+            spine.rotation = (Quaternion)stream.ReceiveNext();
+
+
+
+            spine2.position = (Vector3)stream.ReceiveNext();
+            spine2.rotation = (Quaternion)stream.ReceiveNext();
+
+
+
+
+
+
+
+
+
+
+
+
 
         }
 
 
-                
-                
-                
-                
-                
-                
-
-   
-
-    
 
 
-      //  bool writing = stream.IsWriting;
-      //  bool reading = stream.IsReading;
 
 
-        
-      //  CustomEvent.Trigger(triggertarget,(" OnPhotonSerializedView"),writing,reading,info);
+
+
+
+
+
+
+
+
+        //  bool writing = stream.IsWriting;
+        //  bool reading = stream.IsReading;
+
+
+
+        //  CustomEvent.Trigger(triggertarget,(" OnPhotonSerializedView"),writing,reading,info);
 
     }
 
