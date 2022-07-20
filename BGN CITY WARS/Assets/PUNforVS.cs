@@ -13,10 +13,12 @@ public class PUNforVS : MonoBehaviour
     {
 
 
-        
+        bool writing = stream.IsWriting;
+        bool reading = stream.IsReading;
+
 
         
-        CustomEvent.Trigger(triggertarget,(" OnPhotonSerializedView"),stream,info);
+        CustomEvent.Trigger(triggertarget,(" OnPhotonSerializedView"),writing,reading,info);
 
     
     }
