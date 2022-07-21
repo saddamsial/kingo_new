@@ -122,7 +122,7 @@ public class PUNFORRIG : MonoBehaviourPun,IPunObservable
 
     }
 
-    [PunRPC]
+   
     public void Update()
 
     {
