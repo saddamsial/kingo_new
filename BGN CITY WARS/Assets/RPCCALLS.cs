@@ -27,23 +27,7 @@ public class RPCCALLS : MonoBehaviour
         
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    //CHECK SYNCED VARIABLES AND CALL RPC.
 
     void Update()
     {
@@ -68,7 +52,7 @@ public class RPCCALLS : MonoBehaviour
     }
 
 
-
+    //RPC FUNCTIOMS TO CALL IN OTHER PLAYERS.
 
     [PunRPC]
     void ISAIMING()
