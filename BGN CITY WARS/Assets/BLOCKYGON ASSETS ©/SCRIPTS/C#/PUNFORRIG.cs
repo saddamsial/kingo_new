@@ -110,7 +110,7 @@ public class PUNFORRIG : MonoBehaviourPun,IPunObservable
          target = this.gameObject; 
     }
 
-
+    [PunRPC]
     public void RigWeight()
     {
 
@@ -118,7 +118,9 @@ public class PUNFORRIG : MonoBehaviourPun,IPunObservable
 
     }
 
+    [PunRPC]
     public void Update()
+
     {
 
       photonView.RPC("Rigweight", RpcTarget.Others);
