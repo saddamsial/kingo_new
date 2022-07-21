@@ -121,7 +121,7 @@ public class PUNFORRIG : MonoBehaviourPun,IPunObservable
     public void Update()
     {
 
-        photonView.RPC("Rigweight", RpcTarget.Others);
+      photonView.RPC("Rigweight", RpcTarget.Others);
            
     }
 
