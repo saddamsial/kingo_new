@@ -10,6 +10,8 @@ public class RPCCALLS : MonoBehaviour
 
     public bool IsAiming1;
     public bool IsAIMING2;
+    public bool shoot1;
+    public bool shoot2;
 
     private PhotonView PV;
      
