@@ -59,10 +59,10 @@ public class RPCCALLS : MonoBehaviour
         }
 
 
-        if(IsAiming1 != true)
+        if(IsAiming1 != true & PV.IsMine)
         {
 
-
+            PV.RPC("ISNOTAIMING", RpcTarget.Others);
         }
 
     }
@@ -73,22 +73,15 @@ public class RPCCALLS : MonoBehaviour
     [PunRPC]
     void ISAIMING()
     {
-
-
-      
-      
-        {
-            IsAIMING2 = true;
-
-
-
-        }
-
-       
-       
+     
+            IsAIMING2 = true;    
     }
 
-
+    [PunRPC]
+    void ISNOTAIMING()
+    {
+        IsAIMING2 = false;
+    }
 
 
 
