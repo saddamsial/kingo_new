@@ -7,7 +7,7 @@ using Photon;
 
 public class PUNFORRIG : MonoBehaviourPun,IPunObservable
 {
-    public GameObject triggertarget;
+    public GameObject target;
     public Transform head;
     public Transform spine;
     public Transform spine2;
@@ -104,11 +104,16 @@ public class PUNFORRIG : MonoBehaviourPun,IPunObservable
     }
 
 
+    public void Start()
+    {
+         target = this.gameObject; 
+    }
+
 
     public void RigWeight()
     {
 
-        CustomEvent.Trigger(triggertarget, "RigWeight");
+        CustomEvent.Trigger(target, "Rigweight");
 
     }
 
