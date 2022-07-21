@@ -47,7 +47,10 @@ public class RPCCALLS : MonoBehaviour
 
     void Update()
     {
-        if (PV.IsMine)
+
+          
+        if (IsAiming1 == true & PV.IsMine)
+
         {
 
         PV.RPC("ISAIMING", RpcTarget.Others);
@@ -56,7 +59,11 @@ public class RPCCALLS : MonoBehaviour
         }
 
 
+        if(IsAiming1 != true)
+        {
 
+
+        }
 
     }
 
@@ -68,7 +75,7 @@ public class RPCCALLS : MonoBehaviour
     {
 
 
-       if (IsAiming1 == true )
+      
       
         {
             IsAIMING2 = true;
@@ -77,9 +84,8 @@ public class RPCCALLS : MonoBehaviour
 
         }
 
-       else
-        { IsAIMING2 = false; }
-
+       
+       
     }
 
 
