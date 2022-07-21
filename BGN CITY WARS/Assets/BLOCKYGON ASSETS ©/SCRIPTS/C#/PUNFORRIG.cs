@@ -15,6 +15,7 @@ public class PUNFORRIG : MonoBehaviourPun,IPunObservable
     public Transform cam;
     public Transform rig;
     public Transform bodyrig;
+    private PhotonView PV;
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
@@ -104,10 +105,13 @@ public class PUNFORRIG : MonoBehaviourPun,IPunObservable
 
     }
 
-
+    
     public void Start()
+      
+        
     {
-         target = this.gameObject; 
+        PV = GetComponent<PhotonView>();
+        target = this.gameObject; 
     }
 
     [PunRPC]
@@ -122,8 +126,9 @@ public class PUNFORRIG : MonoBehaviourPun,IPunObservable
     public void Update()
 
     {
+     
 
-      photonView.RPC("Rigweight", RpcTarget.Others);
+        PV.RPC("Rigweight", RpcTarget.Others);
            
     }
 
