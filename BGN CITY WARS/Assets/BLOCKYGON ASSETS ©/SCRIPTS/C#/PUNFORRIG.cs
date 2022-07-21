@@ -4,6 +4,7 @@ using UnityEngine;
 using Unity.VisualScripting;
 using Photon.Pun;
 using Photon;
+using Photon.Realtime;
 
 public class PUNFORRIG : MonoBehaviourPun,IPunObservable
 {
@@ -115,6 +116,13 @@ public class PUNFORRIG : MonoBehaviourPun,IPunObservable
 
         CustomEvent.Trigger(target, "Rigweight");
 
+    }
+
+    public void Update()
+    {
+
+        photonView.RPC("Rigweight", RpcTarget.Others);
+           
     }
 
 
