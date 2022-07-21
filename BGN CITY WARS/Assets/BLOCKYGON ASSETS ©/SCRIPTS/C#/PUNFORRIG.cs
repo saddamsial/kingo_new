@@ -118,7 +118,7 @@ public class PUNFORRIG : MonoBehaviourPun,IPunObservable
      void  RigWeight()
     {
 
-        CustomEvent.Trigger(target, "Rigweight");
+        CustomEvent.Trigger(target, "RigWeight");
 
     }
 
@@ -129,7 +129,7 @@ public class PUNFORRIG : MonoBehaviourPun,IPunObservable
      if (PV.IsMine)
         {
 
-        PV.RPC("Rigweight", RpcTarget.Others);
+        PV.RPC("RigWeight", RpcTarget.Others);
 
         }
 
