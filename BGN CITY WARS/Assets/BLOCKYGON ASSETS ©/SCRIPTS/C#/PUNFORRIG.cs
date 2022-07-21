@@ -5,7 +5,7 @@ using Unity.VisualScripting;
 using Photon.Pun;
 using Photon;
 
-public class PUNforVS : MonoBehaviourPun,IPunObservable
+public class PUNFORRIG : MonoBehaviourPun,IPunObservable
 {
     public GameObject triggertarget;
     public Transform head;
@@ -17,7 +17,7 @@ public class PUNforVS : MonoBehaviourPun,IPunObservable
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
-
+        //CONTROLS ANIMATION RIGGING VIEW IN PHOTON.VIEW
         if (stream.IsWriting)
         {
 
@@ -101,30 +101,22 @@ public class PUNforVS : MonoBehaviourPun,IPunObservable
         }
 
 
+    }
 
 
 
+    public void RigWeight()
+    {
 
-
-
-
-
-
-
-
-
-        //  bool writing = stream.IsWriting;
-        //  bool reading = stream.IsReading;
-
-
-
-        //  CustomEvent.Trigger(triggertarget,(" OnPhotonSerializedView"),writing,reading,info);
+        CustomEvent.Trigger(triggertarget, "RigWeight");
 
     }
 
 
-        
 
-    
-    
+
+
+
+
+
 }
