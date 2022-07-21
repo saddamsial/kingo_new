@@ -65,7 +65,7 @@ public class RPCCALLS : MonoBehaviour
     {
 
 
-       if (IsAiming1 == true )
+       if (IsAiming1 == true & PV.IsMine)
         {
             IsAIMING2 = true;
 
