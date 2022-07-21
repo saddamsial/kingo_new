@@ -68,16 +68,17 @@ public class RPCCALLS : MonoBehaviour
     {
 
 
-     //  if (IsAiming1 == true )
-      //  {
+       if (IsAiming1 == true )
+      
+        {
             IsAIMING2 = true;
 
 
 
-       // }
+        }
 
-      // else
-      //  { IsAIMING2 = false; }
+       else
+        { IsAIMING2 = false; }
 
     }
 
