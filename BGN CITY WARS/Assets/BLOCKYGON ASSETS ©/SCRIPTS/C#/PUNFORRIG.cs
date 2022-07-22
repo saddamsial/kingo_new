@@ -119,6 +119,7 @@ public class PUNFORRIG : MonoBehaviourPun,IPunObservable
     {
 
         CustomEvent.Trigger(target, "RigWeight");
+        
 
     }
 
