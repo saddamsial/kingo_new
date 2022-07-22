@@ -60,7 +60,7 @@ public class RPCCALLS : MonoBehaviour
             PV.RPC("SHOOT1", RpcTarget.Others);
 
         }
-        if(shoot1 != true&PV.IsMine)
+        if(shoot1 != true &PV.IsMine)
 
         {
 
