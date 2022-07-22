@@ -33,7 +33,7 @@ public class RPCCALLS : MonoBehaviour
 
     void Update()
     {
-
+        //AIMING 
           
         if (IsAiming1 == true & PV.IsMine)
 
@@ -49,6 +49,22 @@ public class RPCCALLS : MonoBehaviour
         {
 
             PV.RPC("ISNOTAIMING", RpcTarget.Others);
+        }
+
+
+        //FIRED
+
+        if(shoot1 == true  & PV.IsMine)
+
+        {
+            PV.RPC("SHOOT1", RpcTarget.Others);
+
+        }
+        if(shoot1 != true&PV.IsMine)
+
+        {
+
+            PV.RPC("NOSHOOT", RpcTarget.Others);
         }
 
     }
@@ -69,8 +85,18 @@ public class RPCCALLS : MonoBehaviour
         IsAIMING2 = false;
     }
 
+    [PunRPC]
+    void SHOOT1 ()
+    {
+        shoot2 = true;
 
+    }
 
+    [PunRPC]
+    void NOSHOOT()
+    {
+        shoot2 = false;
+    }
 
 
 
