@@ -123,7 +123,7 @@ public class RPCCALLS : MonoBehaviour
     [PunRPC]
     void Takedamage()
     {
-        CustomEvent.Trigger(gameObject, "TAKEDAMAGE");
+      
 
     }
 
