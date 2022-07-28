@@ -14,7 +14,7 @@ public class RPCCALLS : MonoBehaviour
     public bool shoot2;
 
     private PhotonView PV;
-     
+
 
 
 
@@ -26,7 +26,7 @@ public class RPCCALLS : MonoBehaviour
         PV = player.GetComponent<PhotonView>();
 
 
-        
+
     }
 
     //CHECK SYNCED VARIABLES AND CALL RPC.
@@ -34,18 +34,18 @@ public class RPCCALLS : MonoBehaviour
     void Update()
     {
         //AIMING 
-          
+
         if (IsAiming1 == true & PV.IsMine)
 
         {
 
-        PV.RPC("ISAIMING", RpcTarget.Others);
+            PV.RPC("ISAIMING", RpcTarget.Others);
 
 
         }
 
 
-        if(IsAiming1 != true & PV.IsMine)
+        if (IsAiming1 != true & PV.IsMine)
         {
 
             PV.RPC("ISNOTAIMING", RpcTarget.Others);
@@ -54,13 +54,13 @@ public class RPCCALLS : MonoBehaviour
 
         //FIRED
 
-        if(shoot1 == true  & PV.IsMine)
+        if (shoot1 == true & PV.IsMine)
 
         {
             PV.RPC("SHOOT1", RpcTarget.Others);
 
         }
-        if(shoot1 != true &PV.IsMine)
+        if (shoot1 != true & PV.IsMine)
 
         {
 
@@ -75,8 +75,8 @@ public class RPCCALLS : MonoBehaviour
     [PunRPC]
     void ISAIMING()
     {
-     
-            IsAIMING2 = true;    
+
+        IsAIMING2 = true;
     }
 
     [PunRPC]
@@ -86,7 +86,7 @@ public class RPCCALLS : MonoBehaviour
     }
 
     [PunRPC]
-    void SHOOT1 ()
+    void SHOOT1()
     {
         shoot2 = true;
 
@@ -96,10 +96,17 @@ public class RPCCALLS : MonoBehaviour
     void NOSHOOT()
     {
         shoot2 = false;
+
     }
 
 
 
+
+    
+    
+
+    
+    
 
 
 
