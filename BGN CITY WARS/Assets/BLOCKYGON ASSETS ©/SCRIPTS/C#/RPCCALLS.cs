@@ -12,7 +12,6 @@ public class RPCCALLS : MonoBehaviour
     public bool IsAIMING2;
     public bool shoot1;
     public bool shoot2;
-    public bool DAMAGETARGET;
     private PhotonView PV;
 
 
@@ -25,6 +24,7 @@ public class RPCCALLS : MonoBehaviour
 
         PV = player.GetComponent<PhotonView>();
 
+        
 
 
     }
@@ -69,17 +69,7 @@ public class RPCCALLS : MonoBehaviour
 
 
 
-        //Damage
-
-        if (DAMAGETARGET == true & PV.IsMine)
-
-        {
-
-
-            PV.RPC("Takedamage", RpcTarget.Others);
-
-
-        }
+       
 
 
 
@@ -120,12 +110,6 @@ public class RPCCALLS : MonoBehaviour
 
     }
 
-    [PunRPC]
-    void Takedamage()
-    {
-      
-
-    }
 
 
 
