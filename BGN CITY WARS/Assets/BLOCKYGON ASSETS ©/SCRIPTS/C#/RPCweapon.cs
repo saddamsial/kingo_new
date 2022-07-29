@@ -98,6 +98,8 @@ public class RPCweapon : MonoBehaviour
 
         CustomEvent.Trigger(PVTarget.gameObject, "TAKEDAMAGE", bodydamage);
 
+        Debug.Log("test");
+
     }
 
 
