@@ -16,12 +16,13 @@ public class RPCweapon : MonoBehaviour
     public float headshotdamage;
     public float bodydamage;
     public PhotonView PV;
+    public PhotonView PVTarget;
 
     void Start()
 
     {
-        
 
+        PV = this.GetComponent<PhotonView>();
 
     }
 
@@ -95,7 +96,7 @@ public class RPCweapon : MonoBehaviour
     {
 
 
-        CustomEvent.Trigger(PV.gameObject, "TAKEDAMAGE", bodydamage);
+        CustomEvent.Trigger(PVTarget.gameObject, "TAKEDAMAGE", bodydamage);
 
     }
 
@@ -107,7 +108,7 @@ public class RPCweapon : MonoBehaviour
     {
 
 
-        CustomEvent.Trigger(PV.gameObject, "TAKEDAMAGE", headshotdamage);
+        CustomEvent.Trigger(PVTarget.gameObject, "TAKEDAMAGE", headshotdamage);
 
     }
 
