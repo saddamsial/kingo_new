@@ -25,7 +25,7 @@ public class RPCweapon : MonoBehaviour
 
         PV = this.GetComponent<PhotonView>();
 
-        PVTarget = Target.GetComponent<PhotonView>();
+      //  PVTarget = Target.GetComponent<PhotonView>();
 
     }
 
@@ -42,7 +42,7 @@ public class RPCweapon : MonoBehaviour
     void Update()
     {
 
-
+        PVTarget = Target.GetComponent<PhotonView>();
 
         if (BODYSHOT ==true & PV.IsMine)
 
