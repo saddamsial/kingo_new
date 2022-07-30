@@ -49,7 +49,7 @@ public class RPCweapon : MonoBehaviour
         {
 
 
-            PV.RPC("BodyShot", RpcTarget.All);
+            PV.RPC("BodyShot",RpcTarget.AllBuffered);
 
 
 
@@ -99,7 +99,7 @@ public class RPCweapon : MonoBehaviour
     {
 
 
-        CustomEvent.Trigger(PVTarget.gameObject, "TAKEDAMAGE", bodydamage);
+        CustomEvent.Trigger(gameObject, "TAKEDAMAGE", bodydamage);
 
         Debug.Log("test");
 
