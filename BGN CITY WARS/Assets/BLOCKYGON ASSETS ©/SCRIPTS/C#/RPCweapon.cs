@@ -16,7 +16,7 @@ public class RPCweapon : MonoBehaviour
     public float headshotdamage;
     public float bodydamage;
     public PhotonView PV;
-    public Transform Target;
+    public GameObject Target;
     public PhotonView PVTarget;
 
     void Start()
