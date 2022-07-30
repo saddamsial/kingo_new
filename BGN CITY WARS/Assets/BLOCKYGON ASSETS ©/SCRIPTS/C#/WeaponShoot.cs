@@ -67,7 +67,7 @@ public class WeaponShoot : MonoBehaviour
             point = (hit.point);
             Fire = false;
 
-
+        
 
 
             
