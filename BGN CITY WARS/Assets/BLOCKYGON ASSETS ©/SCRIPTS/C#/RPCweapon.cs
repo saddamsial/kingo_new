@@ -19,6 +19,23 @@ public class RPCweapon : MonoBehaviour
     public GameObject Target;
     public PhotonView PVTarget;
 
+
+
+
+
+
+
+
+
+
+    private void OnEnable()
+    {
+        PV = this.GetComponent<PhotonView>();
+    }
+
+
+
+
     void Start()
 
     {
@@ -44,12 +61,13 @@ public class RPCweapon : MonoBehaviour
 
         PVTarget = Target.GetComponent<PhotonView>();
 
-        if (BODYSHOT ==true & PV.IsMine)
+        if (BODYSHOT == true & PV.IsMine)
 
         {
 
 
             PV.RPC("BodyShot",RpcTarget.Others);
+
 
 
 
@@ -77,15 +95,7 @@ public class RPCweapon : MonoBehaviour
 
 
 
-
-
-
-
-
-
-
-
-
+   
 
     }
 
