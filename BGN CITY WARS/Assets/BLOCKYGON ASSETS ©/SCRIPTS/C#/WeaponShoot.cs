@@ -29,8 +29,8 @@ public class WeaponShoot : MonoBehaviour
 
         if (Fire== true)
         {
-        
 
+            Shoot();
 
 
         }
