@@ -16,6 +16,7 @@ public class RPCweapon : MonoBehaviour
     public float headshotdamage;
     public float bodydamage;
     public PhotonView PV;
+    public Transform Target;
     public PhotonView PVTarget;
 
     void Start()
@@ -23,6 +24,8 @@ public class RPCweapon : MonoBehaviour
     {
 
         PV = this.GetComponent<PhotonView>();
+
+        PVTarget = Target.GetComponent<PhotonView>();
 
     }
 
