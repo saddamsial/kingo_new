@@ -46,7 +46,7 @@ public class RPCweapon : MonoBehaviour
         {
 
 
-            PV.RPC("BodyShot", RpcTarget.Others);
+            PV.RPC("BodyShot", RpcTarget.All);
 
 
 
