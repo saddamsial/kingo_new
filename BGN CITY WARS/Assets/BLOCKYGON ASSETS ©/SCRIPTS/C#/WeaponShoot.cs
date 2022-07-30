@@ -31,10 +31,10 @@ public class WeaponShoot : MonoBehaviour
     {
 
 
-         pos = Camera.main.transform.position;
-         Dir = Camera.main.transform.forward;
+        pos = Camera.main.transform.position;
+        Dir = Camera.main.transform.forward;
 
-    
+
 
         if (Fire== true)
         {
@@ -66,6 +66,7 @@ public class WeaponShoot : MonoBehaviour
 
             point = (hit.point);
             Fire = false;
+
 
 
 
