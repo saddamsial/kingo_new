@@ -147,7 +147,7 @@ public class WeaponShoot : MonoBehaviour
 
         AS.PlayOneShot(BodyShotSFX, 500f);
 
-            PV.RPC("Bodydamage", RpcTarget.All);
+            PV.RPC("Bodydamage", RpcTarget.OthersBuffered);
 
           //  TPV = collided.GetComponent<PhotonView>();
 
