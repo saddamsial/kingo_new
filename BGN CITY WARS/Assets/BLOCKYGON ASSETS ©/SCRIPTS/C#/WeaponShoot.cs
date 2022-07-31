@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Unity.VisualScripting;
-
+using Photon;
+using Photon.Pun;
 public class WeaponShoot : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -35,6 +36,32 @@ public class WeaponShoot : MonoBehaviour
     public float BodyDamage = 0.25f;
     public float HeadDamage = 0.5f;
 
+
+
+    //pun variables
+
+    private PhotonView PV;
+
+
+
+
+
+
+
+
+    private void OnEnable()
+    {
+        PV = this.GetComponent<PhotonView>();
+    }
+
+
+
+
+
+
+
+
+
     void Start()
     {
 
@@ -56,12 +83,12 @@ public class WeaponShoot : MonoBehaviour
 
 
 
-        if (Fire== true )
+        if (Fire== true & PV.IsMine )
         {
 
           
             Shoot();
-            BodyShot();
+           
            
 
         }
@@ -92,9 +119,9 @@ public class WeaponShoot : MonoBehaviour
         AS.PlayOneShot(FireSFX,1f);
 
 
+        BodyShot();
 
 
-        
 
 
 
@@ -116,8 +143,8 @@ public class WeaponShoot : MonoBehaviour
         {
 
         AS.PlayOneShot(BodyShotSFX, 500f);
-           
-            Bodydamage();
+
+            PV.RPC("Bodydamage", RpcTarget.Others);
 
 
         }
@@ -125,13 +152,13 @@ public class WeaponShoot : MonoBehaviour
 
     } //EF
 
-
+    [PunRPC]
     void Bodydamage()
     {//sf
         
 
 
-       TakeDamage TDF = collided.GetComponent<TakeDamage>();
+       TakeDamage TDF = GetComponent<TakeDamage>();
 
         TDF.Takedamage(BodyDamage);
         
