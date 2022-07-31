@@ -158,7 +158,7 @@ public class WeaponShoot : MonoBehaviour
         
 
 
-       TakeDamage TDF = this.GetComponent<TakeDamage>();
+       TakeDamage TDF = PlayerParent.GetComponent<TakeDamage>();
 
         TDF.Takedamage(BodyDamage);
         Debug.Log("body reached");
