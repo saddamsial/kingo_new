@@ -155,10 +155,10 @@ public class WeaponShoot : MonoBehaviour
     [PunRPC]
     void Bodydamage()
     {//sf
-        
 
+      PhotonView TPV =  collided.GetComponent<PhotonView>();
 
-       TakeDamage TDF = collided.GetComponent<TakeDamage>();
+        TakeDamage TDF = TPV.gameObject.GetComponent<TakeDamage>();
 
         TDF.Takedamage(BodyDamage);
         Debug.Log("body reached");
