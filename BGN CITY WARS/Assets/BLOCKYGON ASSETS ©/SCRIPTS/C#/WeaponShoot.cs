@@ -33,6 +33,7 @@ public class WeaponShoot : MonoBehaviour
     private Animator animator;
 
     private Transform PlayerParent;
+    
     public float BodyDamage = 0.25f;
     public float HeadDamage = 0.5f;
 
@@ -147,7 +148,7 @@ public class WeaponShoot : MonoBehaviour
 
         AS.PlayOneShot(BodyShotSFX, 500f);
 
-            PV.RPC("Bodydamage", RpcTarget.OthersBuffered);
+            PV.RPC("Bodydamage", RpcTarget.Others);
 
           //  TPV = collided.GetComponent<PhotonView>();
 
@@ -160,9 +161,11 @@ public class WeaponShoot : MonoBehaviour
     void Bodydamage()
     {//sf
 
-     
+        GameObject player =  GameObject.FindGameObjectWithTag("Player");
 
-        TakeDamage TDF = PlayerParent.GetComponent<TakeDamage>();
+
+
+      TakeDamage TDF = player.GetComponent<TakeDamage>();
 
         TDF.Takedamage(BodyDamage);
         Debug.Log("body reached");
