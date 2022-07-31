@@ -144,7 +144,7 @@ public class WeaponShoot : MonoBehaviour
 
         AS.PlayOneShot(BodyShotSFX, 500f);
 
-            PV.RPC("Bodydamage", RpcTarget.Others);
+            PV.RPC("Bodydamage", RpcTarget.All);
 
 
         }
@@ -158,7 +158,7 @@ public class WeaponShoot : MonoBehaviour
         
 
 
-       TakeDamage TDF = GetComponent<TakeDamage>();
+       TakeDamage TDF = this.GetComponent<TakeDamage>();
 
         TDF.Takedamage(BodyDamage);
         
