@@ -41,7 +41,7 @@ public class WeaponShoot : MonoBehaviour
     //pun variables
 
     private PhotonView PV;
-
+    private PhotonView TPV;
 
 
 
@@ -122,6 +122,9 @@ public class WeaponShoot : MonoBehaviour
         BodyShot();
 
 
+        
+
+
 
 
 
@@ -146,6 +149,7 @@ public class WeaponShoot : MonoBehaviour
 
             PV.RPC("Bodydamage", RpcTarget.All);
 
+            TPV = collided.GetComponent<PhotonView>();
 
         }
 
@@ -156,7 +160,7 @@ public class WeaponShoot : MonoBehaviour
     void Bodydamage()
     {//sf
 
-      PhotonView TPV =  collided.GetComponent<PhotonView>();
+     
 
         TakeDamage TDF = TPV.gameObject.GetComponent<TakeDamage>();
 
