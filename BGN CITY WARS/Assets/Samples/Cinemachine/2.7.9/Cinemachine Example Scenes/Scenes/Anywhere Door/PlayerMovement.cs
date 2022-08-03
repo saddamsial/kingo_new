@@ -6,6 +6,26 @@ public class PlayerMovement : MonoBehaviour
 {
 public float movementSpeed = 10f;
 public float lookatspeed = 5f;
+   private photonView Pv;
+
+
+
+    private void Start()
+    {
+        Pv = GetComponent<photonView>();
+
+    }
+
+
+
+
+
+
+
+
+
+
+
 
 
     void Update () {
