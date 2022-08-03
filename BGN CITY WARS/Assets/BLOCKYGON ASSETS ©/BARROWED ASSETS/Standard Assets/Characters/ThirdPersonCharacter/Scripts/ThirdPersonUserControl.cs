@@ -1,6 +1,8 @@
 using System;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
+using Photon;
+using Photon.Pun;
 
 
 
@@ -17,10 +19,15 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         private bool m_Jump;                      // the world-relative desired move direction, calculated from the camForward and user input.
         public float h;
         public float v;
-
+        public PhotonView PV;
 
         private void Start()
         {
+            if(PV.IsMine)
+            {
+
+            
+
             // get the transform of the main camera
             if (Camera.main != null)
             {
@@ -38,21 +45,32 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         }
 
 
+        }
+
         private void Update()
         {
-            if (!m_Jump)
+            if (PV.IsMine)
+            {
+
+            
+
+                if (!m_Jump)
             {
                 m_Jump = CrossPlatformInputManager.GetButtonDown("Jump");
             }
         }
 
-
+        }
         // Fixed update is called in sync with physics
         public void FixedUpdate()
         {
-            // read inputs
-            
-             h = CrossPlatformInputManager.GetAxis("Horizontal");
+            if (PV.IsMine)
+            { 
+
+
+                // read inputs
+
+                h = CrossPlatformInputManager.GetAxis("Horizontal");
              v = CrossPlatformInputManager.GetAxis("Vertical");
             bool crouch = Input.GetKey(KeyCode.C);
 
@@ -77,5 +95,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             m_Character.Move(m_Move, crouch, m_Jump);
             m_Jump = false;
         }
+    }
+
     }
 }
