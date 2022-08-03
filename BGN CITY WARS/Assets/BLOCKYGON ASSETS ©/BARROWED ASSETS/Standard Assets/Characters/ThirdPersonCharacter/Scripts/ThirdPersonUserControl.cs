@@ -1,8 +1,8 @@
 using System;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
-using Photon;
-using Photon.Pun;
+
+
 
 
 
@@ -19,12 +19,12 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         private bool m_Jump;                      // the world-relative desired move direction, calculated from the camForward and user input.
         public float h;
         public float v;
-        public PhotonView PV;
+        
 
         private void Start()
         {
-            if(PV.IsMine)
-            {
+           
+            
 
             
 
@@ -45,12 +45,12 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         }
 
 
-        }
+        
 
         private void Update()
         {
-            if (PV.IsMine)
-            {
+          
+            
 
             
 
@@ -60,12 +60,12 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             }
         }
 
-        }
+        
         // Fixed update is called in sync with physics
         public void FixedUpdate()
         {
-            if (PV.IsMine)
-            { 
+           
+             
 
 
                 // read inputs
@@ -97,5 +97,5 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         }
     }
 
-    }
+    
 }
