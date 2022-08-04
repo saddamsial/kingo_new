@@ -12,11 +12,14 @@ public class WeaponShoot : MonoBehaviour
    // public float FireRate = 0.5f;
     private float lastshot = 0f;
     public bool Fire;
-
+    public int BulletsFired = 0;
     [SerializeField]
     private bool Reloading;
     [SerializeField]
     private bool NoAmmo;
+    public int Clip;
+    public int Ammo;
+
 
 
     public Collider collided;
@@ -54,6 +57,7 @@ public class WeaponShoot : MonoBehaviour
     private void OnEnable()
     {
         PV = this.GetComponent<PhotonView>();
+     
     }
 
 
@@ -83,8 +87,24 @@ public class WeaponShoot : MonoBehaviour
 
 
 
+        //Ammo Clamp
+        if (Ammo <= 0)
+        {
+            Ammo = 0;
+        }
+
+        //ammo sync
+        WeaponType.Clip = Clip;
+        WeaponType.Ammo = Ammo;
+
+
+
+
+
+
         if (Input.GetKey(KeyCode.Mouse0) == true & PV.IsMine & Time.time > lastshot+WeaponType.FireRate)
         {
+
 
             BulletTrailVFX.Play();
 
@@ -93,6 +113,10 @@ public class WeaponShoot : MonoBehaviour
             AS.PlayOneShot(WeaponType.FireSFX, 1f);
 
             Shoot();
+
+
+
+
 
           
 
@@ -106,14 +130,17 @@ public class WeaponShoot : MonoBehaviour
 
 
 
-        //check reload
+        //check reload conditions
 
-        if (WeaponType.Clip == 0)
+        if (WeaponType.Clip == 0&!Reloading)
+        {
+           Reload();
+        }
+
+        if (Input.GetKey(KeyCode.R)&!Reloading)
         {
             Reload();
         }
-
-
 
 
 
@@ -123,7 +150,12 @@ public class WeaponShoot : MonoBehaviour
     void Shoot()
 
     {
-      
+        //track shots fired
+        BulletsFired = BulletsFired+1;
+
+        //subtract bullets
+        WeaponType.Clip = WeaponType.Clip - 1;
+
         //animate
         animator.SetBool("shoot", true);
 
@@ -279,19 +311,38 @@ public class WeaponShoot : MonoBehaviour
 
 
     public void Reload()
-    {
 
+    {//sf
+        float BeginReloadTime = 0;   
 
-
-    }
-
-
-
-
+        Reloading = true;
 
 
 
 
+        if  (Time.time > BeginReloadTime + WeaponType.ReloadTime)
+        { 
+
+        WeaponType.Clip = WeaponType.Clip + BulletsFired;
+
+        WeaponType.Ammo = WeaponType.Ammo - BulletsFired;
+
+        BulletsFired = 0;
+
+        BeginReloadTime = Time.time;
+
+         Reloading = false;
+
+        }
+
+
+
+
+
+
+
+
+    }//ef
 
 
 
@@ -304,4 +355,12 @@ public class WeaponShoot : MonoBehaviour
 
 
 
-}
+
+
+
+
+
+
+
+
+}//EC

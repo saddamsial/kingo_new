@@ -13,6 +13,9 @@ public class WeaponDATA : ScriptableObject
     public float HeadDamage;
     public float Clip;
     public float Ammo;
+    public float ReloadTime;
+    public int MaxClip;
+    
     
 
     public AudioClip FireSFX;
