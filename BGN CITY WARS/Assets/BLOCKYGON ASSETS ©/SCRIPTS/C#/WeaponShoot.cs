@@ -13,6 +13,10 @@ public class WeaponShoot : MonoBehaviour
     private float lastshot = 0f;
     public bool Fire;
     public int BulletsFired = 0;
+
+
+    private float BeginReloadTime;
+
     [SerializeField]
     private bool Reloading;
     [SerializeField]
@@ -57,12 +61,15 @@ public class WeaponShoot : MonoBehaviour
     private void OnEnable()
     {
         PV = this.GetComponent<PhotonView>();
-     
-    }
+
+
+       
+
+}
 
 
 
-    void Start()
+void Start()
     {
 
         PlayerParent = transform.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent;
@@ -80,6 +87,13 @@ public class WeaponShoot : MonoBehaviour
     void Update()
 
     {
+        
+        if (Ammo == 0)
+        {
+            NoAmmo = true;
+        }
+
+
 
 
         pos = Camera.main.transform.position;
@@ -93,6 +107,19 @@ public class WeaponShoot : MonoBehaviour
             Ammo = 0;
         }
 
+
+
+
+        //Clip Clamp
+        if (Clip <= 0)
+        {
+            Clip = 0;
+        }
+
+
+
+
+
         //ammo sync
         WeaponType.Clip = Clip;
         WeaponType.Ammo = Ammo;
@@ -102,7 +129,7 @@ public class WeaponShoot : MonoBehaviour
 
 
 
-        if (Input.GetKey(KeyCode.Mouse0) == true & PV.IsMine & Time.time > lastshot+WeaponType.FireRate)
+        if (Input.GetKey(KeyCode.Mouse0) == true & PV.IsMine & Time.time > lastshot+WeaponType.FireRate& Clip >0 & ! NoAmmo)
         {
 
 
@@ -132,14 +159,14 @@ public class WeaponShoot : MonoBehaviour
 
         //check reload conditions
 
-        if (WeaponType.Clip == 0&!Reloading)
+        if (Clip == 0&!Reloading & ! NoAmmo)
         {
-           Reload();
+          StartCoroutine( Reload());
         }
 
-        if (Input.GetKey(KeyCode.R)&!Reloading)
+        if (Input.GetKey(KeyCode.R)&!Reloading & !NoAmmo)
         {
-            Reload();
+            StartCoroutine(Reload());
         }
 
 
@@ -150,11 +177,13 @@ public class WeaponShoot : MonoBehaviour
     void Shoot()
 
     {
+      
+
         //track shots fired
         BulletsFired = BulletsFired+1;
 
         //subtract bullets
-        WeaponType.Clip = WeaponType.Clip - 1;
+        Clip = Clip - 1;
 
         //animate
         animator.SetBool("shoot", true);
@@ -310,26 +339,24 @@ public class WeaponShoot : MonoBehaviour
 
 
 
-    public void Reload()
+    
+    IEnumerator Reload()
 
     {//sf
-        float BeginReloadTime = 0;   
-
+     
+  
         Reloading = true;
 
 
+        {
 
+            yield return new WaitForSeconds(WeaponType.ReloadTime);
 
-        if  (Time.time > BeginReloadTime + WeaponType.ReloadTime)
-        { 
+        Clip = Clip + BulletsFired;
 
-        WeaponType.Clip = WeaponType.Clip + BulletsFired;
-
-        WeaponType.Ammo = WeaponType.Ammo - BulletsFired;
+        Ammo = Ammo - BulletsFired;
 
         BulletsFired = 0;
-
-        BeginReloadTime = Time.time;
 
          Reloading = false;
 
