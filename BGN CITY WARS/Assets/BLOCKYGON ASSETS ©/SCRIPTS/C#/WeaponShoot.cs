@@ -28,6 +28,10 @@ public class WeaponShoot : MonoBehaviour
     [SerializeField]
     private AudioClip BodyShotSFX;
 
+    [SerializeField]
+    private AudioClip HeadShotSFX;
+
+
     public AudioSource AS;
     
     private Animator animator;
@@ -122,8 +126,11 @@ public class WeaponShoot : MonoBehaviour
 
         BodyShot();
 
+        HeadShot();
 
-        
+
+
+
 
 
 
@@ -157,6 +164,54 @@ public class WeaponShoot : MonoBehaviour
 
     } //EF
 
+
+
+
+    void HeadShot()
+    { //SF
+
+
+        if (collided != null & collided.name == "HIT BOX-HEAD")
+
+        {
+
+            AS.PlayOneShot(HeadShotSFX, 400f);
+
+            PV.RPC("Headdamage", RpcTarget.Others);
+
+            //  TPV = collided.GetComponent<PhotonView>();
+
+
+
+
+        }
+
+
+
+
+
+
+
+
+
+    }//EF
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     [PunRPC]
     void Bodydamage()
     {//sf
@@ -175,6 +230,36 @@ public class WeaponShoot : MonoBehaviour
 
 
     }//ef
+
+
+
+
+
+
+
+
+    [PunRPC]
+    void Headdamage()
+    {//sf
+
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+
+
+
+        TakeDamage TDF = player.GetComponent<TakeDamage>();
+
+        TDF.Takedamage(HeadDamage);
+        Debug.Log("head reached");
+
+
+
+
+
+    }//ef
+
+
+
+
 
 
 
