@@ -116,7 +116,7 @@ public class WeaponShoot : MonoBehaviour
         WeaponType.Clip = Clip;
         WeaponType.Ammo = Ammo;
 
-        if (Time.time > lastshot + 0.1f)
+        if (Time.time > lastshot + 0.2f)
         {
 
              SparkleVFX.SetActive(false);
