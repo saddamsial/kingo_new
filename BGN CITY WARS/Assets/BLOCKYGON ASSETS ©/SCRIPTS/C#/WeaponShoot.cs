@@ -79,7 +79,9 @@ public class WeaponShoot : MonoBehaviour
     void Update()
 
     {
-        
+        // ANIMATE
+        animator.SetBool("shoot",Fired);   animator.SetBool("RELOAD", Reloading);
+
         if (Ammo == 0)
         {
             NoAmmo = true;
@@ -121,9 +123,7 @@ public class WeaponShoot : MonoBehaviour
 
              SparkleVFX.SetActive(false);
 
-            //Reset animator
-
-             animator.SetBool("shoot", false);
+           
             Fired = false;
 
 
@@ -190,8 +190,8 @@ public class WeaponShoot : MonoBehaviour
         //subtract bullets
         Clip = Clip - 1;
 
-        //animate
-        animator.SetBool("shoot", true);
+        
+    
 
         //Reset FireRate
 
