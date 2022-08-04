@@ -12,6 +12,13 @@ public class WeaponShoot : MonoBehaviour
    // public float FireRate = 0.5f;
     private float lastshot = 0f;
     public bool Fire;
+
+    [SerializeField]
+    private bool Reloading;
+    [SerializeField]
+    private bool NoAmmo;
+
+
     public Collider collided;
 
     [SerializeField]
@@ -90,6 +97,23 @@ public class WeaponShoot : MonoBehaviour
           
 
         }
+
+
+
+
+
+
+
+
+
+        //check reload
+
+        if (WeaponType.Clip == 0)
+        {
+            Reload();
+        }
+
+
 
 
 
@@ -238,6 +262,28 @@ public class WeaponShoot : MonoBehaviour
 
 
     }//ef
+
+
+
+
+
+
+
+
+
+
+
+
+    //Ammo & reload
+
+
+
+    public void Reload()
+    {
+
+
+
+    }
 
 
 
