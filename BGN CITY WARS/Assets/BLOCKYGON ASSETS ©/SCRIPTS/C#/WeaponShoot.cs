@@ -13,6 +13,7 @@ public class WeaponShoot : MonoBehaviour
     private float lastshot = 0f;
     public bool Fired;
     public int BulletsFired = 0;
+    private bool CanFire;
 
 
     private float BeginReloadTime;
@@ -80,7 +81,7 @@ public class WeaponShoot : MonoBehaviour
 
     {
         // ANIMATE
-        animator.SetBool("shoot",Fired);   animator.SetBool("RELOAD", Reloading);
+        animator.SetBool("shoot",Fired); 
 
         if (Ammo == 0)
         {
@@ -130,7 +131,8 @@ public class WeaponShoot : MonoBehaviour
         }
 
 
-
+        if(CanFire)
+        { 
 
 
         if (Input.GetKey(KeyCode.Mouse0) == true & PV.IsMine & Time.time > lastshot+WeaponType.FireRate& Clip >0)
@@ -155,8 +157,11 @@ public class WeaponShoot : MonoBehaviour
         }
 
 
-
-
+        }
+        else
+        {
+            return;
+        }
 
 
 
@@ -348,6 +353,7 @@ public class WeaponShoot : MonoBehaviour
      
   
         Reloading = true;
+        animator.SetTrigger("RELOAD");
 
 
         {
