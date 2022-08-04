@@ -8,7 +8,8 @@ public class WeaponShoot : MonoBehaviour
 {
     // Start is called before the first frame update
 
-
+    public float FireRate = 15f;
+    private float NextFire = 0;
     public bool Fire;
     public Collider collided;
 
@@ -88,7 +89,7 @@ public class WeaponShoot : MonoBehaviour
 
 
 
-        if (Fire== true & PV.IsMine )
+        if (Fire== true & PV.IsMine & Time.time >= NextFire)
         {
 
           
@@ -124,12 +125,21 @@ public class WeaponShoot : MonoBehaviour
         AS.PlayOneShot(FireSFX,1f);
 
 
+
+
+
+        //Call Methods
         BodyShot();
 
         HeadShot();
 
+        //Reset FireRate
 
+        NextFire = Time.time + 1 / FireRate;
 
+        //Reset animator
+
+        animator.SetBool("shoot", false);
 
 
 
