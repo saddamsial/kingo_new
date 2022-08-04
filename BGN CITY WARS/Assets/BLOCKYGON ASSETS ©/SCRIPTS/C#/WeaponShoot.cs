@@ -79,7 +79,12 @@ public class WeaponShoot : MonoBehaviour
         if (Input.GetKey(KeyCode.Mouse0) == true & PV.IsMine & Time.time > lastshot+WeaponType.FireRate)
         {
 
+            BulletTrailVFX.Play();
+
+            SparkleVFX.SetActive(true);
+
             AS.PlayOneShot(WeaponType.FireSFX, 1f);
+
             Shoot();
 
           
@@ -94,7 +99,7 @@ public class WeaponShoot : MonoBehaviour
     void Shoot()
 
     {
-        //Fire = true;
+      
         //animate
         animator.SetBool("shoot", true);
 
@@ -106,7 +111,8 @@ public class WeaponShoot : MonoBehaviour
 
         animator.SetBool("shoot", false);
 
-        //Fire = false;
+        SparkleVFX.SetActive(false);
+
 
 
         //fire
@@ -117,8 +123,8 @@ public class WeaponShoot : MonoBehaviour
 
             point = (hit.point);
             Fire = false;
-
-
+        //bullet HOLE SPAWN 
+        GameObject.Instantiate(WeaponType.BulletHoleVFX,hit.point,Quaternion.Euler(90,0,0));
        
 
         //Call Methods

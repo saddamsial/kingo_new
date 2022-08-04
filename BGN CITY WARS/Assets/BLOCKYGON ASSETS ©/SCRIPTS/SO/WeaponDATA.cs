@@ -11,15 +11,18 @@ public class WeaponDATA : ScriptableObject
    public float FireRate;
     public float BodyDamage;
     public float HeadDamage;
-
+    public float Clip;
+    public float Ammo;
+    
 
     public AudioClip FireSFX;
     public AudioClip BodyshotSFX;
     public AudioClip HeadshotSFX;
 
-    public ParticleSystem BulletTrail;
+    // public ParticleSystem BulletTrail;
 
-    public GameObject SparkleVFX;
+    //  public GameObject SparkleVFX;
+    public GameObject BulletHoleVFX;
 
     public Sprite UIIcon;
 
