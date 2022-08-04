@@ -43,6 +43,10 @@ public class WeaponShoot : MonoBehaviour
     public float HeadDamage = 0.5f;
 
 
+    // VFX SPAWN
+    public GameObject BulletTrailVFX;
+    public GameObject SparkleVFX;
+
 
     //pun variables
 
@@ -92,10 +96,10 @@ public class WeaponShoot : MonoBehaviour
         if (Input.GetKey(KeyCode.Mouse0) == true & PV.IsMine & Time.time > lastshot+ FireRate)
         {
 
-          
+            AS.PlayOneShot(FireSFX, 1f);
             Shoot();
 
-            AS.PlayOneShot(FireSFX, 1f);
+          
 
         }
 
@@ -107,31 +111,9 @@ public class WeaponShoot : MonoBehaviour
     void Shoot()
 
     {
+        Fire = true;
         //animate
         animator.SetBool("shoot", true);
-
-
-        //fire
-        Physics.Raycast(pos, Dir, out hit, Mathf.Infinity, layermask);
-        
-            collided = hit.collider;
-
-            point = (hit.point);
-            Fire = false;
-
-
-        //audio
-
-       // AS.PlayOneShot(FireSFX, 1f);
-
-
-
-
-
-        //Call Methods
-        BodyShot();
-
-        HeadShot();
 
         //Reset FireRate
 
@@ -141,12 +123,38 @@ public class WeaponShoot : MonoBehaviour
 
         animator.SetBool("shoot", false);
 
-        
+        Fire = false;
 
+
+        //fire
+        Physics.Raycast(pos, Dir, out hit, Mathf.Infinity, layermask);
+
+
+        collided = hit.collider;
+
+            point = (hit.point);
+            Fire = false;
+
+
+       
+
+        //Call Methods
+        BodyShot();
+
+        HeadShot();
 
 
 
     }
+
+
+
+
+
+
+
+      
+
 
 
 
@@ -206,8 +214,6 @@ public class WeaponShoot : MonoBehaviour
 
 
     }//EF
-
-
 
 
 
