@@ -14,7 +14,7 @@ using UnityEngine.EventSystems;
 namespace Photon.Pun.Demo.PunBasics
 {
 	#pragma warning disable 649
-
+    
     /// <summary>
     /// Player manager.
     /// Handles fire Input and Beams.
