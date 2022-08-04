@@ -11,7 +11,7 @@ public class WeaponShoot : MonoBehaviour
     public WeaponDATA WeaponType;
    // public float FireRate = 0.5f;
     private float lastshot = 0f;
-    public bool Fire;
+    public bool Fired;
     public int BulletsFired = 0;
 
 
@@ -40,7 +40,7 @@ public class WeaponShoot : MonoBehaviour
 
 
     public AudioSource AS;
-    
+   
     private Animator animator;
 
     private Transform PlayerParent;
@@ -63,25 +63,17 @@ public class WeaponShoot : MonoBehaviour
         PV = this.GetComponent<PhotonView>();
 
 
-       
-
-}
-
-
-
-void Start()
-    {
-
         PlayerParent = transform.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent;
         collided = hit.collider;
 
         AS = GetComponent<AudioSource>();
         animator = PlayerParent.GetComponent<Animator>();
 
-          
 
 
     }
+
+
 
     // Update is called once per frame
     void Update()
@@ -124,12 +116,24 @@ void Start()
         WeaponType.Clip = Clip;
         WeaponType.Ammo = Ammo;
 
+        if (Time.time > lastshot + 0.1f)
+        {
+
+             SparkleVFX.SetActive(false);
+
+            //Reset animator
+
+             animator.SetBool("shoot", false);
+            Fired = false;
+
+
+        }
 
 
 
 
 
-        if (Input.GetKey(KeyCode.Mouse0) == true & PV.IsMine & Time.time > lastshot+WeaponType.FireRate& Clip >0 & ! NoAmmo)
+        if (Input.GetKey(KeyCode.Mouse0) == true & PV.IsMine & Time.time > lastshot+WeaponType.FireRate& Clip >0)
         {
 
 
@@ -138,6 +142,7 @@ void Start()
             SparkleVFX.SetActive(true);
 
             AS.PlayOneShot(WeaponType.FireSFX, 1f);
+            Fired = true;
 
             Shoot();
 
@@ -177,7 +182,7 @@ void Start()
     void Shoot()
 
     {
-      
+       
 
         //track shots fired
         BulletsFired = BulletsFired+1;
@@ -192,11 +197,8 @@ void Start()
 
         lastshot = Time.time;
 
-        //Reset animator
 
-        animator.SetBool("shoot", false);
-
-        SparkleVFX.SetActive(false);
+      //  SparkleVFX.SetActive(false);
 
 
 
@@ -207,7 +209,7 @@ void Start()
         collided = hit.collider;
 
             point = (hit.point);
-            Fire = false;
+         
         //bullet HOLE SPAWN 
         GameObject.Instantiate(WeaponType.BulletHoleVFX,hit.point,Quaternion.Euler(90,0,0));
        
