@@ -4,10 +4,11 @@ using UnityEngine;
 using Unity.VisualScripting;
 using Photon;
 using Photon.Pun;
+
 public class WeaponShoot : MonoBehaviour
 {
     // Start is called before the first frame update
-
+    public WeaponDATA WeaponType;
     public float FireRate = 0.5f;
     private float lastshot = 0f;
     public bool Fire;
@@ -44,8 +45,11 @@ public class WeaponShoot : MonoBehaviour
 
 
     // VFX SPAWN
-    public GameObject BulletTrailVFX;
+    public ParticleSystem BulletTrailVFX;
     public GameObject SparkleVFX;
+
+   
+
 
 
     //pun variables
@@ -70,8 +74,6 @@ public class WeaponShoot : MonoBehaviour
 
 
 
-
-
     void Start()
     {
 
@@ -80,6 +82,10 @@ public class WeaponShoot : MonoBehaviour
 
         AS = GetComponent<AudioSource>();
         animator = PlayerParent.GetComponent<Animator>();
+
+          
+
+
     }
 
     // Update is called once per frame
@@ -111,7 +117,7 @@ public class WeaponShoot : MonoBehaviour
     void Shoot()
 
     {
-        Fire = true;
+        //Fire = true;
         //animate
         animator.SetBool("shoot", true);
 
@@ -123,7 +129,7 @@ public class WeaponShoot : MonoBehaviour
 
         animator.SetBool("shoot", false);
 
-        Fire = false;
+        //Fire = false;
 
 
         //fire
@@ -146,16 +152,6 @@ public class WeaponShoot : MonoBehaviour
 
 
     }
-
-
-
-
-
-
-
-      
-
-
 
 
 
@@ -211,18 +207,7 @@ public class WeaponShoot : MonoBehaviour
 
 
 
-
-
     }//EF
-
-
-
-
-
-
-
-
-
 
 
 
@@ -239,7 +224,7 @@ public class WeaponShoot : MonoBehaviour
 
       TakeDamage TDF = player.GetComponent<TakeDamage>();
 
-        TDF.Takedamage(BodyDamage);
+        TDF.Takedamage(WeaponType.BodyDamage);
         Debug.Log("body reached");
         
 
@@ -247,9 +232,6 @@ public class WeaponShoot : MonoBehaviour
 
 
     }//ef
-
-
-
 
 
 
