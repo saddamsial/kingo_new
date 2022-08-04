@@ -9,7 +9,7 @@ public class WeaponShoot : MonoBehaviour
 {
     // Start is called before the first frame update
     public WeaponDATA WeaponType;
-    public float FireRate = 0.5f;
+   // public float FireRate = 0.5f;
     private float lastshot = 0f;
     public bool Fire;
     public Collider collided;
@@ -24,33 +24,18 @@ public class WeaponShoot : MonoBehaviour
 
     private RaycastHit hit;
 
-    [SerializeField]
-    private AudioClip FireSFX;
-
-    [SerializeField]
-    private AudioClip BodyShotSFX;
-
-    [SerializeField]
-    private AudioClip HeadShotSFX;
-
 
     public AudioSource AS;
     
     private Animator animator;
 
     private Transform PlayerParent;
-    
-    public float BodyDamage = 0.25f;
-    public float HeadDamage = 0.5f;
-
-
+   
     // VFX SPAWN
     public ParticleSystem BulletTrailVFX;
     public GameObject SparkleVFX;
 
    
-
-
 
     //pun variables
 
@@ -59,18 +44,10 @@ public class WeaponShoot : MonoBehaviour
 
 
 
-
-
-
-
     private void OnEnable()
     {
         PV = this.GetComponent<PhotonView>();
     }
-
-
-
-
 
 
 
@@ -99,10 +76,10 @@ public class WeaponShoot : MonoBehaviour
 
 
 
-        if (Input.GetKey(KeyCode.Mouse0) == true & PV.IsMine & Time.time > lastshot+ FireRate)
+        if (Input.GetKey(KeyCode.Mouse0) == true & PV.IsMine & Time.time > lastshot+WeaponType.FireRate)
         {
 
-            AS.PlayOneShot(FireSFX, 1f);
+            AS.PlayOneShot(WeaponType.FireSFX, 1f);
             Shoot();
 
           
@@ -168,7 +145,7 @@ public class WeaponShoot : MonoBehaviour
 
         {
 
-        AS.PlayOneShot(BodyShotSFX, 500f);
+        AS.PlayOneShot(WeaponType.BodyshotSFX, 500f);
 
             PV.RPC("Bodydamage", RpcTarget.Others);
 
@@ -190,7 +167,7 @@ public class WeaponShoot : MonoBehaviour
 
         {
 
-            AS.PlayOneShot(HeadShotSFX, 400f);
+            AS.PlayOneShot(WeaponType.HeadshotSFX, 400f);
 
             PV.RPC("Headdamage", RpcTarget.Others);
 
@@ -247,7 +224,7 @@ public class WeaponShoot : MonoBehaviour
 
         TakeDamage TDF = player.GetComponent<TakeDamage>();
 
-        TDF.Takedamage(HeadDamage);
+        TDF.Takedamage(WeaponType.HeadDamage);
         Debug.Log("head reached");
 
 
