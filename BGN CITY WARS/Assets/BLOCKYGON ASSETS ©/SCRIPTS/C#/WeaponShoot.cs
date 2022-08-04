@@ -8,8 +8,8 @@ public class WeaponShoot : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    public float FireRate = 15f;
-    private float NextFire = 0;
+    public float FireRate = 0.5f;
+    private float lastshot = 0f;
     public bool Fire;
     public Collider collided;
 
@@ -89,13 +89,13 @@ public class WeaponShoot : MonoBehaviour
 
 
 
-        if (Fire== true & PV.IsMine & Time.time >= NextFire)
+        if (Input.GetKey(KeyCode.Mouse0) == true & PV.IsMine & Time.time > lastshot+ FireRate)
         {
 
           
             Shoot();
-           
-           
+
+            AS.PlayOneShot(FireSFX, 1f);
 
         }
 
@@ -122,7 +122,7 @@ public class WeaponShoot : MonoBehaviour
 
         //audio
 
-        AS.PlayOneShot(FireSFX,1f);
+       // AS.PlayOneShot(FireSFX, 1f);
 
 
 
@@ -135,13 +135,13 @@ public class WeaponShoot : MonoBehaviour
 
         //Reset FireRate
 
-        NextFire = Time.time + 1 / FireRate;
+        lastshot = Time.time;
 
         //Reset animator
 
         animator.SetBool("shoot", false);
 
-
+        
 
 
 
@@ -158,7 +158,8 @@ public class WeaponShoot : MonoBehaviour
 
 
     { // SF
-      
+       
+
         if (collided != null & collided.name == "HIT BOX-BODY")
 
         {
