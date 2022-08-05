@@ -298,7 +298,7 @@ public class WeaponShoot : MonoBehaviour
     }//ef
 
 
-  //Coroutines
+      /////Coroutines/////
 
   //Ammo & reload
     IEnumerator Reload()
@@ -340,9 +340,8 @@ public class WeaponShoot : MonoBehaviour
     // Hit Reticle Toggle
     IEnumerator Hitreticle()
     {
-
         HitReticle.SetActive(true);
-        yield return new WaitForSeconds(0.15f);
+        yield return new WaitForSeconds(0.25f);
         HitReticle.SetActive(false);
     }
 
