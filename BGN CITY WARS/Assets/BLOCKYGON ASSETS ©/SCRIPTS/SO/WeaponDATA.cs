@@ -21,6 +21,7 @@ public class WeaponDATA : ScriptableObject
     public AudioClip FireSFX;
     public AudioClip BodyshotSFX;
     public AudioClip HeadshotSFX;
+    public AudioClip ReloadSFX;
 
     // public ParticleSystem BulletTrail;
 

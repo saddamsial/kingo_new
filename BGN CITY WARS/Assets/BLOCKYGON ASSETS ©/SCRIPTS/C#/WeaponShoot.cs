@@ -14,17 +14,12 @@ public class WeaponShoot : MonoBehaviour
     public bool Fired;
     public int BulletsFired = 0;
     public bool Canfire;
-
-
-    private float BeginReloadTime;
-
-   
+ 
     public  bool Reloading;
     [SerializeField]
     private bool NoAmmo;
     public int Clip;
     public int Ammo;
-
 
 
     public Collider collided;
@@ -70,8 +65,6 @@ public class WeaponShoot : MonoBehaviour
         AS = GetComponent<AudioSource>();
         animator = PlayerParent.GetComponent<Animator>();
 
-
-
     }
 
 
@@ -80,14 +73,12 @@ public class WeaponShoot : MonoBehaviour
     void Update()
 
     {
-        // ANIMATE
-       // animator.SetBool("shoot",Fired); 
+       
 
         if (Ammo == 0)
         {
             NoAmmo = true;
         }
-
 
 
 
@@ -102,15 +93,11 @@ public class WeaponShoot : MonoBehaviour
             Ammo = 0;
         }
 
-
-
-
         //Clip Clamp
         if (Clip <= 0)
         {
             Clip = 0;
         }
-
 
 
 
@@ -122,57 +109,36 @@ public class WeaponShoot : MonoBehaviour
         if (Time.time > lastshot + 0.2f)
         {
 
-             SparkleVFX.SetActive(false);
+          //   SparkleVFX.SetActive(false);
 
            
-            Fired = false;
-         
-
-
+            Fired = false;      
         }
 
 
         if(Canfire)
-        { 
+        { //canfire
 
 
         if (Input.GetKey(KeyCode.Mouse0) == true & PV.IsMine & Time.time > lastshot+WeaponType.FireRate & Clip >0)
         {
-
-          //pause VFX for better syncing with fire time
-           if (Time.time > lastshot + 0.1f)
-
-                {             
-                    BulletTrailVFX.Play();
-                    SparkleVFX.SetActive(true);
-                }
-                     
-
             AS.PlayOneShot(WeaponType.FireSFX, 1f);
             Fired = true;
-            Shoot();
 
+             StartCoroutine(VFX());
 
-
-          
-
-
-
-
-
-          
+            Shoot();             
 
         }
 
 
-        }
+        }//canfire
+
+
         else
         {
             return;
         }
-
-
-
 
 
         //check reload conditions
@@ -188,7 +154,6 @@ public class WeaponShoot : MonoBehaviour
         {
             StartCoroutine(Reload());
         }
-
 
 
     }
@@ -265,8 +230,6 @@ public class WeaponShoot : MonoBehaviour
     } //EF
 
 
-
-
     void HeadShot()
     { //SF
 
@@ -293,11 +256,8 @@ public class WeaponShoot : MonoBehaviour
 
 
     }//EF
-
-
-
-
-
+  
+     
 
     [PunRPC]
     void Bodydamage()
@@ -317,10 +277,6 @@ public class WeaponShoot : MonoBehaviour
 
 
     }//ef
-
-
-
-
 
     [PunRPC]
     void Headdamage()
@@ -345,7 +301,6 @@ public class WeaponShoot : MonoBehaviour
 
 
 
-
     //Ammo & reload
 
 
@@ -354,10 +309,8 @@ public class WeaponShoot : MonoBehaviour
     {//sf
    
       Reloading = true;
-       
+      AS.PlayOneShot(WeaponType.ReloadSFX, 1);
         
-    // animator.SetTrigger("RELOAD");
-
         
         {
 
@@ -374,32 +327,19 @@ public class WeaponShoot : MonoBehaviour
         }
 
 
-
-
-
-
-
-
     }//ef
 
+    IEnumerator VFX()
+    {
+        yield return new WaitForSeconds(0.15f);
 
+        BulletTrailVFX.Play();
+        SparkleVFX.SetActive(true);
 
+        yield return new WaitForSeconds(0.15f);
+        SparkleVFX.SetActive(false);
 
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
+    }
 
 
 
