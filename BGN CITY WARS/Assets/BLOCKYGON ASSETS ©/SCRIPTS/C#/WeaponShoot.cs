@@ -9,11 +9,11 @@ public class WeaponShoot : MonoBehaviour
 {
     // Start is called before the first frame update
     public WeaponDATA WeaponType;
-   // public float FireRate = 0.5f;
+  
     private float lastshot = 0f;
     public bool Fired;
     public int BulletsFired = 0;
-    private bool CanFire;
+    public bool Canfire;
 
 
     private float BeginReloadTime;
@@ -81,7 +81,7 @@ public class WeaponShoot : MonoBehaviour
 
     {
         // ANIMATE
-        animator.SetBool("shoot",Fired); 
+       // animator.SetBool("shoot",Fired); 
 
         if (Ammo == 0)
         {
@@ -126,27 +126,35 @@ public class WeaponShoot : MonoBehaviour
 
            
             Fired = false;
+         
 
 
         }
 
 
-        if(CanFire)
+        if(Canfire)
         { 
 
 
         if (Input.GetKey(KeyCode.Mouse0) == true & PV.IsMine & Time.time > lastshot+WeaponType.FireRate& Clip >0)
         {
 
+          //pause VFX for better syncing with fire time
+           if (Time.time > lastshot + 0.1f)
 
-            BulletTrailVFX.Play();
-
-            SparkleVFX.SetActive(true);
+                {             
+                    BulletTrailVFX.Play();
+                    SparkleVFX.SetActive(true);
+                }
+                     
 
             AS.PlayOneShot(WeaponType.FireSFX, 1f);
             Fired = true;
-
             Shoot();
+
+
+
+          
 
 
 
@@ -169,12 +177,14 @@ public class WeaponShoot : MonoBehaviour
 
         //check reload conditions
 
+        //auto reload
+
         if (Clip == 0&!Reloading & ! NoAmmo)
         {
           StartCoroutine( Reload());
         }
-
-        if (Input.GetKey(KeyCode.R)&!Reloading & !NoAmmo)
+        //Manual reload
+        if (Input.GetKey(KeyCode.R) & !Reloading & !NoAmmo & Clip < WeaponType.MaxClip)
         {
             StartCoroutine(Reload());
         }
@@ -336,17 +346,9 @@ public class WeaponShoot : MonoBehaviour
 
 
 
-
-
-
-
-
-
     //Ammo & reload
 
 
-
-    
     IEnumerator Reload()
 
     {//sf
@@ -378,6 +380,14 @@ public class WeaponShoot : MonoBehaviour
 
 
     }//ef
+
+
+
+
+
+    
+
+
 
 
 
