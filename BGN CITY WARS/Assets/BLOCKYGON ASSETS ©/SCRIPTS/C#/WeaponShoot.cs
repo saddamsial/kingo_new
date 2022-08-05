@@ -43,6 +43,7 @@ public class WeaponShoot : MonoBehaviour
    
     // VFX SPAWN
     public ParticleSystem BulletTrailVFX;
+    public ParticleSystem BulletDropVFX;
     public GameObject SparkleVFX;
 
     //HitReticleS
@@ -341,7 +342,7 @@ public class WeaponShoot : MonoBehaviour
 
         BulletTrailVFX.Play();
         SparkleVFX.SetActive(true);
-
+        BulletDropVFX.Play();
         yield return new WaitForSeconds(0.15f);
         SparkleVFX.SetActive(false);
 

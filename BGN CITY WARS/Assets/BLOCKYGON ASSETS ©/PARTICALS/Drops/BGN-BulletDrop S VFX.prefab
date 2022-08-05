@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2531797122455068650}
   - component: {fileID: 2531797122455068645}
   m_Layer: 0
-  m_Name: BGN-BulletDrop VFX
+  m_Name: BGN-BulletDrop S VFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -49,7 +49,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -284,7 +284,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.1
+      scalar: 0.07
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -337,7 +337,7 @@ ParticleSystem:
     startSizeY:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.05
+      scalar: 0.025
       minScalar: 1
       maxCurve:
         serializedVersion: 2
