@@ -18,8 +18,8 @@ public class WeaponShoot : MonoBehaviour
 
     private float BeginReloadTime;
 
-    [SerializeField]
-    private bool Reloading;
+   
+    public  bool Reloading;
     [SerializeField]
     private bool NoAmmo;
     public int Clip;
@@ -136,7 +136,7 @@ public class WeaponShoot : MonoBehaviour
         { 
 
 
-        if (Input.GetKey(KeyCode.Mouse0) == true & PV.IsMine & Time.time > lastshot+WeaponType.FireRate& Clip >0)
+        if (Input.GetKey(KeyCode.Mouse0) == true & PV.IsMine & Time.time > lastshot+WeaponType.FireRate & Clip >0)
         {
 
           //pause VFX for better syncing with fire time
@@ -352,12 +352,13 @@ public class WeaponShoot : MonoBehaviour
     IEnumerator Reload()
 
     {//sf
-     
-  
-        Reloading = true;
-        animator.SetTrigger("RELOAD");
+   
+      Reloading = true;
+       
+        
+    // animator.SetTrigger("RELOAD");
 
-
+        
         {
 
             yield return new WaitForSeconds(WeaponType.ReloadTime);
