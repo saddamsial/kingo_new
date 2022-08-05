@@ -45,8 +45,9 @@ public class WeaponShoot : MonoBehaviour
     public ParticleSystem BulletTrailVFX;
     public GameObject SparkleVFX;
 
-    //HitReticle
+    //HitReticleS
     public GameObject HitReticle;
+    public GameObject HitHeadReticle;
 
     //UI TEXT
     public GameObject ReloadingTextUI;
@@ -251,7 +252,8 @@ public class WeaponShoot : MonoBehaviour
 
             //  TPV = collided.GetComponent<PhotonView>();
 
-
+            //Hit Reticle Enable
+            StartCoroutine(HitHeadreticle());
 
 
         }
@@ -344,20 +346,25 @@ public class WeaponShoot : MonoBehaviour
         SparkleVFX.SetActive(false);
 
     }
-    // Hit Reticle Toggle
+    // Hit Reticles Toggle
     IEnumerator Hitreticle()
     {
         HitReticle.SetActive(true);
         yield return new WaitForSeconds(0.25f);
         HitReticle.SetActive(false);
     }
-    
 
-    
+    IEnumerator HitHeadreticle()
+    {
+        HitHeadReticle.SetActive(true);
+        yield return new WaitForSeconds(0.25f);
+        HitHeadReticle.SetActive(false);
+    }
+
+
 
 
    
-
 
 
 
