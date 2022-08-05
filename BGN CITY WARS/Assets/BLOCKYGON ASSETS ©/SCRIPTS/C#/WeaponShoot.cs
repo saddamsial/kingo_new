@@ -45,10 +45,10 @@ public class WeaponShoot : MonoBehaviour
     public ParticleSystem BulletTrailVFX;
     public GameObject SparkleVFX;
 
-   
+    //HitReticle
+    public GameObject HitReticle;
 
     //pun variables
-
     private PhotonView PV;
     private PhotonView TPV;
 
@@ -107,10 +107,7 @@ public class WeaponShoot : MonoBehaviour
         WeaponType.Ammo = Ammo;
 
         if (Time.time > lastshot + 0.2f)
-        {
-
-          //   SparkleVFX.SetActive(false);
-
+        {     
            
             Fired = false;      
         }
@@ -222,7 +219,10 @@ public class WeaponShoot : MonoBehaviour
 
             PV.RPC("Bodydamage", RpcTarget.Others);
 
-          //  TPV = collided.GetComponent<PhotonView>();
+            //  TPV = collided.GetComponent<PhotonView>();
+
+            //Hit Reticle Enable
+            StartCoroutine(Hitreticle());
 
         }
 
@@ -298,12 +298,9 @@ public class WeaponShoot : MonoBehaviour
     }//ef
 
 
+  //Coroutines
 
-
-
-    //Ammo & reload
-
-
+  //Ammo & reload
     IEnumerator Reload()
 
     {//sf
@@ -328,7 +325,7 @@ public class WeaponShoot : MonoBehaviour
 
 
     }//ef
-
+  //VFX Toggles
     IEnumerator VFX()
     {
         yield return new WaitForSeconds(0.15f);
@@ -339,6 +336,14 @@ public class WeaponShoot : MonoBehaviour
         yield return new WaitForSeconds(0.15f);
         SparkleVFX.SetActive(false);
 
+    }
+    // Hit Reticle Toggle
+    IEnumerator Hitreticle()
+    {
+
+        HitReticle.SetActive(true);
+        yield return new WaitForSeconds(0.15f);
+        HitReticle.SetActive(false);
     }
 
 
