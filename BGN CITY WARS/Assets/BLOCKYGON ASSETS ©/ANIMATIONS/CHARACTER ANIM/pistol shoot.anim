@@ -233,6 +233,15 @@ AnimationClip:
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
+        time: 0.083333336
+        value: {x: 2.934, y: 5.772, z: 2.005}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+      - serializedVersion: 3
         time: 0.16666667
         value: {x: 1.974, y: 3.53, z: -3.07}
         inSlope: {x: 0, y: 0, z: 0}
@@ -689,6 +698,13 @@ AnimationClip:
       customType: 4
       isPPtrCurve: 0
     - serializedVersion: 2
+      path: 176206341
+      attribute: 4
+      script: {fileID: 0}
+      typeID: 4
+      customType: 4
+      isPPtrCurve: 0
+    - serializedVersion: 2
       path: 1722670341
       attribute: 4
       script: {fileID: 0}
@@ -718,13 +734,6 @@ AnimationClip:
       isPPtrCurve: 0
     - serializedVersion: 2
       path: 1630936295
-      attribute: 4
-      script: {fileID: 0}
-      typeID: 4
-      customType: 4
-      isPPtrCurve: 0
-    - serializedVersion: 2
-      path: 176206341
       attribute: 4
       script: {fileID: 0}
       typeID: 4
@@ -1775,6 +1784,15 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
+        time: 0.083333336
+        value: 2.934
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
         time: 0.16666667
         value: 1.974
         inSlope: 0
@@ -1812,6 +1830,15 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
+        time: 0.083333336
+        value: 5.772
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
         time: 0.16666667
         value: 3.53
         inSlope: 0
@@ -1842,6 +1869,15 @@ AnimationClip:
       - serializedVersion: 3
         time: 0
         value: -3.07
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.083333336
+        value: 2.005
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -2799,7 +2835,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: BGN_CJ-RIGGED/SPINE/SPINE2/SPINE3/SHOULDER.R/ELBOW.R/ARM.R/HAND.R
+    path: BGN_CJ-RIGGED/SPINE/SPINE2/SPINE3/SHOULDER.R/ELBOW.R/ARM.R/HAND.R/HAND.R_end
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2809,7 +2845,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: BGN_CJ-RIGGED/SPINE/SPINE2/SPINE3/SHOULDER.R/ELBOW.R/ARM.R/HAND.R
+    path: BGN_CJ-RIGGED/SPINE/SPINE2/SPINE3/SHOULDER.R/ELBOW.R/ARM.R/HAND.R/HAND.R_end
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2819,7 +2855,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: BGN_CJ-RIGGED/SPINE/SPINE2/SPINE3/SHOULDER.R/ELBOW.R/ARM.R/HAND.R
+    path: BGN_CJ-RIGGED/SPINE/SPINE2/SPINE3/SHOULDER.R/ELBOW.R/ARM.R/HAND.R/HAND.R_end
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2979,7 +3015,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: BGN_CJ-RIGGED/SPINE/SPINE2/SPINE3/SHOULDER.R/ELBOW.R/ARM.R/HAND.R/HAND.R_end
+    path: BGN_CJ-RIGGED/SPINE/SPINE2/SPINE3/SHOULDER.R/ELBOW.R/ARM.R/HAND.R
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2989,7 +3025,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: BGN_CJ-RIGGED/SPINE/SPINE2/SPINE3/SHOULDER.R/ELBOW.R/ARM.R/HAND.R/HAND.R_end
+    path: BGN_CJ-RIGGED/SPINE/SPINE2/SPINE3/SHOULDER.R/ELBOW.R/ARM.R/HAND.R
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -2999,7 +3035,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: BGN_CJ-RIGGED/SPINE/SPINE2/SPINE3/SHOULDER.R/ELBOW.R/ARM.R/HAND.R/HAND.R_end
+    path: BGN_CJ-RIGGED/SPINE/SPINE2/SPINE3/SHOULDER.R/ELBOW.R/ARM.R/HAND.R
     classID: 4
     script: {fileID: 0}
   m_HasGenericRootTransform: 0
