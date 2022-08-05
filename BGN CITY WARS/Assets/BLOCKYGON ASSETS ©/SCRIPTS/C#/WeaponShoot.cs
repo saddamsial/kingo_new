@@ -105,16 +105,14 @@ public class WeaponShoot : MonoBehaviour
 
 
 
-
-
         //ammo sync
         WeaponType.Clip = Clip;
         WeaponType.Ammo = Ammo;
         //reloading text
         ReloadingTextUI.SetActive(Reloading);
         //NoAmmo text
-        NoAmmoTextUI.SetActive(NoAmmo);
-
+        if(Clip < 1) { NoAmmoTextUI.SetActive(NoAmmo); }
+        
 
         if (Time.time > lastshot + 0.2f)
         {     
