@@ -48,6 +48,11 @@ public class WeaponShoot : MonoBehaviour
     //HitReticle
     public GameObject HitReticle;
 
+    //UI TEXT
+    public GameObject ReloadingTextUI;
+    public GameObject NoAmmoTextUI;
+
+
     //pun variables
     private PhotonView PV;
     private PhotonView TPV;
@@ -74,7 +79,6 @@ public class WeaponShoot : MonoBehaviour
 
     {
        
-
         if (Ammo == 0)
         {
             NoAmmo = true;
@@ -102,9 +106,15 @@ public class WeaponShoot : MonoBehaviour
 
 
 
+
         //ammo sync
         WeaponType.Clip = Clip;
         WeaponType.Ammo = Ammo;
+        //reloading text
+        ReloadingTextUI.SetActive(Reloading);
+        //NoAmmo text
+        NoAmmoTextUI.SetActive(NoAmmo);
+
 
         if (Time.time > lastshot + 0.2f)
         {     
@@ -137,8 +147,7 @@ public class WeaponShoot : MonoBehaviour
             return;
         }
 
-
-        //check reload conditions
+     ///check reload conditions///
 
         //auto reload
 
@@ -300,7 +309,7 @@ public class WeaponShoot : MonoBehaviour
 
       /////Coroutines/////
 
-  //Ammo & reload
+    //Ammo & reload
     IEnumerator Reload()
 
     {//sf
@@ -325,7 +334,7 @@ public class WeaponShoot : MonoBehaviour
 
 
     }//ef
-  //VFX Toggles
+    //VFX Toggles
     IEnumerator VFX()
     {
         yield return new WaitForSeconds(0.15f);
@@ -344,11 +353,12 @@ public class WeaponShoot : MonoBehaviour
         yield return new WaitForSeconds(0.25f);
         HitReticle.SetActive(false);
     }
+    
+
+    
 
 
-
-
-
+   
 
 
 
