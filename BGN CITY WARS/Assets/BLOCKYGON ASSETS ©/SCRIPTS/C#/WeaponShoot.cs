@@ -197,7 +197,7 @@ public class WeaponShoot : MonoBehaviour
             point = (hit.point);
          
         //bullet HOLE SPAWN 
-        GameObject.Instantiate(WeaponType.BulletHoleVFX,hit.point,Quaternion.Euler(90,0,0));
+        GameObject.Instantiate(WeaponType.BulletHoleVFX,hit.point,transform.localRotation);
        
 
         //Call Methods
