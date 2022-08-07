@@ -19,6 +19,9 @@ public class CamModes : MonoBehaviour
     private float currentspeedAMC;
     public  CinemachineFramingTransposer FT;
 
+    public float xFMC;
+    public float xCMC;
+    public float xAMC;
 
     private void Awake()
     {
@@ -42,9 +45,12 @@ public class CamModes : MonoBehaviour
         if (vars.Combat & !vars.IsAiming)
 
 
-        VC.m_Lens.FieldOfView = Mathf.SmoothDamp(VC.m_Lens.FieldOfView, CMC, ref currentspeedCMC, Time.deltaTime * smoothness);
+            VC.m_Lens.FieldOfView = Mathf.SmoothDamp(VC.m_Lens.FieldOfView, CMC, ref currentspeedCMC, Time.deltaTime * smoothness);
 
-      
+
+
+
+
 
         else if (vars.IsAiming)
         {
@@ -68,16 +74,21 @@ public class CamModes : MonoBehaviour
         {
        
 
-            FT.m_CameraDistance = 5.5;
+            FT.m_ScreenX = xAMC;
             
         }
+    
+         else if (vars.Combat & !vars.IsAiming)
+       {
 
-          else
+            FT.m_ScreenX = xCMC;
+      }
+
+       else
         {
-
-            FT.m_CameraDistance = 4;
+            FT.m_ScreenX = xFMC;
         }
-
+    
 
 
 

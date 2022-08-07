@@ -195,6 +195,8 @@ public class WeaponShoot : MonoBehaviour
         collided = hit.collider;
 
             point = (hit.point);
+
+        TPV = collided.GetComponent<PhotonView>();
          
         //bullet HOLE SPAWN 
         GameObject.Instantiate(WeaponType.BulletHoleVFX,hit.point,transform.localRotation);
@@ -220,20 +222,46 @@ public class WeaponShoot : MonoBehaviour
     { // SF
        
 
-        if (collided != null & collided.name == "HIT BOX-BODY")
+        if (collided != null & collided.name == "HIT BOX-BODY" )
+
 
         {
 
+          
+
+            
+                
         AS.PlayOneShot(WeaponType.BodyshotSFX, 500f);
 
             PV.RPC("Bodydamage", RpcTarget.Others);
 
-            //  TPV = collided.GetComponent<PhotonView>();
+                //  TPV = collided.GetComponent<PhotonView>();
+
+                Debug.Log("Real Player Detected");
+
+                //Hit Reticle Enable
+                StartCoroutine(Hitreticle());
+              
+        }
+
+            
+            else if (TPV == null)
+            {
+
+
+
+            AS.PlayOneShot(WeaponType.BodyshotSFX, 500f);        
+    
+            Debug.Log("Real Player Detected");
 
             //Hit Reticle Enable
             StartCoroutine(Hitreticle());
 
         }
+
+        
+
+
 
 
     } //EF
@@ -243,7 +271,7 @@ public class WeaponShoot : MonoBehaviour
     { //SF
 
 
-        if (collided != null & collided.name == "HIT BOX-HEAD")
+        if (collided != null & collided.name == "HIT BOX-HEAD" & !collided.GetComponent<PhotonView>().IsMine)
 
         {
 
