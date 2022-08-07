@@ -4,8 +4,10 @@ using UnityEngine;
 using Cinemachine;
 public class CamModes : MonoBehaviour
 {
-    public CinemachineFreeLook FL;
-  
+    //public CinemachineFreeLook FL;
+
+    public CinemachineVirtualCamera VC;
+
     private PlayerActionsVar vars;
     //CAM MODES
     public float FMC = 30f;
@@ -19,6 +21,7 @@ public class CamModes : MonoBehaviour
     private void Start()
     {
         vars = GetComponent<PlayerActionsVar>();
+     
        
     }
 
@@ -29,19 +32,19 @@ public class CamModes : MonoBehaviour
        
         if (vars.Combat & !vars.IsAiming)
 
-          
-        FL.m_Lens.FieldOfView = Mathf.SmoothDamp(FL.m_Lens.FieldOfView, CMC, ref currentspeedCMC, Time.deltaTime * smoothness);
+
+        VC.m_Lens.FieldOfView = Mathf.SmoothDamp(VC.m_Lens.FieldOfView, CMC, ref currentspeedCMC, Time.deltaTime * smoothness);
 
       
 
         else if (vars.IsAiming)
         {
-            FL.m_Lens.FieldOfView = Mathf.SmoothDamp(FL.m_Lens.FieldOfView, AMC, ref currentspeedAMC, Time.deltaTime * smoothness);
+            VC.m_Lens.FieldOfView = Mathf.SmoothDamp(VC.m_Lens.FieldOfView, AMC, ref currentspeedAMC, Time.deltaTime * smoothness);
         }
 
         else
         {
-            FL.m_Lens.FieldOfView = Mathf.SmoothDamp(FL.m_Lens.FieldOfView, FMC, ref currentspeedFMC, Time.deltaTime * smoothness);
+            VC.m_Lens.FieldOfView = Mathf.SmoothDamp(VC.m_Lens.FieldOfView, FMC, ref currentspeedFMC, Time.deltaTime * smoothness);
 
 
         }
