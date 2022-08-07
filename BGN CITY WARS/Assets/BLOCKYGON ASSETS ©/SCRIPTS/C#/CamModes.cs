@@ -17,19 +17,28 @@ public class CamModes : MonoBehaviour
     private float currentspeedFMC;
     private  float currentspeedCMC;
     private float currentspeedAMC;
+    public  CinemachineFramingTransposer FT;
 
+
+    private void Awake()
+    {
+       
+
+    }
     private void Start()
     {
         vars = GetComponent<PlayerActionsVar>();
-     
-       
+
+      
+
     }
 
 
     void Update()
 
     {
-       
+        CinemachineFramingTransposer FT = VC.GetCinemachineComponent<CinemachineFramingTransposer>();
+
         if (vars.Combat & !vars.IsAiming)
 
 
@@ -48,8 +57,45 @@ public class CamModes : MonoBehaviour
 
 
         }
-      
+
+
+
+
+        //check camera distance
+
+
+        if (vars.IsAiming)
+        {
+       
+
+            FT.m_CameraDistance = 5.5;
+            
+        }
+
+          else
+        {
+
+            FT.m_CameraDistance = 4;
+        }
+
+
+
+
+
+
+
+
+
+
     }
+
+
+
+
+
+
+   
+
 
 
 
