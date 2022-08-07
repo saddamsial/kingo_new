@@ -11,8 +11,10 @@ public class CamModes : MonoBehaviour
     public float FMC = 30f;
     public float CMC = 25;
     public float AMC = 21;
-    public float smoothness;
-
+    public float smoothness = 40f;
+    public float currentspeedFMC;
+    public float currentspeedCMC;
+    public float currentspeedAMC;
 
     private void Start()
     {
@@ -28,18 +30,18 @@ public class CamModes : MonoBehaviour
         if (vars.Combat & !vars.IsAiming)
 
           
-        FL.m_Lens.FieldOfView =Mathf.Lerp(0, CMC,Time.deltaTime*smoothness);
+        FL.m_Lens.FieldOfView = Mathf.SmoothDamp(FL.m_Lens.FieldOfView, CMC, ref currentspeedCMC, Time.deltaTime * smoothness);
 
       
 
         else if (vars.IsAiming)
         {
-            FL.m_Lens.FieldOfView = Mathf.Lerp(0, AMC, Time.deltaTime * smoothness);
+            FL.m_Lens.FieldOfView = Mathf.SmoothDamp(FL.m_Lens.FieldOfView, AMC, ref currentspeedAMC, Time.deltaTime * smoothness);
         }
 
         else
         {
-            FL.m_Lens.FieldOfView = Mathf.Lerp(0, FMC, Time.deltaTime * smoothness);
+            FL.m_Lens.FieldOfView = Mathf.SmoothDamp(FL.m_Lens.FieldOfView, FMC, ref currentspeedFMC, Time.deltaTime * smoothness);
 
 
         }
