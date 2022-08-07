@@ -5,16 +5,16 @@ using Cinemachine;
 public class CamModes : MonoBehaviour
 {
     public CinemachineFreeLook FL;
-    [SerializeField]
+  
     private PlayerActionsVar vars;
     //CAM MODES
     public float FMC = 30f;
     public float CMC = 25;
     public float AMC = 21;
     public float smoothness = 40f;
-    public float currentspeedFMC;
-    public float currentspeedCMC;
-    public float currentspeedAMC;
+    private float currentspeedFMC;
+    private  float currentspeedCMC;
+    private float currentspeedAMC;
 
     private void Start()
     {
@@ -45,7 +45,7 @@ public class CamModes : MonoBehaviour
 
 
         }
-
+      
     }
 
 
