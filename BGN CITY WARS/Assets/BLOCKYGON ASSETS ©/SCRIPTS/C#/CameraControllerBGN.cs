@@ -169,7 +169,7 @@ public class CameraControllerBGN : MonoBehaviour
 		Vector3 target = player.position + pivotOffset;
 		Vector3 direction = target - checkPos;
 		// If a raycast from the check position to the player hits something...
-		if (Physics.SphereCast(checkPos, CameraRadius, direction, out RaycastHit hit, direction.magnitude, CollideWith))
+		if (Physics.SphereCast(checkPos, CameraRadius, -direction, out RaycastHit hit, direction.magnitude, CollideWith))
 		{
 			// ... if it is not the player...
 			if (hit.transform != player && !hit.transform.GetComponent<Collider>().isTrigger)
