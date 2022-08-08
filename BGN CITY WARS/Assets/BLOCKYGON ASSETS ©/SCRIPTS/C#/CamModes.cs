@@ -70,24 +70,24 @@ public class CamModes : MonoBehaviour
         //check camera distance
 
 
-        if (vars.IsAiming)
-        {
+     //   if (vars.IsAiming)
+      //  {
        
 
-            FT.m_ScreenX = xAMC;
+        //    FT.m_ScreenX = xAMC;
             
         }
     
-         else if (vars.Combat & !vars.IsAiming)
-       {
+       //  else if (vars.Combat & !vars.IsAiming)
+    //   {
 
-            FT.m_ScreenX = xCMC;
-      }
+        //    FT.m_ScreenX = xCMC;
+    //  }
 
-       else
-        {
-            FT.m_ScreenX = xFMC;
-        }
+    //   else
+      //  {
+      //      FT.m_ScreenX = xFMC;
+     //   }
     
 
 
@@ -98,7 +98,7 @@ public class CamModes : MonoBehaviour
 
 
 
-    }
+  //  }
 
 
 
