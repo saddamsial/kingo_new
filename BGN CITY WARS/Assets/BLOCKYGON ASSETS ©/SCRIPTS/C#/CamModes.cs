@@ -1,13 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Cinemachine;
 public class CamModes : MonoBehaviour
 {
     //public CinemachineFreeLook FL;
 
-    public CinemachineVirtualCamera VC;
-
+    public Camera Camera;
+   
     private PlayerActionsVar vars;
     //CAM MODES
     public float FMC = 30f;
@@ -17,15 +16,12 @@ public class CamModes : MonoBehaviour
     private float currentspeedFMC;
     private  float currentspeedCMC;
     private float currentspeedAMC;
-    public  CinemachineFramingTransposer FT;
-
-    public float xFMC;
-    public float xCMC;
-    public float xAMC;
+   
+    
 
     private void Awake()
     {
-       
+       Camera = Camera.main;
 
     }
     private void Start()
@@ -40,12 +36,12 @@ public class CamModes : MonoBehaviour
     void Update()
 
     {
-        CinemachineFramingTransposer FT = VC.GetCinemachineComponent<CinemachineFramingTransposer>();
+      //  CinemachineFramingTransposer FT = VC.GetCinemachineComponent<CinemachineFramingTransposer>();
 
         if (vars.Combat & !vars.IsAiming)
 
 
-            VC.m_Lens.FieldOfView = Mathf.SmoothDamp(VC.m_Lens.FieldOfView, CMC, ref currentspeedCMC, Time.deltaTime * smoothness);
+            Camera.fieldOfView = Mathf.SmoothDamp(Camera.fieldOfView, CMC, ref currentspeedCMC, Time.deltaTime * smoothness);
 
 
 
@@ -54,12 +50,12 @@ public class CamModes : MonoBehaviour
 
         else if (vars.IsAiming)
         {
-            VC.m_Lens.FieldOfView = Mathf.SmoothDamp(VC.m_Lens.FieldOfView, AMC, ref currentspeedAMC, Time.deltaTime * smoothness);
+            Camera.fieldOfView = Mathf.SmoothDamp(Camera.fieldOfView, AMC, ref currentspeedAMC, Time.deltaTime * smoothness);
         }
 
         else
         {
-            VC.m_Lens.FieldOfView = Mathf.SmoothDamp(VC.m_Lens.FieldOfView, FMC, ref currentspeedFMC, Time.deltaTime * smoothness);
+            Camera.fieldOfView = Mathf.SmoothDamp(Camera.fieldOfView, FMC, ref currentspeedFMC, Time.deltaTime * smoothness);
 
 
         }
