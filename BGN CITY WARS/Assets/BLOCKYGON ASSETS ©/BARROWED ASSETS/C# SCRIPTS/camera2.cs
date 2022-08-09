@@ -47,7 +47,7 @@ public class camera2 : MonoBehaviour
     private float mouseY = 0f;
     private float mouseX = 0f;
     private float currentHeight;
-    private float cullingDistance;
+    public float cullingDistance;
     private float checkHeightRadius = 0.4f;
     private float clipPlaneMargin = 0f;
     private float forward = -1f;
@@ -84,7 +84,7 @@ public class camera2 : MonoBehaviour
         currentHeight = height;
     }
 
-    void FixedUpdate()
+    void LateUpdate()
     {
         if (target == null || targetLookAt == null) return;
 
@@ -247,4 +247,16 @@ public class camera2 : MonoBehaviour
 
         return hitInfo.collider && value;
     }
+
+
+
+// adjust clip zoom
+void RightOffsetClipOverride()
+{
+
+}
+
+
+
+
 }

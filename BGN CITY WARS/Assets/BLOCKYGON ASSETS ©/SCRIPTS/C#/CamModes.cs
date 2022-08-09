@@ -12,21 +12,27 @@ public class CamModes : MonoBehaviour
     public float FMC = 30f;
     public float CMC = 25;
     public float AMC = 21;
+     public float SprintingFOV = 40f;
+     public float SprintDamp = 40f;
     public float smoothness = 40f;
+
     private float currentspeedFMC;
     private  float currentspeedCMC;
     private float currentspeedAMC;
+    
    
     
 
     private void Awake()
     {
        Camera = Camera.main;
+       
 
     }
     private void Start()
     {
         vars = GetComponent<PlayerActionsVar>();
+        
 
       
 
@@ -37,7 +43,10 @@ public class CamModes : MonoBehaviour
 
     {
       //  CinemachineFramingTransposer FT = VC.GetCinemachineComponent<CinemachineFramingTransposer>();
+        
 
+        if (!vars.Sprinting)
+        {
         if (vars.Combat & !vars.IsAiming)
 
 
@@ -61,40 +70,26 @@ public class CamModes : MonoBehaviour
         }
 
 
-
-
-        //check camera distance
-
-
-     //   if (vars.IsAiming)
-      //  {
-       
-
-        //    FT.m_ScreenX = xAMC;
-            
         }
-    
-       //  else if (vars.Combat & !vars.IsAiming)
-    //   {
+        else SprintfOV();
 
-        //    FT.m_ScreenX = xCMC;
-    //  }
+}
+            
+    void SprintfOV()
+    {
+     if(vars.Sprinting)
+    {
 
-    //   else
-      //  {
-      //      FT.m_ScreenX = xFMC;
-     //   }
-    
+     Camera.fieldOfView = Mathf.SmoothDamp(Camera.fieldOfView, SprintingFOV, ref currentspeedCMC, Time.deltaTime * SprintDamp);
+     
+    }   
 
-
-
-
+    }
 
 
 
 
 
-  //  }
 
 
 
