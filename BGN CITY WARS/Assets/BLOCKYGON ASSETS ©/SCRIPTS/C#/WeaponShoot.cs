@@ -127,7 +127,7 @@ public class WeaponShoot : MonoBehaviour
         { //canfire
 
 
-        if (Input.GetKey(KeyCode.Mouse0) == true & PV.IsMine & Time.time > lastshot+WeaponType.FireRate & Clip >0)
+        if (Input.GetKey(KeyCode.Mouse0) == true & PV.IsMine & Time.time > lastshot+WeaponType.FireRate & Clip >0 && !Reloading)
         {
             AS.PlayOneShot(WeaponType.FireSFX, 1f);
             Fired = true;
@@ -151,7 +151,7 @@ public class WeaponShoot : MonoBehaviour
 
         //auto reload
 
-        if (Clip == 0&!Reloading & ! NoAmmo)
+        if (Clip == 0&!Reloading & ! NoAmmo &&!Fired)
         {
           StartCoroutine( Reload());
         }
@@ -210,7 +210,6 @@ public class WeaponShoot : MonoBehaviour
 
 
     }
-
 
 
 
@@ -379,6 +378,7 @@ public class WeaponShoot : MonoBehaviour
     {//sf
    
       Reloading = true;
+      Fired = false;
       AS.PlayOneShot(WeaponType.ReloadSFX, 1);
         
         

@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Invector.vCharacterController
 {
-    public class Vinput : MonoBehaviour
+    public class CamInput : MonoBehaviour
     {
         #region Variables       
 
