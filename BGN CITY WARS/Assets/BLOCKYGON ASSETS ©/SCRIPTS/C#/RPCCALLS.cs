@@ -12,6 +12,8 @@ public class RPCCALLS : MonoBehaviour
     public bool IsAIMING2;
     public bool shoot1;
     public bool shoot2;
+
+    public bool IsDead;
     private PhotonView PV;
 
 
@@ -68,7 +70,13 @@ public class RPCCALLS : MonoBehaviour
         }
 
 
+     //Die 
+       if (IsDead == true && PV.IsMine)
+       {
 
+     return;
+        
+       }
        
 
 
@@ -112,8 +120,11 @@ public class RPCCALLS : MonoBehaviour
 
 
 
+   [PunRPC]
+   void Die()
+   {
 
-
+   }
 
 
 
