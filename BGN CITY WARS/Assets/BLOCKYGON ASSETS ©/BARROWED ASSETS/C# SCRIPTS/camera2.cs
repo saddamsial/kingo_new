@@ -32,12 +32,12 @@ public class camera2 : MonoBehaviour
     public float offSetPlayerPivot;
     [HideInInspector]
     public string currentStateName;
-    [HideInInspector]
+  //  [HideInInspector]
     public Transform currentTarget;
     [HideInInspector]
     public Vector2 movementSpeed;
 
-    private Transform targetLookAt;
+    public Transform targetLookAt;
     private Vector3 currentTargetPos;
     private Vector3 lookPoint;
     private Vector3 current_cPos;
