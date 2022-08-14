@@ -81,6 +81,22 @@ public class WeaponShoot : MonoBehaviour
 
     {
        
+
+
+
+        //ammo sync
+        WeaponType.Clip = Clip;
+        WeaponType.Ammo = Ammo;
+        //reloading text
+        ReloadingTextUI.SetActive(Reloading);
+        //NoAmmo text
+        if(Clip < 1) { NoAmmoTextUI.SetActive(NoAmmo); }
+
+
+
+
+
+
         if (Ammo == 0)
         {
             NoAmmo = true;
@@ -107,13 +123,6 @@ public class WeaponShoot : MonoBehaviour
 
 
 
-        //ammo sync
-        WeaponType.Clip = Clip;
-        WeaponType.Ammo = Ammo;
-        //reloading text
-        ReloadingTextUI.SetActive(Reloading);
-        //NoAmmo text
-        if(Clip < 1) { NoAmmoTextUI.SetActive(NoAmmo); }
         
 
         if (Time.time > lastshot + 0.2f)
@@ -127,7 +136,7 @@ public class WeaponShoot : MonoBehaviour
         { //canfire
 
 
-        if (Input.GetKey(KeyCode.Mouse0) == true & PV.IsMine & Time.time > lastshot+WeaponType.FireRate & Clip >0 && !Reloading)
+        if (Input.GetKey(KeyCode.Mouse0) == true & PV.IsMine & Time.time > lastshot+WeaponType.FireRate & Clip >0)
         {
             AS.PlayOneShot(WeaponType.FireSFX, 1f);
             Fired = true;
@@ -151,7 +160,7 @@ public class WeaponShoot : MonoBehaviour
 
         //auto reload
 
-        if (Clip == 0&!Reloading & ! NoAmmo &&!Fired)
+        if (Clip == 0&!Reloading & ! NoAmmo)
         {
           StartCoroutine( Reload());
         }
@@ -159,7 +168,7 @@ public class WeaponShoot : MonoBehaviour
         if (Input.GetKey(KeyCode.R) & !Reloading & !NoAmmo & Clip < WeaponType.MaxClip)
         {
             StartCoroutine(Reload());
-        }
+        } 
 
 
     }
@@ -210,6 +219,7 @@ public class WeaponShoot : MonoBehaviour
 
 
     }
+
 
 
 
@@ -378,7 +388,6 @@ public class WeaponShoot : MonoBehaviour
     {//sf
    
       Reloading = true;
-      Fired = false;
       AS.PlayOneShot(WeaponType.ReloadSFX, 1);
         
         
