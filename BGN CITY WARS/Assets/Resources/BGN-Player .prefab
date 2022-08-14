@@ -2289,24 +2289,24 @@ MonoBehaviour:
   smoothCameraRotation: 100
   cullingLayer:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 1025
   lockCamera: 0
-  rightOffset: 0.25
-  defaultDistance: 3.2
-  height: 1
+  rightOffset: 0.45
+  defaultDistance: 2.5
+  height: 1.1
   smoothFollow: 100
   xMouseSensitivity: 3
   yMouseSensitivity: 3
-  yMinLimit: -70
-  yMaxLimit: 80
+  yMinLimit: -85
+  yMaxLimit: 85
   indexList: 0
   indexLookPoint: 0
   offSetPlayerPivot: 0
   currentStateName: 
   currentTarget: {fileID: 9091899776991698358}
-  movementSpeed: {x: 0, y: -0}
-  targetLookAt: {fileID: 9091899776991698358}
-  cullingDistance: 0
+  movementSpeed: {x: 0, y: 0}
+  targetLookAt: {fileID: 0}
+  cullingDistance: 2.5000012
 --- !u!1 &2096121507264710810
 GameObject:
   m_ObjectHideFlags: 0
@@ -8977,7 +8977,7 @@ MonoBehaviour:
   - {fileID: 2336125063669084796}
   - {fileID: 1967792388281828206}
   - {fileID: 6997041088134776646}
-  sceneViewId: 0
+  sceneViewId: 4
   InstantiationId: 0
   isRuntimeInstantiated: 0
 --- !u!114 &2336125063669084796
@@ -9128,12 +9128,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Camera: {fileID: 0}
-  FMC: 45
-  CMC: 38
-  AMC: 30
-  SprintingFOV: 60
-  SprintDamp: 25
-  smoothness: 6
+  FMC: 60
+  CMC: 50
+  AMC: 40
+  SprintingFOV: 78
+  SprintDamp: 30
+  smoothness: 6.5
 --- !u!114 &4380883486423137410
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61703,9 +61703,9 @@ MonoBehaviour:
     - {fileID: 8300000, guid: a5353c99e51971e4ba1554e5344f7457, type: 3}
     - {fileID: 8300000, guid: a5353c99e51971e4ba1554e5344f7457, type: 3}
     - {fileID: 100002, guid: 00fedc70b62a31e448e8ccc298257b56, type: 3}
-    - {fileID: 8300000, guid: 90f50d8c2f55b304ca92bf1a3f6c8b3f, type: 3}
-    - {fileID: 8300000, guid: 90f50d8c2f55b304ca92bf1a3f6c8b3f, type: 3}
     - {fileID: 8300000, guid: a5353c99e51971e4ba1554e5344f7457, type: 3}
+    - {fileID: 8300000, guid: 90f50d8c2f55b304ca92bf1a3f6c8b3f, type: 3}
+    - {fileID: 100002, guid: 00fedc70b62a31e448e8ccc298257b56, type: 3}
     - {fileID: 8300000, guid: 90f50d8c2f55b304ca92bf1a3f6c8b3f, type: 3}
     - {fileID: 100002, guid: 00fedc70b62a31e448e8ccc298257b56, type: 3}
     - {fileID: 5194305270259882080}
@@ -61729,7 +61729,7 @@ MonoBehaviour:
   observableSearch: 2
   ObservedComponents:
   - {fileID: 5194305268529401812}
-  sceneViewId: 0
+  sceneViewId: 3
   InstantiationId: 0
   isRuntimeInstantiated: 0
 --- !u!82 &5194305269836801375
@@ -76759,7 +76759,7 @@ MonoBehaviour:
     - {fileID: 5194305269720297673}
     - {fileID: 8300000, guid: d0ddb34ceffb278499339a71a26c76d0, type: 3}
     - {fileID: 8300000, guid: 90f50d8c2f55b304ca92bf1a3f6c8b3f, type: 3}
-    - {fileID: 8300000, guid: 90f50d8c2f55b304ca92bf1a3f6c8b3f, type: 3}
+    - {fileID: 5194305270630153936}
     - {fileID: 8300000, guid: 7e3bcdca90424ef4f967fb6c262afb10, type: 3}
 --- !u!1 &5194305270459782721
 GameObject:

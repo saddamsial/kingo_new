@@ -238,7 +238,9 @@ public class WeaponShoot : MonoBehaviour
 
             if (TPV != null)
 
-
+            if (TPV.IsMine)
+            return;
+            else
             {
                 AS.PlayOneShot(WeaponType.BodyshotSFX, 500f);
 
