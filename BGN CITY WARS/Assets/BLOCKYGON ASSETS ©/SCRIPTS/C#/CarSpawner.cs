@@ -24,8 +24,7 @@ public float BlockRadius;
 
 [SerializeField]
 private bool Blocked;
-[SerializeField]
-private string collided;
+
 //MessageVars
 public GameObject MessageError;
 
@@ -66,17 +65,18 @@ MessageError.SetActive(Blocked);
 void CheckSpawnable()
 {
 
-  RaycastHit hit;
+ 
     
-    if (Physics.SphereCast(Player.position,BlockRadius,DirectionCheck,out hit, layerMask))
+    if (Physics.CheckSphere(Player.position,BlockRadius,layerMask))
     {
      Blocked= true;
-     collided = hit.collider.name;
+     
 
     }
 
-     else Blocked= false ;
-     collided = ("Nothing");
+     else 
+     {Blocked= false ;
+  
 
 }
 
