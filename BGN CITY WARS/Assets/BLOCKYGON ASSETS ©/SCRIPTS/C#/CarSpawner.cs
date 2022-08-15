@@ -12,6 +12,7 @@ public class CarSpawner : MonoBehaviour
 public Transform VehiclePos;
 public GameObject Vehicle;
 public Transform Player;
+public Vector3 Blockageoffset;
 
 
 //SpawnableVars
@@ -32,6 +33,10 @@ public GameObject MessageError;
 
 
 public LayerMask layerMask;
+
+//Timer for respawn
+public float CanSpawnTime=1f;
+
 
 
 //set Player
@@ -67,16 +72,16 @@ void CheckSpawnable()
 
  
     
-    if (Physics.CheckSphere(Player.position,BlockRadius,layerMask))
-    {
-     Blocked= true;
+    if (Physics.CheckSphere(Player.position + Blockageoffset,BlockRadius,layerMask))
+    
+       {Blocked= true;
      
-
-    }
+       }
+    
 
      else 
      {Blocked= false ;
-  
+     }
 
 }
 
@@ -87,7 +92,7 @@ void CheckSpawnable()
 
 private void OnDrawGizmos()
 {
-    Gizmos.DrawWireSphere(Player.position,BlockRadius);
+    Gizmos.DrawWireSphere(Player.position+ Blockageoffset,BlockRadius);
 }
 
 
