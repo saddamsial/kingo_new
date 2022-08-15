@@ -10,7 +10,10 @@ public class CarSpawner : MonoBehaviour
 
 //Spawnvars
 public Transform VehiclePos;
-public GameObject Vehicle;
+public GameObject VehicleToSpawn;
+[SerializeField]
+private GameObject VehichleSpawned;
+
 public Transform Player;
 public Vector3 Blockageoffset;
 
@@ -35,7 +38,12 @@ public GameObject MessageError;
 public LayerMask layerMask;
 
 //Timer for respawn
-public float CanSpawnTime=1f;
+public float SpawnTime=1f;
+[SerializeField]
+private bool ReadyToSpawn = true;
+[SerializeField]
+private bool IsSpawned = false;
+
 
 
 
@@ -72,7 +80,7 @@ void CheckSpawnable()
 
  
     
-    if (Physics.CheckSphere(Player.position + Blockageoffset,BlockRadius,layerMask))
+    if (Physics.CheckSphere(Player.position + Blockageoffset + transform.forward,BlockRadius,layerMask))
     
        {Blocked= true;
      
@@ -92,7 +100,7 @@ void CheckSpawnable()
 
 private void OnDrawGizmos()
 {
-    Gizmos.DrawWireSphere(Player.position+ Blockageoffset,BlockRadius);
+    Gizmos.DrawWireSphere(Player.position + Blockageoffset + transform.forward,BlockRadius);
 }
 
 
@@ -108,26 +116,47 @@ private void OnDrawGizmos()
 void SpawnCar()
 
 {
+ 
+if (Blocked != true && Input.GetKeyDown(KeyCode.E) && ReadyToSpawn)
+{
+if (IsSpawned)
+{
+PhotonNetwork.Destroy(VehichleSpawned);
 
-if (Blocked != true && Input.GetKeyDown(KeyCode.E))
+VehichleSpawned = PhotonNetwork.Instantiate(VehicleToSpawn.name,VehiclePos.position,Quaternion.identity);
+IsSpawned= true;
+}
+
+else
+
+ {
+VehichleSpawned = PhotonNetwork.Instantiate(VehicleToSpawn.name,VehiclePos.position,Quaternion.identity);
+IsSpawned=true;
+ }
+
+
+ReadyToSpawn = false;
+  
+StartCoroutine (Spawncooldown());
+
+}
+
+}
+
+
+
+
+
+ IEnumerator Spawncooldown()
 {
 
-PhotonNetwork.Instantiate(Vehicle.name,VehiclePos.position,Quaternion.identity);
+yield return new WaitForSeconds (SpawnTime);
 
+ReadyToSpawn = true;
 
-
-  
 
 
 }
-
-}
-
-
-
-
-
-
 
 
 
