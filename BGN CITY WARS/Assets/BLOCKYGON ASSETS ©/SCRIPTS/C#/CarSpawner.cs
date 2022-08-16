@@ -18,7 +18,7 @@ public Transform Player;
 public Vector3 OffsetCheck;
 
 
-//SpawnableVars
+//SpawnableVarslge
 
 public float BlockRadius;
 
@@ -37,11 +37,13 @@ public LayerMask layerMask;
 
 //Timer for respawn
 public float SpawnTime=1f;
-[SerializeField]
-private bool ReadyToSpawn = true;
+public bool ReadyToSpawn = true;
 [SerializeField]
 private bool IsSpawned = false;
 
+//level script access
+[SerializeField]
+private VehicleCoolDown vehicleCoolDown;
 
 
 
@@ -49,6 +51,8 @@ private bool IsSpawned = false;
 void Start()
 {
     Player = this.transform;
+
+    vehicleCoolDown = GameObject.FindGameObjectWithTag("Level Script").GetComponent<VehicleCoolDown>();
 }
 
 
@@ -135,26 +139,13 @@ IsSpawned=true;
 
 ReadyToSpawn = false;
   
-StartCoroutine (Spawncooldown());
+StartCoroutine (vehicleCoolDown.Spawncooldown());
 
 }
 
 }
 
 
-
-
-
- IEnumerator Spawncooldown()
-{
-
-yield return new WaitForSeconds (SpawnTime);
-
-ReadyToSpawn = true;
-
-
-
-}
 
 
 
