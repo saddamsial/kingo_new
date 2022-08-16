@@ -53,6 +53,7 @@ void Start()
     Player = this.transform;
 
     vehicleCoolDown = GameObject.FindGameObjectWithTag("Level Script").GetComponent<VehicleCoolDown>();
+    vehicleCoolDown.Player = this.gameObject;
 }
 
 
