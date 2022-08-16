@@ -54,6 +54,7 @@ void Start()
 
     vehicleCoolDown = GameObject.FindGameObjectWithTag("Level Script").GetComponent<VehicleCoolDown>();
     vehicleCoolDown.Player = this.gameObject;
+    
 }
 
 
@@ -139,8 +140,10 @@ IsSpawned=true;
 
 
 ReadyToSpawn = false;
-  
-StartCoroutine (vehicleCoolDown.Spawncooldown());
+   Debug.Log("Before coroutine");
+StartCoroutine (vehicleCoolDown.Spawncooldown());   
+
+Debug.Log("After coroutine");
 
 }
 

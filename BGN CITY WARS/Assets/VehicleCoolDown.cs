@@ -8,12 +8,12 @@ public class VehicleCoolDown : MonoBehaviour
    
 private CarSpawner carSpawner;
 [SerializeField]
-private GameObject Player;
+public GameObject Player;
 
 
  private void Start() 
 {
-   Player =  GameObject.FindGameObjectWithTag("Player") ;
+  
    carSpawner = Player.GetComponent<CarSpawner>();
 }
 
@@ -25,10 +25,11 @@ private GameObject Player;
 
  public IEnumerator Spawncooldown()
 {
+    Debug.Log("reached coroutine");
 
 yield return new WaitForSeconds (carSpawner.SpawnTime);
 
-carSpawner.ReadyToSpawn = true;
+carSpawner.ReadyToSpawn = (true);
 
 
 
