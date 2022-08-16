@@ -24,7 +24,7 @@ public class RPCCALLS : MonoBehaviour
     {
         GameObject player = this.gameObject;
 
-        PV = player.GetComponent<PhotonView>();
+        PV = player.transform.parent.GetComponent<PhotonView>();
 
         
 

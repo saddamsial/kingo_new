@@ -110,7 +110,7 @@ public class PUNFORRIG : MonoBehaviourPun,IPunObservable
       
         
     {
-        PV = GetComponent<PhotonView>();
+        PV = transform.parent.GetComponent<PhotonView>();
         target = this.gameObject; 
     }
 

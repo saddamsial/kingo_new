@@ -205,7 +205,7 @@ public class WeaponShoot : MonoBehaviour
 
             point = (hit.point);
 
-        TPV = collided.GetComponentInParent<PhotonView>();
+        TPV = collided.transform.parent.GetComponentInParent<PhotonView>();
          
         //bullet HOLE SPAWN 
         GameObject.Instantiate(WeaponType.BulletHoleVFX,hit.point,transform.localRotation);

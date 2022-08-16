@@ -15,12 +15,10 @@ public GameObject VehicleToSpawn;
 private GameObject VehichleSpawned;
 
 public Transform Player;
-public Vector3 Blockageoffset;
+public Vector3 OffsetCheck;
 
 
 //SpawnableVars
-public Vector3 DirectionCheck;
-public float MaxDistanceCheck;
 
 public float BlockRadius;
 
@@ -80,7 +78,7 @@ void CheckSpawnable()
 
  
     
-    if (Physics.CheckSphere(Player.position + Blockageoffset + transform.forward,BlockRadius,layerMask))
+    if (Physics.CheckSphere(Player.position + OffsetCheck + transform.forward,BlockRadius,layerMask))
     
        {Blocked= true;
      
@@ -100,7 +98,7 @@ void CheckSpawnable()
 
 private void OnDrawGizmos()
 {
-    Gizmos.DrawWireSphere(Player.position + Blockageoffset + transform.forward,BlockRadius);
+    Gizmos.DrawWireSphere(Player.position + OffsetCheck + transform.forward,BlockRadius);
 }
 
 
