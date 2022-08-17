@@ -17,7 +17,6 @@ private GameObject VehichleSpawned;
 public Transform Player;
 public Vector3 OffsetCheck;
 
-public float test = 1f;
 
 
 //SpawnableVarslge
@@ -31,6 +30,7 @@ private bool Blocked;
 
 //MessageVars
 public GameObject MessageError;
+public KeyCode Keybind;
 
 
 
@@ -126,7 +126,7 @@ void SpawnCar()
 
 {
  
-if (Blocked != true && Input.GetKeyDown(KeyCode.E) & ReadyToSpawn)
+if (Blocked != true && Input.GetKeyDown(Keybind) & ReadyToSpawn)
 {
     
 ReadyToSpawn = false;
