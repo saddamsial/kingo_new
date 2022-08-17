@@ -17,6 +17,8 @@ private GameObject VehichleSpawned;
 public Transform Player;
 public Vector3 OffsetCheck;
 
+public float test = 1f;
+
 
 //SpawnableVarslge
 
@@ -37,9 +39,12 @@ public LayerMask layerMask;
 
 //Timer for respawn
 public float SpawnTime=1f;
+public bool ReadyToCool = false;
 public bool ReadyToSpawn = true;
 [SerializeField]
 private bool IsSpawned = false;
+
+
 
 //level script access
 [SerializeField]
@@ -121,35 +126,37 @@ void SpawnCar()
 
 {
  
-if (Blocked != true && Input.GetKeyDown(KeyCode.E) && ReadyToSpawn)
+if (Blocked != true && Input.GetKeyDown(KeyCode.E) & ReadyToSpawn)
 {
+    
+ReadyToSpawn = false;
+
+ReadyToCool = true;
+
+     
+
+
 if (IsSpawned)
 {
 PhotonNetwork.Destroy(VehichleSpawned);
 
-VehichleSpawned = PhotonNetwork.Instantiate(VehicleToSpawn.name,VehiclePos.position,Quaternion.identity);
+VehichleSpawned = PhotonNetwork.Instantiate(VehicleToSpawn.name,VehiclePos.position,VehiclePos.rotation);
 IsSpawned= true;
 }
 
 else
 
  {
-VehichleSpawned = PhotonNetwork.Instantiate(VehicleToSpawn.name,VehiclePos.position,Quaternion.identity);
+VehichleSpawned = PhotonNetwork.Instantiate(VehicleToSpawn.name,VehiclePos.position,VehiclePos.rotation);
 IsSpawned=true;
  }
 
 
-ReadyToSpawn = false;
-   Debug.Log("Before coroutine");
 
 
-     
-StartCoroutine (vehicleCoolDown.Spawncooldown());   
   
 
 
-
-Debug.Log("After coroutine");
 
 }
 

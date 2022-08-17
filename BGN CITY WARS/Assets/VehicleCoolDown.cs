@@ -7,23 +7,33 @@ public class VehicleCoolDown : MonoBehaviour
 {//sc
    
 private CarSpawner carSpawner;
-[SerializeField]
+[HideInInspector]
 public GameObject Player;
 
-public Vector3 Ready;
+private bool TargetActive;
 
 
 
- private void Awake() 
-{
-  
-   carSpawner = Player.GetComponent<CarSpawner>();
-}
+
+
+
 
  private void Update() 
 
 {
-     Ready = carSpawner.OffsetCheck;
+     carSpawner = Player.GetComponent<CarSpawner>();
+     TargetActive = carSpawner.isActiveAndEnabled;
+   
+if (carSpawner.ReadyToCool)
+ { StartCoroutine (Spawncooldown());
+
+
+
+
+}
+  
+
+
 }
 
 
@@ -33,11 +43,24 @@ public Vector3 Ready;
  public IEnumerator Spawncooldown()
 {
     Debug.Log("reached coroutine");
-
+ carSpawner.ReadyToCool = (false);
 yield return new WaitForSeconds (carSpawner.SpawnTime);
 
-//Ready= (true);
+Debug.Log("reached if");
+if (!TargetActive)
+{
+yield return new WaitUntil (() => TargetActive == true );
 
+carSpawner.ReadyToSpawn= (true);
+carSpawner.ReadyToCool = (false);
+
+}
+
+else 
+{
+    carSpawner.ReadyToSpawn= (true);
+   
+}
 
 
 }
