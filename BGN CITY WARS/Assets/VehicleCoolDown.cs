@@ -42,8 +42,9 @@ carSpawner.ReadyToSpawn = (true);
 
 public void SpawnCool()
 {
-
-carSpawner.ReadyToSpawn = (true);
+ Debug.Log ("arrived");
+carSpawner.ReadyToSpawn = true;
+ Debug.Log ("arrived after");
 }
 
 
