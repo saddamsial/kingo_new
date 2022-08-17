@@ -10,14 +10,21 @@ private CarSpawner carSpawner;
 [SerializeField]
 public GameObject Player;
 
+public Vector3 Ready;
 
- private void Start() 
+
+
+ private void Awake() 
 {
   
    carSpawner = Player.GetComponent<CarSpawner>();
 }
 
+ private void Update() 
 
+{
+     Ready = carSpawner.OffsetCheck;
+}
 
 
 
@@ -29,23 +36,12 @@ public GameObject Player;
 
 yield return new WaitForSeconds (carSpawner.SpawnTime);
 
-carSpawner.ReadyToSpawn = (true);
+//Ready= (true);
 
 
 
 }
 
-
-
-
-
-
-public void SpawnCool()
-{
- Debug.Log ("arrived");
-carSpawner.ReadyToSpawn = true;
- Debug.Log ("arrived after");
-}
 
 
 

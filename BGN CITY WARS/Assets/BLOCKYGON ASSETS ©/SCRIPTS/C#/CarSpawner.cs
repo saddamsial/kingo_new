@@ -143,8 +143,8 @@ ReadyToSpawn = false;
    Debug.Log("Before coroutine");
 
 
-     vehicleCoolDown.SpawnCool();
-//StartCoroutine (vehicleCoolDown.Spawncooldown());   
+     
+StartCoroutine (vehicleCoolDown.Spawncooldown());   
   
 
 
