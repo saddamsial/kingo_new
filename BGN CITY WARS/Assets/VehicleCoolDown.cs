@@ -40,5 +40,16 @@ carSpawner.ReadyToSpawn = (true);
 
 
 
+public void SpawnCool()
+{
+
+carSpawner.ReadyToSpawn = (true);
+}
+
+
+
+
+
+
 
 }//ec
