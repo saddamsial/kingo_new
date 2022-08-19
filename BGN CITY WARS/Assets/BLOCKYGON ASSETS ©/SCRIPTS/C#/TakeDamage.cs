@@ -23,6 +23,11 @@ public class TakeDamage : MonoBehaviour
 
     {//sf
 
+    if(pv!= null)
+    {
+
+    
+
         if (Shield <= 0f & pv.IsMine)
         {
             HP = HP - Damage;
@@ -34,9 +39,24 @@ public class TakeDamage : MonoBehaviour
         }
 
                 
+}
+
+else 
+{
+
+        if (Shield <= 0f )
+        {
+            HP = HP - Damage;
+        }
+
+        else
+        {
+            Shield = Shield - Damage;
+        }
 
 
 
+}
         
                 
         
@@ -51,8 +71,18 @@ public class TakeDamage : MonoBehaviour
     }//ef
 
 
-
-
+//when hp goes bellow 0 it sets back to 0
+ private void HPcap()
+ {
+    if (HP<= 0)
+    HP =0F;
+ }
+//same but for shield
+ private void SHIELDcap()
+ {
+    if (Shield<= 0)
+    Shield =0F;
+ }
 
 
 

@@ -222,8 +222,7 @@ public class WeaponShoot : MonoBehaviour
 
 
 
-
-    //check Body hit
+    //check Bodyshot
 
     void BodyShot()
 
@@ -237,10 +236,10 @@ public class WeaponShoot : MonoBehaviour
         {
 
             if (TPV != null)
-
+              //self shoot detect
             if (TPV.IsMine)
             return;
-            else
+            else // other online player detect
             {
                 AS.PlayOneShot(WeaponType.BodyshotSFX, 500f);
 
@@ -258,9 +257,26 @@ public class WeaponShoot : MonoBehaviour
 
             else if (collided.name == "HIT BOX-BODY" & TPV == null)
             {
-
+                      ///AI detct
+            if(collided.CompareTag("AI"))
+             
+            {
+            TakeDamage takedamage = collided.transform.parent.GetComponent<TakeDamage>();
 
                 AS.PlayOneShot(WeaponType.BodyshotSFX, 500f);
+
+                Debug.Log("AI Target Detected-Body");
+
+                //Hit Reticle Enable
+                StartCoroutine(Hitreticle());
+               takedamage.Takedamage(0.15f);
+
+            }
+
+            else
+             {
+
+             AS.PlayOneShot(WeaponType.BodyshotSFX, 500f);
 
                 Debug.Log("Iron Target Detected-Body");
 
@@ -269,68 +285,75 @@ public class WeaponShoot : MonoBehaviour
 
 
             }
-
-
-
-
-
-
-
-
-
-
-
-
-
+              
+            }
 
         }
 
-
-     
-
         else return;
 
-
-
-
     } //EF
-
-
+   //check headshot
     void HeadShot()
     { //SF
 
 
         if (collided != null & collided.name == "HIT BOX-HEAD" & TPV != null)
 
-        {
-            if (!TPV.IsMine)
-            { 
+       {
 
-            AS.PlayOneShot(WeaponType.HeadshotSFX, 400f);
+            if (TPV != null)
+              //self shoot detect
+            if (TPV.IsMine)
+            return;
+            else // other online player detect
+            {
+                AS.PlayOneShot(WeaponType.HeadshotSFX, 500f);
 
-            PV.RPC("Headdamage", RpcTarget.Others);
+                PV.RPC("Headdamage", RpcTarget.Others);
 
                 //  TPV = collided.GetComponent<PhotonView>();
 
-            Debug.Log("Real Player Detected-Head");
+                Debug.Log("Real Player Detected-Head");
+
+                //Hit Reticle Enable
+                StartCoroutine(HitHeadreticle());
+            }
 
 
-             //Hit Reticle Enable
-             StartCoroutine(HitHeadreticle());
+
+            else if (collided.name == "HIT BOX-HEAD" & TPV == null)
+            {
+                      ///AI detct
+            if(collided.CompareTag("AI"))
+             
+            {
+            TakeDamage takedamage = collided.transform.parent.GetComponent<TakeDamage>();
+
+                AS.PlayOneShot(WeaponType.HeadshotSFX, 500f);
+
+                Debug.Log("AI Target Detected-Head");
+
+                //Hit Reticle Enable
+                StartCoroutine(HitHeadreticle());
+               takedamage.Takedamage(0.3f);
 
             }
-        }
+
+            else
+             {
+
+             AS.PlayOneShot(WeaponType.HeadshotSFX, 500f);
+
+                Debug.Log("Iron Target Detected-Head");
+
+                //Hit Reticle Enable
+                StartCoroutine(HitHeadreticle());
 
 
-        else if (collided.name == "HIT BOX-HEAD" & TPV == null)
-        {
-
-            AS.PlayOneShot(WeaponType.HeadshotSFX, 400f);
-    
-            Debug.Log("Iron Target Detected-Head");
-
-            //Hit Reticle Enable
-            StartCoroutine(HitHeadreticle());
+            }
+              
+            }
 
         }
 
