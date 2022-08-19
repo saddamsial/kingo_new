@@ -21,44 +21,31 @@ public class WeaponShoot : MonoBehaviour
     public int Clip;
     public int Ammo;
 
-
     public Collider collided;
 
     [SerializeField]
     private LayerMask layermask;
     public Vector3  point;
-
-
     private Vector3 pos;
     private Vector3 Dir;
-
     private RaycastHit hit;
-
-
     public AudioSource AS;
-   
     private Animator animator;
-
     private Transform PlayerParent;
-   
     // VFX SPAWN
     public ParticleSystem BulletTrailVFX;
     public ParticleSystem BulletDropVFX;
     public GameObject SparkleVFX;
-
     //HitReticleS
     public GameObject HitReticle;
     public GameObject HitHeadReticle;
-
     //UI TEXT
     public GameObject ReloadingTextUI;
     public GameObject NoAmmoTextUI;
 
-
     //pun variables
     private PhotonView PV;
     public PhotonView TPV;
-
 
 
     private void OnEnable()
@@ -178,28 +165,20 @@ public class WeaponShoot : MonoBehaviour
 
     {
        
-
         //track shots fired
         BulletsFired = BulletsFired+1;
 
         //subtract bullets
         Clip = Clip - 1;
 
-        
-    
-
         //Reset FireRate
 
         lastshot = Time.time;
 
-
       //  SparkleVFX.SetActive(false);
-
-
 
         //fire
         Physics.Raycast(pos, Dir, out hit, Mathf.Infinity, layermask);
-
 
         collided = hit.collider;
 
@@ -210,12 +189,10 @@ public class WeaponShoot : MonoBehaviour
         //bullet HOLE SPAWN 
         GameObject.Instantiate(WeaponType.BulletHoleVFX,hit.point,transform.localRotation);
        
-
         //Call Methods
         BodyShot();
 
         HeadShot();
-
 
 
     }
@@ -297,11 +274,10 @@ public class WeaponShoot : MonoBehaviour
     void HeadShot()
     { //SF
 
-
-        if (collided != null & collided.name == "HIT BOX-HEAD" & TPV != null)
+            if (collided != null & collided.name == "HIT BOX-HEAD")
 
        {
-
+              Debug.Log (collided);
             if (TPV != null)
               //self shoot detect
             if (TPV.IsMine)
@@ -324,6 +300,7 @@ public class WeaponShoot : MonoBehaviour
 
             else if (collided.name == "HIT BOX-HEAD" & TPV == null)
             {
+               
                       ///AI detct
             if(collided.CompareTag("AI"))
              
@@ -342,6 +319,7 @@ public class WeaponShoot : MonoBehaviour
 
             else
              {
+               
 
              AS.PlayOneShot(WeaponType.HeadshotSFX, 500f);
 
@@ -462,7 +440,6 @@ public class WeaponShoot : MonoBehaviour
 
 
 
-   
 
 
 
