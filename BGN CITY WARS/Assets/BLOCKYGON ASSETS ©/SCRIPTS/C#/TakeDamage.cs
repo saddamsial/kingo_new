@@ -9,6 +9,7 @@ public class TakeDamage : MonoBehaviour
     public float HP = 1f;
     public float Shield = 1f;
     private PhotonView pv;
+   public bool hurt;
     private void Start()
     {
         pv = this.GetComponent<PhotonView>();
@@ -26,12 +27,13 @@ public class TakeDamage : MonoBehaviour
     public void Takedamage(float Damage)
 
     {//sf
+    
+     hurt = true;
 
     if(pv!= null)
     {
-
+   
     
-
         if (Shield <= 0f & pv.IsMine)
         {
             HP = HP - Damage;
