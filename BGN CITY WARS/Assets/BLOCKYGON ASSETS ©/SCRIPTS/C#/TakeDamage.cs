@@ -16,7 +16,11 @@ public class TakeDamage : MonoBehaviour
     }
 
 
-
+ private void Update() 
+ {
+    HPcap();
+    SHIELDcap();
+ }
 
 
     public void Takedamage(float Damage)

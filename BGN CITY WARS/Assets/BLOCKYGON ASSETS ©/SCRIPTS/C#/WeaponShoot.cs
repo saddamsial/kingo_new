@@ -123,7 +123,7 @@ public class WeaponShoot : MonoBehaviour
         { //canfire
 
 
-        if (Input.GetKey(KeyCode.Mouse0) == true & PV.IsMine & Time.time > lastshot+WeaponType.FireRate & Clip >0)
+        if (Input.GetKey(KeyCode.Mouse0) == true & PV.IsMine & Time.time > lastshot+WeaponType.FireRate & Clip >0 && !Reloading)
         {
             AS.PlayOneShot(WeaponType.FireSFX, 1f);
             Fired = true;
@@ -184,12 +184,19 @@ public class WeaponShoot : MonoBehaviour
 
             point = (hit.point);
 
-        TPV = collided.transform.parent.GetComponentInParent<PhotonView>();
+   if (collided == null)
+    {return;}
+  else
+
+     {   TPV = collided.transform.parent.GetComponentInParent<PhotonView>();
          
         //bullet HOLE SPAWN 
         GameObject.Instantiate(WeaponType.BulletHoleVFX,hit.point,transform.localRotation);
        
         //Call Methods
+ 
+
+  
         BodyShot();
 
         HeadShot();
@@ -284,7 +291,7 @@ public class WeaponShoot : MonoBehaviour
             return;
             else // other online player detect
             {
-                AS.PlayOneShot(WeaponType.HeadshotSFX, 500f);
+                AS.PlayOneShot(WeaponType.HeadshotSFX, 100f);
 
                 PV.RPC("Headdamage", RpcTarget.Others);
 
@@ -307,7 +314,7 @@ public class WeaponShoot : MonoBehaviour
             {
             TakeDamage takedamage = collided.transform.parent.GetComponent<TakeDamage>();
 
-                AS.PlayOneShot(WeaponType.HeadshotSFX, 500f);
+                AS.PlayOneShot(WeaponType.HeadshotSFX, 100f);
 
                 Debug.Log("AI Target Detected-Head");
 
@@ -321,7 +328,7 @@ public class WeaponShoot : MonoBehaviour
              {
                
 
-             AS.PlayOneShot(WeaponType.HeadshotSFX, 500f);
+             AS.PlayOneShot(WeaponType.HeadshotSFX, 100f);
 
                 Debug.Log("Iron Target Detected-Head");
 
@@ -337,7 +344,7 @@ public class WeaponShoot : MonoBehaviour
 
         else return;
 
-
+    }
 
 
     }//EF

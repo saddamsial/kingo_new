@@ -31,7 +31,7 @@ namespace Cinemachine.Examples
         }
 
         // Update is called once per frame
-        void FixedUpdate()
+        void Update()
         {
             input.x = Input.GetAxis("Horizontal");
             input.y = Input.GetAxis("Vertical");
