@@ -9,7 +9,6 @@ public class WeaponShoot : MonoBehaviour
 {
     // Start is called before the first frame update
     public WeaponDATA WeaponType;
-  
     private float lastshot = 0f;
     public bool Fired;
     public int BulletsFired = 0;
@@ -20,14 +19,13 @@ public class WeaponShoot : MonoBehaviour
     private bool NoAmmo;
     public int Clip;
     public int Ammo;
-
     public Collider collided;
 
     [SerializeField]
     private LayerMask layermask;
-    public Vector3  point;
-    private Vector3 pos;
-    private Vector3 Dir;
+    private Vector3  point;
+    public Transform pos;
+    public Transform Dir;
     private RaycastHit hit;
     public AudioSource AS;
     private Animator animator;
@@ -61,8 +59,6 @@ public class WeaponShoot : MonoBehaviour
 
     }
 
-
-
     // Update is called once per frame
     void Update()
 
@@ -91,9 +87,9 @@ public class WeaponShoot : MonoBehaviour
 
 
 
-        pos = Camera.main.transform.position;
-        Dir = Camera.main.transform.forward;
-
+       // pos = Camera.main.transform.position;
+       // Dir = Camera.main.transform.forward;
+      
 
 
         //Ammo Clamp
@@ -160,7 +156,6 @@ public class WeaponShoot : MonoBehaviour
 
     }
 
-
     void Shoot()
 
     {
@@ -178,7 +173,7 @@ public class WeaponShoot : MonoBehaviour
       //  SparkleVFX.SetActive(false);
 
         //fire
-        Physics.Raycast(pos, Dir, out hit, Mathf.Infinity, layermask);
+        Physics.Raycast(pos.position, Dir.forward, out hit, Mathf.Infinity, layermask);
 
         collided = hit.collider;
 
@@ -195,16 +190,11 @@ public class WeaponShoot : MonoBehaviour
        
         //Call Methods
  
-
-  
         BodyShot();
 
         HeadShot();
 
-
     }
-
-
 
     //check Bodyshot
 
@@ -350,7 +340,6 @@ public class WeaponShoot : MonoBehaviour
     }//EF
   
      
-
     [PunRPC]
     void Bodydamage()
     {//sf
@@ -443,10 +432,6 @@ public class WeaponShoot : MonoBehaviour
         yield return new WaitForSeconds(0.25f);
         HitHeadReticle.SetActive(false);
     }
-
-
-
-
 
 
 
