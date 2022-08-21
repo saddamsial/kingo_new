@@ -24,8 +24,7 @@ public class WeaponShoot : MonoBehaviour
     [SerializeField]
     private LayerMask layermask;
     private Vector3  point;
-    public Transform pos;
-    public Transform Dir;
+    private Transform pos;
     private RaycastHit hit;
     public AudioSource AS;
     private Animator animator;
@@ -64,9 +63,6 @@ public class WeaponShoot : MonoBehaviour
 
     {
        
-
-
-
         //ammo sync
         WeaponType.Clip = Clip;
         WeaponType.Ammo = Ammo;
@@ -77,9 +73,6 @@ public class WeaponShoot : MonoBehaviour
 
 
 
-
-
-
         if (Ammo == 0)
         {
             NoAmmo = true;
@@ -87,8 +80,7 @@ public class WeaponShoot : MonoBehaviour
 
 
 
-       // pos = Camera.main.transform.position;
-       // Dir = Camera.main.transform.forward;
+        pos = Camera.main.transform.GetChild(2);
       
 
 
@@ -173,7 +165,7 @@ public class WeaponShoot : MonoBehaviour
       //  SparkleVFX.SetActive(false);
 
         //fire
-        Physics.Raycast(pos.position, Dir.forward, out hit, Mathf.Infinity, layermask);
+        Physics.Raycast(pos.position, pos.forward, out hit, Mathf.Infinity, layermask);
 
         collided = hit.collider;
 
