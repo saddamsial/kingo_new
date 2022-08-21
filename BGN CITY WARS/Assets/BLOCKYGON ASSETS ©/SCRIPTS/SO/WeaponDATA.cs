@@ -11,8 +11,8 @@ public class WeaponDATA : ScriptableObject
    public float FireRate;
     public float BodyDamage;
     public float HeadDamage;
-    public float Clip;
-    public float Ammo;
+    public int CurrentClip;
+    public int Ammo;
     public float ReloadTime;
     public int MaxClip;
     public int MaxAmmo;
