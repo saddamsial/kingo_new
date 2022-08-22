@@ -67,11 +67,10 @@ public class WeaponShoot : MonoBehaviour
         //NoAmmo text
         if(WeaponType.CurrentClip< 1) { NoAmmoTextUI.SetActive(NoAmmo); }
 
-
-
         if (WeaponType.Ammo == 0)
         {
-            NoAmmo = true;      
+            NoAmmo = true;
+            BulletsFired = WeaponType.MaxClip;      
         }
     
         else 
@@ -80,7 +79,6 @@ public class WeaponShoot : MonoBehaviour
             NoAmmo = false;      
         }
     }
-
 
         pos = Camera.main.transform.GetChild(2);
       
