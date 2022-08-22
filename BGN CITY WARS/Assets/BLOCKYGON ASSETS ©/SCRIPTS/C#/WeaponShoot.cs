@@ -96,9 +96,9 @@ public class WeaponShoot : MonoBehaviour
             WeaponType.CurrentClip = 0;
         }
 
-        if (WeaponType.CurrentClip >= 7)
+        if (WeaponType.CurrentClip >= WeaponType.MaxClip)
 
-          {WeaponType.CurrentClip = 7;}
+          {WeaponType.CurrentClip = WeaponType.MaxClip;}
 
         if (Time.time > lastshot + 0.2f)
         {     
@@ -236,7 +236,7 @@ public class WeaponShoot : MonoBehaviour
 
                 //Hit Reticle Enable
                 StartCoroutine(Hitreticle());
-               takedamage.Takedamage(0.15f);
+               takedamage.Takedamage(WeaponType.BodyDamage);
 
             }
 
@@ -303,7 +303,7 @@ public class WeaponShoot : MonoBehaviour
 
                 //Hit Reticle Enable
                 StartCoroutine(HitHeadreticle());
-               takedamage.Takedamage(0.3f);
+               takedamage.Takedamage(WeaponType.HeadDamage);
 
             }
 
