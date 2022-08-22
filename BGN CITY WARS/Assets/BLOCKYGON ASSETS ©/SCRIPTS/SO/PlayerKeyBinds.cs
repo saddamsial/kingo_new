@@ -22,5 +22,8 @@ public string weapon2;
 public string weapon3;
 public string mapwindow;
 public string carenter = ("F");
+public bool ToggleSprint;
+
+
 }
 
