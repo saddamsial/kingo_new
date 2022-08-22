@@ -13,17 +13,10 @@ public class WeaponShoot : MonoBehaviour
     public bool Fired;
     public int BulletsFired = 0;
     public bool Canfire;
- 
     public  bool Reloading;
     [SerializeField]
     private bool NoAmmo;
-
- 
-  
-   
-    
     public Collider collided;
-
     [SerializeField]
     private LayerMask layermask;
     private Vector3  point;
@@ -42,7 +35,6 @@ public class WeaponShoot : MonoBehaviour
     //UI TEXT
     public GameObject ReloadingTextUI;
     public GameObject NoAmmoTextUI;
-
     //pun variables
     private PhotonView PV;
     public PhotonView TPV;
@@ -66,7 +58,10 @@ public class WeaponShoot : MonoBehaviour
 
     {
        
-
+    if (WeaponType.MaxedAmmo)
+    {
+        WeaponType.Ammo = WeaponType.MaxAmmo;
+    }
         //reloading text
         ReloadingTextUI.SetActive(Reloading);
         //NoAmmo text
@@ -76,9 +71,15 @@ public class WeaponShoot : MonoBehaviour
 
         if (WeaponType.Ammo == 0)
         {
-            NoAmmo = true;
+            NoAmmo = true;      
         }
-
+    
+        else 
+    {
+        {
+            NoAmmo = false;      
+        }
+    }
 
 
         pos = Camera.main.transform.GetChild(2);
@@ -97,9 +98,9 @@ public class WeaponShoot : MonoBehaviour
             WeaponType.CurrentClip = 0;
         }
 
+        if (WeaponType.CurrentClip >= 7)
 
-
-        
+          {WeaponType.CurrentClip = 7;}
 
         if (Time.time > lastshot + 0.2f)
         {     
@@ -380,33 +381,27 @@ public class WeaponShoot : MonoBehaviour
 
     {//sf
    
-      Reloading = true;
-      AS.PlayOneShot(WeaponType.ReloadSFX, 1);
-        
-        
-        {
+     Reloading = true;
+     AS.PlayOneShot(WeaponType.ReloadSFX, 1);
+     WeaponType.MaxedAmmo = false; 
+    {
+        yield return new WaitForSeconds(WeaponType.ReloadTime);
 
-            yield return new WaitForSeconds(WeaponType.ReloadTime);
-
-        if(WeaponType.Ammo < WeaponType.MaxClip)
+ if     (WeaponType.Ammo < WeaponType.MaxClip)
      {
-        WeaponType.CurrentClip = WeaponType.CurrentClip + WeaponType.Ammo;
-         BulletsFired = 0;
+        
+         WeaponType.CurrentClip = WeaponType.CurrentClip + WeaponType.Ammo;
          WeaponType.Ammo = WeaponType.Ammo - BulletsFired;
+         BulletsFired = 0;
          Reloading = false;
-
-
      }
 
 else
-
         {
-
          WeaponType.CurrentClip = WeaponType.CurrentClip + BulletsFired;
          WeaponType.Ammo = WeaponType.Ammo - BulletsFired;
          BulletsFired = 0;
          Reloading = false;
-
         }
     
        
@@ -433,14 +428,12 @@ else
         yield return new WaitForSeconds(0.25f);
         HitReticle.SetActive(false);
     }
-
     IEnumerator HitHeadreticle()
     {
         HitHeadReticle.SetActive(true);
         yield return new WaitForSeconds(0.25f);
         HitHeadReticle.SetActive(false);
     }
-
 
 
 }//EC

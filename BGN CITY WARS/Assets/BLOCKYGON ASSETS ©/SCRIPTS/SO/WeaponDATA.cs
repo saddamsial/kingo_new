@@ -16,6 +16,7 @@ public class WeaponDATA : ScriptableObject
     public float ReloadTime;
     public int MaxClip;
     public int MaxAmmo;
+    public bool MaxedAmmo;
     
 
     public AudioClip FireSFX;
