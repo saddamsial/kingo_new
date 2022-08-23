@@ -7,7 +7,7 @@ using Photon.Pun;
 
 public class WeaponShoot : MonoBehaviour
 {
-    // Start is called before the first frame update
+    /// variables///
     public WeaponDATA WeaponType;
     private float lastshot = 0f;
     public bool Fired;
@@ -50,14 +50,29 @@ public class WeaponShoot : MonoBehaviour
 
         AS = GetComponent<AudioSource>();
         animator = PlayerParent.GetComponent<Animator>();
+         //disable any active vfx uppon weapon switch
+         SparkleVFX.SetActive(false);
+          // start reload after weapon pull//
+        if ( WeaponType.CurrentClip < 1 && NoAmmo != true)
+        {
+            StartCoroutine(Reload());
+        }
 
     }
+    private void OnDisable() 
+    {
+    Reloading = false;
 
-    // Update is called once per frame
+    }
+   private void Start() {
+    WeaponType.CurrentClip = WeaponType.MaxClip;
+   }
     void Update()
 
     {
-       
+//no ammo UI Text 
+    NoAmmoTextUI.SetActive(NoAmmo);
+
     if (WeaponType.MaxedAmmo)
     {
         WeaponType.Ammo = WeaponType.MaxAmmo;
@@ -65,14 +80,12 @@ public class WeaponShoot : MonoBehaviour
         //reloading text
         ReloadingTextUI.SetActive(Reloading);
         //NoAmmo text
-        if(WeaponType.CurrentClip< 1) { NoAmmoTextUI.SetActive(NoAmmo); }
-
-        if (WeaponType.Ammo == 0)
+        if(WeaponType.CurrentClip < 1 && WeaponType.Ammo == 0)  
         {
             NoAmmo = true;
             BulletsFired = WeaponType.MaxClip;      
         }
-    
+        
         else 
     {
         {
@@ -147,7 +160,6 @@ public class WeaponShoot : MonoBehaviour
 
 
     }
-
     void Shoot()
 
     {
@@ -331,8 +343,7 @@ public class WeaponShoot : MonoBehaviour
 
 
     }//EF
-  
-     
+
     [PunRPC]
     void Bodydamage()
     {//sf
@@ -370,7 +381,6 @@ public class WeaponShoot : MonoBehaviour
 
 
     }//ef
-
 
       /////Coroutines/////
 
