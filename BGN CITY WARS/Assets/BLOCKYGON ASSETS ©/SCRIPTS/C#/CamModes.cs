@@ -3,10 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 public class CamModes : MonoBehaviour
 {
-    //public CinemachineFreeLook FL;
-
-    public Camera Camera;
-   
+    private Camera Camera;
     private PlayerActionsVar vars;
     //CAM MODES
     public float FMC = 30f;
@@ -15,36 +12,24 @@ public class CamModes : MonoBehaviour
      public float SprintingFOV = 40f;
      public float SprintDamp = 40f;
     public float smoothness = 40f;
-
     private float currentspeedFMC;
     private  float currentspeedCMC;
     private float currentspeedAMC;
-    
-   
+
     
 
     private void Awake()
     {
        Camera = Camera.main;
-       
-
     }
     private void Start()
     {
         vars = GetComponent<PlayerActionsVar>();
-        
-
-      
-
     }
-
-
     void Update()
 
     {
-      //  CinemachineFramingTransposer FT = VC.GetCinemachineComponent<CinemachineFramingTransposer>();
-        
-
+      
         if (!vars.Sprinting)
         {
         if (vars.Combat & !vars.IsAiming)
@@ -74,7 +59,6 @@ public class CamModes : MonoBehaviour
         else SprintfOV();
 
 }
-            
     void SprintfOV()
     {
      if(vars.Sprinting)
@@ -86,17 +70,6 @@ public class CamModes : MonoBehaviour
 
     }
 
-
-
-
-
-
-
-
-
-
-
-   
 
 
 
