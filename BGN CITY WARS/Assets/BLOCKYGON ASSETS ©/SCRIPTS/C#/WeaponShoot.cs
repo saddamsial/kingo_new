@@ -153,7 +153,7 @@ public class WeaponShoot : MonoBehaviour
           StartCoroutine( Reload());
         }
         //Manual reload
-        if (Input.GetKey(KeyCode.R) & !Reloading & !NoAmmo & WeaponType.CurrentClip < WeaponType.MaxClip)
+        if (Input.GetKey(KeyCode.R) & !Reloading & !NoAmmo & WeaponType.CurrentClip < WeaponType.MaxClip && WeaponType.Ammo > 0) 
         {
             StartCoroutine(Reload());
         } 
