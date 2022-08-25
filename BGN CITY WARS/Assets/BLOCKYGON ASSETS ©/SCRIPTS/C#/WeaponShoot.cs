@@ -148,7 +148,7 @@ public class WeaponShoot : MonoBehaviour
 
         //auto reload
 
-        if (WeaponType.CurrentClip == 0&!Reloading & ! NoAmmo)
+        if (WeaponType.CurrentClip == 0&!Reloading & ! NoAmmo && WeaponType.Ammo > 0)
         {
           StartCoroutine( Reload());
         }
