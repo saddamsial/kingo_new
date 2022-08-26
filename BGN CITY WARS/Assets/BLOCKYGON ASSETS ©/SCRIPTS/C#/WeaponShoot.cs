@@ -71,10 +71,6 @@ public class WeaponShoot : MonoBehaviour
     void Update()
 {
 // CHECK RETICLE HIT(NO SHOOTING)
- TargetFound=  Physics.CheckBox(pos.position, pos.forward,Quaternion.identity);
-
-
-  
 
 
 
