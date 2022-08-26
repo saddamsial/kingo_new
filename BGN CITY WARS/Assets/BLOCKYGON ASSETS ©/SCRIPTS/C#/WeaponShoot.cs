@@ -71,16 +71,10 @@ public class WeaponShoot : MonoBehaviour
     void Update()
 {
 // CHECK RETICLE HIT(NO SHOOTING)
-     Physics.Raycast(pos.position, pos.forward, out hit, Mathf.Infinity, layermask);
+ TargetFound=  Physics.CheckBox(pos.position, pos.forward,Quaternion.identity);
 
 
-        collided = hit.collider;
-
-            point = (hit.point);
-
-   if (collided == null)
-    {return;}
-
+  
 
 
 
