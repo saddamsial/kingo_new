@@ -10,6 +10,7 @@ public class WeaponShoot : MonoBehaviour
     /// variables///
     public WeaponDATA WeaponType;
     private float lastshot = 0f;
+    public bool TargetFound;
     public bool Fired;
     public int BulletsFired = 0;
     public bool Canfire;
@@ -68,8 +69,12 @@ public class WeaponShoot : MonoBehaviour
     WeaponType.CurrentClip = WeaponType.MaxClip;
    }
     void Update()
+{
+// CHECK RETICLE HIT(NO SHOOTING)
+RaycastHit hit;
+ TargetFound = Physics.Raycast(pos.position, pos.forward, out hit, Mathf.Infinity,layermask);
 
-    {
+     
 //no ammo UI Text 
     NoAmmoTextUI.SetActive(NoAmmo);
 
