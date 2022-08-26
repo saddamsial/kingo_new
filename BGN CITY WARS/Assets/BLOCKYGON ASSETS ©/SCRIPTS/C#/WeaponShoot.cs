@@ -71,8 +71,20 @@ public class WeaponShoot : MonoBehaviour
     void Update()
 {
 // CHECK RETICLE HIT(NO SHOOTING)
-RaycastHit hit;
- TargetFound = Physics.Raycast(pos.position, pos.forward, out hit, Mathf.Infinity,layermask);
+     Physics.Raycast(pos.position, pos.forward, out hit, Mathf.Infinity, layermask);
+
+
+        collided = hit.collider;
+
+            point = (hit.point);
+
+   if (collided == null)
+    {return;}
+
+
+
+
+
 
      
 //no ammo UI Text 
