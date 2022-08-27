@@ -101,7 +101,11 @@ public class WeaponShoot : MonoBehaviour
     }
 
         pos = Camera.main.transform.GetChild(2);
-      
+      //Reset BulletsFired Custom conditions(calculate the difference manually)
+      if (WeaponType.Ammo == 0 )
+      {
+        BulletsFired = WeaponType.MaxClip - WeaponType.CurrentClip;
+      }
 
 
         //Ammo Clamp

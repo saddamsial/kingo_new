@@ -12,6 +12,7 @@ public class CamModes : MonoBehaviour
      public float SprintingFOV = 40f;
      public float SprintDamp = 40f;
     public float smoothness = 40f;
+    public float smoothnessAMC = 20f;
     private float currentspeedFMC;
     private  float currentspeedCMC;
     private float currentspeedAMC;
@@ -44,7 +45,7 @@ public class CamModes : MonoBehaviour
 
         else if (vars.IsAiming)
         {
-            Camera.fieldOfView = Mathf.SmoothDamp(Camera.fieldOfView, AMC, ref currentspeedAMC, Time.deltaTime * smoothness);
+            Camera.fieldOfView = Mathf.SmoothDamp(Camera.fieldOfView, AMC, ref currentspeedAMC, Time.deltaTime * smoothnessAMC);
         }
 
         else
