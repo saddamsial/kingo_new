@@ -6,7 +6,7 @@ public class lookat : MonoBehaviour
 {
     public float speed = 100f;
     public Transform target;
-    private void FixedUpdate()
+    private void LateUpdate()
     {
         Vector2 direction = target.position - transform.position;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
