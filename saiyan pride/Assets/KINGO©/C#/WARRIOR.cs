@@ -11,6 +11,7 @@ public string Name;
 public float DefaultSpeed;
 public float HP;
 public float Energy;
+public Vector2 WarriorSize;
 public GameObject Aura;
 public GameObject FullPowerAura;
 public GameObject Energy1;
@@ -19,14 +20,12 @@ public GameObject Energy3;
 public GameObject EnergyS;
 // sfx
 public AudioClip [] Entrances;
-
 public AudioClip [] Wins;
-
 public AudioClip [] attacks;
-
 public AudioClip []Energycalls;
 public AudioClip []Charge;
 public AudioClip []FullPower;
+
 
 
 
