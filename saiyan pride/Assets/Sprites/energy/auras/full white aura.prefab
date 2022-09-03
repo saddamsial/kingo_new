@@ -11,8 +11,6 @@ GameObject:
   - component: {fileID: 6032496792850529462}
   - component: {fileID: 5346619504550461293}
   - component: {fileID: 8349821377147943115}
-  - component: {fileID: 592386633654182521}
-  - component: {fileID: 2812971197310427313}
   - component: {fileID: 6056499948806087976}
   m_Layer: 0
   m_Name: full white aura
@@ -20,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6032496792850529462
 Transform:
   m_ObjectHideFlags: 0
@@ -105,37 +103,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &592386633654182521
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9112281127912978304}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -1465209106, guid: c8d0ad23af520fe46aabe2b1fecf6462, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _data:
-    _json: '{"declarations":{"collection":{"$content":[],"$version":"A"},"$version":"A"}}'
-    _objectReferences: []
---- !u!114 &2812971197310427313
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9112281127912978304}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -57143145, guid: a040fb66244a7f54289914d98ea4ef7d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _data:
-    _json: '{"nest":{"source":"Embed","macro":null,"embed":{"variables":{"collection":{"$content":[],"$version":"A"},"$version":"A"},"controlInputDefinitions":[],"controlOutputDefinitions":[],"valueInputDefinitions":[],"valueOutputDefinitions":[],"title":null,"summary":null,"pan":{"x":142.881,"y":-100.9353},"zoom":1.0,"elements":[{"coroutine":false,"defaultValues":{},"position":{"x":-80.0,"y":-150.0},"guid":"f2bd4535-a04b-4346-ab9b-9e27dcfd79a6","$version":"A","$type":"Bolt.Update"},{"chainable":false,"member":{"name":"position","parameterTypes":null,"targetType":"UnityEngine.Transform","targetTypeName":"UnityEngine.Transform","$version":"A"},"defaultValues":{"target":null,"input":{"x":0.0,"y":0.0,"z":0.0,"$type":"UnityEngine.Vector3"}},"position":{"x":78.0,"y":-144.0},"guid":"d2eb5beb-c75a-4810-8dfb-c4034ee54ea0","$version":"A","$type":"Bolt.SetMember"},{"chainable":false,"member":{"name":"FindGameObjectWithTag","parameterTypes":["System.String"],"targetType":"UnityEngine.GameObject","targetTypeName":"UnityEngine.GameObject","$version":"A"},"defaultValues":{"%tag":{"$content":"Aura
-      point","$type":"System.String"}},"position":{"x":-224.0,"y":-19.0},"guid":"3d5682c4-86c1-4da9-b08f-f10b05ca5ca7","$version":"A","$type":"Bolt.InvokeMember"}],"$version":"A"}}}'
-    _objectReferences: []
 --- !u!82 &6056499948806087976
 AudioSource:
   m_ObjectHideFlags: 0

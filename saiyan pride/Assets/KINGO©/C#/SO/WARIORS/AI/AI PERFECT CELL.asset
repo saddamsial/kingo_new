@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8927738e935674f41b523551c3768be8, type: 3}
+  m_Name: AI PERFECT CELL
+  m_EditorClassIdentifier: 
+  UIframe: {fileID: 21300000, guid: 8e78509390ac1f9499fd034321dde4f2, type: 3}
+  Name: PERFECT CELL
+  DefaultSpeed: 400
+  HP: 1.5
+  Energy: 1
+  WarriorSize: {x: 1, y: 1.15}
+  Aura: {fileID: 4357280560535290773, guid: c808a045272494d4faa0c26088793612, type: 3}
+  FullPowerAura: {fileID: 120362516195777562, guid: 4f29930f4b4aab34fb4f91d030066cbb, type: 3}
+  Energy1: {fileID: 1154781442776406647, guid: 2efe6a24f9737c14db9e2c6794b62bb1, type: 3}
+  Energy2: {fileID: 7705749443219588943, guid: c679bd8692303af448c551d3ca6125c9, type: 3}
+  Energy3: {fileID: 4068946400660364056, guid: 9a8d15925f5fc8844b043d2635b0d1dd, type: 3}
+  EnergyS: {fileID: 2835987281170307557, guid: f23592d5f3a206e4b912e8162417ed33, type: 3}
+  Entrances:
+  - {fileID: 8300000, guid: 2b3cd70fa52020541ba1e26f00729b35, type: 3}
+  - {fileID: 8300000, guid: 8b35cc05f19d579409589feca0dea8f0, type: 3}
+  - {fileID: 8300000, guid: ab0b9a44b3498e04e987376648258f54, type: 3}
+  Wins:
+  - {fileID: 0}
+  attacks:
+  - {fileID: 8300000, guid: ab0b9a44b3498e04e987376648258f54, type: 3}
+  - {fileID: 8300000, guid: 64f5936c85d7aa9458f3183124e4d94d, type: 3}
+  Energycalls:
+  - {fileID: 8300000, guid: ab0b9a44b3498e04e987376648258f54, type: 3}
+  - {fileID: 8300000, guid: 64f5936c85d7aa9458f3183124e4d94d, type: 3}
+  - {fileID: 8300000, guid: 64f5936c85d7aa9458f3183124e4d94d, type: 3}
+  - {fileID: 8300000, guid: 64f5936c85d7aa9458f3183124e4d94d, type: 3}
+  Charge:
+  - {fileID: 8300000, guid: ab0b9a44b3498e04e987376648258f54, type: 3}
+  FullPower:
+  - {fileID: 8300000, guid: 81808dda5b1bdcd4bb21731f7a1ed01e, type: 3}
+  - {fileID: 8300000, guid: 64f5936c85d7aa9458f3183124e4d94d, type: 3}

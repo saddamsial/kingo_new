@@ -83,8 +83,22 @@ AnimationClip:
       value: {fileID: 8562615704178012836, guid: 811d922a358a52b4f81a7a945bbf9184, type: 3}
     - time: 3.1833334
       value: {fileID: -1053217840848177313, guid: 811d922a358a52b4f81a7a945bbf9184, type: 3}
-    - time: 3.2833333
+    - time: 3.3
+      value: {fileID: -1053217840848177313, guid: 811d922a358a52b4f81a7a945bbf9184, type: 3}
+    - time: 3.4
       value: {fileID: 8562615704178012836, guid: 811d922a358a52b4f81a7a945bbf9184, type: 3}
+    - time: 3.55
+      value: {fileID: -1053217840848177313, guid: 811d922a358a52b4f81a7a945bbf9184, type: 3}
+    - time: 3.65
+      value: {fileID: 8562615704178012836, guid: 811d922a358a52b4f81a7a945bbf9184, type: 3}
+    - time: 3.7333333
+      value: {fileID: 8562615704178012836, guid: 811d922a358a52b4f81a7a945bbf9184, type: 3}
+    - time: 3.85
+      value: {fileID: -1053217840848177313, guid: 811d922a358a52b4f81a7a945bbf9184, type: 3}
+    - time: 3.95
+      value: {fileID: 8562615704178012836, guid: 811d922a358a52b4f81a7a945bbf9184, type: 3}
+    - time: 3.9833333
+      value: {fileID: -1053217840848177313, guid: 811d922a358a52b4f81a7a945bbf9184, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -136,13 +150,20 @@ AnimationClip:
     - {fileID: -1053217840848177313, guid: 811d922a358a52b4f81a7a945bbf9184, type: 3}
     - {fileID: 8562615704178012836, guid: 811d922a358a52b4f81a7a945bbf9184, type: 3}
     - {fileID: -1053217840848177313, guid: 811d922a358a52b4f81a7a945bbf9184, type: 3}
+    - {fileID: -1053217840848177313, guid: 811d922a358a52b4f81a7a945bbf9184, type: 3}
     - {fileID: 8562615704178012836, guid: 811d922a358a52b4f81a7a945bbf9184, type: 3}
+    - {fileID: -1053217840848177313, guid: 811d922a358a52b4f81a7a945bbf9184, type: 3}
+    - {fileID: 8562615704178012836, guid: 811d922a358a52b4f81a7a945bbf9184, type: 3}
+    - {fileID: 8562615704178012836, guid: 811d922a358a52b4f81a7a945bbf9184, type: 3}
+    - {fileID: -1053217840848177313, guid: 811d922a358a52b4f81a7a945bbf9184, type: 3}
+    - {fileID: 8562615704178012836, guid: 811d922a358a52b4f81a7a945bbf9184, type: 3}
+    - {fileID: -1053217840848177313, guid: 811d922a358a52b4f81a7a945bbf9184, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 3.3
+    m_StopTime: 4
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -161,4 +182,32 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0.96666664
+    functionName: TriggerAnimationEvent
+    data: ENERGY2 START
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.98333335
+    functionName: TriggerAnimationEvent
+    data: EFX ON
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 3.9666667
+    functionName: TriggerAnimationEvent
+    data: EFX OFF
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 3.9833333
+    functionName: TriggerAnimationEvent
+    data: ENERGY2 END
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0

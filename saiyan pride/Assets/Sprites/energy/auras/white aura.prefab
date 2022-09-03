@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 8234182409694716333}
   - component: {fileID: 8234182409694716332}
   - component: {fileID: 8234182409694716335}
-  - component: {fileID: -3976505109817417803}
   - component: {fileID: -7225870361463994650}
   m_Layer: 0
   m_Name: white aura
@@ -29,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 8234182409694716334}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -19.48, y: 3.49, z: -2}
-  m_LocalScale: {x: 1.25, y: 1.25, z: 1}
+  m_LocalScale: {x: -1.25, y: 1.25, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -104,21 +103,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &-3976505109817417803
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8234182409694716334}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -1465209106, guid: c8d0ad23af520fe46aabe2b1fecf6462, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _data:
-    _json: '{"declarations":{"collection":{"$content":[],"$version":"A"},"$version":"A"}}'
-    _objectReferences: []
 --- !u!82 &-7225870361463994650
 AudioSource:
   m_ObjectHideFlags: 0
