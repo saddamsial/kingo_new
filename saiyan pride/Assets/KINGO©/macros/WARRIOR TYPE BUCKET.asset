@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1893448595, guid: a040fb66244a7f54289914d98ea4ef7d, type: 3}
+  m_Name: WARRIOR TYPE BUCKET
+  m_EditorClassIdentifier: 
+  _data:
+    _json: '{"graph":{"variables":{"collection":{"$content":[],"$version":"A"},"$version":"A"},"controlInputDefinitions":[],"controlOutputDefinitions":[],"valueInputDefinitions":[],"valueOutputDefinitions":[{"_type":"System.Object","key":"Data","label":null,"summary":null,"hideLabel":false}],"title":null,"summary":null,"pan":{"x":-239.0,"y":147.0},"zoom":1.0,"elements":[{"defaultValues":{},"position":{"x":-250.0,"y":-30.0},"guid":"3b8cce9d-cbe1-49eb-98c1-ddc4d3b3480d","$version":"A","$type":"Bolt.GraphInput"},{"defaultValues":{},"position":{"x":-250.0,"y":-30.0},"guid":"dfcdfbff-9dee-4dd9-80c1-730786e7948d","$version":"A","$type":"Bolt.GraphInput"},{"defaultValues":{},"position":{"x":105.0,"y":-30.0},"guid":"dfa7bb06-a92e-48e2-bb06-80ba1b3ffa57","$version":"A","$type":"Bolt.GraphOutput","$id":"14"},{"specifyFallback":false,"kind":"Object","defaultValues":{"name":{"$content":"WARRIOR
+      TYPE","$type":"System.String"},"object":null},"position":{"x":-699.0,"y":138.0},"guid":"b5292a86-9906-453b-9fe8-a26efab1bec2","$version":"A","$type":"Bolt.GetVariable","$id":"16"},{"member":{"name":"Charge","parameterTypes":null,"targetType":"WARRIOR","targetTypeName":"WARRIOR","$version":"A"},"defaultValues":{"target":null},"position":{"x":-505.0,"y":145.0},"guid":"725195fd-3024-4a68-be87-5091ec71b4c2","$version":"A","$type":"Bolt.GetMember","$id":"18"},{"defaultValues":{"index":{"$content":0,"$type":"System.Int32"}},"position":{"x":-3.0,"y":133.0},"guid":"cae4e6bb-ec64-4288-ab38-ec67514ca400","$version":"A","$type":"Bolt.GetListItem","$id":"21"},{"defaultValues":{},"position":{"x":-339.0,"y":307.0},"guid":"09d87cfb-cbd9-4810-9885-d3b6e439d356","$version":"A","$type":"Bolt.CountItems","$id":"23"},{"chainable":false,"member":{"name":"Range","parameterTypes":["System.Int32","System.Int32"],"targetType":"UnityEngine.Random","targetTypeName":"UnityEngine.Random","$version":"A"},"defaultValues":{"%minInclusive":{"$content":0,"$type":"System.Int32"},"%maxExclusive":{"$content":0,"$type":"System.Int32"}},"position":{"x":-179.0,"y":230.0},"guid":"40310c8e-d71f-4080-8bde-ba2acf0dd8f7","$version":"A","$type":"Bolt.InvokeMember","$id":"25"},{"sourceUnit":{"$ref":"16"},"sourceKey":"value","destinationUnit":{"$ref":"18"},"destinationKey":"target","guid":"3b3476d6-6799-445b-bffe-056dd23132a0","$type":"Bolt.ValueConnection"},{"sourceUnit":{"$ref":"18"},"sourceKey":"value","destinationUnit":{"$ref":"21"},"destinationKey":"list","guid":"b2da258c-b01d-49a2-bba1-9f9f00732c50","$type":"Bolt.ValueConnection"},{"sourceUnit":{"$ref":"18"},"sourceKey":"value","destinationUnit":{"$ref":"23"},"destinationKey":"collection","guid":"2340d669-1186-4cbb-a9d9-2d22bd8946f7","$type":"Bolt.ValueConnection"},{"sourceUnit":{"$ref":"25"},"sourceKey":"result","destinationUnit":{"$ref":"21"},"destinationKey":"index","guid":"ea72acf5-ce15-4fdf-9316-053e8ceb4bef","$type":"Bolt.ValueConnection"},{"sourceUnit":{"$ref":"23"},"sourceKey":"count","destinationUnit":{"$ref":"25"},"destinationKey":"%maxExclusive","guid":"456c3c43-4f1a-40db-a160-b416156f65d1","$type":"Bolt.ValueConnection"},{"sourceUnit":{"$ref":"21"},"sourceKey":"item","destinationUnit":{"$ref":"14"},"destinationKey":"Data","guid":"77a7be2d-67b3-45e0-8fcf-14d769df741e","$type":"Bolt.ValueConnection"}],"$version":"A"}}'
+    _objectReferences: []
