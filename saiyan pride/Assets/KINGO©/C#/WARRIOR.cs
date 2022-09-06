@@ -9,6 +9,7 @@ public class WARRIOR : ScriptableObject
 public Sprite UIframe;
 public string Name;
 public float DefaultSpeed;
+public float FireSpeed;
 public float HP;
 public float Energy;
 public Vector2 WarriorSize;
