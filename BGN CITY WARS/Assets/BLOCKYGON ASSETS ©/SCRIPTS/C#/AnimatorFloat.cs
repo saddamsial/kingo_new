@@ -8,7 +8,8 @@ public class AnimatorFloat : MonoBehaviour
 
     public float moveV;
     public float moveH;
-    public float divide = 15f;
+    private float divide = 8f;
+    public float SpeedCheckvar;
     public Animator animator;
     // Start is called before the first frame update
     void Start()
@@ -20,12 +21,13 @@ public class AnimatorFloat : MonoBehaviour
     void Update()
     {
         
-     moveV = Input.GetAxis("Vertical")/ divide;
-     moveH = Input.GetAxis("Horizontal")/ divide;
+     moveV = Input.GetAxis("Vertical") * SpeedCheckvar/ divide;
+     moveH = Input.GetAxis("Horizontal")* SpeedCheckvar/ divide;
     
-     moveH = moveH / 15f;
+     
     animator.SetFloat("inputy", moveV, 1f, Time.deltaTime * 10f);
     animator.SetFloat("inputx", moveH, 1f, Time.deltaTime * 10f);
+   
 
     }
 }
