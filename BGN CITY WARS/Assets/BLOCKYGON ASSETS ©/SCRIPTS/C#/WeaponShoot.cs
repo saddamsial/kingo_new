@@ -231,7 +231,7 @@ public class WeaponShoot : MonoBehaviour
             return;
             else // other online player detect
             {
-                AS.PlayOneShot(WeaponType.BodyshotSFX, 500f);
+                AS.PlayOneShot(WeaponType.BodyshotSFX, 1f);
 
                 PV.RPC("Bodydamage", RpcTarget.Others);
 
@@ -253,7 +253,7 @@ public class WeaponShoot : MonoBehaviour
             {
             TakeDamage takedamage = collided.transform.parent.GetComponent<TakeDamage>();
 
-                AS.PlayOneShot(WeaponType.BodyshotSFX, 500f);
+                AS.PlayOneShot(WeaponType.BodyshotSFX, 1f);
 
                 Debug.Log("AI Target Detected-Body");
 
@@ -266,7 +266,7 @@ public class WeaponShoot : MonoBehaviour
             else
              {
 
-             AS.PlayOneShot(WeaponType.BodyshotSFX, 500f);
+             AS.PlayOneShot(WeaponType.BodyshotSFX, 1f);
 
                 Debug.Log("Iron Target Detected-Body");
 
@@ -284,7 +284,7 @@ public class WeaponShoot : MonoBehaviour
 
     } //EF
    //check headshot
-    void HeadShot()
+     void HeadShot()
     { //SF
 
             if (collided != null & collided.name == "HIT BOX-HEAD")
@@ -297,7 +297,7 @@ public class WeaponShoot : MonoBehaviour
             return;
             else // other online player detect
             {
-                AS.PlayOneShot(WeaponType.HeadshotSFX, 100f);
+                AS.PlayOneShot(WeaponType.HeadshotSFX, 1f);
 
                 PV.RPC("Headdamage", RpcTarget.Others);
 
@@ -320,7 +320,7 @@ public class WeaponShoot : MonoBehaviour
             {
             TakeDamage takedamage = collided.transform.parent.GetComponent<TakeDamage>();
 
-                AS.PlayOneShot(WeaponType.HeadshotSFX, 100f);
+                AS.PlayOneShot(WeaponType.HeadshotSFX, 1f);
 
                 Debug.Log("AI Target Detected-Head");
 
@@ -334,7 +334,7 @@ public class WeaponShoot : MonoBehaviour
              {
                
 
-             AS.PlayOneShot(WeaponType.HeadshotSFX, 100f);
+             AS.PlayOneShot(WeaponType.HeadshotSFX, 1f);
 
                 Debug.Log("Iron Target Detected-Head");
 
@@ -401,7 +401,7 @@ public class WeaponShoot : MonoBehaviour
     {//sf
    
      Reloading = true;
-     AS.PlayOneShot(WeaponType.ReloadSFX, 1);
+     AS.PlayOneShot(WeaponType.ReloadSFX, 1f);
      WeaponType.MaxedAmmo = false; 
     {
         yield return new WaitForSeconds(WeaponType.ReloadTime);
