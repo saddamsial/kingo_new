@@ -12,6 +12,8 @@ public float DefaultSpeed;
 public float FireSpeed;
 public float HP;
 public float Energy;
+public int NextForm;
+public int PrevForm;
 public Vector2 WarriorSize;
 public GameObject Aura;
 public GameObject FullPowerAura;
@@ -26,6 +28,7 @@ public AudioClip [] attacks;
 public AudioClip []Energycalls;
 public AudioClip []Charge;
 public AudioClip []FullPower;
+
 
 
 
