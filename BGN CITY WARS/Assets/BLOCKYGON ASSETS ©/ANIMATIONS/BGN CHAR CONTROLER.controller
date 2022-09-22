@@ -711,7 +711,7 @@ AnimatorStateTransition:
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -5232353547131519998}
   m_Solo: 0
-  m_Mute: 0
+  m_Mute: 1
   m_IsExit: 0
   serializedVersion: 3
   m_TransitionDuration: 0.15
@@ -758,8 +758,8 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 6
-    m_ConditionEvent: INVENTORY
-    m_EventTreshold: 2
+    m_ConditionEvent: WeaponType
+    m_EventTreshold: 1
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 3616352188483563094}
   m_Solo: 0
@@ -785,9 +785,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: SWITCH
     m_EventTreshold: 0
-  - m_ConditionMode: 6
-    m_ConditionEvent: INVENTORY
-    m_EventTreshold: 3
+  - m_ConditionMode: 7
+    m_ConditionEvent: WeaponType
+    m_EventTreshold: 1
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -5232353547131519998}
   m_Solo: 0
@@ -1127,8 +1127,8 @@ AnimatorStateTransition:
     m_ConditionEvent: SWITCH
     m_EventTreshold: 0
   - m_ConditionMode: 6
-    m_ConditionEvent: INVENTORY
-    m_EventTreshold: 3
+    m_ConditionEvent: WeaponType
+    m_EventTreshold: 1
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -5232353547131519998}
   m_Solo: 0
@@ -1154,7 +1154,7 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 3634394910147908030}
-    m_Position: {x: 260, y: 110, z: 0}
+    m_Position: {x: 260, y: 100, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -5232353547131519998}
     m_Position: {x: 260, y: 160, z: 0}
@@ -1975,8 +1975,8 @@ AnimatorStateTransition:
     m_ConditionEvent: SWITCH
     m_EventTreshold: 0
   - m_ConditionMode: 6
-    m_ConditionEvent: INVENTORY
-    m_EventTreshold: 1
+    m_ConditionEvent: WeaponType
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 3634394910147908030}
   m_Solo: 0
@@ -2443,9 +2443,9 @@ AnimatorStateMachine:
   - {fileID: 7598404912309295485}
   m_EntryTransitions: []
   m_StateMachineTransitions:
-  - first: {fileID: 8156312498143651040}
-    second: []
   - first: {fileID: -6582884320669807410}
+    second: []
+  - first: {fileID: 8156312498143651040}
     second: []
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: 140, y: 200, z: 0}
@@ -3207,8 +3207,8 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 6
-    m_ConditionEvent: INVENTORY
-    m_EventTreshold: 1
+    m_ConditionEvent: WeaponType
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 2794900310929394356}
   m_Solo: 0
@@ -4008,8 +4008,8 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 6
-    m_ConditionEvent: INVENTORY
-    m_EventTreshold: 2
+    m_ConditionEvent: WeaponType
+    m_EventTreshold: 1
   - m_ConditionMode: 1
     m_ConditionEvent: SWITCH
     m_EventTreshold: 0
@@ -4124,6 +4124,12 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
+  - m_Name: WeaponType
+    m_Type: 3
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
   - m_Name: combat
     m_Type: 4
     m_DefaultFloat: 0
@@ -4137,6 +4143,12 @@ AnimatorController:
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
   - m_Name: Grounded
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
+  - m_Name: CROUCH
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -4186,12 +4198,6 @@ AnimatorController:
     m_Controller: {fileID: 0}
   - m_Name: SWITCH
     m_Type: 9
-    m_DefaultFloat: 0
-    m_DefaultInt: 0
-    m_DefaultBool: 0
-    m_Controller: {fileID: 0}
-  - m_Name: WeaponType
-    m_Type: 3
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
@@ -4583,8 +4589,8 @@ AnimatorStateTransition:
     m_ConditionEvent: SWITCH
     m_EventTreshold: 0
   - m_ConditionMode: 6
-    m_ConditionEvent: INVENTORY
-    m_EventTreshold: 3
+    m_ConditionEvent: WeaponType
+    m_EventTreshold: 1
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -5232353547131519998}
   m_Solo: 0
@@ -5060,8 +5066,8 @@ AnimatorStateTransition:
     m_ConditionEvent: SWITCH
     m_EventTreshold: 0
   - m_ConditionMode: 6
-    m_ConditionEvent: INVENTORY
-    m_EventTreshold: 2
+    m_ConditionEvent: WeaponType
+    m_EventTreshold: 1
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -5232353547131519998}
   m_Solo: 0
@@ -5854,8 +5860,8 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 6
-    m_ConditionEvent: INVENTORY
-    m_EventTreshold: 2
+    m_ConditionEvent: WeaponType
+    m_EventTreshold: 1
   - m_ConditionMode: 1
     m_ConditionEvent: SWITCH
     m_EventTreshold: 0
@@ -7717,7 +7723,7 @@ AnimatorStateTransition:
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -5232353547131519998}
   m_Solo: 0
-  m_Mute: 0
+  m_Mute: 1
   m_IsExit: 0
   serializedVersion: 3
   m_TransitionDuration: 0.15
@@ -7933,8 +7939,8 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 6
-    m_ConditionEvent: INVENTORY
-    m_EventTreshold: 1
+    m_ConditionEvent: WeaponType
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 2794900310929394356}
   m_Solo: 0
@@ -8199,8 +8205,8 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 6
-    m_ConditionEvent: INVENTORY
-    m_EventTreshold: 2
+    m_ConditionEvent: WeaponType
+    m_EventTreshold: 1
   - m_ConditionMode: 1
     m_ConditionEvent: SWITCH
     m_EventTreshold: 0
@@ -8230,12 +8236,12 @@ AnimatorStateTransition:
     m_ConditionEvent: SWITCH
     m_EventTreshold: 0
   - m_ConditionMode: 6
-    m_ConditionEvent: INVENTORY
-    m_EventTreshold: 3
+    m_ConditionEvent: WeaponType
+    m_EventTreshold: 1
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -5232353547131519998}
   m_Solo: 0
-  m_Mute: 0
+  m_Mute: 1
   m_IsExit: 0
   serializedVersion: 3
   m_TransitionDuration: 0.25
