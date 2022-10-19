@@ -62,7 +62,7 @@ public class ComboTimer : MonoBehaviour
         }
     }
 
-void ResetCombo()
+public void ResetCombo()
 {
     Combo = 0;
     attacked = false;
