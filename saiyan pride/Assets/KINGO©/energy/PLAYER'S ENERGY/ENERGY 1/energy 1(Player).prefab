@@ -23,7 +23,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &394580860867716808
 Transform:
   m_ObjectHideFlags: 0
@@ -104,8 +104,10 @@ MonoBehaviour:
   _data:
     _json: '{"declarations":{"collection":{"$content":[{"name":"collider","value":null,"$version":"A"},{"name":"SPEED","value":{"$content":400.0,"$type":"System.Single"},"$version":"A"},{"name":"reset
       time","value":{"$content":3.0,"$type":"System.Single"},"$version":"A"},{"name":"default
-      pos","value":null,"$version":"A"}],"$version":"A"},"$version":"A"}}'
-    _objectReferences: []
+      pos","value":{"$content":0,"$type":"UnityEngine.Object"},"$version":"A"},{"name":"EFX","value":{"$content":"SPLODE","$type":"System.String"},"$version":"A"},{"name":"HURT
+      TIME","value":{"$content":0.5,"$type":"System.Single"},"$version":"A"}],"$version":"A"},"$version":"A"}}'
+    _objectReferences:
+    - {fileID: 0}
 --- !u!114 &3508877028429998393
 MonoBehaviour:
   m_ObjectHideFlags: 0
