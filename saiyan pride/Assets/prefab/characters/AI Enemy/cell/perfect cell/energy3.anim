@@ -93,9 +93,16 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 1
+  - time: 0.9
     functionName: TriggerAnimationEvent
-    data: energy3
+    data: ENERGY3 START
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 3.5166667
+    functionName: TriggerAnimationEvent
+    data: ENERGY3 END
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
