@@ -21,6 +21,7 @@ public GameObject Energy1;
 public GameObject Energy2;
 public GameObject Energy3;
 public GameObject EnergyS;
+public bool Regenerate;
 // sfx
 public AudioClip [] Entrances;
 public AudioClip [] Wins;
@@ -28,6 +29,7 @@ public AudioClip [] attacks;
 public AudioClip []Energycalls;
 public AudioClip []Charge;
 public AudioClip []FullPower;
+
 
 
 
