@@ -16,8 +16,11 @@ MonoBehaviour:
   Name: PERFECT CELL
   DefaultSpeed: 300
   FireSpeed: 0
+  RegenrateHPspeed: 0.01
   HP: 1.5
   Energy: 1
+  MaxHP: 0
+  MaxEnergy: 0
   NextForm: 0
   PrevForm: 0
   WarriorSize: {x: 1, y: 1.15}
@@ -27,7 +30,6 @@ MonoBehaviour:
   Energy2: {fileID: 7705749443219588943, guid: c679bd8692303af448c551d3ca6125c9, type: 3}
   Energy3: {fileID: 4068946400660364056, guid: 9a8d15925f5fc8844b043d2635b0d1dd, type: 3}
   EnergyS: {fileID: 2835987281170307557, guid: f23592d5f3a206e4b912e8162417ed33, type: 3}
-  Regenerate: 1
   Entrances:
   - {fileID: 8300000, guid: 2b3cd70fa52020541ba1e26f00729b35, type: 3}
   - {fileID: 8300000, guid: 8b35cc05f19d579409589feca0dea8f0, type: 3}
