@@ -10,16 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8927738e935674f41b523551c3768be8, type: 3}
-  m_Name: SON GOKU SSJ
+  m_Name: SON GOKU BASE
   m_EditorClassIdentifier: 
   UIframe: {fileID: 0}
-  Name: SON GOKU SSJ
-  DefaultSpeed: 400
+  Name: SON GOKU
+  DefaultSpeed: 300
   FireSpeed: 0
-  HP: 1.5
-  Energy: 1
-  NextForm: 2
+  RegenrateHPspeed: 0
+  HP: 0
+  Energy: 0
+  MaxHP: 0
+  MaxEnergy: 0
+  NextForm: 1
   PrevForm: 0
+  ChargePower: 1
   WarriorSize: {x: 1, y: 1}
   Aura: {fileID: 0}
   FullPowerAura: {fileID: 0}
@@ -28,14 +32,15 @@ MonoBehaviour:
   Energy3: {fileID: 0}
   EnergyS: {fileID: 0}
   Entrances:
-  - {fileID: 8300000, guid: ab0b9a44b3498e04e987376648258f54, type: 3}
+  - {fileID: 8300000, guid: 64f5936c85d7aa9458f3183124e4d94d, type: 3}
   Wins:
-  - {fileID: 8300000, guid: ab0b9a44b3498e04e987376648258f54, type: 3}
+  - {fileID: 8300000, guid: 64f5936c85d7aa9458f3183124e4d94d, type: 3}
   attacks:
   - {fileID: 8300000, guid: ab0b9a44b3498e04e987376648258f54, type: 3}
   Energycalls:
-  - {fileID: 8300000, guid: ab0b9a44b3498e04e987376648258f54, type: 3}
+  - {fileID: 8300000, guid: 64f5936c85d7aa9458f3183124e4d94d, type: 3}
+  - {fileID: 8300000, guid: 64f5936c85d7aa9458f3183124e4d94d, type: 3}
   Charge:
-  - {fileID: 8300000, guid: 2b3cd70fa52020541ba1e26f00729b35, type: 3}
+  - {fileID: 8300000, guid: 8b35cc05f19d579409589feca0dea8f0, type: 3}
   FullPower:
-  - {fileID: 8300000, guid: ab0b9a44b3498e04e987376648258f54, type: 3}
+  - {fileID: 8300000, guid: 2b3cd70fa52020541ba1e26f00729b35, type: 3}

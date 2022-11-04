@@ -17,6 +17,7 @@ public float MaxHP;
 public float MaxEnergy;
 public int NextForm;
 public int PrevForm;
+public int ChargePower;
 public Vector2 WarriorSize;
 public GameObject Aura;
 public GameObject FullPowerAura;
