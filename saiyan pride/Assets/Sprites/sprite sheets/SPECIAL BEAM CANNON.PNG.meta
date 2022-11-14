@@ -4,22 +4,55 @@ TextureImporter:
   internalIDToNameTable:
   - first:
       213: 5256423300056325784
-    second: SPECIAL BEAM CANNON_0
+    second: 1 POINT A
   - first:
       213: 3327278818837105163
-    second: SPECIAL BEAM CANNON_1
+    second: 1 BODY
   - first:
       213: 6460925801848922477
-    second: SPECIAL BEAM CANNON_2
+    second: 1 POINT B
   - first:
       213: -1706056139995530769
-    second: SPECIAL BEAM CANNON_3
+    second: 2 POINT A
   - first:
       213: 3408574304562371083
-    second: SPECIAL BEAM CANNON_4
+    second: 2 BODY
   - first:
       213: -4512961255438421311
-    second: SPECIAL BEAM CANNON_5
+    second: 3 POINT A
+  - first:
+      213: 8050796542850334344
+    second: SPECIAL BEAM CANNON_6
+  - first:
+      213: -3631228297098576802
+    second: 2 POINT B
+  - first:
+      213: -5689770920094036301
+    second: 3 POINT B
+  - first:
+      213: 2607591061482572745
+    second: SPECIAL BEAM CANNON_9
+  - first:
+      213: 668492131228789154
+    second: SPECIAL BEAM CANNON_14
+  - first:
+      213: 2036878121480626536
+    second: FADE 5
+  - first:
+      213: 6586342178875082328
+    second: FADE 4
+  - first:
+      213: -3367876929667792378
+    second: FADE 6
+  - first:
+      213: 7541091577924358462
+    second: FADE 9
+  - first:
+      213: 8716505611471730637
+    second: FADE 8
+  - first:
+      213: 6599032172228066004
+    second: FADE 7
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -83,10 +116,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 256
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -95,10 +128,10 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 2048
+    maxTextureSize: 256
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -107,10 +140,10 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: iPhone
-    maxTextureSize: 2048
+    maxTextureSize: 256
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -119,10 +152,10 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
-    maxTextureSize: 2048
+    maxTextureSize: 256
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -133,7 +166,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: SPECIAL BEAM CANNON_0
+      name: 1 POINT A
       rect:
         serializedVersion: 2
         x: 3
@@ -154,12 +187,12 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPECIAL BEAM CANNON_1
+      name: 1 BODY
       rect:
         serializedVersion: 2
         x: 19
         y: 60
-        width: 54
+        width: 40
         height: 17
       alignment: 4
       pivot: {x: 0, y: 0.5}
@@ -175,13 +208,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPECIAL BEAM CANNON_2
+      name: 1 POINT B
       rect:
         serializedVersion: 2
-        x: 74
-        y: 62
+        x: 60
+        y: 59
         width: 18
-        height: 11
+        height: 18
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -196,7 +229,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPECIAL BEAM CANNON_3
+      name: 2 POINT A
       rect:
         serializedVersion: 2
         x: 3
@@ -217,10 +250,10 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPECIAL BEAM CANNON_4
+      name: 2 BODY
       rect:
         serializedVersion: 2
-        x: 21
+        x: 20
         y: 31
         width: 38
         height: 15
@@ -238,13 +271,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SPECIAL BEAM CANNON_5
+      name: 3 POINT A
       rect:
         serializedVersion: 2
         x: 3
-        y: 5
+        y: 3
         width: 16
-        height: 12
+        height: 17
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -254,6 +287,321 @@ TextureImporter:
       bones: []
       spriteID: 1c2fd7c16adbe51c0800000000000000
       internalID: -4512961255438421311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPECIAL BEAM CANNON_6
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 33
+        width: 16
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88e798ffccc2abf60800000000000000
+      internalID: 8050796542850334344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 2 POINT B
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 26
+        width: 18
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5cb7155a194b9dc0800000000000000
+      internalID: -3631228297098576802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 3 POINT B
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 0
+        width: 18
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3be827e6e7fd901b0800000000000000
+      internalID: -5689770920094036301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPECIAL BEAM CANNON_9
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 4
+        width: 39
+        height: 15
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9cb072b3146003420800000000000000
+      internalID: 2607591061482572745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FADE 2
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 60
+        width: 40
+        height: 17
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06b6665a4a38c6cd0800000000000000
+      internalID: -2563529344707826848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FADE 3
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 60
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3f564cfebc877580800000000000000
+      internalID: -8829433792532422854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FADE  1
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 60
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89f412fb21e658cf0800000000000000
+      internalID: -250673177454096488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPECIAL BEAM CANNON_13
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 60
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd6b203a05af98600800000000000000
+      internalID: 471182860276119261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPECIAL BEAM CANNON_14
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 60
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a929013d06f64900800000000000000
+      internalID: 668492131228789154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FADE 5
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 31
+        width: 37
+        height: 17
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8612e911cd1744c10800000000000000
+      internalID: 2036878121480626536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FADE 4
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 31
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8568505d053676b50800000000000000
+      internalID: 6586342178875082328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FADE 6
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 31
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6020be7b6c5e241d0800000000000000
+      internalID: -3367876929667792378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FADE 9
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 5
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e311fd0f5d657a860800000000000000
+      internalID: 7541091577924358462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FADE 8
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 5
+        width: 37
+        height: 17
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc7b87eebaf37f870800000000000000
+      internalID: 8716505611471730637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FADE 7
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 5
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4da37072cc8749b50800000000000000
+      internalID: 6599032172228066004
       vertices: []
       indices: 
       edges: []
