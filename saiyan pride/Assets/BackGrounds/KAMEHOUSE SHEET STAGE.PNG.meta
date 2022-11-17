@@ -1,31 +1,25 @@
 fileFormatVersion: 2
-guid: 3b4dc828a015ef540941277de4d80c26
+guid: 0c5fdb7de5199bb42932a02c0d1104e5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1995771263098944845
-    second: IMG_4532_0
+      213: -3181668020078901565
+    second: KAMEHOUSE SHEET STAGE_0
   - first:
-      213: -2575197965471307034
-    second: IMG_4532_1
+      213: 8283012873155352145
+    second: KAMEHOUSE SHEET STAGE_1
   - first:
-      213: 9124558056888082732
-    second: IMG_4532_2
+      213: -4948476354597981851
+    second: KAMEHOUSE SHEET STAGE_2
   - first:
-      213: 8093704050207360660
-    second: IMG_4532_3
+      213: -2157524171401936976
+    second: KAMEHOUSE SHEET STAGE_3
   - first:
-      213: 537529666403892399
-    second: IMG_4532_4
+      213: 7352019528124077894
+    second: KAMEHOUSE SHEET STAGE_4
   - first:
-      213: -3768691431432046020
-    second: IMG_4532_5
-  - first:
-      213: 4178391964835411072
-    second: IMG_4532_6
-  - first:
-      213: 9037894436094397286
-    second: IMG_4532_7
+      213: -7699907435234765026
+    second: KAMEHOUSE SHEET STAGE_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -56,7 +50,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: -1
     mipBias: -100
     wrapU: 1
@@ -79,6 +73,8 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
@@ -87,10 +83,10 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 16384
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -99,34 +95,10 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 16384
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Windows Store Apps
-    maxTextureSize: 16384
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: iPhone
-    maxTextureSize: 16384
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -135,10 +107,10 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
-    maxTextureSize: 16384
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -149,169 +121,127 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: IMG_4532_0
+      name: KAMEHOUSE SHEET STAGE_0
       rect:
         serializedVersion: 2
-        x: 399
-        y: 241
+        x: 4
+        y: 88
+        width: 88
+        height: 107
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c60afdfac178d3d0800000000000000
+      internalID: -3181668020078901565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KAMEHOUSE SHEET STAGE_1
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 40
+        width: 124
+        height: 119
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1569966a25c23f270800000000000000
+      internalID: 8283012873155352145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KAMEHOUSE SHEET STAGE_2
+      rect:
+        serializedVersion: 2
+        x: 253
+        y: 0
+        width: 232
+        height: 198
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56174c049fa735bb0800000000000000
+      internalID: -4948476354597981851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KAMEHOUSE SHEET STAGE_3
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 51
+        width: 57
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bfb449723fee02e0800000000000000
+      internalID: -2157524171401936976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: KAMEHOUSE SHEET STAGE_4
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 2
         width: 50
-        height: 40
+        height: 43
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3b20e0a3c989d44e0800000000000000
-      internalID: -1995771263098944845
+      spriteID: 6471293eece970660800000000000000
+      internalID: 7352019528124077894
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: IMG_4532_1
+      name: KAMEHOUSE SHEET STAGE_5
       rect:
         serializedVersion: 2
-        x: 270
-        y: 239
-        width: 45
-        height: 28
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6ea26c9281f034cd0800000000000000
-      internalID: -2575197965471307034
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: IMG_4532_2
-      rect:
-        serializedVersion: 2
-        x: 184
-        y: 420
-        width: 70
-        height: 31
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c212e317531f0ae70800000000000000
-      internalID: 9124558056888082732
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: IMG_4532_3
-      rect:
-        serializedVersion: 2
-        x: 258
-        y: 429
-        width: 16
+        x: 64
+        y: 19
+        width: 32
         height: 14
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 49600cd83fc925070800000000000000
-      internalID: 8093704050207360660
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: IMG_4532_4
-      rect:
-        serializedVersion: 2
-        x: 418
-        y: 421
-        width: 38
-        height: 29
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: facfc363260b57700800000000000000
-      internalID: 537529666403892399
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: IMG_4532_5
-      rect:
-        serializedVersion: 2
-        x: 468
-        y: 405
-        width: 45
-        height: 29
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c3a3f694c1be2bbc0800000000000000
-      internalID: -3768691431432046020
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: IMG_4532_6
-      rect:
-        serializedVersion: 2
-        x: 715
-        y: 244
-        width: 47
-        height: 31
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0847c5c9a51acf930800000000000000
-      internalID: 4178391964835411072
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: IMG_4532_7
-      rect:
-        serializedVersion: 2
-        x: 1126
-        y: 249
-        width: 51
-        height: 34
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 66bc2e4da1d0d6d70800000000000000
-      internalID: 9037894436094397286
+      spriteID: e175177cbfe642590800000000000000
+      internalID: -7699907435234765026
       vertices: []
       indices: 
       edges: []
