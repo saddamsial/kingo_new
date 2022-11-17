@@ -1,46 +1,16 @@
 fileFormatVersion: 2
-guid: a5c271d3d0ad77042bb0d53e377a6d73
+guid: ec88c7711873aa249baed9a03c2919f6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7620166411005408983
-    second: empty 2
+      213: 2955917086077718408
+    second: ENERGY FILL UI_0
   - first:
-      213: 3518776755983967324
-    second: empty 1
+      213: 5263090765634200982
+    second: ENERGY FILL UI_1
   - first:
-      213: 1697022196727996250
-    second: half empty 1
-  - first:
-      213: -6514979465229138799
-    second: full 1
-  - first:
-      213: 7371284223438216708
-    second: half empty 2
-  - first:
-      213: 6790652550813586850
-    second: full 2
-  - first:
-      213: 1739115416529059680
-    second: empty 1
-  - first:
-      213: -7620166411005408983
-    second: empty 1
-  - first:
-      213: 5885514166927216995
-    second: empty 2
-  - first:
-      213: -3706138275528897129
-    second: half empty 1
-  - first:
-      213: 5692315606956846446
-    second: full 1
-  - first:
-      213: 7499304706792903242
-    second: half empty 2
-  - first:
-      213: -7166296761807719681
-    second: full 2
+      213: -3304354998032957897
+    second: ENERGY FILL UI_2
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -71,9 +41,9 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
-    aniso: 1
-    mipBias: 0
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -104,7 +74,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 1024
+    maxTextureSize: 256
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -116,7 +86,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 1024
+    maxTextureSize: 256
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -127,20 +97,8 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: Windows Store Apps
-    maxTextureSize: 16384
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
     buildTarget: iPhone
-    maxTextureSize: 1024
+    maxTextureSize: 256
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -152,141 +110,78 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
-    maxTextureSize: 1024
+    maxTextureSize: 256
     resizeAlgorithm: 0
-    textureFormat: 4
+    textureFormat: -1
     textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
-    overridden: 1
+    overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: empty 1
+      name: ENERGY FILL UI_0
       rect:
         serializedVersion: 2
-        x: 51
-        y: 334
-        width: 337
-        height: 118
+        x: 0
+        y: 0
+        width: 32
+        height: 23
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 929c8a6c50bbf3690800000000000000
-      internalID: -7620166411005408983
+      spriteID: 88f8b2dbde6850920800000000000000
+      internalID: 2955917086077718408
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: empty 2
+      name: ENERGY FILL UI_1
       rect:
         serializedVersion: 2
-        x: 413
-        y: 336
-        width: 337
-        height: 118
+        x: 33
+        y: 0
+        width: 32
+        height: 23
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 361d938b3fb8da150800000000000000
-      internalID: 5885514166927216995
+      spriteID: 695e3429a214a0940800000000000000
+      internalID: 5263090765634200982
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: half empty 1
+      name: ENERGY FILL UI_2
       rect:
         serializedVersion: 2
-        x: 67
-        y: 215
-        width: 337
-        height: 118
+        x: 66
+        y: 0
+        width: 32
+        height: 23
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 79d0f96dfd6219cc0800000000000000
-      internalID: -3706138275528897129
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: full 1
-      rect:
-        serializedVersion: 2
-        x: 414
-        y: 214
-        width: 337
-        height: 118
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e6d2316a2ea2ffe40800000000000000
-      internalID: 5692315606956846446
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: half empty 2
-      rect:
-        serializedVersion: 2
-        x: 58
-        y: 62
-        width: 337
-        height: 118
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a425ec6d5e1e21860800000000000000
-      internalID: 7499304706792903242
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: full 2
-      rect:
-        serializedVersion: 2
-        x: 404
-        y: 62
-        width: 337
-        height: 118
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ff23b6550133c8c90800000000000000
-      internalID: -7166296761807719681
+      spriteID: 73e7572f2a29422d0800000000000000
+      internalID: -3304354998032957897
       vertices: []
       indices: 
       edges: []
