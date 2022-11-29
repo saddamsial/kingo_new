@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class ComboTimer : MonoBehaviour
 {
      public bool attacking;
@@ -12,6 +13,7 @@ public class ComboTimer : MonoBehaviour
     public int Maxcombo = 5;
     public float attackspeed;
     public bool ready =true;
+    public float ResetDelay;
     private float DEFAULTattackspeed;
    
     // Update is called once per frame
@@ -52,7 +54,7 @@ public class ComboTimer : MonoBehaviour
 
     public void AddCombo()
     {       
-        if(ready) 
+        if(ready  && Combo <= Maxcombo) 
         {
         Combo ++;
         timer =+ speed;
@@ -64,8 +66,7 @@ public class ComboTimer : MonoBehaviour
 
 public void ResetCombo()
 {
-    Combo = 0;
-    attacked = false;
+   StartCoroutine(StartReset());
 }
 
 
@@ -104,6 +105,28 @@ public void AttackingOn()
 public void AttackingOff()
 {
     attacking = false;
+    
+}
+
+
+
+
+public IEnumerator StartReset()
+{
+    if (Combo > 3)
+    {
+  yield return new WaitForSeconds (ResetDelay);
+  
+
+    Combo = 0;
+    attacked = false;
+
+    }
+    else 
+      Combo = 0;
+    attacked = false;
+
+
 }
 
 
