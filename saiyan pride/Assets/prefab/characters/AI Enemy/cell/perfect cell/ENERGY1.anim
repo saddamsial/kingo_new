@@ -20,11 +20,11 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 7126212738095515775, guid: cfc16f1a402ef0e419b9158d5aa83bd3, type: 3}
-    - time: 0.18333334
-      value: {fileID: 807408082200703716, guid: cfc16f1a402ef0e419b9158d5aa83bd3, type: 3}
-    - time: 0.53333336
-      value: {fileID: 807408082200703716, guid: cfc16f1a402ef0e419b9158d5aa83bd3, type: 3}
+      value: {fileID: 5495139350718031604, guid: cfc16f1a402ef0e419b9158d5aa83bd3, type: 3}
+    - time: 0.083333336
+      value: {fileID: 8837607153740957866, guid: cfc16f1a402ef0e419b9158d5aa83bd3, type: 3}
+    - time: 0.16666667
+      value: {fileID: 8837607153740957866, guid: cfc16f1a402ef0e419b9158d5aa83bd3, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -44,15 +44,15 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 7126212738095515775, guid: cfc16f1a402ef0e419b9158d5aa83bd3, type: 3}
-    - {fileID: 807408082200703716, guid: cfc16f1a402ef0e419b9158d5aa83bd3, type: 3}
-    - {fileID: 807408082200703716, guid: cfc16f1a402ef0e419b9158d5aa83bd3, type: 3}
+    - {fileID: 5495139350718031604, guid: cfc16f1a402ef0e419b9158d5aa83bd3, type: 3}
+    - {fileID: 8837607153740957866, guid: cfc16f1a402ef0e419b9158d5aa83bd3, type: 3}
+    - {fileID: 8837607153740957866, guid: cfc16f1a402ef0e419b9158d5aa83bd3, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.55
+    m_StopTime: 0.18333334
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -72,10 +72,24 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 0.18333334
+  - time: 0.083333336
     functionName: TriggerAnimationEvent
-    data: fire1
+    data: FIRE 1
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 10
+    messageOptions: 0
+  - time: 0.16666667
+    functionName: TriggerAnimationEvent
+    data: finish energy1
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
+    messageOptions: 0
+  - time: 0.16666667
+    functionName: TriggerAnimationEvent
+    data: FIRE 1
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 10
     messageOptions: 0
