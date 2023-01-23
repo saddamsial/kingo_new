@@ -83,10 +83,17 @@ AnimationClip:
   m_Events:
   - time: 0.06666667
     functionName: TriggerAnimationEvent
-    data: FIRE 1
+    data: FIRE 1-
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 10
+    messageOptions: 0
+  - time: 0.083333336
+    functionName: TriggerAnimationEvent
+    data: SPAWN
+    objectReferenceParameter: {fileID: 5521910181313212432, guid: c08f6dab6ec994c40a1215fe421c6d05, type: 3}
+    floatParameter: 0
+    intParameter: 0
     messageOptions: 0
   - time: 0.15
     functionName: TriggerAnimationEvent
