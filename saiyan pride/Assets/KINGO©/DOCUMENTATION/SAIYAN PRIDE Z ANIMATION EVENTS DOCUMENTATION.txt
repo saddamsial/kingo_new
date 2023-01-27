@@ -1,0 +1,74 @@
+SAIYAN PRIDE Z DOCUMENTATION.
+
+
+
+-----COMBO ATTACKS--
+animation events names
+
+for punch 1-3 add "hit1" and "HIT END"
+
+for punch 4 add "hit3" and "HIT END"
+
+for punch 5 add "PUNCH S START" at start of animatin, add hit3 at attack frame, at animation end add "PUNCH S END" and "HIT END"
+
+for punch hard add "PUNCH S START" at start of animatin, add "hit2" at attack frame, at animation end add "PUNCH S END" and "HIT END"
+
+for punch s add "PUNCH S START" at start of animatin, add hit3 at attack frame, at animation end add "PUNCH S END" and "HIT END"
+
+for punch s 2 add "PUNCH S START" at start of animatin, add hit3 at attack frame,add"target tel 2" at teleport target frame to teleport behind, at animation end add "PUNCH S END" and "HIT END"
+
+for grab add "REACH" at start of animation.
+
+for grabbed add "hit1" for attack frames zero out the value,add "FALSE SPRITE" for target hide if needed,add "hit1" with desired value 60-80, add "hit3" at same frame zero value, add "Finish" at the end of animation.
+
+for energy1 add "FIRE 1" at fire frame and add "finish energy1" after fired.
+
+for energy2 add "ENERGY2 START" and if applicable add "EFX ON"  at fire frame, add "ENERGY2 END" and if efx on was added add "EFX OFF" at the end of the animation.
+
+for enegry3 add "AURA 1 ON" at start of animation and "ENERGY3 START"at fire frame and add"ENERGY3 END" and "AURA 1 OFF" at end of animations.
+
+for energy s add "FIRE S START" at firef rame and "FIRE S END" AT END OF ANIMATION.
+
+small damage attacks
+key name: hit1 
+value; int 15-20
+
+---
+hit hard
+key name: hit2
+value: empty
+----------
+kicked far
+key name: hit3
+value int 40-45
+-----------
+chase target tel
+key name: target tel
+value; empty
+-----------
+tel behind
+key name: target tel 2
+value: empty
+----------
+grab distance
+
+key name: REACH
+value: float, 0.25 - 0.75
+-----------
+hide target when grabbed.
+
+key name: FALSE SPRITE
+value: empty
+
+---------
+
+reveal target after grabbed done.
+key name: TRUE SPRITE
+value:empty
+----------
+
+
+
+
+
+
