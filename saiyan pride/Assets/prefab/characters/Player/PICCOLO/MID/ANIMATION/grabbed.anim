@@ -67,6 +67,18 @@ AnimationClip:
       value: {fileID: -3456399757820379458, guid: c8cbf1de04cc36745933a875ec9a20e5, type: 3}
     - time: 2.3333333
       value: {fileID: -3456399757820379458, guid: c8cbf1de04cc36745933a875ec9a20e5, type: 3}
+    - time: 2.3833334
+      value: {fileID: 6892571922390063749, guid: c8cbf1de04cc36745933a875ec9a20e5, type: 3}
+    - time: 2.4166667
+      value: {fileID: -8792253355555033853, guid: c8cbf1de04cc36745933a875ec9a20e5, type: 3}
+    - time: 2.45
+      value: {fileID: 6892571922390063749, guid: c8cbf1de04cc36745933a875ec9a20e5, type: 3}
+    - time: 2.4833333
+      value: {fileID: -971888147130904940, guid: c8cbf1de04cc36745933a875ec9a20e5, type: 3}
+    - time: 2.55
+      value: {fileID: 8162782798807566771, guid: c8cbf1de04cc36745933a875ec9a20e5, type: 3}
+    - time: 2.8
+      value: {fileID: 8162782798807566771, guid: c8cbf1de04cc36745933a875ec9a20e5, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -110,12 +122,18 @@ AnimationClip:
     - {fileID: 3698669455914328033, guid: c8cbf1de04cc36745933a875ec9a20e5, type: 3}
     - {fileID: -3456399757820379458, guid: c8cbf1de04cc36745933a875ec9a20e5, type: 3}
     - {fileID: -3456399757820379458, guid: c8cbf1de04cc36745933a875ec9a20e5, type: 3}
+    - {fileID: 6892571922390063749, guid: c8cbf1de04cc36745933a875ec9a20e5, type: 3}
+    - {fileID: -8792253355555033853, guid: c8cbf1de04cc36745933a875ec9a20e5, type: 3}
+    - {fileID: 6892571922390063749, guid: c8cbf1de04cc36745933a875ec9a20e5, type: 3}
+    - {fileID: -971888147130904940, guid: c8cbf1de04cc36745933a875ec9a20e5, type: 3}
+    - {fileID: 8162782798807566771, guid: c8cbf1de04cc36745933a875ec9a20e5, type: 3}
+    - {fileID: 8162782798807566771, guid: c8cbf1de04cc36745933a875ec9a20e5, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 2.35
+    m_StopTime: 2.8166666
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -196,7 +214,7 @@ AnimationClip:
     data: hit1
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
-    intParameter: 75
+    intParameter: 0
     messageOptions: 0
   - time: 1.9666667
     functionName: TriggerAnimationEvent
@@ -205,7 +223,28 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 2.3
+  - time: 2.4333334
+    functionName: TriggerAnimationEvent
+    data: target tel
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 2.5333333
+    functionName: TriggerAnimationEvent
+    data: hit1
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 75
+    messageOptions: 0
+  - time: 2.55
+    functionName: TriggerAnimationEvent
+    data: hit3
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 2.7666667
     functionName: TriggerAnimationEvent
     data: Finish
     objectReferenceParameter: {fileID: 0}
