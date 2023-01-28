@@ -81,6 +81,13 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
+  - time: 0
+    functionName: TriggerAnimationEvent
+    data: PUNCH S START
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 0.05
     functionName: TriggerAnimationEvent
     data: target tel
@@ -94,4 +101,18 @@ AnimationClip:
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 40
+    messageOptions: 0
+  - time: 0.5833333
+    functionName: TriggerAnimationEvent
+    data: HIT END
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.5833333
+    functionName: TriggerAnimationEvent
+    data: PUNCH S END
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
     messageOptions: 0
