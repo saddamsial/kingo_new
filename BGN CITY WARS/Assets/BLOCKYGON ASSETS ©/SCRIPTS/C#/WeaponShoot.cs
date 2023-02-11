@@ -15,6 +15,7 @@ public class WeaponShoot : MonoBehaviour
     public int BulletsFired = 0;
     public bool Canfire;
     public  bool Reloading;
+    public bool Aiming;
     [SerializeField]
     private bool NoAmmo;
     public Collider collided;
@@ -69,6 +70,11 @@ public class WeaponShoot : MonoBehaviour
     WeaponType.CurrentClip = WeaponType.MaxClip;
    }
     void Update()
+    
+    
+
+
+
 {
 // CHECK RETICLE HIT(NO SHOOTING)
 
@@ -392,6 +398,17 @@ public class WeaponShoot : MonoBehaviour
 
 
     }//ef
+
+
+    public void Aim()
+    {
+        if(Aiming)
+        {
+            
+        }
+    }
+
+
 
       /////Coroutines/////
 
