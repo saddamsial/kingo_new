@@ -9,13 +9,14 @@ public class WeaponShoot : MonoBehaviour
 {
     /// variables///
     public WeaponDATA WeaponType;
+    public int BulletsFired = 0;
     private float lastshot = 0f;
     public bool TargetFound;
     public bool Fired;
-    public int BulletsFired = 0;
     public bool Canfire;
     public  bool Reloading;
-    public bool Aiming;
+ 
+
     [SerializeField]
     private bool NoAmmo;
     public Collider collided;
@@ -398,15 +399,6 @@ public class WeaponShoot : MonoBehaviour
 
 
     }//ef
-
-
-    public void Aim()
-    {
-        if(Aiming)
-        {
-            
-        }
-    }
 
 
 
