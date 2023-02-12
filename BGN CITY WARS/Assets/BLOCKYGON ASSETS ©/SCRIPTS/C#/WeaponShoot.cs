@@ -11,6 +11,7 @@ public class WeaponShoot : MonoBehaviour
     public WeaponDATA WeaponType;
     public int BulletsFired = 0;
     private float lastshot = 0f;
+    public float WeaponRange;
     public bool TargetFound;
     public bool Fired;
     public bool Canfire;
@@ -24,7 +25,9 @@ public class WeaponShoot : MonoBehaviour
     private LayerMask layermask;
     private Vector3  point;
     private Transform pos;
+    public Transform Sidepos;
     private RaycastHit hit;
+    private RaycastHit hit2;
     public AudioSource AS;
     private Animator animator;
     private Transform PlayerParent;
@@ -195,13 +198,20 @@ public class WeaponShoot : MonoBehaviour
       //  SparkleVFX.SetActive(false);
 
         //fire
-        Physics.Raycast(pos.position, pos.forward, out hit, Mathf.Infinity, layermask);
+        Physics.Raycast(pos.position, pos.forward, out hit, WeaponRange, layermask);
 
+       //side fire
+        Physics.Raycast(Sidepos.position , Sidepos.forward, out hit2,5, layermask);
 
-        collided = hit.collider;
+        if (hit2.collider == null)
+       { collided = hit.collider;
 
             point = (hit.point);
+       }
+       else
 
+        collided = hit2.collider;
+     
    if (collided == null)
     {return;}
   else
