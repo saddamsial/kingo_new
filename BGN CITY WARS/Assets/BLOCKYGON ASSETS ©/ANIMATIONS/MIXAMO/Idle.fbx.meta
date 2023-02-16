@@ -26,11 +26,7 @@ ModelImporter:
     rigImportErrors: 
     rigImportWarnings: 
     animationImportErrors: 
-    animationImportWarnings: "\nClip 'mixamo.com' has import animation warnings that
-      might lower retargeting quality:\nNote: Activate translation DOF on avatar
-      to improve retargeting quality.\n\t'ARM.R' is inbetween humanoid transforms
-      and has rotation animation that will be discarded.\n\t'ARM,L' is inbetween
-      humanoid transforms and has rotation animation that will be discarded.\n"
+    animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
@@ -265,56 +261,6 @@ ModelImporter:
       position: {x: -0.0006320149, y: 0.52930444, z: -0.009519238}
       rotation: {x: -0.77824193, y: 0.090720564, z: 0.0616726, w: 0.61830884}
       scale: {x: 29.600304, y: 29.600304, z: 29.600304}
-    - name: LEG.L
-      parentName: BGN_CJ-RIGGED
-      position: {x: -0.003806417, y: -3.5431915e-16, z: -0.001419}
-      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-      scale: {x: 1.0000006, y: 1.0000006, z: 1.0000006}
-    - name: THIGH.L
-      parentName: LEG.L
-      position: {x: 8.9848573e-10, y: 0.00092404365, z: 0.00001852251}
-      rotation: {x: 0.01186621, y: 0.08400471, z: 0.037707817, w: 0.995681}
-      scale: {x: 0.99999905, y: 0.99999917, z: 0.99999917}
-    - name: KNEE.L
-      parentName: THIGH.L
-      position: {x: 3.0243907e-10, y: 0.0064787446, z: 8.515151e-11}
-      rotation: {x: 0.33428186, y: -0.12161893, z: -0.045671765, w: 0.9334766}
-      scale: {x: 1.0000008, y: 1.0000005, z: 1.0000007}
-    - name: FOOT.L
-      parentName: KNEE.L
-      position: {x: 3.0243869e-10, y: 0.008417562, z: -2.6523936e-10}
-      rotation: {x: -0.30880454, y: 0.017675411, z: 0.038914207, w: 0.9501648}
-      scale: {x: 0.99999976, y: 1.0000001, z: 0.9999999}
-    - name: FOOT.L_end
-      parentName: FOOT.L
-      position: {x: 3.0243838e-10, y: 0.007196749, z: -4.271925e-12}
-      rotation: {x: 7.1054265e-15, y: 1.030553e-28, z: -2.3266151e-21, w: 1}
-      scale: {x: 1.0000002, y: 1, z: 1.0000002}
-    - name: LEG.R
-      parentName: BGN_CJ-RIGGED
-      position: {x: 0.0037785217, y: 3.562235e-16, z: -0.001419}
-      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-      scale: {x: 1.0000006, y: 1.0000006, z: 1.0000006}
-    - name: THIGH.R
-      parentName: LEG.R
-      position: {x: -8.940695e-10, y: 0.00092404307, z: 8.1553964e-10}
-      rotation: {x: 0.019148706, y: -0.12165959, z: -0.14480238, w: 0.98176605}
-      scale: {x: 0.99999905, y: 0.999999, z: 0.999999}
-    - name: KNEE.R
-      parentName: THIGH.R
-      position: {x: 2.9802344e-10, y: 0.0064787464, z: 0.000000001259799}
-      rotation: {x: 0.29746708, y: -0.06802743, z: -0.025052462, w: 0.9519758}
-      scale: {x: 1.0000008, y: 1.0000001, z: 1.0000004}
-    - name: FOOT.R
-      parentName: KNEE.R
-      position: {x: -8.940698e-10, y: 0.008417565, z: -5.336627e-11}
-      rotation: {x: -0.23128857, y: -0.00823651, z: 0.17831194, w: 0.9563695}
-      scale: {x: 0.9999999, y: 1, z: 0.9999998}
-    - name: FOOT.R_end
-      parentName: FOOT.R
-      position: {x: -5.337226e-10, y: 0.0071967463, z: 7.105427e-17}
-      rotation: {x: 1.4210848e-14, y: 2.4868992e-14, z: -8.881798e-15, w: 1}
-      scale: {x: 1.0000002, y: 0.9999999, z: 1}
     - name: SPINE
       parentName: BGN_CJ-RIGGED
       position: {x: -1.3105742e-18, y: -7.096759e-20, z: 0.00071326055}
@@ -340,6 +286,31 @@ ModelImporter:
       position: {x: -4.440892e-18, y: 0.013335798, z: 6.343157e-12}
       rotation: {x: 1.0658143e-14, y: 0, z: -0, w: 1}
       scale: {x: 0.9999999, y: 0.9999999, z: 0.9999999}
+    - name: SHOULDER.R
+      parentName: SPINE3
+      position: {x: 0.008334538, y: 0.0027649652, z: 0.00013107713}
+      rotation: {x: 0.5077679, y: 0.5164885, z: -0.5359125, w: 0.43383095}
+      scale: {x: 1.0000002, y: 1.0000001, z: 1.0000004}
+    - name: ELBOW.R
+      parentName: SHOULDER.R
+      position: {x: 1.8599876e-12, y: 0.0018025372, z: 7.1129097e-10}
+      rotation: {x: 0.030102972, y: -0.1924202, z: -0.23392716, w: 0.95254725}
+      scale: {x: 0.99999934, y: 0.999999, z: 0.99999917}
+    - name: ARM.R
+      parentName: ELBOW.R
+      position: {x: -5.473879e-12, y: 0.006535352, z: -9.557646e-10}
+      rotation: {x: 0.044925116, y: -0.045713317, z: 0.35755005, w: 0.931692}
+      scale: {x: 1.0000001, y: 1.0000001, z: 1.0000004}
+    - name: HAND.R
+      parentName: ARM.R
+      position: {x: -3.037215e-11, y: 0.008255195, z: -0.000000005259394}
+      rotation: {x: 0.07636476, y: 0.07551162, z: 0.10438866, w: 0.9887212}
+      scale: {x: 1.0000005, y: 1.0000004, z: 1.0000006}
+    - name: HAND.R_end
+      parentName: HAND.R
+      position: {x: -5.036469e-12, y: 0.0050612125, z: 3.466733e-10}
+      rotation: {x: 3.9790388e-13, y: -1.705302e-13, z: 3.5520636e-15, w: 1}
+      scale: {x: 0.9999999, y: 0.9999999, z: 1}
     - name: SHOULDER.L
       parentName: SPINE3
       position: {x: -0.008000126, y: 0.0027635621, z: -0.00011380077}
@@ -365,31 +336,56 @@ ModelImporter:
       position: {x: -2.020839e-10, y: 0.005061216, z: -3.2913388e-12}
       rotation: {x: -4.2322306e-13, y: 0.00000047107017, z: 0.00000047107014, w: 1}
       scale: {x: 0.9999999, y: 0.9999999, z: 0.9999999}
-    - name: SHOULDER.R
-      parentName: SPINE3
-      position: {x: 0.008334538, y: 0.0027649652, z: 0.00013107713}
-      rotation: {x: 0.5077679, y: 0.5164885, z: -0.5359125, w: 0.43383095}
-      scale: {x: 1.0000002, y: 1.0000001, z: 1.0000004}
-    - name: ELBOW.R
-      parentName: SHOULDER.R
-      position: {x: 1.8599876e-12, y: 0.0018025372, z: 7.1129097e-10}
-      rotation: {x: 0.030102974, y: -0.19242021, z: -0.23392718, w: 0.9525473}
-      scale: {x: 0.99999934, y: 0.999999, z: 0.99999917}
-    - name: ARM.R
-      parentName: ELBOW.R
-      position: {x: -5.473879e-12, y: 0.006535352, z: -9.557646e-10}
-      rotation: {x: 0.044925116, y: -0.045713317, z: 0.35755005, w: 0.931692}
-      scale: {x: 1.0000001, y: 1.0000001, z: 1.0000004}
-    - name: HAND.R
-      parentName: ARM.R
-      position: {x: -3.037215e-11, y: 0.008255195, z: -0.000000005259394}
-      rotation: {x: 0.07636476, y: 0.07551162, z: 0.10438866, w: 0.9887212}
-      scale: {x: 1.0000005, y: 1.0000004, z: 1.0000006}
-    - name: HAND.R_end
-      parentName: HAND.R
-      position: {x: -5.036469e-12, y: 0.0050612125, z: 3.466733e-10}
-      rotation: {x: 3.9790388e-13, y: -1.705302e-13, z: 3.5520636e-15, w: 1}
-      scale: {x: 0.9999999, y: 0.9999999, z: 1}
+    - name: LEG.R
+      parentName: BGN_CJ-RIGGED
+      position: {x: 0.0037785217, y: 3.562235e-16, z: -0.001419}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1.0000006, y: 1.0000006, z: 1.0000006}
+    - name: THIGH.R
+      parentName: LEG.R
+      position: {x: -8.940695e-10, y: 0.00092404307, z: 8.1553964e-10}
+      rotation: {x: 0.019148706, y: -0.12165959, z: -0.14480238, w: 0.98176605}
+      scale: {x: 0.99999905, y: 0.999999, z: 0.999999}
+    - name: KNEE.R
+      parentName: THIGH.R
+      position: {x: 2.9802344e-10, y: 0.0064787464, z: 0.000000001259799}
+      rotation: {x: 0.29746708, y: -0.06802743, z: -0.025052462, w: 0.9519758}
+      scale: {x: 1.0000008, y: 1.0000001, z: 1.0000004}
+    - name: FOOT.R
+      parentName: KNEE.R
+      position: {x: -8.940698e-10, y: 0.008417565, z: -5.336627e-11}
+      rotation: {x: -0.23128857, y: -0.00823651, z: 0.17831194, w: 0.9563695}
+      scale: {x: 0.9999999, y: 1, z: 0.9999998}
+    - name: FOOT.R_end
+      parentName: FOOT.R
+      position: {x: -5.337226e-10, y: 0.0071967463, z: 7.105427e-17}
+      rotation: {x: 1.4210848e-14, y: 2.4868992e-14, z: -8.881798e-15, w: 1}
+      scale: {x: 1.0000002, y: 0.9999999, z: 1}
+    - name: LEG.L
+      parentName: BGN_CJ-RIGGED
+      position: {x: -0.003806417, y: -3.5431915e-16, z: -0.001419}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1.0000006, y: 1.0000006, z: 1.0000006}
+    - name: THIGH.L
+      parentName: LEG.L
+      position: {x: 8.9848573e-10, y: 0.00092404365, z: 0.00001852251}
+      rotation: {x: 0.01186621, y: 0.0840047, z: 0.037707817, w: 0.9956809}
+      scale: {x: 0.99999905, y: 0.99999917, z: 0.99999917}
+    - name: KNEE.L
+      parentName: THIGH.L
+      position: {x: 3.0243907e-10, y: 0.0064787446, z: 8.515151e-11}
+      rotation: {x: 0.33428186, y: -0.12161893, z: -0.045671765, w: 0.9334766}
+      scale: {x: 1.0000008, y: 1.0000005, z: 1.0000007}
+    - name: FOOT.L
+      parentName: KNEE.L
+      position: {x: 3.0243869e-10, y: 0.008417562, z: -2.6523936e-10}
+      rotation: {x: -0.30880454, y: 0.017675411, z: 0.038914207, w: 0.9501648}
+      scale: {x: 0.99999976, y: 1.0000001, z: 0.9999999}
+    - name: FOOT.L_end
+      parentName: FOOT.L
+      position: {x: 3.0243838e-10, y: 0.007196749, z: -4.271925e-12}
+      rotation: {x: 7.1054265e-15, y: 1.030553e-28, z: -2.3266151e-21, w: 1}
+      scale: {x: 1.0000002, y: 1, z: 1.0000002}
     - name: MESH
       parentName: Idle(Clone)
       position: {x: 6.412648e-15, y: 1.6342056, z: -0.00000014593289}
