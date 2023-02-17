@@ -14,7 +14,16 @@ public class AnimatorFloat : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        animator = this.GetComponent<Animator>();
+
+
+GameObject childObject = this.transform.GetChild(0).gameObject;
+
+
+ animator = childObject.GetComponentInChildren<Animator>();
+
+
+
+        
     }
 
     // Update is called once per frame
