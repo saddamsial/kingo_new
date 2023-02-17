@@ -16,10 +16,10 @@ public class AnimatorFloat : MonoBehaviour
     {
 
 
-GameObject childObject = this.transform.GetChild(0).gameObject;
 
 
- animator = childObject.GetComponentInChildren<Animator>();
+
+ animator = this.GetComponent<Animator>();
 
 
 
