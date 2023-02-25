@@ -10,16 +10,16 @@ public class AnimatorFloat : MonoBehaviour
     public float moveH;
     private float divide = 8f;
     public float SpeedCheckvar;
-    public Animator animator;
+    private Animator animator;
     // Start is called before the first frame update
     void Start()
     {
 
 
-GameObject childObject = this.transform.GetChild(0).gameObject;
 
 
- animator = childObject.GetComponentInChildren<Animator>();
+
+ animator = this.GetComponent<Animator>();
 
 
 
