@@ -200,17 +200,15 @@ public class WeaponShoot : MonoBehaviour
         //fire
         Physics.Raycast(pos.position, pos.forward, out hit, WeaponRange, layermask);
 
-       //side fire
-        Physics.Raycast(Sidepos.position , Sidepos.forward, out hit2,5, layermask);
 
-        if (hit2.collider == null)
-       { collided = hit.collider;
+     
+        collided = hit.collider;
 
             point = (hit.point);
-       }
-       else
+       
+       
 
-        collided = hit2.collider;
+     
      
    if (collided == null)
     {return;}
