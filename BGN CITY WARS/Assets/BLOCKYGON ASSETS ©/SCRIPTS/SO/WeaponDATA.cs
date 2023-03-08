@@ -18,8 +18,8 @@ public class WeaponDATA : ScriptableObject
     public int MaxClip;
     public int MaxAmmo;
     public bool MaxedAmmo;
-       public bool Scope;
-    
+    public bool Scope;
+    public bool IsMelee;
 
     public AudioClip FireSFX;
     public AudioClip BodyshotSFX;
