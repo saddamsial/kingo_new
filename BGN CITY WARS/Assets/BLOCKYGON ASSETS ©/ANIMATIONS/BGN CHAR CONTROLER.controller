@@ -11567,6 +11567,9 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 3
     m_ConditionEvent: SPEED
+    m_EventTreshold: -1
+  - m_ConditionMode: 2
+    m_ConditionEvent: IS AIMING
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -7322469389328394143}
