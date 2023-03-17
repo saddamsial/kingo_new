@@ -51,7 +51,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: {x: -6.02, y: 2.418, z: -0.253}
+        value: {x: -6.019, y: -6.791, z: -0.235}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -61,8 +61,8 @@ AnimationClip:
       - serializedVersion: 3
         time: 0.21666667
         value: {x: -1.158, y: 2.397, z: -0.252}
-        inSlope: {x: 12.545453, y: -0.22908992, z: 0}
-        outSlope: {x: 12.545453, y: -0.22908992, z: 0}
+        inSlope: {x: 12.545457, y: 0, z: 0}
+        outSlope: {x: 12.545457, y: 0, z: 0}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
@@ -70,15 +70,15 @@ AnimationClip:
       - serializedVersion: 3
         time: 0.36666667
         value: {x: -0.008, y: -0.818, z: -0.252}
-        inSlope: {x: 0, y: -27.176252, z: 0}
-        outSlope: {x: 0, y: -27.176252, z: 0}
+        inSlope: {x: 0.10499914, y: -48.225002, z: 0}
+        outSlope: {x: 0.10499914, y: -48.225002, z: 0}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
         time: 0.48333332
-        value: {x: -0.026, y: -4.85, z: -0.251}
+        value: {x: -0.001, y: -38.942, z: -0.19}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -88,8 +88,8 @@ AnimationClip:
       - serializedVersion: 3
         time: 0.6333333
         value: {x: -0.026, y: -4.85, z: -0.251}
-        inSlope: {x: 0, y: 0, z: 0}
-        outSlope: {x: 0, y: 0, z: 0}
+        inSlope: {x: 0, y: 74.436935, z: -0.018461848}
+        outSlope: {x: 0, y: 74.436935, z: -0.018461848}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
@@ -575,6 +575,49 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     path: BGN_CJ-RIGGED/HIPS/SPINE/SPINE2/SPINE3
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: {x: 7.893, y: -4.934, z: 3.757}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+      - serializedVersion: 3
+        time: 0.48333332
+        value: {x: 27.713, y: -27.501, z: -1.155}
+        inSlope: {x: 0, y: 0, z: -0.5353855}
+        outSlope: {x: 0, y: 0, z: -0.5353855}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+      - serializedVersion: 3
+        time: 0.8666667
+        value: {x: 27.169, y: 11.015, z: -1.271}
+        inSlope: {x: -2.8382542, y: 0, z: -0.6052177}
+        outSlope: {x: -2.8382542, y: 0, z: -0.6052177}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+      - serializedVersion: 3
+        time: 1.25
+        value: {x: 16.841, y: 7.158, z: -10.983}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: BGN_CJ-RIGGED/HIPS/SPINE/SPINE2/SPINE3/HEAD
   m_PositionCurves:
   - curve:
       serializedVersion: 2
@@ -769,6 +812,13 @@ AnimationClip:
       customType: 4
       isPPtrCurve: 0
     - serializedVersion: 2
+      path: 552844761
+      attribute: 4
+      script: {fileID: 0}
+      typeID: 4
+      customType: 4
+      isPPtrCurve: 0
+    - serializedVersion: 2
       path: 1483646352
       attribute: 1
       script: {fileID: 0}
@@ -887,7 +937,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: -6.02
+        value: -6.019
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -897,8 +947,8 @@ AnimationClip:
       - serializedVersion: 3
         time: 0.21666667
         value: -1.158
-        inSlope: 12.545453
-        outSlope: 12.545453
+        inSlope: 12.545457
+        outSlope: 12.545457
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
@@ -906,15 +956,15 @@ AnimationClip:
       - serializedVersion: 3
         time: 0.36666667
         value: -0.008
-        inSlope: 0
-        outSlope: 0
+        inSlope: 0.10499914
+        outSlope: 0.10499914
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.48333332
-        value: -0.026
+        value: -0.001
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -960,7 +1010,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 2.418
+        value: -6.791
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -970,8 +1020,8 @@ AnimationClip:
       - serializedVersion: 3
         time: 0.21666667
         value: 2.397
-        inSlope: -0.22908992
-        outSlope: -0.22908992
+        inSlope: 0
+        outSlope: 0
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
@@ -979,15 +1029,15 @@ AnimationClip:
       - serializedVersion: 3
         time: 0.36666667
         value: -0.818
-        inSlope: -27.176252
-        outSlope: -27.176252
+        inSlope: -48.225002
+        outSlope: -48.225002
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.48333332
-        value: -4.85
+        value: -38.942
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -997,8 +1047,8 @@ AnimationClip:
       - serializedVersion: 3
         time: 0.6333333
         value: -4.85
-        inSlope: 0
-        outSlope: 0
+        inSlope: 74.436935
+        outSlope: 74.436935
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
@@ -1033,7 +1083,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: -0.253
+        value: -0.235
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -1060,7 +1110,7 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.48333332
-        value: -0.251
+        value: -0.19
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -1070,8 +1120,8 @@ AnimationClip:
       - serializedVersion: 3
         time: 0.6333333
         value: -0.251
-        inSlope: 0
-        outSlope: 0
+        inSlope: -0.018461848
+        outSlope: -0.018461848
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
@@ -2993,6 +3043,144 @@ AnimationClip:
     path: BGN_CJ-RIGGED/HIPS/SPINE/SPINE2/SPINE3
     classID: 4
     script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 7.893
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.48333332
+        value: 27.713
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.8666667
+        value: 27.169
+        inSlope: -2.8382542
+        outSlope: -2.8382542
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1.25
+        value: 16.841
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAnglesRaw.x
+    path: BGN_CJ-RIGGED/HIPS/SPINE/SPINE2/SPINE3/HEAD
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: -4.934
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.48333332
+        value: -27.501
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.8666667
+        value: 11.015
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1.25
+        value: 7.158
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAnglesRaw.y
+    path: BGN_CJ-RIGGED/HIPS/SPINE/SPINE2/SPINE3/HEAD
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 3.757
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.48333332
+        value: -1.155
+        inSlope: -0.5353855
+        outSlope: -0.5353855
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.8666667
+        value: -1.271
+        inSlope: -0.6052177
+        outSlope: -0.6052177
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1.25
+        value: -10.983
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: localEulerAnglesRaw.z
+    path: BGN_CJ-RIGGED/HIPS/SPINE/SPINE2/SPINE3/HEAD
+    classID: 4
+    script: {fileID: 0}
   m_EulerEditorCurves:
   - curve:
       serializedVersion: 2
@@ -3145,7 +3333,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: BGN_CJ-RIGGED/HIPS/SPINE/SPINE2
+    path: BGN_CJ-RIGGED/HIPS/SPINE/SPINE2/SPINE3
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3155,7 +3343,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: BGN_CJ-RIGGED/HIPS/SPINE/SPINE2
+    path: BGN_CJ-RIGGED/HIPS/SPINE/SPINE2/SPINE3
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3165,7 +3353,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: BGN_CJ-RIGGED/HIPS/SPINE/SPINE2
+    path: BGN_CJ-RIGGED/HIPS/SPINE/SPINE2/SPINE3
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3385,7 +3573,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: BGN_CJ-RIGGED/HIPS/SPINE/SPINE2/SPINE3
+    path: BGN_CJ-RIGGED/HIPS/SPINE/SPINE2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3395,7 +3583,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: BGN_CJ-RIGGED/HIPS/SPINE/SPINE2/SPINE3
+    path: BGN_CJ-RIGGED/HIPS/SPINE/SPINE2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -3405,7 +3593,37 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: BGN_CJ-RIGGED/HIPS/SPINE/SPINE2/SPINE3
+    path: BGN_CJ-RIGGED/HIPS/SPINE/SPINE2
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.x
+    path: BGN_CJ-RIGGED/HIPS/SPINE/SPINE2/SPINE3/HEAD
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.y
+    path: BGN_CJ-RIGGED/HIPS/SPINE/SPINE2/SPINE3/HEAD
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_LocalEulerAngles.z
+    path: BGN_CJ-RIGGED/HIPS/SPINE/SPINE2/SPINE3/HEAD
     classID: 4
     script: {fileID: 0}
   m_HasGenericRootTransform: 0
