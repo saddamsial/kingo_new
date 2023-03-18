@@ -10,8 +10,7 @@ public WeaponDATA WeaponType;
 public LayerMask layerMask;
 public float Speed;
 public float SwingSize;
-public float Reach;
-public int Swings = 0;
+private int Swings = 0;
 public bool Fired;
 private float lastshot = 0f;
 public bool Canfire;
@@ -20,7 +19,8 @@ public AudioSource AS;
 private PhotonView PV;
 public PhotonView TPV;
 private RaycastHit hit;
-public Color color;
+private Collider collided;
+
 
 
 
@@ -72,56 +72,80 @@ public Color color;
      
      
        //fire
-     if (Physics.SphereCast(SwingPoint.position,SwingSize,SwingPoint.forward,out hit,Reach,layerMask))
+     if (Physics.SphereCast(SwingPoint.position,SwingSize,SwingPoint.forward,out hit,1,layerMask))
      {
+      collided = hit.collider;
      Debug.Log(hit.collider.name,hit.collider);
 
-     }
-    
-  
+     
+     BodyShot();
 
      }
 
-
-
-
-
-
-        void OnDrawGizmos()
-    {
-        Gizmos.color = color;
-        Gizmos.DrawWireSphere(SwingPoint.position,SwingSize);
-    }
+   
 }
 
+ void BodyShot()
 
 
+    { // SF
 
 
+        if (collided != null & collided.name == "HIT BOX-BODY")
 
 
+        {
+          Debug.Log("reached Bodyshot();");
+            if (TPV != null)
+              //self shoot detect
+            if (TPV.IsMine)
+            return;
+            else // other online player detect
+            {
+                AS.PlayOneShot(WeaponType.BodyshotSFX, 1f);
 
+                PV.RPC("Bodydamage", RpcTarget.Others);
 
+                //  TPV = collided.GetComponent<PhotonView>();
 
+                Debug.Log("Real Player Detected-Body");
 
+            }
 
+            else if (collided.name == "HIT BOX-BODY")
+            {
+               Debug.Log("reached before tag();");
+                      ///AI detct
+            if(collided.CompareTag("AI"))
+             
+            {
+            TakeDamage takedamage = collided.transform.parent.GetComponent<TakeDamage>();
 
+                AS.PlayOneShot(WeaponType.BodyshotSFX, 1f);
 
+                Debug.Log("AI Target Detected-Body");
 
+             
+               takedamage.Takedamage(WeaponType.BodyDamage);
 
+            }
 
+            else
+             {
 
+             AS.PlayOneShot(WeaponType.BodyshotSFX, 1f);
 
+                Debug.Log("Iron Target Detected-Body");
 
+            }
+              
+            }
 
+        }
 
+        else return;
 
-
-
-
-
-
-
+    } //EF
 
 
 
@@ -130,6 +154,18 @@ public Color color;
 
 
     }
+
+
+
+
+
+
+
+
+
+
+
+    }//END CLASS
 
 
 
