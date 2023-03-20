@@ -10,6 +10,7 @@ public class WeaponDATA : ScriptableObject
     public int Weapontype;
 
    public float FireRate;
+   public float WeaponRange;
     public float BodyDamage;
     public float HeadDamage;
     public int CurrentClip;

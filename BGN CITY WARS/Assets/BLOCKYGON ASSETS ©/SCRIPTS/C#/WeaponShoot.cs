@@ -11,36 +11,30 @@ public class WeaponShoot : MonoBehaviour
     public WeaponDATA WeaponType;
     public int BulletsFired = 0;
     private float lastshot = 0f;
-    public float WeaponRange;
-    public bool TargetFound;
+    private float WeaponRange;
     public bool Fired;
     public bool Canfire;
     public  bool Reloading;
  
 
-    [SerializeField]
-    private bool NoAmmo;
+    
+    public bool NoAmmo;
     public Collider collided;
     [SerializeField]
     private LayerMask layermask;
     private Vector3  point;
     private Transform pos;
-    public Transform Sidepos;
     private RaycastHit hit;
     private RaycastHit hit2;
     public AudioSource AS;
     private Animator animator;
     private Transform PlayerParent;
     // VFX SPAWN
-    public ParticleSystem BulletTrailVFX;
     public ParticleSystem BulletDropVFX;
     public GameObject SparkleVFX;
     //HitReticleS
     public GameObject HitReticle;
     public GameObject HitHeadReticle;
-    //UI TEXT
-    public GameObject ReloadingTextUI;
-    public GameObject NoAmmoTextUI;
     //pun variables
     private PhotonView PV;
     public PhotonView TPV;
@@ -72,31 +66,22 @@ public class WeaponShoot : MonoBehaviour
     }
    private void Start() {
     WeaponType.CurrentClip = WeaponType.MaxClip;
+    WeaponRange = WeaponType.WeaponRange;
    }
     void Update()
     
-    
-
 
 
 {
 // CHECK RETICLE HIT(NO SHOOTING)
 
 
-
-
-
-     
-//no ammo UI Text 
-    NoAmmoTextUI.SetActive(NoAmmo);
+   //NO AMMO SET UP
 
     if (WeaponType.MaxedAmmo)
     {
         WeaponType.Ammo = WeaponType.MaxAmmo;
     }
-        //reloading text
-        ReloadingTextUI.SetActive(Reloading);
-        //NoAmmo text
         if(WeaponType.CurrentClip < 1 && WeaponType.Ammo == 0)  
         {
             NoAmmo = true;
@@ -450,7 +435,6 @@ else
     {
         yield return new WaitForSeconds(0.15f);
 
-        BulletTrailVFX.Play();
         SparkleVFX.SetActive(true);
         BulletDropVFX.Play();
         yield return new WaitForSeconds(0.15f);
