@@ -11,14 +11,17 @@ public class WeaponShoot : MonoBehaviour
     public WeaponDATA WeaponType;
     public int BulletsFired = 0;
     private float lastshot = 0f;
-    private float WeaponRange;
+    public float WeaponRange;
     public bool Fired;
     public bool Canfire;
     public  bool Reloading;
- 
-
-    
+[HideInInspector]
+    public bool bodyshotHit;
+[HideInInspector]
+    public bool headshotHit;
     public bool NoAmmo;
+
+
     public Collider collided;
     [SerializeField]
     private LayerMask layermask;
@@ -26,15 +29,16 @@ public class WeaponShoot : MonoBehaviour
     private Transform pos;
     private RaycastHit hit;
     private RaycastHit hit2;
+ 
     public AudioSource AS;
     private Animator animator;
     private Transform PlayerParent;
     // VFX SPAWN
+    public ParticleSystem BulletTrailVFX;
     public ParticleSystem BulletDropVFX;
     public GameObject SparkleVFX;
-    //HitReticleS
-    public GameObject HitReticle;
-    public GameObject HitHeadReticle;
+
+  
     //pun variables
     private PhotonView PV;
     public PhotonView TPV;
@@ -62,11 +66,14 @@ public class WeaponShoot : MonoBehaviour
     private void OnDisable() 
     {
     Reloading = false;
+    bodyshotHit = false;
+    headshotHit = false;
 
     }
    private void Start() {
     WeaponType.CurrentClip = WeaponType.MaxClip;
     WeaponRange = WeaponType.WeaponRange;
+
    }
     void Update()
     
@@ -435,6 +442,7 @@ else
     {
         yield return new WaitForSeconds(0.15f);
 
+        BulletTrailVFX.Play();
         SparkleVFX.SetActive(true);
         BulletDropVFX.Play();
         yield return new WaitForSeconds(0.15f);
@@ -444,15 +452,15 @@ else
     // Hit Reticles Toggle
     IEnumerator Hitreticle()
     {
-        HitReticle.SetActive(true);
+      bodyshotHit = true;
         yield return new WaitForSeconds(0.25f);
-        HitReticle.SetActive(false);
+      bodyshotHit = false;
     }
     IEnumerator HitHeadreticle()
     {
-        HitHeadReticle.SetActive(true);
+       headshotHit = true;
         yield return new WaitForSeconds(0.25f);
-        HitHeadReticle.SetActive(false);
+         headshotHit = false;
     }
 
 
