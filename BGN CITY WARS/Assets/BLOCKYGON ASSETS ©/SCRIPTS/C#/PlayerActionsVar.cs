@@ -10,7 +10,9 @@ public class PlayerActionsVar : MonoBehaviour
     public bool IsAiming;
 
     public bool Sprinting;
-    
+
+    public bool canfire;
+    public int Weapontype;
 
 
     // Start is called before the first frame update

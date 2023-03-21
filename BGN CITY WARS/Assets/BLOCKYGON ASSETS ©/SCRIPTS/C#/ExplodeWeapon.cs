@@ -8,14 +8,13 @@ public class ExplodeWeapon : MonoBehaviour
     public float DamageMin;
     public float DamageMid;
     public float DamageMax;
+    public float Time;
     public LayerMask layermask;
     private RaycastHit hit;
     private Collider Collided;
+   
+
   
-    void Start()
-    {
-        
-    }
  void OnEnable() 
 
   {
@@ -26,12 +25,10 @@ public class ExplodeWeapon : MonoBehaviour
 
 
 
-
     void Explode()
-
 {
     Debug.Log("Triggered");
-    if (Physics.SphereCast(transform.position,radius,transform.position, out hit,1,layermask) )
+    if (Physics.SphereCast(transform.position,radius,new Vector3 (0,0,0), out hit,1,layermask) )
     {
     
     Debug.Log(Collided);

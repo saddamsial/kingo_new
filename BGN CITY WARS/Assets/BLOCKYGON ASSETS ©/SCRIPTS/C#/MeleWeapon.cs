@@ -34,22 +34,19 @@ private Collider collided;
     void Update()
     {
   
-          if (Time.time > lastshot + 0.2f)
-        {     
-           
-            Fired = false;     
-   
-           
-        }
+         if (Time.time > lastshot + 0.2f)
+         {     
+         Fired = false;     
+         }
 
 
 
-   if(Canfire)
-        { //canfire
+         if(Canfire)
+         { //canfire
 
 
-        if (Input.GetKey(KeyCode.Mouse0) == true & PV.IsMine & Time.time > lastshot+WeaponType.FireRate & WeaponType.CurrentClip >0)
-        {
+          if (Input.GetKey(KeyCode.Mouse0) && PV.IsMine & Time.time > lastshot+WeaponType.FireRate & WeaponType.CurrentClip >0)
+           {
             AS.PlayOneShot(WeaponType.FireSFX, 1f);
             Fired = true;
 
@@ -96,7 +93,10 @@ private Collider collided;
 
         {
           Debug.Log("reached Bodyshot();");
+          
             if (TPV != null)
+            
+            
               //self shoot detect
             if (TPV.IsMine)
             return;
@@ -112,7 +112,7 @@ private Collider collided;
 
             }
 
-            else if (collided.name == "HIT BOX-BODY")
+            else if (collided.name == "HIT BOX-BODY" & TPV == null)
             {
                Debug.Log("reached before tag();");
                       ///AI detct
