@@ -277,6 +277,10 @@ public class WeaponShoot : MonoBehaviour
 
                 Debug.Log("Iron Target Detected-Body");
 
+              TakeDamage takedamage = collided.transform.parent.GetComponent<TakeDamage>();
+                if (takedamage != null)
+               {takedamage.Takedamage(WeaponType.BodyDamage);}
+
                 //Hit Reticle Enable
                 StartCoroutine(Hitreticle());
 
