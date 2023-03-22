@@ -10,7 +10,6 @@ public class ThrowingWeapon : MonoBehaviour
  public float ThrowForce;
  public float ThrowSpeed;
  public Vector3 ThrowDirection;
- [SerializeField]
  private Rigidbody rb;
  private PlayerActionsVar RootVarSync;
  private float lastshot = 0f;
@@ -18,9 +17,10 @@ public class ThrowingWeapon : MonoBehaviour
  public bool Fired;
 private PhotonView PV;
 public GameObject Throwable;
- [SerializeField]
 private Transform Player;
 private GameObject GrenadeItem;
+
+
 
     private void OnEnable()
     {
@@ -84,17 +84,17 @@ void Throw()
      lastshot = Time.time;
      GrenadeItem.GetComponent<GrenadeScript>().SetOff();
      GrenadeItem.transform.parent=null;
-     rb.AddRelativeForce(ThrowDirection);
-    
+     rb.AddRelativeForce(ThrowDirection, ForceMode.Impulse);
+     
 
-
-     GrenadeItem = GameObject.Instantiate(Throwable);
+  if (this.transform.childCount <= 1)
+     {GrenadeItem = GameObject.Instantiate(Throwable);
      GrenadeItem.transform.parent = this.transform;
      GrenadeItem.transform.parent = this.transform;
      GrenadeItem.transform.localPosition = new Vector3(0,0,0);
      GrenadeItem.transform.localRotation = new Quaternion(0,0,0,0);
      GrenadeItem.transform.localScale = new Vector3(0.02f,0.02f,0.02f);
-     rb = GrenadeItem.GetComponent<Rigidbody>();
+     rb = GrenadeItem.GetComponent<Rigidbody>();}
      
     
      
