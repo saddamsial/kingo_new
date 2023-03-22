@@ -6,9 +6,11 @@ using Photon.Pun;
 public class ThrowingWeapon : MonoBehaviour
 {
     
- public Vector3 Direction;
+
  public float ThrowForce;
  public float ThrowSpeed;
+ public Vector3 ThrowDirection;
+ [SerializeField]
  private Rigidbody rb;
  private PlayerActionsVar RootVarSync;
  private float lastshot = 0f;
@@ -16,23 +18,33 @@ public class ThrowingWeapon : MonoBehaviour
  public bool Fired;
 private PhotonView PV;
 public GameObject Throwable;
+ [SerializeField]
 private Transform Player;
+private GameObject GrenadeItem;
 
     private void OnEnable()
     {
+       RootVarSync =  transform.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.GetComponent<PlayerActionsVar>();
         RootVarSync.Weapontype = 0;
-
+       if (this.transform.childCount <= 1)
+       //reset spawned item
+       {GrenadeItem = GameObject.Instantiate(Throwable);
+       rb = GrenadeItem.GetComponent<Rigidbody>();
+       GrenadeItem.transform.parent = this.transform;}
+       GrenadeItem.transform.localPosition = new Vector3(0,0,0);
+       GrenadeItem.transform.localRotation = new Quaternion(0,0,0,0);
+       GrenadeItem.transform.localScale = new Vector3(0.02f,0.02f,0.02f);
+  
     }
-
 
 
     void Start()
     {
         Player =  transform.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent;
 
-      rb =  Throwable .GetComponent<Rigidbody>();
+       
        RootVarSync =  transform.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.GetComponent<PlayerActionsVar>();
-     PV = Player.GetComponent<PhotonView>();
+       PV =this.GetComponent<PhotonView>();
 
 
     }
@@ -70,11 +82,35 @@ void Throw()
      Throws = Throws+1;
      //Reset FireRate
      lastshot = Time.time;
+     GrenadeItem.GetComponent<GrenadeScript>().SetOff();
+     GrenadeItem.transform.parent=null;
+     rb.AddRelativeForce(Player.forward*ThrowForce);
     
-     GameObject.Instantiate(Throwable,transform.position,Quaternion.identity);
-     rb.AddRelativeForce(Player.forward);
 
-}
+
+     GrenadeItem = GameObject.Instantiate(Throwable);
+     GrenadeItem.transform.parent = this.transform;
+     GrenadeItem.transform.parent = this.transform;
+     GrenadeItem.transform.localPosition = new Vector3(0,0,0);
+     GrenadeItem.transform.localRotation = new Quaternion(0,0,0,0);
+     GrenadeItem.transform.localScale = new Vector3(0.02f,0.02f,0.02f);
+     rb = GrenadeItem.GetComponent<Rigidbody>();
+     
+    
+     
+     }
+
+
+    
+
+
+
+
+
+
+
+
+
 
          
 
