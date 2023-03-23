@@ -84,7 +84,7 @@ void Throw()
      lastshot = Time.time;
      GrenadeItem.GetComponent<GrenadeScript>().SetOff();
      GrenadeItem.transform.parent=null;
-     rb.AddRelativeForce(ThrowDirection, ForceMode.Impulse);
+     rb .AddForce(transform.TransformDirection(Player.transform.forward), ForceMode.Impulse);
      
 
   if (this.transform.childCount <= 1)
