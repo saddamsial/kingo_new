@@ -19,6 +19,7 @@ private PhotonView PV;
 public GameObject Throwable;
 private Transform Player;
 private GameObject GrenadeItem;
+public Transform forcepos;
 
 
 
@@ -84,8 +85,7 @@ void Throw()
      lastshot = Time.time;
      GrenadeItem.GetComponent<GrenadeScript>().SetOff();
      GrenadeItem.transform.parent=null;
-     rb .AddForce(transform.TransformDirection(Player.transform.forward)*ThrowForce, ForceMode.Impulse);
-     
+      rb.AddRelativeForce(transform.forward*ThrowForce,ForceMode.Impulse);
 
   if (this.transform.childCount <= 1)
      {GrenadeItem = GameObject.Instantiate(Throwable);

@@ -8,6 +8,7 @@ Rigidbody rb;
 public float SplodeTime;
 private Transform CollidersParent;
  private void Start() 
+
 {
     rb = this.GetComponent<Rigidbody>();
     CollidersParent =  this.transform.Find("SET OFF");
@@ -60,6 +61,12 @@ public void SetOff()
 
 
 
+
+
+
+
+
+ 
 
 
 

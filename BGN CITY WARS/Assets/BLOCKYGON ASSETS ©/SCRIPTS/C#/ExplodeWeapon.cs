@@ -12,6 +12,7 @@ public class ExplodeWeapon : MonoBehaviour
     public LayerMask layermask;
     private RaycastHit hit;
     private Collider Collided;
+    public float throwForce;
    
 
   
@@ -22,6 +23,18 @@ public class ExplodeWeapon : MonoBehaviour
    Explode();
     
   } 
+
+
+
+ public void Throw()
+ {
+    Rigidbody rb = this.GetComponent<Rigidbody>();
+    rb.AddForce(transform.forward*throwForce,ForceMode.Impulse);
+ }
+
+
+
+
 
 
 
