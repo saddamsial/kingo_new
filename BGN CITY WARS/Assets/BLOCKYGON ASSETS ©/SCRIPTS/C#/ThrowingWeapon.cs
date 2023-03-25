@@ -5,8 +5,6 @@ using Photon;
 using Photon.Pun;
 public class ThrowingWeapon : MonoBehaviour
 {
-    
-
  public float ThrowForce;
  public float ThrowSpeed;
  public Vector3 ThrowDirection;
@@ -21,8 +19,6 @@ private Transform Player;
 private GameObject GrenadeItem;
 public Transform forcepos;
 
-
-
     private void OnEnable()
     {
        RootVarSync =  transform.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.GetComponent<PlayerActionsVar>();
@@ -35,23 +31,16 @@ public Transform forcepos;
        GrenadeItem.transform.localPosition = new Vector3(0,0,0);
        GrenadeItem.transform.localRotation = new Quaternion(0,0,0,0);
        GrenadeItem.transform.localScale = new Vector3(0.02f,0.02f,0.02f);
-  
     }
 
 
     void Start()
     {
         Player =  transform.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent;
-
-       
        RootVarSync =  transform.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.GetComponent<PlayerActionsVar>();
        PV =this.GetComponent<PhotonView>();
-
-
     }
 
-
-    // Update is called once per frame
     void Update()
     {
        if (Time.time > lastshot + 0.2f)
@@ -68,10 +57,7 @@ public Transform forcepos;
           
             Fired = true;
 
-         
-
             Throw();             
-
 
         }
          }
@@ -95,30 +81,8 @@ void Throw()
      GrenadeItem.transform.localRotation = new Quaternion(0,0,0,0);
      GrenadeItem.transform.localScale = new Vector3(0.02f,0.02f,0.02f);
      rb = GrenadeItem.GetComponent<Rigidbody>();}
-     
-    
-     
+          
      }
-
-
-    
-
-
-
-
-
-
-
-
-
-
-         
-
-
-
-
-
-
 
 
 
