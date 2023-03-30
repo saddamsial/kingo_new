@@ -20,15 +20,25 @@ private PhotonView PV;
 public PhotonView TPV;
 private RaycastHit hit;
 private Collider collided;
+private Transform PlayerParent;
+public int weapontype;
 
 
 
 
+void OnEnable() 
+{
+  weapontype=WeaponType.Weapontype;
+  PlayerParent=transform.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent;
+  PlayerParent.GetComponent<PlayerActionsVar>().Weapontype=weapontype;
+}
+     void Start()
+     {
+      
+       PV =  this.GetComponent<PhotonView>();
+       
 
-    void Start()
-    {
-        PV =  this.GetComponent<PhotonView>();
-    }
+      }
 
  
     void Update()
