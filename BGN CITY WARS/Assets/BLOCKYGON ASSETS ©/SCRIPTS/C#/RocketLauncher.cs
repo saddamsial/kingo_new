@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class RocketLauncher : MonoBehaviour
 {
+    public WeaponDATA Weapontype;
     public GameObject rocketPrefab;
     public Transform launchPoint;
     public float launchForce = 500f;
@@ -10,6 +11,7 @@ public class RocketLauncher : MonoBehaviour
     public Transform Player;
     private float nextFireTime = 0f;
     public bool canfire;
+    public int weapontype;
 
 
 void Start() 
