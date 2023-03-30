@@ -32,7 +32,7 @@ public class WeaponShoot : MonoBehaviour
  
     public AudioSource AS;
     private Animator animator;
-    private Transform PlayerParent;
+     private Transform PlayerParent;
     // VFX SPAWN
     public ParticleSystem BulletTrailVFX;
     public ParticleSystem BulletDropVFX;
@@ -46,14 +46,13 @@ public class WeaponShoot : MonoBehaviour
 
     private void OnEnable()
     {
+       PlayerParent.GetComponent<PlayerActionsVar>().Weapontype= WeaponType.Weapontype;
         PV = this.GetComponent<PhotonView>();
 
-
-        PlayerParent = transform.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent;
         collided = hit.collider;
 
         AS = GetComponent<AudioSource>();
-        animator = PlayerParent.GetComponent<Animator>();
+        
          //disable any active vfx uppon weapon switch
          SparkleVFX.SetActive(false);
           // start reload after weapon pull//
@@ -70,16 +69,19 @@ public class WeaponShoot : MonoBehaviour
     headshotHit = false;
 
     }
-   private void Start() {
+    private void Start() {
     WeaponType.CurrentClip = WeaponType.MaxClip;
     WeaponRange = WeaponType.WeaponRange;
-
+    PlayerParent = transform.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent;
+    animator = PlayerParent.GetComponent<Animator>();
    }
     void Update()
     
 
 
-{
+{//update S
+ PlayerParent.GetComponent<PlayerActionsVar>().Fired = Fired;
+
 // CHECK RETICLE HIT(NO SHOOTING)
 
 
@@ -172,7 +174,7 @@ public class WeaponShoot : MonoBehaviour
         } 
 
 
-    }
+    }//update E
     void Shoot()
 
     {

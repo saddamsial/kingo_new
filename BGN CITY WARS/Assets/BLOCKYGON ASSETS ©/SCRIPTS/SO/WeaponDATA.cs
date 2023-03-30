@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-[CreateAssetMenu(fileName = "New BGN Weapon", menuName = "New BGN Weapon/BGN-Glock")]
+[CreateAssetMenu(fileName = "New BGN Weapon", menuName = "New BGN Weapon/BGN RAYCAST")]
 public class WeaponDATA : ScriptableObject
 {
     public string WeaponName;

@@ -10,8 +10,8 @@ public class PlayerActionsVar : MonoBehaviour
     public bool IsAiming;
 
     public bool Sprinting;
-
     public bool canfire;
+    public bool Fired;
     public int Weapontype;
 
 
