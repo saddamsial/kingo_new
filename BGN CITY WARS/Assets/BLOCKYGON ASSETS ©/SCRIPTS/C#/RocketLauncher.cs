@@ -12,6 +12,7 @@ public class RocketLauncher : MonoBehaviour
     private float nextFireTime = 0f;
     public bool canfire;
     public int weapontype;
+    public bool Fired;
 
 
 
