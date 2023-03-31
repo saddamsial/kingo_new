@@ -1,19 +1,19 @@
 using UnityEngine;
-
+using System.Collections;
 public class RocketLauncher : MonoBehaviour
 {
     public WeaponDATA2 RocketWeapon;
     public GameObject rocketPrefab;
     public Transform launchPoint;
     public float launchForce = 500f;
-    float fireRate;
+    public float fireRate;
     public Transform crosshair;
     public Transform Player;
     private float nextFireTime = 0f;
     public bool canfire;
     public int weapontype;
     public bool Fired;
-
+    public GameObject SmokeVFX;
 
 
 
@@ -35,12 +35,7 @@ void Start()
     void Update()
 
     {  
-        
-          if (Time.time > nextFireTime + 0.2f)
-        {     
-           
-            Fired = false;     
-        }
+       
           //sync vars    
          canfire = Player.GetComponent<PlayerActionsVar>().canfire;
          Player.GetComponent<PlayerActionsVar>().Fired = Fired;
@@ -50,6 +45,7 @@ void Start()
         {
             nextFireTime = Time.time + 1f / fireRate;
             FireRocket();
+            StartCoroutine(ResetFired());
         }
 
 
@@ -59,9 +55,21 @@ void Start()
     void FireRocket()
     {
         Fired = true;
+        SmokeVFX.gameObject.SetActive(true);
         GameObject rocketInstance = Instantiate(rocketPrefab, launchPoint.position, launchPoint.rotation);
         Rigidbody rocketRigidbody = rocketInstance.GetComponent<Rigidbody>();
         Vector3 launchDirection = (crosshair.position - launchPoint.position).normalized;
         rocketRigidbody.AddForce(launchDirection * launchForce);
     }
+    
+   IEnumerator ResetFired()
+   {
+      yield return new WaitForSeconds(0.25f);
+      Fired=false;
+   }
+    
+   
+   
+
+
 }
