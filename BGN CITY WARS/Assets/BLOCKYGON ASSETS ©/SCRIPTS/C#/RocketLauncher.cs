@@ -17,10 +17,6 @@ public class RocketLauncher : MonoBehaviour
 
 
 
-void OnEnable() 
-{
- Player.GetComponent<PlayerActionsVar>().Weapontype= weapontype;
-}
 
 
 void Start() 

@@ -46,7 +46,7 @@ public class WeaponShoot : MonoBehaviour
 
     private void OnEnable()
     {
-       PlayerParent.GetComponent<PlayerActionsVar>().Weapontype= WeaponType.Weapontype;
+      
         PV = this.GetComponent<PhotonView>();
 
         collided = hit.collider;

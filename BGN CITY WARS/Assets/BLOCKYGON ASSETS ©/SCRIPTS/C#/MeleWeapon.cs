@@ -30,7 +30,7 @@ void OnEnable()
 {
   weapontype=WeaponType.Weapontype;
   PlayerParent=transform.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent;
-  PlayerParent.GetComponent<PlayerActionsVar>().Weapontype=weapontype;
+  //PlayerParent.GetComponent<PlayerActionsVar>().Weapontype=weapontype;
 }
      void Start()
      {
