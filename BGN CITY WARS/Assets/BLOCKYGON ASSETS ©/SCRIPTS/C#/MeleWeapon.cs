@@ -43,6 +43,7 @@ void OnEnable()
  
     void Update()
     {
+       PlayerParent.GetComponent<PlayerActionsVar>().Fired = Fired;
   
          if (Time.time > lastshot + 0.2f)
          {     

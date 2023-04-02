@@ -17,8 +17,6 @@ public class RocketLauncher : MonoBehaviour
 
 
 
-
-
 void Start() 
 {
     Player= transform.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent;
@@ -63,6 +61,12 @@ void Start()
       yield return new WaitForSeconds(0.25f);
       Fired=false;
    }
+
+private void OnDisable()
+{
+    //reset VFX
+     SmokeVFX.gameObject.SetActive(false);
+}
     
    
    
