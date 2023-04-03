@@ -12,6 +12,7 @@ public class ShotgunScript : MonoBehaviour
     public int BulletsFired = 0;
     private float lastshot = 0f;
     public float WeaponRange;
+    public float BulletSpread;
     public bool Fired;
     public bool Canfire;
     public  bool Reloading;
@@ -26,10 +27,11 @@ public class ShotgunScript : MonoBehaviour
     [SerializeField]
     private LayerMask layermask;
     private Vector3  point;
-    public Vector2 Spread;
     private Transform pos;
+    private Transform Shootpoint;
     private RaycastHit hit;
     private RaycastHit hit2;
+    private RaycastHit hit3;
  
     public AudioSource AS;
     private Animator animator;
@@ -75,6 +77,7 @@ public class ShotgunScript : MonoBehaviour
     WeaponRange = WeaponType.WeaponRange;
     PlayerParent = transform.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent;
     animator = PlayerParent.GetComponent<Animator>();
+    Shootpoint= GameObject.FindGameObjectWithTag("ShootPoint").transform;
    }
     void Update()
     
@@ -192,15 +195,33 @@ public class ShotgunScript : MonoBehaviour
 
       //  SparkleVFX.SetActive(false);
 
-        //fire
-        Physics.Raycast(pos.position, pos.forward, out hit, WeaponRange, layermask);
-        Physics.Raycast(pos.position, pos.forward, out hit, WeaponRange, layermask);
+        //fire 
+         Physics.Raycast(Shootpoint.position, pos.forward, out hit, WeaponRange, layermask);
+          Physics.Raycast(new Vector3(Shootpoint.position.x+BulletSpread,Shootpoint.position.y,Shootpoint.position.z), pos.forward, out hit2, WeaponRange, layermask);
+           Physics.Raycast(new Vector3(Shootpoint.position.x-BulletSpread,Shootpoint.position.y,Shootpoint.position.z), pos.forward, out hit3, WeaponRange, layermask);
+            if(hit.collider==null&&hit2.collider==null)
+            {
+                collided=hit3.collider;
+                Debug.Log("hit3");
+            }
+              else if (hit2.collider==null&&hit3.collider==null)
+            
+                {
+                collided=hit.collider;
+                Debug.Log("hit1");
+                }
 
+                else if (hit.collider==null&&hit3.collider==null)
 
-     
-        collided = hit.collider;
+                {
+                collided=hit2.collider;
+                Debug.Log("hit2");
+                }
+                
 
-            point = (hit.point);
+             collided = hit.collider;
+
+             point = (hit.point);
        
        
 

@@ -27,6 +27,7 @@ public class WeaponShoot : MonoBehaviour
     private LayerMask layermask;
     private Vector3  point;
     private Transform pos;
+    private Transform Shootpoint;
     private RaycastHit hit;
     private RaycastHit hit2;
  
@@ -74,6 +75,7 @@ public class WeaponShoot : MonoBehaviour
     WeaponRange = WeaponType.WeaponRange;
     PlayerParent = transform.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent;
     animator = PlayerParent.GetComponent<Animator>();
+    Shootpoint= GameObject.FindGameObjectWithTag("ShootPoint").transform;
    }
     void Update()
     
@@ -192,7 +194,7 @@ public class WeaponShoot : MonoBehaviour
       //  SparkleVFX.SetActive(false);
 
         //fire
-        Physics.Raycast(pos.position, pos.forward, out hit, WeaponRange, layermask);
+        Physics.Raycast(Shootpoint.position, pos.forward, out hit, WeaponRange, layermask);
 
 
      
