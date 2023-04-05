@@ -16,75 +16,141 @@ public class Shotgun : MonoBehaviour
     private int ammoCount;
     private int maxAmmo = 20;
     private float fireRate = 0.5f;
-    private float reloadTime = 1.5f;
+    private float reloadTime;
     private AudioSource audioSource;
     private AudioClip shootSound;
     private AudioClip reloadSound;
-     public bool Fired;
+     public bool fired;
+     public bool pump;
+    public bool   NoAmmo;
+     public float firedResetSpeed;
     public bool Canfire;
-    public bool isReloading = false;
+    public bool Reloading = false;
     private float nextFireTime = 0f;
     public Collider collided;
       //pun variables
     private PhotonView PV;
     public PhotonView TPV;
     public bool bodyshotHit;
+    public bool headshotHit;
+    private Transform PlayerParent;
+    bool Aiming;
+    private int BulletsFired;
     
 
 
 private void OnEnable() 
 {
-    spreadAngle=WeaponType.BulletSpread;
+  
      pelletCount=WeaponType.Pellets;
     reloadTime=WeaponType.ReloadTime;
     fireRate=WeaponType.FireRate;
     maxAmmo=WeaponType.MaxAmmo;
-    spreadAngle=WeaponType.BulletSpread;
-    pelletCount=WeaponType.Pellets;
     ammoCount=WeaponType.CurrentClip;
+    pelletCount=WeaponType.Pellets;
     range=WeaponType.WeaponRange;
+    pump=WeaponType.Pump;
 }
  private void Start() 
 {
     reloadSound=WeaponType.ReloadSFX;
     shootSound=WeaponType.FireSFX;
     audioSource=this.GetComponent<AudioSource>();
-
-
-
-
+    PlayerParent= transform.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent;
+    
 }
     void Update()
-    {
-        if (Input.GetButton("Fire1") && Time.time >= nextFireTime && !isReloading)
+    { 
+        //Pair  var with Player
+        PlayerParent.GetComponent<PlayerActionsVar>().Fired= fired;
+        Aiming=PlayerParent.GetComponentInChildren<PlayerActionsVar>().IsAiming;
+        if (Aiming)
+        {
+            spreadAngle=WeaponType.AimBulletSpread;
+        }
+        else
+        {
+            spreadAngle=WeaponType.DefaultBulletSpread;
+        }
+        if (Input.GetButton("Fire1") && Time.time >= nextFireTime && !Reloading)
         {
             Shoot();
             nextFireTime = Time.time + fireRate;
+          
+        }
+     
+             if (Time.time > nextFireTime -firedResetSpeed)
+        {     
+           
+            fired = false;      
+        }
+       
+          //ammo system
+
+     //NO AMMO SET UP
+
+    if (WeaponType.MaxedAmmo)
+    {
+        WeaponType.Ammo = WeaponType.MaxAmmo;
+    }
+        if(WeaponType.CurrentClip < 1 && WeaponType.Ammo == 0)  
+        {
+            NoAmmo = true;
+            BulletsFired = WeaponType.MaxClip;      
+        }
+        else 
+        {
+            NoAmmo = false;      
+        }
+    
+         //Ammo Clamp
+        if (WeaponType.Ammo <= 0)
+        {
+            WeaponType.Ammo = 0;
         }
 
-        if (Input.GetKeyDown(KeyCode.R) && !isReloading && ammoCount < maxAmmo)
+        //Clip Clamp
+        if (WeaponType.CurrentClip <= 0)
+        {
+            WeaponType.CurrentClip = 0;
+        }
+
+        if (WeaponType.CurrentClip >= WeaponType.MaxClip)
+
+          {WeaponType.CurrentClip = WeaponType.MaxClip;}
+          ///check reload conditions///
+
+        //auto reload
+
+        if (WeaponType.CurrentClip == 0&!Reloading & ! NoAmmo && WeaponType.Ammo > 0)
+        {
+          StartCoroutine(Reload());
+        }
+        //Manual reload
+        if (Input.GetKey(KeyCode.R) & !Reloading & !NoAmmo & WeaponType.CurrentClip < WeaponType.MaxClip && WeaponType.Ammo > 0) 
         {
             StartCoroutine(Reload());
-        }
+        } 
+
+
+
     }
 
-    IEnumerator Reload()
-    {
-        isReloading = true;
-        audioSource.PlayOneShot(reloadSound);
-        yield return new WaitForSeconds(reloadTime);
-        ammoCount = maxAmmo;
-        isReloading = false;
-    }
+
 
     void Shoot()
     {
-        if (ammoCount <= 0)
+        if (WeaponType.CurrentClip <= 0)
         {
             return;
         }
-
+        //fired var
+         fired=true;
         audioSource.PlayOneShot(shootSound);
+        if(pump)
+        {
+            StartCoroutine(PumpSFX());
+        }
 
         for (int i = 0; i < pelletCount; i++)
         {
@@ -97,16 +163,18 @@ private void OnEnable()
                 collided=hit.collider;
                 TPV = collided.transform.parent.GetComponentInParent<PhotonView>();
                 BodyShot();
+                HeadShot();
 
             }
 
             Debug.DrawRay(weaponShoot.position, direction * range, Color.red, 1f);
         }
 
-        ammoCount--;
+        WeaponType.CurrentClip--;
     }
 
     Vector3 GetSpreadDirection(float spread)
+
     {
         Vector3 direction = cameraTransform.forward;
         direction.x += Random.Range(-spread, spread);
@@ -114,13 +182,54 @@ private void OnEnable()
         direction.z += Random.Range(-spread, spread);
         return direction.normalized;
     }
+//coroutines//
+IEnumerator PumpSFX()
+{
+yield return new WaitForSeconds(0.25f);
+audioSource.PlayOneShot(WeaponType.pumpSFX);
+}
+ IEnumerator Reload()
 
+    {//sf
+    Debug.Log("reloading");
+     Reloading = true;
+     audioSource.PlayOneShot(WeaponType.ReloadSFX, 1f);
+     WeaponType.MaxedAmmo = false; 
+    yield return new WaitForSeconds(WeaponType.ReloadTime);
+    
+
+ if     (WeaponType.Ammo < WeaponType.MaxClip)
+     {
+        
+         WeaponType.CurrentClip = WeaponType.CurrentClip + WeaponType.Ammo;
+         WeaponType.Ammo = WeaponType.Ammo - BulletsFired;
+         BulletsFired = 0;
+         Reloading = false;
+     }
+
+else
+        {
+         WeaponType.CurrentClip = WeaponType.CurrentClip + BulletsFired;
+         WeaponType.Ammo = WeaponType.Ammo - BulletsFired;
+         BulletsFired = 0;
+         Reloading = false;
+        }
+    
+       
+        
+
+
+    }//ef
+
+//checkbodyshot
 void BodyShot()
-
 
     { // SF
 
-
+         if(collided.gameObject.layer==0)
+         {
+            return;
+         }
         if (collided != null & collided.name == "HIT BOX-BODY")
 
 
@@ -187,12 +296,6 @@ void BodyShot()
 
         else return;
 
-  
-
-
-
-
-
 
   IEnumerator Hitreticle()
     {
@@ -203,10 +306,84 @@ void BodyShot()
 
 
 
-
-
-
-
-
 }
+//check headshot
+void HeadShot()
+    { //SF
+         if(collided.gameObject.layer==0)
+         {
+            return;
+         }
+            if (collided != null & collided.name == "HIT BOX-HEAD")
+
+       {
+              Debug.Log (collided);
+            if (TPV != null)
+              //self shoot detect
+            if (TPV.IsMine)
+            return;
+            else // other online player detect
+            {
+                audioSource.PlayOneShot(WeaponType.HeadshotSFX, 1f);
+
+                PV.RPC("Headdamage", RpcTarget.Others);
+
+                //  TPV = collided.GetComponent<PhotonView>();
+
+                Debug.Log("Real Player Detected-Head");
+
+                //Hit Reticle Enable
+                StartCoroutine(HitHeadreticle());
+            }
+
+
+
+            else if (collided.name == "HIT BOX-HEAD" & TPV == null)
+            {
+               
+                      ///AI detct
+            if(collided.CompareTag("AI"))
+             
+            {
+            TakeDamage takedamage = collided.transform.parent.GetComponent<TakeDamage>();
+
+                audioSource.PlayOneShot(WeaponType.HeadshotSFX, 1f);
+
+                Debug.Log("AI Target Detected-Head");
+
+                //Hit Reticle Enable
+                StartCoroutine(HitHeadreticle());
+               takedamage.Takedamage(WeaponType.HeadDamage);
+
+            }
+
+            else
+             {
+               
+
+             audioSource.PlayOneShot(WeaponType.HeadshotSFX, 1f);
+
+                Debug.Log("Iron Target Detected-Head");
+
+                //Hit Reticle Enable
+                StartCoroutine(HitHeadreticle());
+
+            }            
+            }
+      }
+        
+
+        else return;
+
+         IEnumerator HitHeadreticle()
+    {
+       headshotHit = true;
+        yield return new WaitForSeconds(0.25f);
+        headshotHit = false;
+    }
+
+    }
+
+
+
 }

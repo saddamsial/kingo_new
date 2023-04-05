@@ -22,7 +22,10 @@ public class WeaponDATA : ScriptableObject
     public bool Scope;
     public bool IsMelee;
     public bool isShotgun;
-     public float BulletSpread;
+    public bool Pump;
+    public float DefaultBulletSpread;
+     public float AimBulletSpread;
+
       public int Pellets;
     
     public Material TrailVFX;
@@ -30,6 +33,7 @@ public class WeaponDATA : ScriptableObject
     public AudioClip FireSFX;
     public AudioClip BodyshotSFX;
     public AudioClip HeadshotSFX;
+    public AudioClip pumpSFX;
     public AudioClip ReloadSFX;
 
     // public ParticleSystem BulletTrail;
