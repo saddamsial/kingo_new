@@ -11,7 +11,7 @@ public class WeaponShoot : MonoBehaviour
     public WeaponDATA WeaponType;
     public int BulletsFired = 0;
     private float lastshot = 0f;
-    public float WeaponRange;
+    private float WeaponRange;
     public bool Fired;
     public bool Canfire;
     public  bool Reloading;
@@ -76,6 +76,7 @@ public class WeaponShoot : MonoBehaviour
     PlayerParent = transform.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent;
     animator = PlayerParent.GetComponent<Animator>();
     Shootpoint= GameObject.FindGameObjectWithTag("ShootPoint").transform;
+    WeaponRange=WeaponType.WeaponRange;
    }
     void Update()
     

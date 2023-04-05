@@ -13,6 +13,7 @@ public class ShotgunScript : MonoBehaviour
     private float lastshot = 0f;
     public float WeaponRange;
     public float BulletSpread;
+    public int pellets;
     public bool Fired;
     public bool Canfire;
     public  bool Reloading;
@@ -196,40 +197,42 @@ public class ShotgunScript : MonoBehaviour
       //  SparkleVFX.SetActive(false);
 
         //fire 
-         Physics.Raycast(Shootpoint.position, pos.forward, out hit, WeaponRange, layermask);
-          Physics.Raycast(new Vector3(Shootpoint.position.x+BulletSpread,Shootpoint.position.y,Shootpoint.position.z), pos.forward, out hit2, WeaponRange, layermask);
-           Physics.Raycast(new Vector3(Shootpoint.position.x-BulletSpread,Shootpoint.position.y,Shootpoint.position.z), pos.forward, out hit3, WeaponRange, layermask);
-            if(hit.collider==null&&hit2.collider==null)
-            {
+         if(Physics.Raycast(Shootpoint.position, pos.forward, out hit, WeaponRange, layermask))
+        {
+             collided=hit.collider;
+             Debug.Log("hit");
+             point = (hit.point);
+        }
+        else if
+          (Physics.Raycast(new Vector3(Shootpoint.position.x+BulletSpread,Shootpoint.position.y,Shootpoint.position.z), pos.forward, out hit2, WeaponRange, layermask))
+          {
+                 collided=hit2.collider;
+                 Debug.Log("hit2");
+                 point = (hit2.point);
+          }
+          else if 
+           (Physics.Raycast(new Vector3(Shootpoint.position.x-BulletSpread,Shootpoint.position.y,Shootpoint.position.z), pos.forward, out hit3, WeaponRange, layermask))           
+                {
                 collided=hit3.collider;
                 Debug.Log("hit3");
-            }
-              else if (hit2.collider==null&&hit3.collider==null)
+                 point = (hit3.point);
+                }
+
+          
+
             
-                {
-                collided=hit.collider;
-                Debug.Log("hit1");
-                }
+           
 
-                else if (hit.collider==null&&hit3.collider==null)
-
-                {
-                collided=hit2.collider;
-                Debug.Log("hit2");
-                }
-                
-
-             collided = hit.collider;
-
-             point = (hit.point);
+            
        
        
 
      
      
-   if (collided == null)
-    {return;}
-  else
+  // if (collided == null)
+   // {return;}
+   if (collided != null)
+  
 
      {   TPV = collided.transform.parent.GetComponentInParent<PhotonView>();
          
@@ -273,6 +276,7 @@ public class ShotgunScript : MonoBehaviour
 
                 //Hit Reticle Enable
                 StartCoroutine(Hitreticle());
+                collided=null;
             }
 
 
@@ -292,6 +296,7 @@ public class ShotgunScript : MonoBehaviour
                 //Hit Reticle Enable
                 StartCoroutine(Hitreticle());
                takedamage.Takedamage(WeaponType.BodyDamage);
+                 collided=null;
 
             }
 
@@ -308,6 +313,7 @@ public class ShotgunScript : MonoBehaviour
 
                 //Hit Reticle Enable
                 StartCoroutine(Hitreticle());
+                  collided=null;
 
 
             }
@@ -340,6 +346,7 @@ public class ShotgunScript : MonoBehaviour
                 //  TPV = collided.GetComponent<PhotonView>();
 
                 Debug.Log("Real Player Detected-Head");
+                  collided=null;
 
                 //Hit Reticle Enable
                 StartCoroutine(HitHeadreticle());
@@ -359,6 +366,7 @@ public class ShotgunScript : MonoBehaviour
                 AS.PlayOneShot(WeaponType.HeadshotSFX, 1f);
 
                 Debug.Log("AI Target Detected-Head");
+                  collided=null;
 
                 //Hit Reticle Enable
                 StartCoroutine(HitHeadreticle());
@@ -373,6 +381,7 @@ public class ShotgunScript : MonoBehaviour
              AS.PlayOneShot(WeaponType.HeadshotSFX, 1f);
 
                 Debug.Log("Iron Target Detected-Head");
+                  collided=null;
 
                 //Hit Reticle Enable
                 StartCoroutine(HitHeadreticle());

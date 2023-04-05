@@ -21,6 +21,9 @@ public class WeaponDATA : ScriptableObject
     public bool MaxedAmmo;
     public bool Scope;
     public bool IsMelee;
+    public bool isShotgun;
+     public float BulletSpread;
+      public int Pellets;
     
     public Material TrailVFX;
 
