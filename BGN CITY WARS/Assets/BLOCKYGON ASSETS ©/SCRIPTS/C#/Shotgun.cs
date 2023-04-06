@@ -129,8 +129,7 @@ private void OnEnable()
         {
             StartCoroutine(Reload());
         } 
-// auto cycle ammo for shotun
-     ReloadCyecle();
+
    
     }
 
@@ -204,7 +203,8 @@ audioSource.PlayOneShot(WeaponType.pumpSFX);
          Reloading = false;
         }
       
-
+// auto cycle ammo for shotun
+     ReloadCyecle();
     }//ef
      void ReloadCyecle()
      {
