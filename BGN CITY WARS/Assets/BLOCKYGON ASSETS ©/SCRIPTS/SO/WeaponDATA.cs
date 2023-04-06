@@ -23,6 +23,7 @@ public class WeaponDATA : ScriptableObject
     public bool IsMelee;
     public bool isShotgun;
     public bool Pump;
+    public int ShellPerReload;
     public float DefaultBulletSpread;
      public float AimBulletSpread;
 

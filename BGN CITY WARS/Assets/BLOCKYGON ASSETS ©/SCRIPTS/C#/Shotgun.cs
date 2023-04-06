@@ -16,7 +16,6 @@ public class Shotgun : MonoBehaviour
     private int ammoCount;
     private int maxAmmo = 20;
     private float fireRate = 0.5f;
-    private float reloadTime;
     private AudioSource audioSource;
     private AudioClip shootSound;
     private AudioClip reloadSound;
@@ -43,7 +42,6 @@ private void OnEnable()
 {
   
      pelletCount=WeaponType.Pellets;
-    reloadTime=WeaponType.ReloadTime;
     fireRate=WeaponType.FireRate;
     maxAmmo=WeaponType.MaxAmmo;
     ammoCount=WeaponType.CurrentClip;
@@ -122,23 +120,23 @@ private void OnEnable()
 
         //auto reload
 
-        if (WeaponType.CurrentClip == 0&!Reloading & ! NoAmmo && WeaponType.Ammo > 0)
+        if (WeaponType.CurrentClip == 0&&!Reloading && ! NoAmmo && WeaponType.Ammo > 0)
         {
           StartCoroutine(Reload());
         }
         //Manual reload
-        if (Input.GetKey(KeyCode.R) & !Reloading & !NoAmmo & WeaponType.CurrentClip < WeaponType.MaxClip && WeaponType.Ammo > 0) 
+        if (Input.GetKey(KeyCode.R) &&!Reloading &&!NoAmmo && WeaponType.CurrentClip < WeaponType.MaxClip && WeaponType.Ammo > 0) 
         {
             StartCoroutine(Reload());
         } 
-
-
-
+// auto cycle ammo for shotun
+     ReloadCyecle();
+   
     }
 
 
 
-    void Shoot()
+void Shoot()
     {
         if (WeaponType.CurrentClip <= 0)
         {
@@ -146,6 +144,8 @@ private void OnEnable()
         }
         //fired var
          fired=true;
+         //track shots fired
+        BulletsFired = BulletsFired+1;
         audioSource.PlayOneShot(shootSound);
         if(pump)
         {
@@ -173,7 +173,7 @@ private void OnEnable()
         WeaponType.CurrentClip--;
     }
 
-    Vector3 GetSpreadDirection(float spread)
+Vector3 GetSpreadDirection(float spread)
 
     {
         Vector3 direction = cameraTransform.forward;
@@ -191,36 +191,28 @@ audioSource.PlayOneShot(WeaponType.pumpSFX);
  IEnumerator Reload()
 
     {//sf
-    Debug.Log("reloading");
+     Debug.Log("reloading");
      Reloading = true;
      audioSource.PlayOneShot(WeaponType.ReloadSFX, 1f);
      WeaponType.MaxedAmmo = false; 
-    yield return new WaitForSeconds(WeaponType.ReloadTime);
+     yield return new WaitForSeconds(WeaponType.ReloadTime);
     
-
- if     (WeaponType.Ammo < WeaponType.MaxClip)
-     {
-        
-         WeaponType.CurrentClip = WeaponType.CurrentClip + WeaponType.Ammo;
-         WeaponType.Ammo = WeaponType.Ammo - BulletsFired;
-         BulletsFired = 0;
-         Reloading = false;
-     }
-
-else
         {
-         WeaponType.CurrentClip = WeaponType.CurrentClip + BulletsFired;
-         WeaponType.Ammo = WeaponType.Ammo - BulletsFired;
+         WeaponType.CurrentClip = WeaponType.CurrentClip + WeaponType.ShellPerReload;
+         WeaponType.Ammo = WeaponType.Ammo -  WeaponType.ShellPerReload;
          BulletsFired = 0;
          Reloading = false;
         }
-    
-       
-        
-
+      
 
     }//ef
-
+     void ReloadCyecle()
+     {
+        while(WeaponType.CurrentClip<WeaponType.MaxClip)
+        {
+            Reload();
+        }
+     }
 //checkbodyshot
 void BodyShot()
 
@@ -230,7 +222,7 @@ void BodyShot()
          {
             return;
          }
-        if (collided != null & collided.name == "HIT BOX-BODY")
+        if (collided != null && collided.name == "HIT BOX-BODY")
 
 
         {
@@ -314,7 +306,7 @@ void HeadShot()
          {
             return;
          }
-            if (collided != null & collided.name == "HIT BOX-HEAD")
+            if (collided != null && collided.name == "HIT BOX-HEAD")
 
        {
               Debug.Log (collided);
@@ -338,7 +330,7 @@ void HeadShot()
 
 
 
-            else if (collided.name == "HIT BOX-HEAD" & TPV == null)
+            else if (collided.name == "HIT BOX-HEAD" && TPV == null)
             {
                
                       ///AI detct
