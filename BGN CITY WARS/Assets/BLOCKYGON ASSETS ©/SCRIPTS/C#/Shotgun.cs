@@ -137,10 +137,13 @@ void OnDisable()
           StartCoroutine(Reload());
         }
         //Manual reload
-        if (Input.GetKey(KeyCode.R) &&!Reloading &&!NoAmmo && WeaponType.CurrentClip < WeaponType.MaxClip && WeaponType.Ammo > 0) 
+        if (Input.GetKeyDown(KeyCode.R))
+    {
+        if (WeaponType.CurrentClip < WeaponType.MaxClip && WeaponType.Ammo > 0 && !Reloading)
         {
             StartCoroutine(Reload());
-        } 
+        }
+    }
 
    
     }
@@ -200,31 +203,26 @@ yield return new WaitForSeconds(0.25f);
 audioSource.PlayOneShot(WeaponType.pumpSFX);
 }
  IEnumerator Reload()
-
-    {//sf
-     Debug.Log("reloading");
-     Reloading = true;
-     audioSource.PlayOneShot(WeaponType.ReloadSFX, 1f);
-     WeaponType.MaxedAmmo = false; 
-     yield return new WaitForSeconds(WeaponType.ReloadTime);
+{
+    Reloading = true;
     
-        {
-         WeaponType.CurrentClip = WeaponType.CurrentClip + WeaponType.ShellPerReload;
-         WeaponType.Ammo = WeaponType.Ammo -  WeaponType.ShellPerReload;
-         BulletsFired = 0;
-         Reloading = false;
-        }
-      
-// auto cycle ammo for shotun
-   //  ReloadCyecle();
-    }//ef
-     void ReloadCyecle()
-     {
-        while(WeaponType.CurrentClip<WeaponType.MaxClip)
-        {
-            Reload();
-        }
-     }
+    while (WeaponType.CurrentClip < WeaponType.MaxClip && WeaponType.Ammo > 0)
+    {
+        Debug.Log("reloading");
+        audioSource.PlayOneShot(WeaponType.ReloadSFX, 1f);
+        
+        yield return new WaitForSeconds(WeaponType.ReloadTime);
+        
+        WeaponType.CurrentClip++;
+        WeaponType.Ammo--;
+    }
+    
+    BulletsFired = 0;
+    Reloading = false;
+}
+
+//ef
+
 //checkbodyshot
 void BodyShot()
 

@@ -13,10 +13,10 @@ public class WeaponDATA : ScriptableObject
    public float WeaponRange;
     public float BodyDamage;
     public float HeadDamage;
-    public int CurrentClip;
-    public int Ammo;
     public float ReloadTime;
+    public int CurrentClip;
     public int MaxClip;
+    public int Ammo;
     public int MaxAmmo;
     public bool MaxedAmmo;
     public bool Scope;
