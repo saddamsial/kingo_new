@@ -206,7 +206,7 @@ audioSource.PlayOneShot(WeaponType.pumpSFX);
 {
     Reloading = true;
     
-    while (WeaponType.CurrentClip < WeaponType.MaxClip && WeaponType.Ammo > 0)
+    while (!Input.GetButton("Fire1")&& WeaponType.CurrentClip < WeaponType.MaxClip && WeaponType.Ammo > 0)
     {
         Debug.Log("reloading");
         audioSource.PlayOneShot(WeaponType.ReloadSFX, 1f);
@@ -215,6 +215,7 @@ audioSource.PlayOneShot(WeaponType.pumpSFX);
         
         WeaponType.CurrentClip++;
         WeaponType.Ammo--;
+        WeaponType.MaxedAmmo=false;
     }
     
     BulletsFired = 0;

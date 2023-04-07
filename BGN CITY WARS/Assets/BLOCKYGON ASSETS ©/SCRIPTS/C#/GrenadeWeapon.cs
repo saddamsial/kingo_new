@@ -5,7 +5,7 @@ using UnityEngine;
 public class GrenadeWeapon : MonoBehaviour
 
 {
- public float Damage;
+ public int Damage;
  private bool Entered;
 
  private void OnTriggerEnter(Collider other) 

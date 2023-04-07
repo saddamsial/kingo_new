@@ -5,9 +5,9 @@ using UnityEngine;
 public class ExplodeWeapon : MonoBehaviour
 {
     public float radius;
-    public float DamageMin;
-    public float DamageMid;
-    public float DamageMax;
+    public int DamageMin;
+    public int DamageMid;
+    public int DamageMax;
     public float Time;
     public LayerMask layermask;
     private RaycastHit hit;

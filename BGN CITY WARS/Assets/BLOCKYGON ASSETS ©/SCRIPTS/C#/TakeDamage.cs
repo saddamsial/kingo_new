@@ -6,9 +6,10 @@ using Photon.Pun;
 
 public class TakeDamage : MonoBehaviour
 {
-    public float HP = 1f;
-    public float Shield = 1f;
+    public int HP = 100;
+    public int Shield = 100;
     private PhotonView pv;
+    public int LastDamageTook;
    public bool hurt;
     private void Start()
     {
@@ -24,9 +25,10 @@ public class TakeDamage : MonoBehaviour
  }
 
 
-    public void Takedamage(float Damage)
+    public void Takedamage(int Damage)
 
     {//sf
+    LastDamageTook= Damage;
     
      hurt = true;
 
@@ -81,13 +83,13 @@ else
  private void HPcap()
  {
     if (HP<= 0)
-    HP =0F;
+    HP =0;
  }
 //same but for shield
  private void SHIELDcap()
  {
     if (Shield<= 0)
-    Shield =0F;
+    Shield =0;
  }
 
 
