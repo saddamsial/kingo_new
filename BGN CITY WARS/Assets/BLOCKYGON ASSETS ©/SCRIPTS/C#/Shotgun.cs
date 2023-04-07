@@ -49,6 +49,16 @@ private void OnEnable()
     range=WeaponType.WeaponRange;
     pump=WeaponType.Pump;
 }
+
+void OnDisable() 
+{
+    Reloading = false;
+    bodyshotHit = false;
+    headshotHit = false;
+
+}
+
+
  private void Start() 
 {
     reloadSound=WeaponType.ReloadSFX;
@@ -62,6 +72,8 @@ private void OnEnable()
         //Pair  var with Player
         PlayerParent.GetComponent<PlayerActionsVar>().Fired= fired;
         Aiming=PlayerParent.GetComponentInChildren<PlayerActionsVar>().IsAiming;
+        PlayerParent.GetComponent<PlayerActionsVar>().IsReloading=Reloading;
+        //change spread for aim
         if (Aiming)
         {
             spreadAngle=WeaponType.AimBulletSpread;
@@ -204,7 +216,7 @@ audioSource.PlayOneShot(WeaponType.pumpSFX);
         }
       
 // auto cycle ammo for shotun
-     ReloadCyecle();
+   //  ReloadCyecle();
     }//ef
      void ReloadCyecle()
      {

@@ -78,14 +78,13 @@ public class WeaponShoot : MonoBehaviour
     Shootpoint= GameObject.FindGameObjectWithTag("ShootPoint").transform;
     WeaponRange=WeaponType.WeaponRange;
    }
-    void Update()
-    
+void Update()
+ {//update S
+ //var sync with plaayer
+  PlayerParent.GetComponent<PlayerActionsVar>().Fired = Fired;
+  PlayerParent.GetComponent<PlayerActionsVar>().IsReloading=Reloading;
 
-
-{//update S
- PlayerParent.GetComponent<PlayerActionsVar>().Fired = Fired;
-
-// CHECK RETICLE HIT(NO SHOOTING)
+ // CHECK RETICLE HIT(NO SHOOTING)
 
 
    //NO AMMO SET UP
