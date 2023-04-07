@@ -35,6 +35,7 @@ public class Shotgun : MonoBehaviour
     private Transform PlayerParent;
     bool Aiming;
     private int BulletsFired;
+    public GameObject TrailVFX;
     
 
 
@@ -161,6 +162,7 @@ void Shoot()
          //track shots fired
         BulletsFired = BulletsFired+1;
         audioSource.PlayOneShot(shootSound);
+        TrailVFX.gameObject.SetActive(true);
         if(pump)
         {
             StartCoroutine(PumpSFX());

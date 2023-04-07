@@ -16,20 +16,27 @@ MonoBehaviour:
   Weapontype: 2
   FireRate: 1.2
   WeaponRange: 250
-  BodyDamage: 1
-  HeadDamage: 1.8
-  CurrentClip: 8
-  Ammo: 13
+  BodyDamage: 90
+  HeadDamage: 160
   ReloadTime: 3
+  CurrentClip: 8
   MaxClip: 8
+  Ammo: 13
   MaxAmmo: 120
   MaxedAmmo: 0
   Scope: 0
   IsMelee: 0
+  isShotgun: 0
+  Pump: 0
+  ShellPerReload: 0
+  DefaultBulletSpread: 0
+  AimBulletSpread: 0
+  Pellets: 0
   TrailVFX: {fileID: 2100000, guid: 541fb27caece7184891f81f3456625e4, type: 2}
   FireSFX: {fileID: 8300000, guid: c03db626b21a527429d9f0adc838ec31, type: 3}
   BodyshotSFX: {fileID: 8300000, guid: 4c9b29de5bae56e4bac146d9df91072d, type: 3}
   HeadshotSFX: {fileID: 8300000, guid: df4a2d45a93034a49983d0c0ceba9798, type: 3}
+  pumpSFX: {fileID: 0}
   ReloadSFX: {fileID: 8300000, guid: 5b6e47c67fd83504482ce55de6bcd273, type: 3}
   BulletHoleVFX: {fileID: 100002, guid: e74af37e539075d428c1f7bd8cdb781d, type: 3}
   UIIcon: {fileID: 21300000, guid: 3044ee1867540b5489f87fdd355d29e9, type: 3}
