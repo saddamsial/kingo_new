@@ -36,9 +36,8 @@ public class Shotgun : MonoBehaviour
     bool Aiming;
     private int BulletsFired;
     public GameObject TrailVFX;
-    
-
-
+    public GameObject SparkleVFX;
+    public ParticleSystem BulletDropVFX;
 private void OnEnable() 
 {
   
@@ -162,7 +161,8 @@ void Shoot()
          //track shots fired
         BulletsFired = BulletsFired+1;
         audioSource.PlayOneShot(shootSound);
-        TrailVFX.gameObject.SetActive(true);
+        //vfx
+        StartCoroutine(VFX());
         if(pump)
         {
             StartCoroutine(PumpSFX());
@@ -389,6 +389,18 @@ void HeadShot()
 
     }
 
+//VFX
+
+    IEnumerator VFX()
+    {
+        yield return new WaitForSeconds(0.15f);
+        TrailVFX.SetActive(true);
+        SparkleVFX.SetActive(true);
+        BulletDropVFX.Play();
+        yield return new WaitForSeconds(0.15f);
+        SparkleVFX.SetActive(false);
+
+    }
 
 
 }
