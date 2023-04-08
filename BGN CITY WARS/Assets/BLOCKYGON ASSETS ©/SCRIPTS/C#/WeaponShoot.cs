@@ -13,6 +13,7 @@ public class WeaponShoot : MonoBehaviour
     private float lastshot = 0f;
     private float WeaponRange;
     public bool Fired;
+    private bool started;
     public bool Canfire;
     public  bool Reloading;
 [HideInInspector]
@@ -32,7 +33,7 @@ public class WeaponShoot : MonoBehaviour
     private RaycastHit hit2;
  
     public AudioSource AS;
-    private Animator animator;
+   
      private Transform PlayerParent;
     // VFX SPAWN
     public ParticleSystem BulletTrailVFX;
@@ -74,7 +75,6 @@ public class WeaponShoot : MonoBehaviour
     WeaponType.CurrentClip = WeaponType.MaxClip;
     WeaponRange = WeaponType.WeaponRange;
     PlayerParent = transform.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent;
-    animator = PlayerParent.GetComponent<Animator>();
     Shootpoint= GameObject.FindGameObjectWithTag("ShootPoint").transform;
     WeaponRange=WeaponType.WeaponRange;
    }
@@ -141,14 +141,15 @@ void Update()
         { //canfire
 
 
-        if (Input.GetKey(KeyCode.Mouse0) == true & PV.IsMine & Time.time > lastshot+WeaponType.FireRate & WeaponType.CurrentClip >0 && !Reloading)
+        if (Input.GetKey(KeyCode.Mouse0) == true & PV.IsMine & Time.time > lastshot+WeaponType.FireRate & WeaponType.CurrentClip >0 && !Reloading&&!started)
         {
             AS.PlayOneShot(WeaponType.FireSFX, 1f);
-            Fired = true;
 
              StartCoroutine(VFX());
 
-            Shoot();             
+             StartCoroutine(Shoot());    
+           
+                      
 
         }
 
@@ -173,14 +174,18 @@ void Update()
         if (Input.GetKey(KeyCode.R) & !Reloading & !NoAmmo & WeaponType.CurrentClip < WeaponType.MaxClip && WeaponType.Ammo > 0) 
         {
             StartCoroutine(Reload());
+            
         } 
 
 
     }//update E
-    void Shoot()
+    IEnumerator Shoot()
 
     {
-       
+        
+        started=true;
+       yield return new WaitForSeconds(0.05f);
+       Fired = true;
         //track shots fired
         BulletsFired = BulletsFired+1;
 
@@ -201,13 +206,14 @@ void Update()
         collided = hit.collider;
 
             point = (hit.point);
+             started=false;
        
        
 
      
      
    if (collided == null)
-    {return;}
+    {yield break;}
   else
 
      {   TPV = collided.transform.parent.GetComponentInParent<PhotonView>();
@@ -220,6 +226,7 @@ void Update()
         BodyShot();
 
         HeadShot();
+       
 
     }
 
@@ -407,6 +414,7 @@ void Update()
 
 
     }//ef
+
 
 
 
