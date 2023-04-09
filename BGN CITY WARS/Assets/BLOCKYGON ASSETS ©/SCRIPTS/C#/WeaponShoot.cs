@@ -77,13 +77,14 @@ public class WeaponShoot : MonoBehaviour
     PlayerParent = transform.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent;
     Shootpoint= GameObject.FindGameObjectWithTag("ShootPoint").transform;
     WeaponRange=WeaponType.WeaponRange;
+    
    }
 void Update()
  {//update S
  //var sync with plaayer
   PlayerParent.GetComponent<PlayerActionsVar>().Fired = Fired;
   PlayerParent.GetComponent<PlayerActionsVar>().IsReloading=Reloading;
-
+  Canfire= PlayerParent.GetComponent<PlayerActionsVar>().canfire;
  // CHECK RETICLE HIT(NO SHOOTING)
 
 
@@ -141,14 +142,20 @@ void Update()
         { //canfire
 
 
-        if (Input.GetKey(KeyCode.Mouse0) == true & PV.IsMine & Time.time > lastshot+WeaponType.FireRate & WeaponType.CurrentClip >0 && !Reloading&&!started)
+        if (Input.GetKey(KeyCode.Mouse0) == true && PV.IsMine && Time.time > lastshot+WeaponType.FireRate && WeaponType.CurrentClip >0 && !Reloading&&Canfire)
         {
             AS.PlayOneShot(WeaponType.FireSFX, 1f);
 
              StartCoroutine(VFX());
 
-             //StartCoroutine(Shoot());    
-             Shoot();
+           float nextActionTime = 0.0f;
+           float period = 5f;
+             if (Time.time > nextActionTime)
+               {
+                nextActionTime += period;
+                Shoot();
+               }
+           
                       
 
         }
@@ -166,12 +173,12 @@ void Update()
 
         //auto reload
 
-        if (WeaponType.CurrentClip == 0&!Reloading & ! NoAmmo && WeaponType.Ammo > 0)
+        if (WeaponType.CurrentClip == 0&!Reloading && ! NoAmmo && WeaponType.Ammo > 0)
         {
           StartCoroutine( Reload());
         }
         //Manual reload
-        if (Input.GetKey(KeyCode.R) & !Reloading & !NoAmmo & WeaponType.CurrentClip < WeaponType.MaxClip && WeaponType.Ammo > 0) 
+        if (Input.GetKey(KeyCode.R) && !Reloading && !NoAmmo && WeaponType.CurrentClip < WeaponType.MaxClip && WeaponType.Ammo > 0) 
         {
             StartCoroutine(Reload());
             
@@ -179,6 +186,9 @@ void Update()
 
 
     }//update E
+
+
+
   void Shoot()
 
     {
@@ -238,7 +248,7 @@ void Update()
     { // SF
 
 
-        if (collided != null & collided.name == "HIT BOX-BODY")
+        if (collided != null && collided.name == "HIT BOX-BODY")
 
 
         {
@@ -263,7 +273,7 @@ void Update()
 
 
 
-            else if (collided.name == "HIT BOX-BODY" & TPV == null)
+            else if (collided.name == "HIT BOX-BODY" && TPV == null)
             {
                       ///AI detct
             if(collided.CompareTag("AI"))
@@ -309,7 +319,7 @@ void Update()
      void HeadShot()
     { //SF
 
-            if (collided != null & collided.name == "HIT BOX-HEAD")
+            if (collided != null && collided.name == "HIT BOX-HEAD")
 
        {
               Debug.Log (collided);
@@ -333,7 +343,7 @@ void Update()
 
 
 
-            else if (collided.name == "HIT BOX-HEAD" & TPV == null)
+            else if (collided.name == "HIT BOX-HEAD" && TPV == null)
             {
                
                       ///AI detct
