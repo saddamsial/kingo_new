@@ -147,8 +147,8 @@ void Update()
 
              StartCoroutine(VFX());
 
-             StartCoroutine(Shoot());    
-           
+             //StartCoroutine(Shoot());    
+             Shoot();
                       
 
         }
@@ -179,13 +179,13 @@ void Update()
 
 
     }//update E
-    IEnumerator Shoot()
+  void Shoot()
 
     {
         
         started=true;
-       yield return new WaitForSeconds(0.05f);
        Fired = true;
+       //yield return new WaitForSeconds(0f);
         //track shots fired
         BulletsFired = BulletsFired+1;
 
@@ -213,7 +213,7 @@ void Update()
      
      
    if (collided == null)
-    {yield break;}
+    {return;}
   else
 
      {   TPV = collided.transform.parent.GetComponentInParent<PhotonView>();
