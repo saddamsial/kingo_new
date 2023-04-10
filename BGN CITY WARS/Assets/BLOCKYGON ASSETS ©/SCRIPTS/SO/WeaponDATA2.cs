@@ -14,12 +14,9 @@ public class WeaponDATA2 : ScriptableObject
     public int MaxDamage;
     public int MidDamage;
     public int MinDamage;
-    public int CurrentClip;
-    public int Ammo;
     public float ReloadTime;
     public int MaxClip;
     public int MaxAmmo;
-    public bool MaxedAmmo;
     public bool Scope;
     public GameObject Rocket;
     

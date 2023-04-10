@@ -43,6 +43,8 @@ public class Shotgun : MonoBehaviour
 private void OnEnable() 
 {
   
+    PlayerParent= transform.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent;
+    weaponstatus=PlayerParent.GetComponent<WeaponStatus>();
      pelletCount=WeaponType.Pellets;
     fireRate=WeaponType.FireRate;
     maxAmmo=WeaponType.MaxAmmo;
@@ -66,7 +68,7 @@ void OnDisable()
     reloadSound=WeaponType.ReloadSFX;
     shootSound=WeaponType.FireSFX;
     audioSource=this.GetComponent<AudioSource>();
-    PlayerParent= transform.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent;
+    
     
 }
     void Update()

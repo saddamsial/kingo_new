@@ -49,7 +49,8 @@ public class WeaponShoot : MonoBehaviour
 
     private void OnEnable()
     {
-      
+     PlayerParent = transform.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent;
+     weaponstatus=PlayerParent.GetComponent<WeaponStatus>();
         PV = this.GetComponent<PhotonView>();
 
         collided = hit.collider;
@@ -74,8 +75,7 @@ public class WeaponShoot : MonoBehaviour
     }
     private void Start() 
 {
-    PlayerParent = transform.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent;
-    weaponstatus=PlayerParent.GetComponent<WeaponStatus>();
+    
     weaponstatus.CurrentClip = WeaponType.MaxClip;
     WeaponRange = WeaponType.WeaponRange;
     Shootpoint= GameObject.FindGameObjectWithTag("ShootPoint").transform;

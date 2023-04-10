@@ -3,6 +3,7 @@ using System.Collections;
 public class RocketLauncher : MonoBehaviour
 {
     public WeaponDATA2 RocketWeapon;
+    private WeaponStatus weaponstatus;
     public GameObject rocketPrefab;
     public Transform launchPoint;
     public float launchForce = 500f;
@@ -14,12 +15,17 @@ public class RocketLauncher : MonoBehaviour
     public int weapontype;
     public bool Fired;
     public GameObject SmokeVFX;
+    public  bool Reloading;
 
-
+ void OnEnable() 
+{
+  Player= transform.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent;
+  weaponstatus=Player.GetComponent<WeaponStatus>();   
+}
 
 void Start() 
 {
-    Player= transform.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent;
+    
     fireRate= RocketWeapon.FireRate;
     weapontype=RocketWeapon.Weapontype;
    
