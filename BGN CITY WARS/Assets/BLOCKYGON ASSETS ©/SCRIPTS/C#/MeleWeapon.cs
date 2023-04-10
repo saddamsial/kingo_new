@@ -56,7 +56,7 @@ void OnEnable()
          { //canfire
 
 
-          if (Input.GetKey(KeyCode.Mouse0) && PV.IsMine & Time.time > lastshot+WeaponType.FireRate & WeaponType.CurrentClip >0)
+          if (Input.GetKey(KeyCode.Mouse0) && PV.IsMine & Time.time > lastshot+WeaponType.FireRate)
            {
             AS.PlayOneShot(WeaponType.FireSFX, 1f);
             Fired = true;

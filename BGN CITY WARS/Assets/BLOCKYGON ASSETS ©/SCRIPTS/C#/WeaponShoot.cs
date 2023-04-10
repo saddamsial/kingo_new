@@ -9,6 +9,7 @@ public class WeaponShoot : MonoBehaviour
 {
     /// variables///
     public WeaponDATA WeaponType;
+    private WeaponStatus weaponstatus;
     public int BulletsFired = 0;
     private float lastshot = 0f;
     private float WeaponRange;
@@ -20,7 +21,7 @@ public class WeaponShoot : MonoBehaviour
     public bool bodyshotHit;
 [HideInInspector]
     public bool headshotHit;
-    public bool NoAmmo;
+    
 
 
     public Collider collided;
@@ -58,7 +59,7 @@ public class WeaponShoot : MonoBehaviour
          //disable any active vfx uppon weapon switch
          SparkleVFX.SetActive(false);
           // start reload after weapon pull//
-        if ( WeaponType.CurrentClip < 1 && NoAmmo != true)
+        if ( weaponstatus.CurrentClip < 1 && weaponstatus.NoAmmo != true)
         {
             StartCoroutine(Reload());
         }
@@ -71,65 +72,69 @@ public class WeaponShoot : MonoBehaviour
     headshotHit = false;
 
     }
-    private void Start() {
-    WeaponType.CurrentClip = WeaponType.MaxClip;
-    WeaponRange = WeaponType.WeaponRange;
+    private void Start() 
+{
     PlayerParent = transform.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent;
+    weaponstatus=PlayerParent.GetComponent<WeaponStatus>();
+    weaponstatus.CurrentClip = WeaponType.MaxClip;
+    WeaponRange = WeaponType.WeaponRange;
     Shootpoint= GameObject.FindGameObjectWithTag("ShootPoint").transform;
     WeaponRange=WeaponType.WeaponRange;
     
-   }
+}
 void Update()
  {//update S
  //var sync with plaayer
   PlayerParent.GetComponent<PlayerActionsVar>().Fired = Fired;
   PlayerParent.GetComponent<PlayerActionsVar>().IsReloading=Reloading;
   Canfire= PlayerParent.GetComponent<PlayerActionsVar>().canfire;
+  
+  
  // CHECK RETICLE HIT(NO SHOOTING)
 
 
    //NO AMMO SET UP
 
-    if (WeaponType.MaxedAmmo)
+    if (weaponstatus.MaxedAmmo)
     {
-        WeaponType.Ammo = WeaponType.MaxAmmo;
+        weaponstatus.TotalAmmo = WeaponType.MaxAmmo;
     }
-        if(WeaponType.CurrentClip < 1 && WeaponType.Ammo == 0)  
+        if(weaponstatus.CurrentClip < 1 && weaponstatus.TotalAmmo == 0)  
         {
-            NoAmmo = true;
+            weaponstatus.NoAmmo = true;
             BulletsFired = WeaponType.MaxClip;      
         }
         
         else 
     {
         {
-            NoAmmo = false;      
+            weaponstatus.NoAmmo = false;      
         }
     }
 
         pos = Camera.main.transform.GetChild(2);
       //Reset BulletsFired Custom conditions(calculate the difference manually)
-      if (WeaponType.Ammo == 0 )
+      if (weaponstatus.TotalAmmo == 0 )
       {
-        BulletsFired = WeaponType.MaxClip - WeaponType.CurrentClip;
+        BulletsFired = WeaponType.MaxClip - weaponstatus.CurrentClip;
       }
 
 
         //Ammo Clamp
-        if (WeaponType.Ammo <= 0)
+        if (weaponstatus.TotalAmmo <= 0)
         {
-            WeaponType.Ammo = 0;
+            weaponstatus.TotalAmmo = 0;
         }
 
         //Clip Clamp
-        if (WeaponType.CurrentClip <= 0)
+        if (weaponstatus.CurrentClip <= 0)
         {
-            WeaponType.CurrentClip = 0;
+            weaponstatus.CurrentClip = 0;
         }
 
-        if (WeaponType.CurrentClip >= WeaponType.MaxClip)
+        if (weaponstatus.CurrentClip >= WeaponType.MaxClip)
 
-          {WeaponType.CurrentClip = WeaponType.MaxClip;}
+          {weaponstatus.CurrentClip = WeaponType.MaxClip;}
 
         if (Time.time > lastshot + 0.2f)
         {     
@@ -142,7 +147,7 @@ void Update()
         { //canfire
 
 
-        if (Input.GetKey(KeyCode.Mouse0) == true && PV.IsMine && Time.time > lastshot+WeaponType.FireRate && WeaponType.CurrentClip >0 && !Reloading&&Canfire)
+        if (Input.GetKey(KeyCode.Mouse0) == true && PV.IsMine && Time.time > lastshot+WeaponType.FireRate && weaponstatus.CurrentClip >0 && !Reloading&&Canfire)
         {
             AS.PlayOneShot(WeaponType.FireSFX, 1f);
 
@@ -173,12 +178,12 @@ void Update()
 
         //auto reload
 
-        if (WeaponType.CurrentClip == 0&!Reloading && ! NoAmmo && WeaponType.Ammo > 0)
+        if (weaponstatus.CurrentClip == 0&!Reloading && ! weaponstatus.NoAmmo && weaponstatus.TotalAmmo > 0)
         {
           StartCoroutine( Reload());
         }
         //Manual reload
-        if (Input.GetKey(KeyCode.R) && !Reloading && !NoAmmo && WeaponType.CurrentClip < WeaponType.MaxClip && WeaponType.Ammo > 0) 
+        if (Input.GetKey(KeyCode.R) && !Reloading && !weaponstatus.NoAmmo && weaponstatus.CurrentClip < WeaponType.MaxClip && weaponstatus.TotalAmmo > 0) 
         {
             StartCoroutine(Reload());
             
@@ -200,7 +205,7 @@ void Update()
         BulletsFired = BulletsFired+1;
 
         //subtract bullets
-        WeaponType.CurrentClip = WeaponType.CurrentClip - 1;
+        weaponstatus.CurrentClip = weaponstatus.CurrentClip - 1;
 
         //Reset FireRate
 
@@ -437,23 +442,23 @@ void Update()
    
      Reloading = true;
      AS.PlayOneShot(WeaponType.ReloadSFX, 1f);
-     WeaponType.MaxedAmmo = false; 
+     weaponstatus.MaxedAmmo = false; 
     {
         yield return new WaitForSeconds(WeaponType.ReloadTime);
 
- if     (WeaponType.Ammo < WeaponType.MaxClip)
+ if     (weaponstatus.TotalAmmo < WeaponType.MaxClip)
      {
         
-         WeaponType.CurrentClip = WeaponType.CurrentClip + WeaponType.Ammo;
-         WeaponType.Ammo = WeaponType.Ammo - BulletsFired;
+         weaponstatus.CurrentClip = weaponstatus.CurrentClip + weaponstatus.TotalAmmo;
+         weaponstatus.TotalAmmo = weaponstatus.TotalAmmo - BulletsFired;
          BulletsFired = 0;
          Reloading = false;
      }
 
 else
         {
-         WeaponType.CurrentClip = WeaponType.CurrentClip + BulletsFired;
-         WeaponType.Ammo = WeaponType.Ammo - BulletsFired;
+         weaponstatus.CurrentClip = weaponstatus.CurrentClip + BulletsFired;
+         weaponstatus.TotalAmmo = weaponstatus.TotalAmmo - BulletsFired;
          BulletsFired = 0;
          Reloading = false;
         }

@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class WeaponStatus : MonoBehaviour
 {
- public int Clip;
- public int Ammo;
+ public int CurrentClip;
+ public int TotalAmmo;
+ public bool MaxedAmmo;
+ public bool NoAmmo;
+
  
 
     

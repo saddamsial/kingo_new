@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ExplodeWeapon : MonoBehaviour
 {
+    public WeaponDATA2 weapontype;
+    private WeaponStatus weaponstatus;
     public float radius;
     public int DamageMin;
     public int DamageMid;
