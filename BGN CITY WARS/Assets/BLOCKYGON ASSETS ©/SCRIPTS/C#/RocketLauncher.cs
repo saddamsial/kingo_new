@@ -8,17 +8,19 @@ public class RocketLauncher : MonoBehaviour
     public Transform launchPoint;
     public float launchForce = 500f;
     public float fireRate;
-    public Transform crosshair;
-    public Transform Player;
     private float nextFireTime = 0f;
     public bool canfire;
     public int weapontype;
     public bool Fired;
     public int RocketsFired = 0;
-    public GameObject SmokeVFX;
+    public int currentclip;
+    public int totalammo;
+    public bool noammo;
     public  bool Reloading;
     private AudioSource AS;
-
+    public GameObject SmokeVFX;
+    public Transform crosshair;
+    private Transform Player;
  void OnEnable() 
 {
   Player= transform.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent;
@@ -40,7 +42,7 @@ void Start()
     
     fireRate= RocketWeapon.FireRate;
     weapontype=RocketWeapon.Weapontype;
-    weaponstatus.CurrentClip = RocketWeapon.MaxClip;
+    currentclip= RocketWeapon.MaxClip;
     AS = Player.GetComponent<AudioSource>();
    
 }
@@ -54,7 +56,9 @@ void Start()
          canfire = Player.GetComponent<PlayerActionsVar>().canfire;
          Player.GetComponent<PlayerActionsVar>().Fired = Fired;
          Player.GetComponent<PlayerActionsVar>().IsReloading=Reloading;
-
+         Player.GetComponent<WeaponStatus>().CurrentClip=currentclip;
+         Player.GetComponent<WeaponStatus>().TotalAmmo=totalammo;
+         Player.GetComponent<WeaponStatus>().NoAmmo=noammo;
         if (Input.GetButton("Fire1") &&canfire && Time.time > nextFireTime && weaponstatus.CurrentClip >0 && !Reloading)
         {
             nextFireTime = Time.time + 1f / fireRate;
@@ -66,43 +70,43 @@ void Start()
 
     if (weaponstatus.MaxedAmmo)
     {
-        weaponstatus.TotalAmmo = RocketWeapon.MaxAmmo;
+        totalammo = RocketWeapon.MaxAmmo;
     }
-        if(weaponstatus.CurrentClip < 1 && weaponstatus.TotalAmmo == 0)  
+        if(currentclip < 1 && totalammo == 0)  
         {
-            weaponstatus.NoAmmo = true;
+            noammo = true;
             RocketsFired = RocketWeapon.MaxClip;      
         }
         
         else 
     {
         {
-            weaponstatus.NoAmmo = false;      
+           noammo = false;      
         }
     }
 
       //Reset BulletsFired Custom conditions(calculate the difference manually)
-      if (weaponstatus.TotalAmmo == 0 )
+      if (totalammo== 0 )
       {
-        RocketsFired = RocketWeapon.MaxClip - weaponstatus.CurrentClip;
+        RocketsFired = RocketWeapon.MaxClip - currentclip;
       }
 
 
         //Ammo Clamp
-        if (weaponstatus.TotalAmmo <= 0)
+        if (totalammo <= 0)
         {
-            weaponstatus.TotalAmmo = 0;
+            totalammo= 0;
         }
 
         //Clip Clamp
-        if (weaponstatus.CurrentClip <= 0)
+        if (currentclip <= 0)
         {
-            weaponstatus.CurrentClip = 0;
+            currentclip= 0;
         }
 
-        if (weaponstatus.CurrentClip >= RocketWeapon.MaxClip)
+        if (currentclip >= RocketWeapon.MaxClip)
 
-          {weaponstatus.CurrentClip = RocketWeapon.MaxClip;}
+          {currentclip = RocketWeapon.MaxClip;}
 
 
         
@@ -111,12 +115,12 @@ void Start()
 
         //auto reload
 
-        if (weaponstatus.CurrentClip == 0&!Reloading && ! weaponstatus.NoAmmo && weaponstatus.TotalAmmo > 0)
+        if (currentclip == 0&!Reloading && ! noammo && totalammo> 0)
         {
           StartCoroutine( Reload());
         }
         //Manual reload
-        if (Input.GetKey(KeyCode.R) && !Reloading && !weaponstatus.NoAmmo && weaponstatus.CurrentClip < RocketWeapon.MaxClip && weaponstatus.TotalAmmo > 0) 
+        if (Input.GetKey(KeyCode.R) && !Reloading && !noammo && currentclip < RocketWeapon.MaxClip && totalammo> 0) 
         {
             StartCoroutine(Reload());
             
@@ -124,16 +128,16 @@ void Start()
     }
     void FireRocket()
     {
-        Fired = true;
+         Fired = true;
          //track shots fired
          RocketsFired ++;
          //subtract bullets
-        weaponstatus.CurrentClip = weaponstatus.CurrentClip - 1;
-        SmokeVFX.gameObject.SetActive(true);
-        GameObject rocketInstance = Instantiate(rocketPrefab, launchPoint.position, launchPoint.rotation);
-        Rigidbody rocketRigidbody = rocketInstance.GetComponent<Rigidbody>();
-        Vector3 launchDirection = (crosshair.position - launchPoint.position).normalized;
-        rocketRigidbody.AddForce(launchDirection * launchForce);
+         currentclip--;
+         SmokeVFX.gameObject.SetActive(true);
+         GameObject rocketInstance = Instantiate(rocketPrefab, launchPoint.position, launchPoint.rotation);
+         Rigidbody rocketRigidbody = rocketInstance.GetComponent<Rigidbody>();
+         Vector3 launchDirection = (crosshair.position - launchPoint.position).normalized;
+         rocketRigidbody.AddForce(launchDirection * launchForce);
     }
     
    IEnumerator ResetFired()
@@ -155,19 +159,19 @@ void Start()
     {
         yield return new WaitForSeconds(RocketWeapon.ReloadTime);
 
- if     (weaponstatus.TotalAmmo < RocketWeapon.MaxClip)
+ if     (totalammo < RocketWeapon.MaxClip)
      {
         
-         weaponstatus.CurrentClip = weaponstatus.CurrentClip + weaponstatus.TotalAmmo;
-         weaponstatus.TotalAmmo = weaponstatus.TotalAmmo - RocketsFired;
+         currentclip += totalammo;
+         totalammo -= RocketsFired;
          RocketsFired = 0;
          Reloading = false;
      }
 
 else
         {
-         weaponstatus.CurrentClip = weaponstatus.CurrentClip + RocketsFired;
-         weaponstatus.TotalAmmo = weaponstatus.TotalAmmo - RocketsFired;
+         currentclip += RocketsFired;
+         totalammo-= RocketsFired;
          RocketsFired = 0;
          Reloading = false;
         }

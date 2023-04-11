@@ -15,6 +15,10 @@ public class WeaponShoot : MonoBehaviour
     public int BulletsFired = 0;
     public bool noammo;
     private float lastshot = 0f;
+    public int CurrentClip;
+
+    public int TotalAmmo;
+    public bool MaxedAmmo;
     private float WeaponRange;
     public bool Fired;
     private bool started;
@@ -51,7 +55,7 @@ public class WeaponShoot : MonoBehaviour
     {
      PlayerParent = transform.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent;
      weaponstatus=PlayerParent.GetComponent<WeaponStatus>();
-        PV = this.GetComponent<PhotonView>();
+     PV = this.GetComponent<PhotonView>();
 
         collided = hit.collider;
 

@@ -15,8 +15,11 @@ public class Shotgun : MonoBehaviour
     public LayerMask layerMask;
     public Transform weaponShoot;
     public Transform cameraTransform;
-    private int ammoCount;
-    private int maxAmmo = 20;
+    public int currentclip;
+    public int totalammo;
+    public bool noammo;
+    
+    public bool MaxedAmmo;
     private float fireRate = 0.5f;
     private AudioSource audioSource;
     private AudioClip shootSound;
@@ -42,16 +45,20 @@ public class Shotgun : MonoBehaviour
     public ParticleSystem BulletDropVFX;
 private void OnEnable() 
 {
-  
     PlayerParent= transform.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent;
     weaponstatus=PlayerParent.GetComponent<WeaponStatus>();
-     pelletCount=WeaponType.Pellets;
+    pelletCount=WeaponType.Pellets;
     fireRate=WeaponType.FireRate;
-    maxAmmo=WeaponType.MaxAmmo;
-    ammoCount=weaponstatus.CurrentClip;
     pelletCount=WeaponType.Pellets;
     range=WeaponType.WeaponRange;
     pump=WeaponType.Pump;
+    // start reload after weapon pull//
+    if ( currentclip < 1 && weaponstatus.NoAmmo != true)
+    {
+    StartCoroutine(Reload());
+    }
+    //disable any active vfx uppon weapon switch
+    SparkleVFX.SetActive(false);
 }
 
 void OnDisable() 
@@ -59,24 +66,22 @@ void OnDisable()
     Reloading = false;
     bodyshotHit = false;
     headshotHit = false;
-
 }
-
-
  private void Start() 
-{
+{   currentclip = WeaponType.MaxClip;
     reloadSound=WeaponType.ReloadSFX;
     shootSound=WeaponType.FireSFX;
-    audioSource=this.GetComponent<AudioSource>();
-    
-    
+    audioSource=this.GetComponent<AudioSource>(); 
 }
-    void Update()
-    { 
+void Update()
+{ 
         //Pair  var with Player
         PlayerParent.GetComponent<PlayerActionsVar>().Fired= fired;
         Aiming=PlayerParent.GetComponentInChildren<PlayerActionsVar>().IsAiming;
         PlayerParent.GetComponent<PlayerActionsVar>().IsReloading=Reloading;
+        PlayerParent.GetComponent<WeaponStatus>().NoAmmo=noammo;
+        PlayerParent.GetComponent<WeaponStatus>().CurrentClip=currentclip;
+        PlayerParent.GetComponent<WeaponStatus>().TotalAmmo=totalammo;
         //change spread for aim
         if (Aiming)
         {
@@ -101,15 +106,15 @@ void OnDisable()
        
           //ammo system
 
-     //NO AMMO SET UP
+   //NO AMMO SET UP
 
     if (weaponstatus.MaxedAmmo)
     {
-        weaponstatus.TotalAmmo = WeaponType.MaxAmmo;
+       totalammo = WeaponType.MaxAmmo;
     }
-        if(weaponstatus.CurrentClip < 1 && weaponstatus.TotalAmmo == 0)  
+        if(currentclip < 1 && totalammo == 0)  
         {
-            weaponstatus.NoAmmo = true;
+            noammo = true;
             BulletsFired = WeaponType.MaxClip;      
         }
         else 
@@ -117,46 +122,46 @@ void OnDisable()
             weaponstatus.NoAmmo = false;      
         }
     
-         //Ammo Clamp
-        if (weaponstatus.TotalAmmo <= 0)
+       //Ammo Clamp
+        if (totalammo <= 0)
         {
-            weaponstatus.TotalAmmo = 0;
+            totalammo = 0;
         }
 
         //Clip Clamp
-        if (weaponstatus.CurrentClip <= 0)
+        if (currentclip <= 0)
         {
-            weaponstatus.CurrentClip = 0;
+            currentclip = 0;
         }
 
-        if (weaponstatus.CurrentClip >= WeaponType.MaxClip)
+        if (currentclip >= WeaponType.MaxClip)
 
-          {weaponstatus.CurrentClip = WeaponType.MaxClip;}
+          {currentclip = WeaponType.MaxClip;}
           ///check reload conditions///
 
         //auto reload
 
-        if (weaponstatus.CurrentClip == 0&&!Reloading && ! weaponstatus.NoAmmo && weaponstatus.TotalAmmo > 0)
+        if (currentclip == 0&&!Reloading && ! noammo && totalammo > 0)
         {
           StartCoroutine(Reload());
         }
         //Manual reload
         if (Input.GetKeyDown(KeyCode.R))
     {
-        if (weaponstatus.CurrentClip < WeaponType.MaxClip && weaponstatus.TotalAmmo > 0 && !Reloading)
+        if (currentclip < WeaponType.MaxClip && totalammo > 0 && !Reloading)
         {
             StartCoroutine(Reload());
         }
     }
 
    
-    }
+}
 
 
 
 void Shoot()
     {
-        if (weaponstatus.CurrentClip <= 0)
+        if (currentclip <= 0)
         {
             return;
         }
@@ -190,7 +195,7 @@ void Shoot()
             Debug.DrawRay(weaponShoot.position, direction * range, Color.red, 1f);
         }
 
-        weaponstatus.CurrentClip--;
+        currentclip--;
     }
 
 Vector3 GetSpreadDirection(float spread)
@@ -212,15 +217,15 @@ audioSource.PlayOneShot(WeaponType.pumpSFX);
 {
     Reloading = true;
     
-    while (!Input.GetButton("Fire1")&& weaponstatus.CurrentClip < WeaponType.MaxClip && weaponstatus.TotalAmmo > 0)
+    while (!Input.GetButton("Fire1")&& currentclip < WeaponType.MaxClip && totalammo > 0)
     {
         Debug.Log("reloading");
         audioSource.PlayOneShot(WeaponType.ReloadSFX, 1f);
         
         yield return new WaitForSeconds(WeaponType.ReloadTime);
         
-        weaponstatus.CurrentClip++;
-        weaponstatus.TotalAmmo--;
+        currentclip++;
+        totalammo--;
         weaponstatus.MaxedAmmo=false;
     }
     
