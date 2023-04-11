@@ -10,7 +10,10 @@ public class WeaponShoot : MonoBehaviour
     /// variables///
     public WeaponDATA WeaponType;
     private WeaponStatus weaponstatus;
+    public int currentclip;
+    public int totalammo;
     public int BulletsFired = 0;
+    public bool noammo;
     private float lastshot = 0f;
     private float WeaponRange;
     public bool Fired;
@@ -21,9 +24,6 @@ public class WeaponShoot : MonoBehaviour
     public bool bodyshotHit;
 [HideInInspector]
     public bool headshotHit;
-    
-
-
     public Collider collided;
     [SerializeField]
     private LayerMask layermask;
@@ -60,7 +60,7 @@ public class WeaponShoot : MonoBehaviour
          //disable any active vfx uppon weapon switch
          SparkleVFX.SetActive(false);
           // start reload after weapon pull//
-        if ( weaponstatus.CurrentClip < 1 && weaponstatus.NoAmmo != true)
+        if ( currentclip < 1 && weaponstatus.NoAmmo != true)
         {
             StartCoroutine(Reload());
         }
@@ -76,7 +76,7 @@ public class WeaponShoot : MonoBehaviour
     private void Start() 
 {
     
-    weaponstatus.CurrentClip = WeaponType.MaxClip;
+    currentclip = WeaponType.MaxClip;
     WeaponRange = WeaponType.WeaponRange;
     Shootpoint= GameObject.FindGameObjectWithTag("ShootPoint").transform;
     WeaponRange=WeaponType.WeaponRange;
@@ -88,7 +88,9 @@ void Update()
   PlayerParent.GetComponent<PlayerActionsVar>().Fired = Fired;
   PlayerParent.GetComponent<PlayerActionsVar>().IsReloading=Reloading;
   Canfire= PlayerParent.GetComponent<PlayerActionsVar>().canfire;
-  
+  PlayerParent.GetComponent<WeaponStatus>().CurrentClip=currentclip;
+  PlayerParent.GetComponent<WeaponStatus>().TotalAmmo=totalammo;
+  PlayerParent.GetComponent<WeaponStatus>().NoAmmo=noammo;
   
  // CHECK RETICLE HIT(NO SHOOTING)
 
@@ -97,44 +99,44 @@ void Update()
 
     if (weaponstatus.MaxedAmmo)
     {
-        weaponstatus.TotalAmmo = WeaponType.MaxAmmo;
+       totalammo = WeaponType.MaxAmmo;
     }
-        if(weaponstatus.CurrentClip < 1 && weaponstatus.TotalAmmo == 0)  
+        if(currentclip < 1 && totalammo == 0)  
         {
-            weaponstatus.NoAmmo = true;
+            noammo = true;
             BulletsFired = WeaponType.MaxClip;      
         }
         
         else 
     {
         {
-            weaponstatus.NoAmmo = false;      
+            noammo = false;      
         }
     }
 
         pos = Camera.main.transform.GetChild(2);
       //Reset BulletsFired Custom conditions(calculate the difference manually)
-      if (weaponstatus.TotalAmmo == 0 )
+      if (totalammo== 0 )
       {
-        BulletsFired = WeaponType.MaxClip - weaponstatus.CurrentClip;
+        BulletsFired = WeaponType.MaxClip - currentclip;
       }
 
 
         //Ammo Clamp
-        if (weaponstatus.TotalAmmo <= 0)
+        if (totalammo <= 0)
         {
-            weaponstatus.TotalAmmo = 0;
+            totalammo = 0;
         }
 
         //Clip Clamp
-        if (weaponstatus.CurrentClip <= 0)
+        if (currentclip <= 0)
         {
-            weaponstatus.CurrentClip = 0;
+            currentclip = 0;
         }
 
-        if (weaponstatus.CurrentClip >= WeaponType.MaxClip)
+        if (currentclip >= WeaponType.MaxClip)
 
-          {weaponstatus.CurrentClip = WeaponType.MaxClip;}
+          {currentclip = WeaponType.MaxClip;}
 
         if (Time.time > lastshot + 0.2f)
         {     
@@ -147,7 +149,7 @@ void Update()
         { //canfire
 
 
-        if (Input.GetKey(KeyCode.Mouse0) == true && PV.IsMine && Time.time > lastshot+WeaponType.FireRate && weaponstatus.CurrentClip >0 && !Reloading&&Canfire)
+        if (Input.GetKey(KeyCode.Mouse0) == true && PV.IsMine && Time.time > lastshot+WeaponType.FireRate && currentclip >0 && !Reloading&&Canfire)
         {
             AS.PlayOneShot(WeaponType.FireSFX, 1f);
 
@@ -178,12 +180,12 @@ void Update()
 
         //auto reload
 
-        if (weaponstatus.CurrentClip == 0&!Reloading && ! weaponstatus.NoAmmo && weaponstatus.TotalAmmo > 0)
+        if (currentclip == 0&!Reloading && ! noammo && totalammo > 0)
         {
           StartCoroutine( Reload());
         }
         //Manual reload
-        if (Input.GetKey(KeyCode.R) && !Reloading && !weaponstatus.NoAmmo && weaponstatus.CurrentClip < WeaponType.MaxClip && weaponstatus.TotalAmmo > 0) 
+        if (Input.GetKey(KeyCode.R) && !Reloading && !noammo && currentclip < WeaponType.MaxClip && totalammo > 0) 
         {
             StartCoroutine(Reload());
             
@@ -202,10 +204,10 @@ void Update()
        Fired = true;
        //yield return new WaitForSeconds(0f);
         //track shots fired
-        BulletsFired = BulletsFired+1;
+        BulletsFired +=1;
 
         //subtract bullets
-        weaponstatus.CurrentClip = weaponstatus.CurrentClip - 1;
+        currentclip --;
 
         //Reset FireRate
 
@@ -218,9 +220,9 @@ void Update()
 
 
      
-        collided = hit.collider;
+             collided = hit.collider;
 
-            point = (hit.point);
+             point = (hit.point);
              started=false;
        
        
@@ -442,23 +444,23 @@ void Update()
    
      Reloading = true;
      AS.PlayOneShot(WeaponType.ReloadSFX, 1f);
-     weaponstatus.MaxedAmmo = false; 
+     noammo = false; 
     {
         yield return new WaitForSeconds(WeaponType.ReloadTime);
 
- if     (weaponstatus.TotalAmmo < WeaponType.MaxClip)
+ if     (totalammo < WeaponType.MaxClip)
      {
         
-         weaponstatus.CurrentClip = weaponstatus.CurrentClip + weaponstatus.TotalAmmo;
-         weaponstatus.TotalAmmo = weaponstatus.TotalAmmo - BulletsFired;
+         currentclip += totalammo;
+         totalammo -= BulletsFired;
          BulletsFired = 0;
          Reloading = false;
      }
 
 else
         {
-         weaponstatus.CurrentClip = weaponstatus.CurrentClip + BulletsFired;
-         weaponstatus.TotalAmmo = weaponstatus.TotalAmmo - BulletsFired;
+         currentclip += BulletsFired;
+         totalammo -= BulletsFired;
          BulletsFired = 0;
          Reloading = false;
         }
@@ -489,8 +491,8 @@ else
     }
     IEnumerator HitHeadreticle()
     {
-       headshotHit = true;
-        yield return new WaitForSeconds(0.25f);
+         headshotHit = true;
+         yield return new WaitForSeconds(0.25f);
          headshotHit = false;
     }
 
