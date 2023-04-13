@@ -23,7 +23,7 @@ public class RocketLauncher : MonoBehaviour
     private Transform Player;
  void OnEnable() 
 {
-  Player= transform.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent;
+  Player= transform.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent;
   weaponstatus=Player.GetComponent<WeaponStatus>();   
    if ( weaponstatus.CurrentClip < 1 && weaponstatus.NoAmmo != true)
         {
@@ -39,7 +39,8 @@ private void OnDisable()
 }
 void Start() 
 {
-    
+    totalammo=RocketWeapon.MaxAmmo;
+    currentclip=RocketWeapon.MaxClip;
     fireRate= RocketWeapon.FireRate;
     weapontype=RocketWeapon.Weapontype;
     currentclip= RocketWeapon.MaxClip;

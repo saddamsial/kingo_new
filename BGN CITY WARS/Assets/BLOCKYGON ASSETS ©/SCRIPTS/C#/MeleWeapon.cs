@@ -29,7 +29,7 @@ public int weapontype;
 void OnEnable() 
 {
   weapontype=WeaponType.Weapontype;
-  PlayerParent=transform.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent;
+  PlayerParent=transform.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent;
   //PlayerParent.GetComponent<PlayerActionsVar>().Weapontype=weapontype;
 }
      void Start()
@@ -44,6 +44,7 @@ void OnEnable()
     void Update()
     {
        PlayerParent.GetComponent<PlayerActionsVar>().Fired = Fired;
+       Canfire =  PlayerParent.GetComponent<PlayerActionsVar>().canfire;
   
          if (Time.time > lastshot + 0.2f)
          {     

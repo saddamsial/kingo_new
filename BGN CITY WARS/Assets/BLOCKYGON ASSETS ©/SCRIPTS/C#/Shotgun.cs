@@ -45,7 +45,7 @@ public class Shotgun : MonoBehaviour
     public ParticleSystem BulletDropVFX;
 private void OnEnable() 
 {
-    PlayerParent= transform.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent;
+    PlayerParent= transform.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent;
     weaponstatus=PlayerParent.GetComponent<WeaponStatus>();
     pelletCount=WeaponType.Pellets;
     fireRate=WeaponType.FireRate;
@@ -69,6 +69,7 @@ void OnDisable()
 }
  private void Start() 
 {   currentclip = WeaponType.MaxClip;
+    totalammo=WeaponType.MaxAmmo;
     reloadSound=WeaponType.ReloadSFX;
     shootSound=WeaponType.FireSFX;
     audioSource=this.GetComponent<AudioSource>(); 

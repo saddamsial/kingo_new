@@ -15,10 +15,6 @@ public class WeaponShoot : MonoBehaviour
     public int BulletsFired = 0;
     public bool noammo;
     private float lastshot = 0f;
-    public int CurrentClip;
-
-    public int TotalAmmo;
-    public bool MaxedAmmo;
     private float WeaponRange;
     public bool Fired;
     private bool started;
@@ -53,7 +49,7 @@ public class WeaponShoot : MonoBehaviour
 
     private void OnEnable()
     {
-     PlayerParent = transform.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent;
+     PlayerParent = transform.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent;
      weaponstatus=PlayerParent.GetComponent<WeaponStatus>();
      PV = this.GetComponent<PhotonView>();
 
@@ -81,6 +77,7 @@ public class WeaponShoot : MonoBehaviour
 {
     
     currentclip = WeaponType.MaxClip;
+    totalammo=WeaponType.MaxAmmo;
     WeaponRange = WeaponType.WeaponRange;
     Shootpoint= GameObject.FindGameObjectWithTag("ShootPoint").transform;
     WeaponRange=WeaponType.WeaponRange;
