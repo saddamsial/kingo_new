@@ -1,46 +1,110 @@
 using UnityEngine;
+using System.Collections;
 
-public class CameraController : MonoBehaviour {
-    public Transform player;
-    public Transform opponent;
-    public float smoothTime = 0.3f;
-    public float maxZoom = 10f;
-    public float minZoom = 5f;
+public class CameraController : MonoBehaviour
+{
+    public Transform target;
+    public Transform enemy;
+    public float followSpeed = 5f;
+    public float minDistance = 2f;
+    public float maxDistance = 10f;
+    public float minFOV = 20f;
+    public float maxFOV = 60f;
     public float zoomSpeed = 5f;
-    public float zoomThreshold = 2f;
-    public float buffer = 1.5f;
+    public float maxYDistance = 2f;
+    public float ShakeDuration = 1f;
+    public float magnitude;
 
-    private Vector3 velocity = Vector3.zero;
+    private Camera cam;
 
-    private void Update() {
-        // Calculate the distance between the player and opponent
-        float distance = Vector3.Distance(player.position, opponent.position);
-
-        // Calculate the midpoint between the player and opponent
-        Vector3 midpoint = (player.position + opponent.position) / 2f;
-
-        // Set the camera's target position based on the midpoint
-        Vector3 targetPosition = new Vector3(midpoint.x, midpoint.y, transform.position.z);
-
-        // Calculate the new camera zoom level based on the distance
-        float zoomLevel = Mathf.Clamp((distance - zoomThreshold) / zoomSpeed, minZoom, maxZoom);
-
-        // Smoothly move the camera to the new position and zoom level
-        transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime);
-        Camera.main.orthographicSize = Mathf.Lerp(Camera.main.orthographicSize, zoomLevel, Time.deltaTime * smoothTime);
-
-        // Check if opponent is within view
-        Vector3 bottomLeft = Camera.main.ScreenToWorldPoint(Vector3.zero);
-        Vector3 topRight = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height));
-        if (opponent.position.x < bottomLeft.x + buffer || opponent.position.x > topRight.x - buffer ||
-            opponent.position.y < bottomLeft.y + buffer || opponent.position.y > topRight.y - buffer) {
-            // Adjust camera position to keep opponent within view
-            Vector3 clampedOpponentPos = new Vector3(
-                Mathf.Clamp(opponent.position.x, bottomLeft.x + buffer, topRight.x - buffer),
-                Mathf.Clamp(opponent.position.y, bottomLeft.y + buffer, topRight.y - buffer),
-                opponent.position.z
-            );
-            transform.position = Vector3.SmoothDamp(transform.position, clampedOpponentPos, ref velocity, smoothTime);
-        }
+    private void Start()
+    {
+        cam = GetComponent<Camera>();
     }
+
+    private void LateUpdate()
+    {
+        if (target == null) return;
+
+        // follow the target with smoothing
+        Vector3 targetPosition = new Vector3(target.position.x, target.position.y, transform.position.z);
+        transform.position = Vector3.Lerp(transform.position, targetPosition, followSpeed * Time.deltaTime);
+
+        // adjust zoom based on distance to enemy
+        float distanceToEnemy = Vector3.Distance(target.position, enemy.position);
+        float yDistanceToEnemy = Mathf.Abs(target.position.y - enemy.position.y);
+
+        float targetDistance = Mathf.Lerp(minDistance, maxDistance, distanceToEnemy / 10f); // adjust divisor for desired zoom range
+
+        if (yDistanceToEnemy > maxYDistance)
+        {
+            targetDistance += (yDistanceToEnemy - maxYDistance);
+        }
+
+        if (cam.orthographic)
+        {
+            // orthographic camera
+            float targetSize = Mathf.Lerp(maxFOV, minFOV, distanceToEnemy / 10f); // adjust divisor for desired zoom range
+            cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, targetSize, zoomSpeed * Time.deltaTime);
+        }
+        else
+        {
+            // perspective camera
+            float targetFOV = Mathf.Lerp(minFOV, maxFOV, distanceToEnemy / 10f); // adjust divisor for desired zoom range
+            cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, targetFOV, zoomSpeed * Time.deltaTime);
+        }
+
+        // calculate new camera position based on target position and distance
+        Vector3 newCameraPosition = target.position - transform.forward * targetDistance;
+
+        // check if there's any obstacles between camera and target
+        RaycastHit hitInfo;
+        if (Physics.Linecast(target.position, newCameraPosition, out hitInfo))
+        {
+            // if there's an obstacle, move the camera to the obstacle point
+            newCameraPosition = hitInfo.point;
+        }
+
+        // set camera position
+        transform.position = newCameraPosition;
+    }
+
+
+
+public IEnumerator ShakeCamera()
+{
+    Vector3 originalPos = transform.position;
+
+    float elapsedTime = 0.0f;
+
+    while (elapsedTime < ShakeDuration)
+    {
+        float x = Random.Range(-1f, 1f) * magnitude;
+        float y = Random.Range(-1f, 1f) * magnitude;
+
+        transform.position = new Vector3(originalPos.x + x, originalPos.y + y, originalPos.z);
+
+        elapsedTime += Time.deltaTime;
+
+        yield return null;
+    }
+
+    transform.position = originalPos;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
+
+
