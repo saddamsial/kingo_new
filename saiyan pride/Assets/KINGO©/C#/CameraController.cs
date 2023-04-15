@@ -1,110 +1,79 @@
 using UnityEngine;
-using System.Collections;
 
 public class CameraController : MonoBehaviour
 {
-    public Transform target;
-    public Transform enemy;
-    public float followSpeed = 5f;
-    public float minDistance = 2f;
-    public float maxDistance = 10f;
+    public Transform player;
+    public Transform opponent;
+    public float minOrthoSize = 5f;
+    public float maxOrthoSize = 10f;
     public float minFOV = 20f;
     public float maxFOV = 60f;
+    public float smoothness = 5f;
     public float zoomSpeed = 5f;
-    public float maxYDistance = 2f;
-    public float ShakeDuration = 1f;
-    public float magnitude;
+    public float shakeMagnitude = 0.05f; // how much to shake the camera
+    public float shakeDuration = 0.1f; // how long to shake the camera
+    private bool isShaking = false;
+    private Vector3 originalPosition; // remember the original position of the camera
 
     private Camera cam;
 
-    private void Start()
+    private void Awake()
     {
         cam = GetComponent<Camera>();
     }
 
     private void LateUpdate()
     {
-        if (target == null) return;
+        Vector3 center = (player.position + opponent.position) / 2f;
 
-        // follow the target with smoothing
-        Vector3 targetPosition = new Vector3(target.position.x, target.position.y, transform.position.z);
-        transform.position = Vector3.Lerp(transform.position, targetPosition, followSpeed * Time.deltaTime);
+        // Calculate the distance between the player and opponent
+        float distance = Vector3.Distance(player.position, opponent.position);
 
-        // adjust zoom based on distance to enemy
-        float distanceToEnemy = Vector3.Distance(target.position, enemy.position);
-        float yDistanceToEnemy = Mathf.Abs(target.position.y - enemy.position.y);
-
-        float targetDistance = Mathf.Lerp(minDistance, maxDistance, distanceToEnemy / 10f); // adjust divisor for desired zoom range
-
-        if (yDistanceToEnemy > maxYDistance)
-        {
-            targetDistance += (yDistanceToEnemy - maxYDistance);
-        }
-
+        // Calculate the size or field of view of the camera based on the distance and mode
         if (cam.orthographic)
         {
-            // orthographic camera
-            float targetSize = Mathf.Lerp(maxFOV, minFOV, distanceToEnemy / 10f); // adjust divisor for desired zoom range
-            cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, targetSize, zoomSpeed * Time.deltaTime);
+            float targetSize = Mathf.Clamp(distance * zoomSpeed, minOrthoSize, maxOrthoSize);
+            cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, targetSize, smoothness * Time.deltaTime);
         }
         else
         {
-            // perspective camera
-            float targetFOV = Mathf.Lerp(minFOV, maxFOV, distanceToEnemy / 10f); // adjust divisor for desired zoom range
-            cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, targetFOV, zoomSpeed * Time.deltaTime);
+            float targetFOV = Mathf.Clamp(distance * zoomSpeed, minFOV, maxFOV);
+            cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, targetFOV, smoothness * Time.deltaTime);
         }
 
-        // calculate new camera position based on target position and distance
-        Vector3 newCameraPosition = target.position - transform.forward * targetDistance;
-
-        // check if there's any obstacles between camera and target
-        RaycastHit hitInfo;
-        if (Physics.Linecast(target.position, newCameraPosition, out hitInfo))
+        // Smoothly adjust the position of the camera towards the center of the players
+        transform.position = Vector3.Lerp(transform.position, new Vector3(center.x, center.y, transform.position.z), smoothness * Time.deltaTime);
+         if (isShaking)
         {
-            // if there's an obstacle, move the camera to the obstacle point
-            newCameraPosition = hitInfo.point;
+            // randomly shake the camera within a certain magnitude
+            transform.position = originalPosition + new Vector3(Random.Range(-shakeMagnitude, shakeMagnitude), Random.Range(-shakeMagnitude, shakeMagnitude), 0f);
+
+            // decrement the remaining shake duration
+            shakeDuration -= Time.deltaTime;
+
+            // stop shaking when the duration is up
+            if (shakeDuration <= 0f)
+            {
+                isShaking = false;
+                transform.position = originalPosition;
+            }
         }
-
-        // set camera position
-        transform.position = newCameraPosition;
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            ShakeCamera();
+        }
     }
-
-
-
-public IEnumerator ShakeCamera()
-{
-    Vector3 originalPos = transform.position;
-
-    float elapsedTime = 0.0f;
-
-    while (elapsedTime < ShakeDuration)
+     public void ShakeCamera()
     {
-        float x = Random.Range(-1f, 1f) * magnitude;
-        float y = Random.Range(-1f, 1f) * magnitude;
-
-        transform.position = new Vector3(originalPos.x + x, originalPos.y + y, originalPos.z);
-
-        elapsedTime += Time.deltaTime;
-
-        yield return null;
+        // start shaking the camera by setting the isShaking flag and remembering the original position
+        if (!isShaking)
+        {
+            isShaking = true;
+            originalPosition = transform.position;
+        }
     }
-
-    transform.position = originalPos;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-}
-
-
+    
+    
 
