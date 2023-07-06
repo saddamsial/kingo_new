@@ -276,7 +276,7 @@ void Update()
                }
                else RPCTYPE=RpcTarget.Others;
 
-                TPV.RPC("Bodydamage", RPCTYPE);
+                PV.RPC("Bodydamage", RPCTYPE);
 
                 //  TPV = collided.GetComponent<PhotonView>();
 
