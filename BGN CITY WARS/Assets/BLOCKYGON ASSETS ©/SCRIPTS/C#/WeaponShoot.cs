@@ -406,11 +406,11 @@ void Update()
     void Bodydamage()
     {//sf
 
-        GameObject player =  GameObject.FindGameObjectWithTag("Player");
+        //GameObject player =  GameObject.FindGameObjectWithTag("Player");
 
 
 
-      TakeDamage TDF = player.GetComponent<TakeDamage>();
+      TakeDamage TDF = TPV.GetComponent<TakeDamage>();
 
         TDF.Takedamage(WeaponType.BodyDamage);
         Debug.Log("body reached");
