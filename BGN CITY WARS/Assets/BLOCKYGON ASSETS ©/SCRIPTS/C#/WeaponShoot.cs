@@ -263,7 +263,7 @@ void Update()
 
             if (TPV != null)
               //self shoot detect
-            if (TPV.IsMine)
+            if (TPV.IsMine && TPV.gameObject.tag != ("CAR"))
             return;
             else // other online player detect
             {
@@ -287,7 +287,7 @@ void Update()
             if(collided.CompareTag("AI"))
              
             {
-            TakeDamage takedamage = collided.transform.parent.GetComponent<TakeDamage>();
+            TakeDamage takedamage = collided.transform.GetComponentInParent<TakeDamage>();
 
                 AS.PlayOneShot(WeaponType.BodyshotSFX, 1f);
 

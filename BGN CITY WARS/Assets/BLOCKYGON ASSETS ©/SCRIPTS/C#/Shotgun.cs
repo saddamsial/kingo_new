@@ -252,7 +252,8 @@ void BodyShot()
 
             if (TPV != null)
               //self shoot detect
-            if (TPV.IsMine)
+          
+            if (TPV.IsMine &&  TPV.gameObject.tag != ("CAR"))
             return;
             else // other online player detect
             {
