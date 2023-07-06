@@ -240,11 +240,7 @@ audioSource.PlayOneShot(WeaponType.pumpSFX);
 void BodyShot()
 
     { // SF
-
-         if(collided.gameObject.layer==0)
-         {
-            return;
-         }
+     
         if (collided != null && collided.name == "HIT BOX-BODY")
 
 
@@ -252,14 +248,20 @@ void BodyShot()
 
             if (TPV != null)
               //self shoot detect
-          
-            if (TPV.IsMine &&  TPV.gameObject.tag != ("CAR"))
+            if (TPV.IsMine && TPV.gameObject.tag != ("CAR"))
             return;
             else // other online player detect
             {
                 audioSource.PlayOneShot(WeaponType.BodyshotSFX, 1f);
 
-                PV.RPC("Bodydamage", RpcTarget.Others);
+               RpcTarget RPCTYPE = new RpcTarget();
+               if (TPV.IsMine && TPV.gameObject.tag == ("CAR"))
+               {
+                RPCTYPE=RpcTarget.All;
+               }
+               else RPCTYPE=RpcTarget.Others;
+
+                PV.RPC("Bodydamage", RPCTYPE);
 
                 //  TPV = collided.GetComponent<PhotonView>();
 
@@ -268,6 +270,7 @@ void BodyShot()
                 //Hit Reticle Enable
                 StartCoroutine(Hitreticle());
             }
+
 
 
 
