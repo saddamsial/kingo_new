@@ -52,6 +52,7 @@ private void OnEnable()
     pelletCount=WeaponType.Pellets;
     range=WeaponType.WeaponRange;
     pump=WeaponType.Pump;
+    PV = this.GetComponent<PhotonView>();
     // start reload after weapon pull//
     if ( currentclip < 1 && weaponstatus.NoAmmo != true)
     {
@@ -280,7 +281,7 @@ void BodyShot()
             if(collided.CompareTag("AI"))
              
             {
-            TakeDamage takedamage = collided.transform.parent.GetComponent<TakeDamage>();
+            TakeDamage takedamage = TPV.GetComponent<TakeDamage>();
 
                 audioSource.PlayOneShot(WeaponType.BodyshotSFX, 1f);
 
