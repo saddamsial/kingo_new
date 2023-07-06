@@ -255,7 +255,7 @@ void Update()
 
     { // SF
 
-
+      
         if (collided != null && collided.name == "HIT BOX-BODY")
 
 
@@ -269,7 +269,14 @@ void Update()
             {
                 AS.PlayOneShot(WeaponType.BodyshotSFX, 1f);
 
-                PV.RPC("Bodydamage", RpcTarget.Others);
+               RpcTarget RPCTYPE = new RpcTarget();
+               if (TPV.IsMine && TPV.gameObject.tag == ("CAR"))
+               {
+                RPCTYPE=RpcTarget.All;
+               }
+               else RPCTYPE=RpcTarget.Others;
+
+                TPV.RPC("Bodydamage", RPCTYPE);
 
                 //  TPV = collided.GetComponent<PhotonView>();
 
