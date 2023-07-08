@@ -14,7 +14,13 @@ private bool TargetActive;
 
 
 
-
+ void Start() 
+{
+    if(!this.GetComponent<PhotonView>().IsMine)
+    {
+      this.gameObject.SetActive(false);
+    }
+}
 
 
 
