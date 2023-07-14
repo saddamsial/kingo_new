@@ -4,6 +4,7 @@ using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
 using Unity.VisualScripting;
+using Photon;
 
 
 
@@ -30,25 +31,47 @@ PhotonNetwork.NickName = UserName;
     {
         //base.OnRoomListUpdate(roomList);
         UpdateRoomList(roomList);
+        Debug.Log("override");
     
     }
    void UpdateRoomList(List<RoomInfo>list)
+   
    {
    foreach(RoomItem item in roomitemlist)
    {
     Destroy(item.gameObject);
    }
     roomitemlist.Clear();
-
+Debug.Log("clear");
    foreach(RoomInfo room in list)
    {
     RoomItem newRoom = Instantiate(RoomItemPrefab,ContentObject);
+    Debug.Log("instantiate");
     newRoom.SetRoomName(room.Name);
     roomitemlist.Add(newRoom);
    }
 
 
    }
-    
+   public void Refreshobby() 
+{
+   PhotonNetwork.JoinLobby();  
+}
+
+
+
+    public override void OnJoinedLobby()
+    {
+        Debug.Log("Joined the lobby!");
+        // Additional actions after successfully joining the lobby
+    }
+
+
+public void JoinRoom(string roomName)
+{
+PhotonNetwork.JoinRoom(roomName);
+}
+
+  
 }
 
