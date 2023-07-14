@@ -34,25 +34,25 @@ PhotonNetwork.NickName = UserName;
         Debug.Log("override");
     
     }
-   void UpdateRoomList(List<RoomInfo>list)
-   
-   {
-   foreach(RoomItem item in roomitemlist)
-   {
-    Destroy(item.gameObject);
-   }
+  void UpdateRoomList(List<RoomInfo> list)
+{
+    foreach (RoomItem item in roomitemlist)
+    {
+        Destroy(item.gameObject);
+    }
+
     roomitemlist.Clear();
-Debug.Log("clear");
-   foreach(RoomInfo room in list)
-   {
-    RoomItem newRoom = Instantiate(RoomItemPrefab,ContentObject);
-    Debug.Log("instantiate");
-    newRoom.SetRoomName(room.Name);
-    roomitemlist.Add(newRoom);
-   }
+    Debug.Log("clear");
 
+    foreach (RoomInfo room in list)
+    {
+        RoomItem newRoom = Instantiate(RoomItemPrefab, ContentObject);
+        Debug.Log("instantiate");
+        newRoom.SetRoomName(room.Name, room.PlayerCount, room.MaxPlayers);
+        roomitemlist.Add(newRoom);
+    }
+}
 
-   }
    public void Refreshobby() 
 {
    PhotonNetwork.JoinLobby();  

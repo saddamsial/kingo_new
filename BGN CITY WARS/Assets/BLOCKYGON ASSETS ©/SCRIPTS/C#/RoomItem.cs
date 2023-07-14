@@ -6,17 +6,24 @@ using UnityEngine.UI;
 
 public class RoomItem : MonoBehaviour
 {
-public Text roomName;
-PhotonVS Manager;
+    public Text roomName;
+    public Text roomPlayers;
+    public Text roomMaxPlayers;
+    PhotonVS Manager;
 
-private void Start() 
-{
-   Manager = FindObjectOfType<PhotonVS>();
-}
-public void SetRoomName(string _RoomName)
-{
- roomName.text=_RoomName;
-}
+    private void Start()
+    {
+        Manager = FindObjectOfType<PhotonVS>();
+    }
+
+    public void SetRoomName(string _RoomName, int currentPlayers, int maxPlayers)
+    {
+        roomName.text = _RoomName;
+        roomPlayers.text = currentPlayers.ToString();
+        roomMaxPlayers.text = maxPlayers.ToString();
+    }
+
+
 
 public void OnClickItem()
 {
