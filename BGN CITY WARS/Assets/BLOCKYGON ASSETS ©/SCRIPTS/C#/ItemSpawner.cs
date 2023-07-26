@@ -36,4 +36,6 @@ public class ItemSpawner : MonoBehaviour
             Debug.LogError("Prefab with name " + prefabName + " not found!");
         }
     }
+ 
+  
 }
