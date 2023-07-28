@@ -22,6 +22,12 @@ public class camera2 : MonoBehaviour
     public float yMinLimit = -40f;
     public float yMaxLimit = 80f;
 
+    // New properties for touch input
+    [Tooltip("Touch rotation sensitivity on the X-axis")]
+    public float touchXSensitivity = 3f;
+    [Tooltip("Touch rotation sensitivity on the Y-axis")]
+    public float touchYSensitivity = 3f;
+
     #endregion
 
     #region hide properties    
@@ -32,7 +38,7 @@ public class camera2 : MonoBehaviour
     public float offSetPlayerPivot;
     [HideInInspector]
     public string currentStateName;
-  //  [HideInInspector]
+    //  [HideInInspector]
     public Transform currentTarget;
     [HideInInspector]
     public Vector2 movementSpeed;
@@ -57,6 +63,11 @@ public class camera2 : MonoBehaviour
     private float cullingMinDist = 0.1f;
 
     #endregion
+
+    // New private variables for touch input
+    private bool isTouching = false;
+    private Vector2 touchStartPos;
+    private Vector2 touchCurrentPos;
 
     void Start()
     {
@@ -87,6 +98,16 @@ public class camera2 : MonoBehaviour
     void LateUpdate()
     {
         if (target == null || targetLookAt == null) return;
+
+        if (Application.isMobilePlatform)
+        {
+            HandleTouchInput();
+        }
+        else
+        {
+           // HandleMouseInput();
+           HandleTouchInput();
+        }
 
         CameraMovement();
     }
@@ -248,15 +269,33 @@ public class camera2 : MonoBehaviour
         return hitInfo.collider && value;
     }
 
+    // New method to handle touch input
+    private void HandleTouchInput()
+    {
+        if (Input.touchCount > 0)
+        {
+            Touch touch = Input.GetTouch(0);
 
+            switch (touch.phase)
+            {
+                case TouchPhase.Began:
+                    isTouching = true;
+                    touchStartPos = touch.position;
+                    break;
 
-// adjust clip zoom
-void RightOffsetClipOverride()
-{
+                case TouchPhase.Moved:
+                    touchCurrentPos = touch.position;
+                    RotateCamera(touchCurrentPos.x - touchStartPos.x, touchCurrentPos.y - touchStartPos.y);
+                    touchStartPos = touchCurrentPos;
+                    break;
 
-}
+                case TouchPhase.Ended:
+                case TouchPhase.Canceled:
+                    isTouching = false;
+                    break;
+            }
+        }
+    }
 
-
-
-
+    // ... (existing methods)
 }
