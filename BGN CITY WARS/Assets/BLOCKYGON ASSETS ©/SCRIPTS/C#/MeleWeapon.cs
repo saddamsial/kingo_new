@@ -22,6 +22,7 @@ private RaycastHit hit;
 private Collider collided;
 private Transform PlayerParent;
 public int weapontype;
+public bool ButtonFired;
 
 
 
@@ -57,7 +58,7 @@ void OnEnable()
          { //canfire
 
 
-          if (Input.GetKey(KeyCode.Mouse0) && PV.IsMine & Time.time > lastshot+WeaponType.FireRate)
+          if (ButtonFired && PV.IsMine & Time.time > lastshot+WeaponType.FireRate)
            {
             AS.PlayOneShot(WeaponType.FireSFX, 1f);
             Fired = true;

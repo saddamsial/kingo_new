@@ -22,19 +22,23 @@ namespace Cinemachine.Examples
         private Quaternion freeRotation;
         private Camera mainCamera;
         private float velocity;
+        public VariableJoystick joystick;
 
         // Use this for initialization
         void Start()
         {
-       //     anim = GetComponent<Animator>();
             mainCamera = Camera.main;
+       
+
         }
 
         // Update is called once per frame
         void Update()
         {
-            input.x = Input.GetAxis("Horizontal");
-            input.y = Input.GetAxis("Vertical");
+          //  input.x = Input.GetAxis("Horizontal");
+          //  input.y = Input.GetAxis("Vertical");
+              input.x = joystick.Horizontal;
+              input.y= joystick.Vertical;
 
             // set speed to both vertical and horizontal inputs
             if (useCharacterForward)

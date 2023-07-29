@@ -11,6 +11,8 @@ public class AnimatorFloat : MonoBehaviour
     private float divide = 8f;
     public float SpeedCheckvar;
     private Animator animator;
+    public float SyncSpeed = 2f;
+    public VariableJoystick joystick;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,9 +32,10 @@ public class AnimatorFloat : MonoBehaviour
     void Update()
     {
         
-     moveV = Input.GetAxis("Vertical") * SpeedCheckvar/ divide;
-     moveH = Input.GetAxis("Horizontal")* SpeedCheckvar/ divide;
-    
+     //moveV = Input.GetAxis("Vertical") * SpeedCheckvar/ divide;
+     //moveH = Input.GetAxis("Horizontal")* SpeedCheckvar/ divide;
+     moveV =joystick.Vertical /SyncSpeed;
+     moveH= joystick.Horizontal/SyncSpeed;
      
     animator.SetFloat("inputy", moveV, 1f, Time.deltaTime * 10f);
     animator.SetFloat("inputx", moveH, 1f, Time.deltaTime * 10f);
