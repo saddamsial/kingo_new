@@ -61,6 +61,7 @@ public class camera2 : MonoBehaviour
     private float xMaxLimit = 360f;
     private float cullingHeight = 0.2f;
     private float cullingMinDist = 0.1f;
+    public RectTransform virtualJoystickRectTransform;
 
     #endregion
 
@@ -270,6 +271,7 @@ public class camera2 : MonoBehaviour
     }
 
     // New method to handle touch input
+      // New method to handle touch input
     private void HandleTouchInput()
     {
         if (Input.touchCount > 0)
@@ -285,7 +287,16 @@ public class camera2 : MonoBehaviour
 
                 case TouchPhase.Moved:
                     touchCurrentPos = touch.position;
-                    RotateCamera(touchCurrentPos.x - touchStartPos.x, touchCurrentPos.y - touchStartPos.y);
+
+                    // Check if the touch input is inside the virtual joystick area
+                    bool isInsideJoystickArea = RectTransformUtility.RectangleContainsScreenPoint(virtualJoystickRectTransform, touch.position);
+
+                    // Handle camera rotation only if the touch is not inside the joystick area
+                    if (!isInsideJoystickArea)
+                    {
+                        RotateCamera(touchCurrentPos.x - touchStartPos.x, touchCurrentPos.y - touchStartPos.y);
+                    }
+
                     touchStartPos = touchCurrentPos;
                     break;
 
@@ -296,6 +307,4 @@ public class camera2 : MonoBehaviour
             }
         }
     }
-
-    // ... (existing methods)
 }
