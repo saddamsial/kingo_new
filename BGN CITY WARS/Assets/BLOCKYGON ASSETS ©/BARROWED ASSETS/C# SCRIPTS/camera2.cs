@@ -1,6 +1,6 @@
 using Invector;
 using UnityEngine;
-
+using UnityEngine.EventSystems;
 public class camera2 : MonoBehaviour
 {
     #region inspector properties    
@@ -21,6 +21,9 @@ public class camera2 : MonoBehaviour
     public float yMouseSensitivity = 3f;
     public float yMinLimit = -40f;
     public float yMaxLimit = 80f;
+    private bool cameraRotated = false;
+    
+
 
     // New properties for touch input
     [Tooltip("Touch rotation sensitivity on the X-axis")]
@@ -61,7 +64,6 @@ public class camera2 : MonoBehaviour
     private float xMaxLimit = 360f;
     private float cullingHeight = 0.2f;
     private float cullingMinDist = 0.1f;
-    public RectTransform virtualJoystickRectTransform;
 
     #endregion
 
@@ -69,6 +71,17 @@ public class camera2 : MonoBehaviour
     private bool isTouching = false;
     private Vector2 touchStartPos;
     private Vector2 touchCurrentPos;
+    private bool firstTouchOnUI = false;
+    private int touchCount = 0;
+    private int firstTouchFingerID = -1;
+    private bool secondTouchOccurred = false;
+    private int secondTouchFingerID = -1;
+    private bool isSwiping = false;
+    private Vector2 previousTouchPos;
+
+    private Touch secondTouch;
+
+     public RectTransform virtualJoystickRectTransform; // Drag and drop the RectTransform of the joystick here.
 
     void Start()
     {
@@ -271,40 +284,94 @@ public class camera2 : MonoBehaviour
     }
 
     // New method to handle touch input
-      // New method to handle touch input
-    private void HandleTouchInput()
-    {
-        if (Input.touchCount > 0)
-        {
-            Touch touch = Input.GetTouch(0);
+ // New method to handle touch input
 
-            switch (touch.phase)
+
+
+// ...
+
+
+
+
+
+
+
+ // New method to handle touch input
+    private void HandleTouchInput()
+{
+    if (Input.touchCount > 0)
+    {
+        // Handle the first touch
+        Touch touch = Input.GetTouch(0);
+
+        switch (touch.phase)
+        {
+            case TouchPhase.Began:
+                isTouching = true;
+                touchStartPos = touch.position;
+                break;
+
+            case TouchPhase.Moved:
+                touchCurrentPos = touch.position;
+
+                // Check if the touch input is inside the virtual joystick area
+                bool isInsideJoystickArea = RectTransformUtility.RectangleContainsScreenPoint(virtualJoystickRectTransform, touch.position);
+
+                // Handle camera rotation only if the touch is not inside the joystick area and no second touch is occurring
+                if (!isInsideJoystickArea && !secondTouchOccurred)
+                {
+                    RotateCamera(touchCurrentPos.x - touchStartPos.x, touchCurrentPos.y - touchStartPos.y);
+                }
+
+                touchStartPos = touchCurrentPos;
+                break;
+
+            case TouchPhase.Ended:
+            case TouchPhase.Canceled:
+                isTouching = false;
+                break;
+        }
+
+        // Handle the second touch (if any)
+        if (Input.touchCount > 1)
+        {
+            secondTouch = Input.GetTouch(1);
+
+            switch (secondTouch.phase)
             {
                 case TouchPhase.Began:
-                    isTouching = true;
-                    touchStartPos = touch.position;
+                    // Set a flag to indicate that the second touch occurred
+                    secondTouchOccurred = true;
                     break;
 
                 case TouchPhase.Moved:
-                    touchCurrentPos = touch.position;
-
                     // Check if the touch input is inside the virtual joystick area
-                    bool isInsideJoystickArea = RectTransformUtility.RectangleContainsScreenPoint(virtualJoystickRectTransform, touch.position);
+                    bool isInsideJoystickArea = RectTransformUtility.RectangleContainsScreenPoint(virtualJoystickRectTransform, secondTouch.position);
 
                     // Handle camera rotation only if the touch is not inside the joystick area
                     if (!isInsideJoystickArea)
                     {
-                        RotateCamera(touchCurrentPos.x - touchStartPos.x, touchCurrentPos.y - touchStartPos.y);
-                    }
+                        // Calculate the delta between the current and previous position of the second touch
+                        float deltaX = secondTouch.deltaPosition.x * touchXSensitivity;
+                        float deltaY = secondTouch.deltaPosition.y * touchYSensitivity;
 
-                    touchStartPos = touchCurrentPos;
+                        // Use the delta values to rotate the camera
+                        RotateCamera(deltaX, deltaY);
+                    }
                     break;
 
                 case TouchPhase.Ended:
                 case TouchPhase.Canceled:
-                    isTouching = false;
+                    // Reset the flag when the second touch ends
+                    secondTouchOccurred = false;
                     break;
             }
         }
     }
 }
+}
+
+
+
+
+
