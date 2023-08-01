@@ -18,7 +18,8 @@ public class Shotgun : MonoBehaviour
     public int currentclip;
     public int totalammo;
     public bool noammo;
-    
+    public bool ButtonFired;
+    public bool ButtonReload;
     public bool MaxedAmmo;
     private float fireRate = 0.5f;
     private AudioSource audioSource;

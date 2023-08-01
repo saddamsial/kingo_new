@@ -20,6 +20,9 @@ public class WeaponShoot : MonoBehaviour
     private bool started;
     public bool Canfire;
     public  bool Reloading;
+    public bool ButtonFired;
+    public bool ButtonReload;
+
 [HideInInspector]
     public bool bodyshotHit;
 [HideInInspector]
@@ -150,15 +153,15 @@ void Update()
         { //canfire
 
 
-        if (Input.GetKey(KeyCode.Mouse0) == true && PV.IsMine && Time.time > lastshot+WeaponType.FireRate && currentclip >0 && !Reloading&&Canfire)
+        if (ButtonFired == true && PV.IsMine && Time.time > lastshot+WeaponType.FireRate && currentclip >0 && !Reloading&&Canfire)
         {
             AS.PlayOneShot(WeaponType.FireSFX, 1f);
 
              StartCoroutine(VFX());
 
-           float nextActionTime = 0.0f;
-           float period = 5f;
-             if (Time.time > nextActionTime)
+             float nextActionTime = 0.0f;
+             float period = 5f;
+               if (Time.time > nextActionTime)
                {
                 nextActionTime += period;
                 Shoot();
@@ -186,7 +189,7 @@ void Update()
           StartCoroutine( Reload());
         }
         //Manual reload
-        if (Input.GetKey(KeyCode.R) && !Reloading && !noammo && currentclip < WeaponType.MaxClip && totalammo > 0) 
+        if (ButtonReload && !Reloading && !noammo && currentclip < WeaponType.MaxClip && totalammo > 0) 
         {
             StartCoroutine(Reload());
             

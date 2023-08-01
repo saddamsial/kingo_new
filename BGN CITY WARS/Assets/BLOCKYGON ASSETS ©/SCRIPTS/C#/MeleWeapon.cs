@@ -62,13 +62,12 @@ void OnEnable()
            {
             AS.PlayOneShot(WeaponType.FireSFX, 1f);
             Fired = true;
-
-         
-
             Swing();             
-
         }
-
+else if (ButtonFired==false)
+{
+  return;
+}
 
         }//canfire
 
