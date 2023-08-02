@@ -5,7 +5,7 @@ using Unity.VisualScripting;
 
 public class AwakeVS : MonoBehaviour
 {
-    public GameObject gameObject;
+    public GameObject gameObjectToAwake;
 
 
      void Awake() 
