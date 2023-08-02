@@ -159,25 +159,29 @@ public class camera2 : MonoBehaviour
     /// </summary>
     /// <param name="x"></param>
     /// <param name="y"></param>
-    public void RotateCamera(float x, float y)
-    {
-        // free rotation 
-        mouseX += x * xMouseSensitivity;
-        mouseY -= y * yMouseSensitivity;
+   public void RotateCamera(float x, float y)
+{
+    float touchXSensitivity = isTouching ? this.touchXSensitivity : xMouseSensitivity;
+    float touchYSensitivity = isTouching ? this.touchYSensitivity : yMouseSensitivity;
 
-        movementSpeed.x = x;
-        movementSpeed.y = -y;
-        if (!lockCamera)
-        {
-            mouseY = vExtensions.ClampAngle(mouseY, yMinLimit, yMaxLimit);
-            mouseX = vExtensions.ClampAngle(mouseX, xMinLimit, xMaxLimit);
-        }
-        else
-        {
-            mouseY = currentTarget.root.localEulerAngles.x;
-            mouseX = currentTarget.root.localEulerAngles.y;
-        }
+    // free rotation 
+    mouseX += x * touchXSensitivity;
+    mouseY -= y * touchYSensitivity;
+
+    movementSpeed.x = x;
+    movementSpeed.y = -y;
+    if (!lockCamera)
+    {
+        mouseY = vExtensions.ClampAngle(mouseY, yMinLimit, yMaxLimit);
+        mouseX = vExtensions.ClampAngle(mouseX, xMinLimit, xMaxLimit);
     }
+    else
+    {
+        mouseY = currentTarget.root.localEulerAngles.x;
+        mouseX = currentTarget.root.localEulerAngles.y;
+    }
+}
+
 
     /// <summary>
     /// Camera behaviour
@@ -297,7 +301,7 @@ public class camera2 : MonoBehaviour
 
 
  // New method to handle touch input
-    private void HandleTouchInput()
+  private void HandleTouchInput()
 {
     if (Input.touchCount > 0)
     {
@@ -320,7 +324,12 @@ public class camera2 : MonoBehaviour
                 // Handle camera rotation only if the touch is not inside the joystick area and no second touch is occurring
                 if (!isInsideJoystickArea && !secondTouchOccurred)
                 {
-                    RotateCamera(touchCurrentPos.x - touchStartPos.x, touchCurrentPos.y - touchStartPos.y);
+                    // Calculate the delta between the current and previous position of the touch
+                    float deltaX = (touchCurrentPos.x - touchStartPos.x) * touchXSensitivity;
+                    float deltaY = (touchCurrentPos.y - touchStartPos.y) * touchYSensitivity;
+
+                    // Use the delta values to rotate the camera
+                    RotateCamera(deltaX, deltaY);
                 }
 
                 touchStartPos = touchCurrentPos;
@@ -369,6 +378,7 @@ public class camera2 : MonoBehaviour
         }
     }
 }
+
 }
 
 
