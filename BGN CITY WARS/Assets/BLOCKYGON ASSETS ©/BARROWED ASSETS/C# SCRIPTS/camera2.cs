@@ -103,12 +103,12 @@ public class camera2 : MonoBehaviour
 
         if (Application.isMobilePlatform)
         {
-            HandleTouchInput();
+            //HandleTouchInput();
         }
         else
         {
            // HandleMouseInput();
-           HandleTouchInput();
+          // HandleTouchInput();
         }
 
         CameraMovement();
