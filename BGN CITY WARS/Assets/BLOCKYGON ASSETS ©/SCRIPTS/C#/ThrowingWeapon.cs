@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon;
@@ -52,7 +52,7 @@ public Transform forcepos;
          { //canfire
 
 
-          if (Input.GetKey(KeyCode.Mouse0)&&PV.IsMine && Time.time > lastshot+ThrowSpeed )
+          if (ControlFreak2.CF2Input.GetKey(KeyCode.Mouse0)&&PV.IsMine && Time.time > lastshot+ThrowSpeed )
         {
           
             Fired = true;

@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Cinemachine.Examples
 {
@@ -58,7 +58,7 @@ namespace Cinemachine.Examples
          //   anim.SetFloat("Direction", direction);
 
             // set sprinting
-            isSprinting = ((Input.GetKey(sprintJoystick) || Input.GetKey(sprintKeyboard)) && input != Vector2.zero && direction >= 0f);
+            isSprinting = ((ControlFreak2.CF2Input.GetKey(sprintJoystick) || ControlFreak2.CF2Input.GetKey(sprintKeyboard)) && input != Vector2.zero && direction >= 0f);
         //    anim.SetBool("isSprinting", isSprinting);
 
             // Update target direction relative to the camera view (or not if the Keep Direction option is checked)

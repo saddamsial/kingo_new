@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 public class RocketLauncher : MonoBehaviour
 {
@@ -60,7 +60,7 @@ void Start()
          Player.GetComponent<WeaponStatus>().CurrentClip=currentclip;
          Player.GetComponent<WeaponStatus>().TotalAmmo=totalammo;
          Player.GetComponent<WeaponStatus>().NoAmmo=noammo;
-        if (Input.GetButton("Fire1") &&canfire && Time.time > nextFireTime && weaponstatus.CurrentClip >0 && !Reloading)
+        if (ControlFreak2.CF2Input.GetButton("Fire1") &&canfire && Time.time > nextFireTime && weaponstatus.CurrentClip >0 && !Reloading)
         {
             nextFireTime = Time.time + 1f / fireRate;
             FireRocket();
@@ -121,7 +121,7 @@ void Start()
           StartCoroutine( Reload());
         }
         //Manual reload
-        if (Input.GetKey(KeyCode.R) && !Reloading && !noammo && currentclip < RocketWeapon.MaxClip && totalammo> 0) 
+        if (ControlFreak2.CF2Input.GetKey(KeyCode.R) && !Reloading && !noammo && currentclip < RocketWeapon.MaxClip && totalammo> 0) 
         {
             StartCoroutine(Reload());
             

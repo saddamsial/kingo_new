@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
@@ -94,7 +94,7 @@ void Update()
         {
             spreadAngle=WeaponType.DefaultBulletSpread;
         }
-        if (Input.GetButton("Fire1") && Time.time >= nextFireTime && !Reloading)
+        if (ControlFreak2.CF2Input.GetButton("Fire1") && Time.time >= nextFireTime && !Reloading)
         {
             Shoot();
             nextFireTime = Time.time + fireRate;
@@ -149,7 +149,7 @@ void Update()
           StartCoroutine(Reload());
         }
         //Manual reload
-        if (Input.GetKeyDown(KeyCode.R))
+        if (ControlFreak2.CF2Input.GetKeyDown(KeyCode.R))
     {
         if (currentclip < WeaponType.MaxClip && totalammo > 0 && !Reloading)
         {
@@ -220,7 +220,7 @@ audioSource.PlayOneShot(WeaponType.pumpSFX);
 {
     Reloading = true;
     
-    while (!Input.GetButton("Fire1")&& currentclip < WeaponType.MaxClip && totalammo > 0)
+    while (!ControlFreak2.CF2Input.GetButton("Fire1")&& currentclip < WeaponType.MaxClip && totalammo > 0)
     {
         Debug.Log("reloading");
         audioSource.PlayOneShot(WeaponType.ReloadSFX, 1f);

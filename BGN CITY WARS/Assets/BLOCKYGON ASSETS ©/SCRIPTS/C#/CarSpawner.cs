@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
@@ -126,7 +126,7 @@ void SpawnCar()
 
 {
  
-if (Blocked != true && Input.GetKeyDown(Keybind) & ReadyToSpawn)
+if (Blocked != true && ControlFreak2.CF2Input.GetKeyDown(Keybind) & ReadyToSpawn)
 {
     
 ReadyToSpawn = false;

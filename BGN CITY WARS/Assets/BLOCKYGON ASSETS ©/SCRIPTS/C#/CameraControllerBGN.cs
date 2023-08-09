@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 // This class corresponds to the 3rd person camera features.
 public class CameraControllerBGN : MonoBehaviour
@@ -59,11 +59,11 @@ public class CameraControllerBGN : MonoBehaviour
 	{
 		// Get mouse movement to orbit the camera.
 		// Mouse:
-		angleH += Mathf.Clamp(Input.GetAxis("Mouse X"), -1, 1) * horizontalAimingSpeed;
-		angleV += Mathf.Clamp(Input.GetAxis("Mouse Y"), -1, 1) * verticalAimingSpeed;
+		angleH += Mathf.Clamp(ControlFreak2.CF2Input.GetAxis("Mouse X"), -1, 1) * horizontalAimingSpeed;
+		angleV += Mathf.Clamp(ControlFreak2.CF2Input.GetAxis("Mouse Y"), -1, 1) * verticalAimingSpeed;
 		// Joystick:
-		angleH += Mathf.Clamp(Input.GetAxis(XAxis), -1, 1) * 60 * horizontalAimingSpeed * Time.deltaTime;
-		angleV += Mathf.Clamp(Input.GetAxis(YAxis), -1, 1) * 60 * verticalAimingSpeed * Time.deltaTime;
+		angleH += Mathf.Clamp(ControlFreak2.CF2Input.GetAxis(XAxis), -1, 1) * 60 * horizontalAimingSpeed * Time.deltaTime;
+		angleV += Mathf.Clamp(ControlFreak2.CF2Input.GetAxis(YAxis), -1, 1) * 60 * verticalAimingSpeed * Time.deltaTime;
 
 		// Set vertical movement limit.
 		angleV = Mathf.Clamp(angleV, minVerticalAngle, targetMaxVerticalAngle);

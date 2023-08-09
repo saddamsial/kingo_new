@@ -1,4 +1,4 @@
-
+﻿
 using Invector;
 using UnityEngine;
 
@@ -276,9 +276,9 @@ public class camera2 : MonoBehaviour
     {
         if(!Blocked)
         {
-        if (Input.touchCount > 0)
+        if (ControlFreak2.CF2Input.touchCount > 0)
         {
-            Touch touch = Input.GetTouch(0);
+            ControlFreak2.InputRig.Touch touch = ControlFreak2.CF2Input.GetTouch(0);
 
             switch (touch.phase)
             {

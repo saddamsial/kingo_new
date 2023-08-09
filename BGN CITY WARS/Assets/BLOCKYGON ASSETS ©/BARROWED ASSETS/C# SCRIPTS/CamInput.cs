@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Invector.vCharacterController
 {
@@ -81,8 +81,8 @@ namespace Invector.vCharacterController
             if (tpCamera == null)
                 return;
 
-            var Y = Input.GetAxis(rotateCameraYInput);
-            var X = Input.GetAxis(rotateCameraXInput);
+            var Y = ControlFreak2.CF2Input.GetAxis(rotateCameraYInput);
+            var X = ControlFreak2.CF2Input.GetAxis(rotateCameraXInput);
 
             tpCamera.RotateCamera(X, Y);
         }

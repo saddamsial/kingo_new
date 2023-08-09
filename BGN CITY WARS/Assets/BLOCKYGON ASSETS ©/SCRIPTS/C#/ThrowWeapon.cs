@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ThrowWeapon : MonoBehaviour
 {
@@ -33,7 +33,7 @@ void Start()
     void Update()
     {
          canfire = Player.GetComponent<PlayerActionsVar>().canfire;
-        if (Input.GetButton("Fire1") &&canfire && Time.time > nextFireTime)
+        if (ControlFreak2.CF2Input.GetButton("Fire1") &&canfire && Time.time > nextFireTime)
         {
             nextFireTime = Time.time + 1f / fireRate;
             FireRocket();
