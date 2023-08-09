@@ -22,7 +22,7 @@ namespace Cinemachine.Examples
         private Quaternion freeRotation;
         private Camera mainCamera;
         private float velocity;
-        public VariableJoystick joystick;
+        public Vector2 joystickAxis;
 
         // Use this for initialization
         void Start()
@@ -35,10 +35,10 @@ namespace Cinemachine.Examples
         // Update is called once per frame
         void Update()
         {
-          //  input.x = Input.GetAxis("Horizontal");
-          //  input.y = Input.GetAxis("Vertical");
-              input.x = joystick.Horizontal;
-              input.y= joystick.Vertical;
+            input.x = joystickAxis.x;
+            input.y = joystickAxis.y;
+            //  input.x = joystick.Horizontal;
+             // input.y= joystick.Vertical;
 
             // set speed to both vertical and horizontal inputs
             if (useCharacterForward)
@@ -58,7 +58,7 @@ namespace Cinemachine.Examples
          //   anim.SetFloat("Direction", direction);
 
             // set sprinting
-            isSprinting = ((ControlFreak2.CF2Input.GetKey(sprintJoystick) || ControlFreak2.CF2Input.GetKey(sprintKeyboard)) && input != Vector2.zero && direction >= 0f);
+            isSprinting = ((Input.GetKey(sprintJoystick) || Input.GetKey(sprintKeyboard)) && input != Vector2.zero && direction >= 0f);
         //    anim.SetBool("isSprinting", isSprinting);
 
             // Update target direction relative to the camera view (or not if the Keep Direction option is checked)
