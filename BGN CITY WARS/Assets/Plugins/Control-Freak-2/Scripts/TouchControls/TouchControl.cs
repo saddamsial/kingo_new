@@ -1,6 +1,6 @@
 ﻿// -------------------------------------------
 // Control Freak 2
-// Copyright (C) 2013-2018 Dan's Game Tools
+// Copyright (C) 2013-2021 Dan's Game Tools
 // http://DansGameTools.blogspot.com
 // -------------------------------------------
 
@@ -351,6 +351,16 @@ public abstract class TouchControl : ControlFreak2.Internal.ComponentBase, IBind
 	// ------------------------ 
 	public bool IsActive()					{ return ( ((this.hidingFlagsCur & HIDDEN_AND_DISABLED_MASK) == 0)); }		
 		
+
+
+	// -----------------
+	///! Store current position as default. Use this after repositioning this control at run-time.
+	// -----------------
+	virtual public void StoreDefaultPos()	
+		{}
+		
+
+
 
 
 //! \cond

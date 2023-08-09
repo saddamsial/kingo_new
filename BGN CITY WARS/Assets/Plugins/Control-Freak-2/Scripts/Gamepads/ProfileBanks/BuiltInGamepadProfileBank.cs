@@ -1,6 +1,6 @@
 ﻿// -------------------------------------------
 // Control Freak 2
-// Copyright (C) 2013-2018 Dan's Game Tools
+// Copyright (C) 2013-2021 Dan's Game Tools
 // http://DansGameTools.blogspot.com
 // -------------------------------------------
 
@@ -112,63 +112,93 @@ abstract public class BuiltInGamepadProfileBank
 		if (mInst != null)
 			return mInst;
 			
-		switch (Application.platform)
+		string platformName = Application.platform.ToString().ToLower();
+
+		if (platformName == "webglplayer")
 			{
-			case RuntimePlatform.Android :
+	
+			string osName = SystemInfo.operatingSystem.ToLower();
+
+			if (osName.Contains("windows"))
+				platformName = "webgl_win";
+
+			else if (osName.Contains("mac os x"))
+				platformName = "webgl_mac";
+
+			else if (osName.Contains("linux"))
+				platformName = "webgl_linux";
+
+			else if (osName.Contains("android"))
+				platformName = "webgl_android";
+
+			else if (osName.Contains("iphone"))
+				platformName = "webgl_ios";
+			}
+
+
+		switch (platformName)
+			{
+			case "android" :
+			case "webgl_android" : 
 				mInst = new BuiltInGamepadProfileBankAndroid();
 				break;
 	
-			case RuntimePlatform.OSXEditor :
-			case RuntimePlatform.OSXPlayer :
-#if UNITY_PRE_5_4
-			case RuntimePlatform.OSXDashboardPlayer :
-			case RuntimePlatform.OSXWebPlayer :
-#endif
+			case "osxeditor" :
+			case "osxplayer" :
+			case "osxdashboardplayer" :
+			case "osxwebplayer" :
+			case "webgl_mac" : 
 				mInst = new BuiltInGamepadProfileBankOSX();
 				break;
 
-			case RuntimePlatform.WindowsEditor :
-			case RuntimePlatform.WindowsPlayer :
-#if UNITY_PRE_5_0 
-			case RuntimePlatform.MetroPlayerARM :
-			case RuntimePlatform.MetroPlayerX64 :
-			case RuntimePlatform.MetroPlayerX86 :
-#else
-			case RuntimePlatform.WSAPlayerARM :
-			case RuntimePlatform.WSAPlayerX64 :
-			case RuntimePlatform.WSAPlayerX86 :
-#endif
-
-#if UNITY_PRE_5_4
-			case RuntimePlatform.WindowsWebPlayer :
-#endif
-
+			case "windowseditor" :
+			case "windowsplayer" :
+			case "metroplayerarm" :
+			case "metroplayerx64" :
+			case "metroplayerx86" :
+			case "wsaplayerarm" :
+			case "wsaplayerx64" :
+			case "wsaplayerx86" :
+			case "windowswebplayer" :
+			case "webgl_win" : 
 				mInst = new BuiltInGamepadProfileBankWin();
 				break;
 
-#if !UNITY_PRE_5_3
-			case RuntimePlatform.tvOS :
-#endif	
-			case RuntimePlatform.IPhonePlayer :
+			case "tvos" :
+			case "iphoneplayer" :
+			case "webgl_ios" : 
 				mInst = new BuiltInGamepadProfileBankIOS();
 				break;
 
-#if UNITY_PRE_5_4
-			case RuntimePlatform.WP8Player :
-				mInst = new BuiltInGamepadProfileBankWP8();
-				break;
-#endif
+			// case "wp8player" :
+				// mInst = new BuiltInGamepadProfileBankWP8();
+				// break;
 
-			case RuntimePlatform.LinuxPlayer :	
+			case "linuxeditor" :
+			case "linuxplayer" :	
+			case "webgl_linux" :
 				mInst = new BuiltInGamepadProfileBankLinux();
 				break;
-#if !UNITY_PRE_5_0
 
-				case RuntimePlatform.WebGLPlayer :
-				mInst = new BuiltInGamepadProfileBankWebGL();
+			// case "webglplayer" :
+				// mInst = new BuiltInGamepadProfileBankWebGL();
+				// break;		
+
+			case "stadia" :
+				mInst = new BuiltInGamepadProfileBankStadia();
 				break;		
-#endif
-			}	
+
+			case "xboxone" :
+				mInst = new BuiltInGamepadProfileBankXboxOne();
+				break;		
+
+			case "ps4" :
+				mInst = new BuiltInGamepadProfileBankPS4();
+				break;		
+
+			}
+
+
 
 		return mInst;
 		}

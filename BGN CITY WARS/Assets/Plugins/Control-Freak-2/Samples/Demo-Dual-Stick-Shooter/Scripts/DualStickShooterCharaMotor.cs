@@ -1,6 +1,6 @@
 ﻿// -------------------------------------------
 // Control Freak 2
-// Copyright (C) 2013-2018 Dan's Game Tools
+// Copyright (C) 2013-2021 Dan's Game Tools
 // http://DansGameTools.blogspot.com
 // -------------------------------------------
 
@@ -36,7 +36,7 @@ public class DualStickShooterCharaMotor : MonoBehaviour
 		orientationOffset = 0;
 
 	public Vector3 
-		gravity = new Vector3(0, -2.0f, 0);
+		gravity = new Vector3(0, -0.5f, 0);
 		
 
 	private Vector3

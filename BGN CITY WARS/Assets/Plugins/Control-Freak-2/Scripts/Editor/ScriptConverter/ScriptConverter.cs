@@ -1,5 +1,6 @@
 ﻿
-#if UNITY_EDITOR 
+#if UNITY_EDITOR && !UNITY_WEBPLAYER
+
 
 using UnityEngine;
 using UnityEditor;
@@ -7,8 +8,10 @@ using System.Collections.Generic;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.IO;
+using UnityEditor.Compilation;
 
 using ControlFreak2Editor.Internal;
+
 
 namespace ControlFreak2Editor.ScriptConverter
 {
@@ -19,7 +22,10 @@ public class ScriptConverter : EditorWindow
 		treeView;	
 
 	private List<ScriptElem>
-		scriptElems;
+		scriptElems = new List<ScriptElem>();
+
+	private Object[] 
+		affectedAsmDefAssets = new Object[] {};
 		
 	public bool 
 		hideEnabledScripts,
@@ -115,6 +121,12 @@ public class ScriptConverter : EditorWindow
 		if (GUILayout.Button("Reload Scripts", GUILayout.ExpandHeight(true)))
 			{
 			this.BuildTreeView();
+			}
+
+		if (this.affectedAsmDefAssets.Length > 0)
+			{
+			if (GUILayout.Button(new GUIContent("Sel ASMDEFs", "Select Assembly Definition files affected by the last conversion. You need to make sure they reference the \"ControlFreak2\" assembly to prevent compilation errors.")))
+				Selection.objects = this.affectedAsmDefAssets; 
 			}
 
 
@@ -278,12 +290,95 @@ public class ScriptConverter : EditorWindow
 		}
 		
 
+	public const string CF2AssemblyName = "ControlFreak2";
+
+	// ----------------
+	static public UnityEditor.Compilation.Assembly GetControlFreak2Assembly()
+		{
+		//string cf2AsmDefPath = UnityEditor.Compilation.CompilationPipeline.GetAssemblyDefinitionFilePathFromScriptPath(
+		//	"/Assets/Plugins/Control-Freak-2/Scripts/System/InputRig.cs");
+		
+		//if (string.IsNullOrEmpty(cf2AsmDefPath))
+		//	return null;
+		
+		var asmDefs = CompilationPipeline.GetAssemblies();
+		if (asmDefs == null)
+			return null;
+
+		return System.Array.Find(asmDefs, (a) => a.name.Equals(CF2AssemblyName));
+		}
+
+
+	// --------------------
+	private Object[] GetAffectedAssemblies(bool missingRefOnly = false)
+		{
+		Assembly cf2Assembly = GetControlFreak2Assembly();
+		
+		List<string> affectedAsmPaths = new List<string>();
+		List<Object> asmAssetList = new List<Object>();
+
+		foreach (var script in this.scriptElems)
+			{
+			if (script.actionType != ActionType.Convert)
+				continue;
+
+			string assetsRelativePath = ("Assets" + script.sourceRelativeFilePath);
+
+			string asmPath = CompilationPipeline.GetAssemblyDefinitionFilePathFromScriptPath(assetsRelativePath);
+
+			if (string.IsNullOrEmpty(asmPath))
+				{
+//Debug.LogFormat("No asmdef for {0}\n", assetsRelativePath);
+				continue;
+				}
+
+			if (!affectedAsmPaths.Contains(asmPath))
+				{
+				affectedAsmPaths.Add(asmPath);			
+
+				Object asmDef = AssetDatabase.LoadMainAssetAtPath(asmPath);
+
+//Debug.LogFormat("Loading asmDef [{0}] -> [{1}]\n", asmPath, (asmDef!=null)?asmDef.GetType().FullName : "NULL");
+
+				if (asmDef != null)
+					asmAssetList.Add(asmDef);
+				}
+			}
+
+
+		return asmAssetList.ToArray();
+		}
+
+	// ------------------
+	private bool PrepareAssembiles()
+		{
+		var asmAssets = this.GetAffectedAssemblies();
+		if (asmAssets.Length == 0)
+			{
+			return false;
+			}
+
+		Selection.objects = asmAssets; 
+		
+
+		EditorUtility.DisplayDialog("Prepare affected Assembly Definitions", 
+			string.Format("Selected {0} AsmDef files.\n\nNow please go to the Inspector tab and add \"ControlFreak2\" to \"Assembly Definition References\" list for these selected assemblies.", asmAssets.Length), "OK");
+
+		return true;
+		}
+
 
 	// --------------------
 	private bool ConvertScripts(List<ScriptElem> scriptElems)
 		{	
 		int scriptsToConvertCount = 0;
 		int scriptsToIgnoreCount = 0;
+
+		List<UnityEditor.Compilation.Assembly> affectedAssembiles = new List<UnityEditor.Compilation.Assembly>();
+
+
+		this.affectedAsmDefAssets = this.GetAffectedAssemblies();
+
 
 		//int enabledScriptCount = 0;
 		foreach (ScriptElem s in scriptElems) 
@@ -342,7 +437,7 @@ public class ScriptConverter : EditorWindow
 				if (s.actionType == ActionType.Convert)
 					{
 			
-	
+
 					string convertedCode	= s.script.GetConvertedCode();
 		
 					backupLog.Append("Converting script [" + (convertedScriptCount + 1) + " / " + scriptsToConvertCount + 
@@ -433,6 +528,9 @@ public class ScriptConverter : EditorWindow
 
 			return false;  
 			}
+
+
+		this.PrepareAssembiles();
 		
 		return true;
 		}

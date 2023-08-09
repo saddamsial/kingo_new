@@ -1,9 +1,13 @@
 ﻿// -------------------------------------------
 // Control Freak 2
-// Copyright (C) 2013-2018 Dan's Game Tools
+// Copyright (C) 2013-2021 Dan's Game Tools
 // http://DansGameTools.blogspot.com
 // -------------------------------------------
 
+
+#if UNITY_4_6||UNITY_4_7||UNITY_4_8||UNITY_4_9 || UNITY_5_0||UNITY_5_1||UNITY_5_2||UNITY_5_3||UNITY_5_4||UNITY_5_5||UNITY_5_6 || UNITY_2017
+	#define UNITY_PRE_2018
+#endif
 
 using UnityEngine;
 
@@ -84,8 +88,21 @@ public static class CFScreen
 	static public bool	fullScreen
 		{
 		get { return Screen.fullScreen; }
-		set { UpdateDpi(); Screen.fullScreen = value; }
+		set { Screen.fullScreen = value; UpdateDpi(); }
 		}
+
+
+#if !UNITY_PRE_2018
+
+	static public FullScreenMode	fullScreenMode
+		{
+		get { return Screen.fullScreenMode; }
+		set { Screen.fullScreenMode = value; UpdateDpi(); }
+		}
+
+
+		
+#endif
 
 
 	// ----------------
@@ -93,10 +110,23 @@ public static class CFScreen
 	// ----------------
 	static public void SetResolution(int width, int height, bool fullScreen, int refreshRate = 0)
 		{
+		Screen.SetResolution(width, height, fullScreen, refreshRate);
+
 		UpdateDpi();
 
-		Screen.SetResolution(width, height, fullScreen, refreshRate);
 		}
+
+#if !UNITY_PRE_2018
+
+	public static void SetResolution(int width, int height, FullScreenMode fullscreenMode, int preferredRefreshRate = 0) 
+		{
+
+		Screen.SetResolution(width, height, fullscreenMode, preferredRefreshRate);
+
+		UpdateDpi();
+		}
+		
+#endif
 
 
 	// ------------------------

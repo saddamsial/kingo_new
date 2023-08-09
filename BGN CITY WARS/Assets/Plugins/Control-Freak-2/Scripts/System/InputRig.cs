@@ -1,6 +1,6 @@
 ﻿// -------------------------------------------
 // Control Freak 2
-// Copyright (C) 2013-2018 Dan's Game Tools
+// Copyright (C) 2013-2021 Dan's Game Tools
 // http://DansGameTools.blogspot.com
 // -------------------------------------------
 
@@ -3359,7 +3359,7 @@ public class InputRig : ComponentBase, IBindingContainer
 
 			if ((this.analogToDigitalNegCur || frDigitalNeg))
 				{
-				if (this.affectSourceKeys)
+				if (!this.affectSourceKeys)
 					{
 					rig.SetKeyCode(this.affectedKeyNegative);
 					}
@@ -3374,7 +3374,7 @@ public class InputRig : ComponentBase, IBindingContainer
 
 			if ((this.analogToDigitalPosCur || frDigitalPos))
 				{
-				if (this.affectSourceKeys)
+				if (!this.affectSourceKeys)
 					{
 					rig.SetKeyCode(this.affectedKeyPositive);
 					}
@@ -4401,6 +4401,86 @@ public class InputRig : ComponentBase, IBindingContainer
 			}
 
 		}
+
+
+
+	// ----------------
+	// Editor Tools
+	// ----------------
+
+#if UNITY_EDITOR
+
+	
+
+	// --------------------
+	[ContextMenu("Remove custom material UI Images")]
+	private void ContextRemoveCustomSpriteMaterials()
+		{
+		List<UnityEngine.UI.Image> images = new List<UnityEngine.UI.Image>();
+		this.GetComponentsInChildren<UnityEngine.UI.Image>(images);
+
+		for (int i = (images.Count - 1); i >= 0; --i)
+			{
+			if (!images[i].material || (images[i].material == UnityEngine.UI.Image.defaultGraphicMaterial))
+				images.RemoveAt(i);
+			}
+
+
+		if (images.Count == 0)
+			{
+			UnityEditor.EditorUtility.DisplayDialog("CF2", string.Format("Nothing found for {0}!", this.name), "OK");
+			return;
+			}
+		
+		string undoLabel = "Remove custom materials";
+
+		foreach (var img in images)
+			{
+			Debug.LogFormat(img, "\tClearing mat of [{0}] = [{1}].\n", img.name, (img.material?img.material.name : "NULL"));
+ 
+			UnityEditor.Undo.RecordObject(img, undoLabel);
+
+ 
+			img.material = null;
+
+			UnityEditor.EditorUtility.SetDirty(img);
+			}
+
+		UnityEditor.Undo.FlushUndoRecordObjects();
+
+		Debug.LogFormat("Removed materials of {0} images!\n", images.Count);
+
+		}
+
+
+
+	// ---------------------
+	[ContextMenu("Select custom material UI Images")]
+	private void ContextSelCusomMatImages()
+		{
+		UnityEngine.UI.Image[] images = this.GetComponentsInChildren<UnityEngine.UI.Image>();
+		List<Transform> transforms = new List<Transform>();
+
+		foreach (var img in images)
+			{
+			if (img.material && (img.material != UnityEngine.UI.Image.defaultGraphicMaterial))
+				transforms.Add(img.transform);
+			}
+
+
+		if (transforms.Count == 0)
+			{
+			UnityEditor.EditorUtility.DisplayDialog("CF2", string.Format("Nothing found for {0}!", this.name), "OK");
+			return;
+			}
+
+		UnityEditor.Selection.objects = transforms.ToArray();
+		}
+
+
+
+#endif	
+	
 
 
 //! \endcond

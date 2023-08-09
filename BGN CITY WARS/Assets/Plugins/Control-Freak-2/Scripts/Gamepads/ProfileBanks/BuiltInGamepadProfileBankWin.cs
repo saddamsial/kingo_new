@@ -1,6 +1,6 @@
 ﻿// -------------------------------------------
 // Control Freak 2
-// Copyright (C) 2013-2018 Dan's Game Tools
+// Copyright (C) 2013-2021 Dan's Game Tools
 // http://DansGameTools.blogspot.com
 // -------------------------------------------
 
@@ -16,19 +16,21 @@ public class BuiltInGamepadProfileBankWin : BuiltInGamepadProfileBank
 	// ------------------
 	public BuiltInGamepadProfileBankWin() : base()
 		{
+
+			
 		this.profiles = new GamepadProfile[]
 			{	
-/*
-			// XBox One (thanks to Mandy!) ------------------
+
+			// XBox One  ------------------
 
 			new GamepadProfile(              
               "XBOX One", 
-              "One", 
+              "XBox One", 
               GamepadProfile.ProfileMode.Normal,
               null, null,     
               GamepadProfile.JoystickSource.Axes(0, true, 1, false),    // Left Stick
               GamepadProfile.JoystickSource.Axes(3, true, 4, false),    // Right Stick
-              GamepadProfile.JoystickSource.Axes(6, true, 7, true),    // Dpad
+              GamepadProfile.JoystickSource.Axes(5, true, 6, true),    // Dpad
               GamepadProfile.KeySource.Key(0),                // A
               GamepadProfile.KeySource.Key(1),                // B
               GamepadProfile.KeySource.Key(2),                // X
@@ -40,10 +42,13 @@ public class BuiltInGamepadProfileBankWin : BuiltInGamepadProfileBank
               GamepadProfile.KeySource.Key(5),                // R1
               GamepadProfile.KeySource.PlusAxis(8),			  // L2	
               GamepadProfile.KeySource.PlusAxis(9),				// R2
-              GamepadProfile.KeySource.Key(9),                // L3
-              GamepadProfile.KeySource.Key(10)                 // R3
+              GamepadProfile.KeySource.Key(8),                // L3
+              GamepadProfile.KeySource.Key(9)                 // R3
               ),
-*/
+
+
+
+
 
 			// nVidia Shield (Unity 5.5.x) ------------------
 
@@ -219,7 +224,93 @@ public class BuiltInGamepadProfileBankWin : BuiltInGamepadProfileBank
 				GamepadProfile.KeySource.Key(11)				// R3
 				),
 
+
+
+			// Playstation 4 Controller -----------------
+
+			new GamepadProfile(
+				"PS4", 
+				"Wireless Controller",
+				GamepadProfile.ProfileMode.Normal,
+				null, null,		
+	
+				leftStick	: GamepadProfile.JoystickSource.Axes(0, true, 1, false),	// Left Stick
+				rightStick	: GamepadProfile.JoystickSource.Axes(2, true, 3, false),	// Right Stick
+				dpad			: GamepadProfile.JoystickSource.Axes(6, true, 7, true),	// Dpad
+	
+			   faceBottom	: GamepadProfile.KeySource.Key(1),				// Cross
+				faceRight	: GamepadProfile.KeySource.Key(2),				// Circle
+				faceLeft		: GamepadProfile.KeySource.Key(0),				// Square
+				faceTop		: GamepadProfile.KeySource.Key(3),				// Triangle
+				
+				select		: GamepadProfile.KeySource.Key(8),				// Select / Share
+				start			: GamepadProfile.KeySource.Key(9),				// Start / Options
+	
+				L1				: GamepadProfile.KeySource.Key(4),				// L1
+				R1				: GamepadProfile.KeySource.Key(5),				// R1
+				L2				: GamepadProfile.KeySource.PlusAxis(3),		// L2 (-1..1 range!!)
+				R2				: GamepadProfile.KeySource.PlusAxis(4),		// R2 (-1..1 range!!)
+				L3				: GamepadProfile.KeySource.Key(10),				// L3
+				R3				: GamepadProfile.KeySource.Key(11)				// R3
+				),
+
+
+
+			// XInput catch-all -----------------
+
+			new GamepadProfile(
+				"XBOX", 
+				"xinput",
+				GamepadProfile.ProfileMode.Normal,
+				null, null,		
+				//GamepadProfile.PlatformFlag.Win,
+	
+				GamepadProfile.JoystickSource.Axes(0, true, 1, false),	// Left Stick
+				GamepadProfile.JoystickSource.Axes(3, true, 4, false),	// Right Stick
+				GamepadProfile.JoystickSource.Axes(5, true, 6, true),	// Dpad
+	
+				GamepadProfile.KeySource.Key(0),				// A
+				GamepadProfile.KeySource.Key(1),				// B
+				GamepadProfile.KeySource.Key(2),				// X
+				GamepadProfile.KeySource.Key(3),				// Y
+				
+				GamepadProfile.KeySource.Key(6),				// Select
+				GamepadProfile.KeySource.Key(7),				// Start
+	
+				GamepadProfile.KeySource.Key(4),				// L1
+				GamepadProfile.KeySource.Key(5),				// R1
+				GamepadProfile.KeySource.PlusAxis(8),	// L2
+				GamepadProfile.KeySource.PlusAxis(9),	// R2
+				GamepadProfile.KeySource.Key(8),				// L3
+				GamepadProfile.KeySource.Key(9)					// R3
+				),
 			};
+
+
+		// Generic profile based on XBOX 360...
+
+		this.genericProfile =  new GamepadProfile.GenericProfile(
+				leftStick	: GamepadProfile.JoystickSource.Axes(0, true, 1, false),	// Left Stick
+				rightStick	: GamepadProfile.JoystickSource.Axes(3, true, 4, false),	// Right Stick
+				dpad			: GamepadProfile.JoystickSource.Axes(5, true, 6, true),	// Dpad
+	
+			   faceBottom	: GamepadProfile.KeySource.Key(0),				// A
+				faceRight	: GamepadProfile.KeySource.Key(1),				// B
+				faceLeft		: GamepadProfile.KeySource.Key(2),				// X
+				faceTop		: GamepadProfile.KeySource.Key(3),				// Y
+				
+				select		: GamepadProfile.KeySource.Key(6),				// Select
+				start			: GamepadProfile.KeySource.Key(7),				// Start
+	
+				L1				: GamepadProfile.KeySource.Key(4),				// L1
+				R1				: GamepadProfile.KeySource.Key(5),				// R1
+				L2				: GamepadProfile.KeySource.PlusAxis(8),	// L2
+				R2				: GamepadProfile.KeySource.PlusAxis(9),	// R2
+				L3				: GamepadProfile.KeySource.Key(8),				// L3
+				R3				: GamepadProfile.KeySource.Key(9)				// R3
+				);
+
+
 		}
 	}
 }

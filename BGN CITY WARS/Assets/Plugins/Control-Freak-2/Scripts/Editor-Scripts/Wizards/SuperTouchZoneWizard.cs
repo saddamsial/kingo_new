@@ -1,6 +1,6 @@
 ﻿// -------------------------------------------
 // Control Freak 2
-// Copyright (C) 2013-2018 Dan's Game Tools
+// Copyright (C) 2013-2021 Dan's Game Tools
 // http://DansGameTools.blogspot.com
 // -------------------------------------------
 
@@ -100,10 +100,11 @@ public class SuperTouchZoneCreationWizard : NonDynamicControlWizardBase
 
 
 	
-
 	// --------------
 	public SuperTouchZoneCreationWizard() : base()
 		{
+		this.controlDepth = Mathf.Lerp(ControlCreationWizardBase.DEPTH_MIN, ControlCreationWizardBase.DEPTH_MAX, 0.9f);		// New!
+
 		this.fingerBinding = new FingerBinding[SuperTouchZone.MAX_FINGERS];
 		for (int i = 0; i < this.fingerBinding.Length; ++i)
 			{

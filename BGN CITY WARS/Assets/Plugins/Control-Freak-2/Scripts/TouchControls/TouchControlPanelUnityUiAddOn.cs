@@ -1,6 +1,6 @@
 ﻿// -------------------------------------------
 // Control Freak 2
-// Copyright (C) 2013-2018 Dan's Game Tools
+// Copyright (C) 2013-2021 Dan's Game Tools
 // http://DansGameTools.blogspot.com
 // -------------------------------------------
 
@@ -16,7 +16,7 @@ namespace ControlFreak2
 //! Touch Control Panel Unity5 UI Add-on. This component should be added to touch control panel when used with Unity UI.
 // ---------------------
 [ExecuteInEditMode()]
-
+[RequireComponent(typeof(CanvasRenderer))]
 public class TouchControlPanelUnityUiAddOn : Graphic, IPointerDownHandler, IPointerUpHandler, IDragHandler
 	{
 //! \cond

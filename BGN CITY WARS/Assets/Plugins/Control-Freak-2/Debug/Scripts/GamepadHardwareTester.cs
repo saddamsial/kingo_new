@@ -93,7 +93,6 @@ public class GamepadHardwareTester : MonoBehaviour
 		{
 		GUI.skin = this.skin;
 
-
 		string[] joyNames = Input.GetJoystickNames();
 
 		for (int joy = 0; joy < 4; ++joy)
@@ -159,7 +158,7 @@ public class GamepadHardwareTester : MonoBehaviour
 		if (GUI.Button (new Rect(10+100+5, Screen.height-40, 100, 30), "Exit"))
 			Application.Quit();
 
-		GUI.Box(new Rect(220, Screen.height-40,  Screen.width-230, 30), "Unity Ver [" + Application.unityVersion + "]");
+		GUI.Box(new Rect(220, Screen.height-40,  Screen.width-230, 30), "Platform: " + Application.platform.ToString() + "  Unity Ver [" + Application.unityVersion + "]");
 		}
 
 	}

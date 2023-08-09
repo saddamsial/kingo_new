@@ -1,6 +1,6 @@
 // -------------------------------------------
 // Control Freak 2
-// Copyright (C) 2013-2018 Dan's Game Tools
+// Copyright (C) 2013-2021 Dan's Game Tools
 // http://DansGameTools.blogspot.com
 // -------------------------------------------
 
@@ -414,7 +414,7 @@ public abstract class DynamicTouchControl : TouchControl
 	// ----------------------
 	//! Store this dynamic control's default position. 
 	// ------------------
-	protected void StoreDefaultPos()
+	override public void StoreDefaultPos()
 		{
 		if (CFUtils.editorStopped)
 			return;

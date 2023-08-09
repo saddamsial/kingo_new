@@ -85,7 +85,8 @@ public class ConvertedScript
 		warningFragments,
 		errorFragments;
 
-	private List<CommentBlock>	commentBlocks;
+	private List<TextBlock>	commentBlocks;
+	private List<TextBlock>	enumDefinitionBlocks;
 
 
 	static string 
@@ -104,7 +105,7 @@ public class ConvertedScript
 			
 		REGEX_TYPE_SPECIFIER_START_ANCHOR_CLASS 	= "[" + WHITESPACE_CHARS + @"\(\:\;\,\{" + "]",
 		REGEX_TYPE_SPECIFIER_END_ANCHOR_CLASS 		= "[" + WHITESPACE_CHARS + @"\)\;" + "]",
-
+ 
 		//REGEX_BLOCK_COMMENT				= @"(?:\/\*(?:.|\n)*?(?:\*\/))",
 		//REGEX_LINE_COMMENT				= @"(?:\/\/.+?\n)",
 
@@ -115,6 +116,8 @@ public class ConvertedScript
 		REGEX_INT_PARAM					= @"^(?:" + REGEX_OPTIONAL_WS + "([0-9]+)" + REGEX_OPTIONAL_WS  + @")\z",
 		REGEX_KEYCODE_ENUM_PARAM		= @"^(?:" + REGEX_OPTIONAL_WS + "KeyCode" + REGEX_OPTIONAL_WS + "\\." + REGEX_OPTIONAL_WS + "([a-zA-Z0-9]+)" + REGEX_OPTIONAL_WS + @")\z",
 
+
+		REGEX_ENUM_DEF_BLOCK				= @"(?:" + REGEX_WS_CLASS + ")" + "enum" + REGEX_WS_CLASS+"+" + "[" + WHITESPACE_CHARS + @"\:\w\d]+" + @"\{" + @"[^\}]+\}", 
 
 		REGEX_INPUT_CLASSNAMES 			= @"(?:Input|CrossPlatformInputManager|CFInput|(?:UnityEngine" + REGEX_DOT_OPERATOR + "Input))",
 		REGEX_SCREEN_CLASSNAMES 		= @"(?:Screen|UnityEngine" + REGEX_DOT_OPERATOR + "Screen)",
@@ -191,7 +194,8 @@ public class ConvertedScript
 		regexDontConvertTagOnly,
 		regexDontConvertTagWithOptionalComment;
 		
-		
+
+
 
 	// ------------------------
 	// (0 = dummy)(1 = class)(2 = dot)(3 = method)(4 = dummy)(5=params)(6=dummy)	
@@ -234,14 +238,15 @@ public class ConvertedScript
 	// ------------------------	
 	public ConvertedScript()
 		{
-		this.originalCode		= "";
-		this.sanitizedCode	= "";
-		this.modifiedCode		= new StringBuilder();
-		this.commentBlocks		= new List<CommentBlock>();
-		this.fragments			= new List<Fragment>();
-		this.okFragments		= new List<Fragment>();
-		this.warningFragments	= new List<Fragment>();
-		this.errorFragments		= new List<Fragment>();
+		this.originalCode				= "";
+		this.sanitizedCode			= "";
+		this.modifiedCode				= new StringBuilder();
+		this.commentBlocks			= new List<TextBlock>();
+		this.enumDefinitionBlocks	= new List<TextBlock>();
+		this.fragments					= new List<Fragment>();
+		this.okFragments				= new List<Fragment>();
+		this.warningFragments		= new List<Fragment>();
+		this.errorFragments			= new List<Fragment>();
 		}
 
 			
@@ -430,6 +435,7 @@ string[] keycodeParams = new string[]
 //DBBox("Comments");
 			
 		this.CollectCommentBlocks();
+		this.CollectEnumDefinitionBlocks();
 //DBBox("frags");
 
 		this.CollectFragments();
@@ -452,8 +458,10 @@ string[] keycodeParams = new string[]
 	// -------------------------	
 	public void ProcessTextFile(string filename)
 		{
+#if !UNITY_WEBPLAYER
 		string originalCode = System.IO.File.ReadAllText(filename); 
 		ProcessText(originalCode, GetScriptLang(filename));
+#endif
 		}
 		
 
@@ -509,7 +517,7 @@ string[] keycodeParams = new string[]
 		// Init comment blocks...
 
 		if (this.commentBlocks == null)
-			this.commentBlocks = new List<CommentBlock>(64);
+			this.commentBlocks = new List<TextBlock>(64);
 		else
 			this.commentBlocks.Clear();
 
@@ -677,6 +685,9 @@ string[] keycodeParams = new string[]
 					foreach (Match m in typeMatches)
 						{
 						if (script.IsMatchCommentedOut(m))
+							continue;
+
+						if (script.IsMatchInsideEnumDefinition(m))
 							continue;
 
 //Debug.Log("TYPE match[" + (matchNum++) + "] ["+ m.Value+"] line[" + ControlFreak2.CFUtils.GetLineNumber(script.originalCode, m.Index) + "]");
@@ -1018,7 +1029,9 @@ string[] keycodeParams = new string[]
 			"location",
 			"multiTouchEnabled",
 			"touchSupported",
-			"mousePresent"
+			"mousePresent",
+			"stylusTouchSupported",
+			"touchPressureSupported",	
 			};
 			
 		// ----------------
@@ -1097,7 +1110,8 @@ string[] keycodeParams = new string[]
 			"dpi",
 			"lockCursor",
 			"showCursor",
-			"fullScreen"		
+			"fullScreen",
+			"fullScreenMode",		
 			};
 	
 		// ---------------
@@ -1113,7 +1127,10 @@ string[] keycodeParams = new string[]
 			//"fullScreen",
 			"orientation",
 			"resolutions",
-			"sleepTimeout"				
+			"sleepTimeout",
+			"brightness",
+			"safeArea",	
+			"cutouts",
 			};
 
 
@@ -1474,6 +1491,46 @@ string[] keycodeParams = new string[]
 		AltString
 		}
 
+
+
+	// -------------------
+	private void CollectEnumDefinitionBlocks()
+		{
+		this.enumDefinitionBlocks.Clear();
+
+
+		string code = this.originalCode;
+
+		Regex enumDefRegex = new Regex(REGEX_ENUM_DEF_BLOCK, RegexOptions.Multiline);
+
+		int matchCount = 0;
+		int startChar = 0;
+		do 
+			{
+			Match m = enumDefRegex.Match(code, startChar);
+			if (m == null || !m.Success) break;
+
+			//Debug.LogFormat("Match [{0}] = start:{1} len:{2} cont:[{3}]\n", matchCount, m.Index, m.Length, m.Value);
+			++matchCount;
+
+			this.enumDefinitionBlocks.Add(new TextBlock(m));
+
+			startChar = m.Index + m.Length;
+			}
+		while (true);
+		}
+
+
+	// -------------------
+	private bool IsMatchInsideEnumDefinition(Match m)
+		{
+		return TextBlock.CheckMatch(this.enumDefinitionBlocks, m);
+		}
+
+
+
+
+
 	// -------------------
 	private void CollectCommentBlocks()
 		{
@@ -1558,7 +1615,7 @@ string[] keycodeParams = new string[]
 					((blockType == CodeBlockType.LineComment)	&& (curC == '\n')) )
 					{
 					blockOpen = false;
-					this.commentBlocks.Add(new CommentBlock(blockStart, (i - blockStart)));
+					this.commentBlocks.Add(new TextBlock(blockStart, (i - blockStart)));
 					}					 
 				}
 
@@ -1569,7 +1626,7 @@ string[] keycodeParams = new string[]
 		// Add unclosed block...
 
 		if (blockOpen)
-			this.commentBlocks.Add(new CommentBlock(blockStart, (this.originalCode.Length - blockStart)));
+			this.commentBlocks.Add(new TextBlock(blockStart, (this.originalCode.Length - blockStart)));
 		
 
 	
@@ -1600,15 +1657,10 @@ string[] keycodeParams = new string[]
 	// -------------------
 	private bool IsMatchCommentedOut(Match m)
 		{
-		int count = this.commentBlocks.Count;
-		for (int i = 0; i < count; ++i)
-			{
-			if (this.commentBlocks[i].IsMatchCommentedOut(m))
-				return true;
-			}
-
-		return false;
+		return TextBlock.CheckMatch(this.commentBlocks, m);
 		}
+
+
 		
 		
 	// -------------------
@@ -1830,28 +1882,42 @@ string[] keycodeParams = new string[]
 	
 	
 	// ----------------------
-	private struct CommentBlock
+	private struct TextBlock
 		{
 		public int index, len;
 	
 		// -----------------------
-		public CommentBlock(Match m)
+		public TextBlock(Match m)
 			{
 			this.index	= m.Index;
 			this.len	= m.Length;
 			}
 
 		// -----------------
-		public CommentBlock(int index, int len)
+		public TextBlock(int index, int len)
 			{
 			this.index = index;
 			this.len = len;
 			}
 			
 		// ------------------------
-		public bool IsMatchCommentedOut(Match m)
+		public bool IsMatchInside(Match m)
 			{
 			return ((m == null) || ((m.Index >= this.index) && ((m.Index + m.Length) < (this.index + this.len))));
+			}
+
+
+		// ---------------
+		static public bool CheckMatch(List<TextBlock> blocks, Match m)
+			{
+			int count = blocks.Count;
+			for (int i = 0; i < count; ++i)
+				{
+				if (blocks[i].IsMatchInside(m))
+					return true;
+				}
+
+			return false;
 			}
 		}
 		
