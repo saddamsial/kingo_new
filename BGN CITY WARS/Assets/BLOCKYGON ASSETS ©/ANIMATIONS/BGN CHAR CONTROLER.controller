@@ -381,7 +381,7 @@ AnimatorStateTransition:
     m_ConditionEvent: Grounded
     m_EventTreshold: 0
   - m_ConditionMode: 3
-    m_ConditionEvent: inputy
+    m_ConditionEvent: inputY
     m_EventTreshold: 0.1
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 4146255524151324008}
@@ -5085,7 +5085,7 @@ AnimatorStateTransition:
     m_ConditionEvent: LADDER
     m_EventTreshold: 0
   - m_ConditionMode: 4
-    m_ConditionEvent: inputy
+    m_ConditionEvent: inputY
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -7626799459488285400}
@@ -5316,10 +5316,10 @@ AnimatorStateTransition:
     m_ConditionEvent: LADDER
     m_EventTreshold: 0
   - m_ConditionMode: 4
-    m_ConditionEvent: inputy
+    m_ConditionEvent: inputY
     m_EventTreshold: 0.1
   - m_ConditionMode: 3
-    m_ConditionEvent: inputy
+    m_ConditionEvent: inputY
     m_EventTreshold: -0.1
   - m_ConditionMode: 3
     m_ConditionEvent: inputx
@@ -5663,7 +5663,7 @@ BlendTree:
     m_DirectBlendParameter: inputx
     m_Mirror: 0
   m_BlendParameter: inputx
-  m_BlendParameterY: inputy
+  m_BlendParameterY: inputY
   m_MinThreshold: 0
   m_MaxThreshold: 0.47142854
   m_UseAutomaticThresholds: 1
@@ -6737,7 +6737,7 @@ BlendTree:
     m_DirectBlendParameter: inputx
     m_Mirror: 0
   m_BlendParameter: inputx
-  m_BlendParameterY: inputy
+  m_BlendParameterY: inputY
   m_MinThreshold: 0.12857145
   m_MaxThreshold: 0.2014881
   m_UseAutomaticThresholds: 1
@@ -7147,7 +7147,7 @@ BlendTree:
     m_DirectBlendParameter: inputx
     m_Mirror: 0
   m_BlendParameter: inputx
-  m_BlendParameterY: inputy
+  m_BlendParameterY: inputY
   m_MinThreshold: 0.12857145
   m_MaxThreshold: 0.1987875
   m_UseAutomaticThresholds: 1
@@ -7475,7 +7475,7 @@ BlendTree:
     m_DirectBlendParameter: inputx
     m_Mirror: 0
   m_BlendParameter: inputx
-  m_BlendParameterY: inputy
+  m_BlendParameterY: inputY
   m_MinThreshold: 0
   m_MaxThreshold: 0.47142854
   m_UseAutomaticThresholds: 1
@@ -7778,7 +7778,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 4
-    m_ConditionEvent: inputy
+    m_ConditionEvent: inputY
     m_EventTreshold: 0.01
   - m_ConditionMode: 1
     m_ConditionEvent: LADDER
@@ -8993,133 +8993,133 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
-  - m_Name: inputy
+    m_Controller: {fileID: 0}
+  - m_Name: inputY
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: INVENTORY
     m_Type: 3
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: WeaponType
     m_Type: 3
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: combat
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: IS AIMING
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: Grounded
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: CROUCH
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: LADDER
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: shoot
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: RELOAD
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: SPEED
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: FIRE INPUT
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: AimY
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: AimX
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: FALLING FAST
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 1
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: DEAD
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: Moving
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: SWITCH
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: HIDE
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: ROLL
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: Jump
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: LOWER
@@ -9483,7 +9483,7 @@ AnimatorStateTransition:
     m_ConditionEvent: LADDER
     m_EventTreshold: 0
   - m_ConditionMode: 3
-    m_ConditionEvent: inputy
+    m_ConditionEvent: inputY
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -7626799459488285400}
@@ -9652,7 +9652,7 @@ BlendTree:
     m_DirectBlendParameter: inputx
     m_Mirror: 0
   m_BlendParameter: inputx
-  m_BlendParameterY: inputy
+  m_BlendParameterY: inputY
   m_MinThreshold: 0.13214727
   m_MaxThreshold: 0.19293615
   m_UseAutomaticThresholds: 1
@@ -11186,7 +11186,7 @@ AnimatorStateTransition:
     m_ConditionEvent: Grounded
     m_EventTreshold: 0
   - m_ConditionMode: 4
-    m_ConditionEvent: inputy
+    m_ConditionEvent: inputY
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -570149981617206545}
@@ -12931,7 +12931,7 @@ BlendTree:
     m_DirectBlendParameter: inputx
     m_Mirror: 0
   m_BlendParameter: inputx
-  m_BlendParameterY: inputy
+  m_BlendParameterY: inputY
   m_MinThreshold: 0
   m_MaxThreshold: 0.42428568
   m_UseAutomaticThresholds: 1
@@ -13561,7 +13561,7 @@ AnimatorStateTransition:
     m_ConditionEvent: Grounded
     m_EventTreshold: 0
   - m_ConditionMode: 3
-    m_ConditionEvent: inputy
+    m_ConditionEvent: inputY
     m_EventTreshold: 0.1
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 8224323102657954173}
@@ -15387,7 +15387,7 @@ BlendTree:
     m_DirectBlendParameter: inputx
     m_Mirror: 0
   m_BlendParameter: inputx
-  m_BlendParameterY: inputy
+  m_BlendParameterY: inputY
   m_MinThreshold: 0.12857145
   m_MaxThreshold: 0.19868362
   m_UseAutomaticThresholds: 1
@@ -15461,7 +15461,7 @@ AnimatorStateTransition:
     m_ConditionEvent: LADDER
     m_EventTreshold: 0
   - m_ConditionMode: 3
-    m_ConditionEvent: inputy
+    m_ConditionEvent: inputY
     m_EventTreshold: 0.01
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 5884602648265868314}
@@ -17778,7 +17778,7 @@ AnimatorStateTransition:
     m_ConditionEvent: Grounded
     m_EventTreshold: 0
   - m_ConditionMode: 3
-    m_ConditionEvent: inputy
+    m_ConditionEvent: inputY
     m_EventTreshold: 0.1
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -1000143052018573327}
@@ -18277,7 +18277,7 @@ AnimatorStateTransition:
     m_ConditionEvent: Jump
     m_EventTreshold: 0
   - m_ConditionMode: 4
-    m_ConditionEvent: inputy
+    m_ConditionEvent: inputY
     m_EventTreshold: 0.1
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -6850893503641469667}
