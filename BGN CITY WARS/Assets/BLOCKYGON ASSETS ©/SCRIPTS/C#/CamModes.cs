@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 public class CamModes : MonoBehaviour
 {
-    private Camera Camera;
-    private PlayerActionsVar vars;
+    public Camera Camera;
+    public PlayerActionsVar vars;
     //CAM MODES
     public float FMC = 30f;
     public float CMC = 25;
