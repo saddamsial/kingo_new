@@ -455,34 +455,30 @@ void Update()
 
     //Ammo & reload
     IEnumerator Reload()
+{
+    Reloading = true;
+    AS.PlayOneShot(WeaponType.ReloadSFX, 1f);
+    noammo = false;
 
-    {//sf
-   
-     Reloading = true;
-     AS.PlayOneShot(WeaponType.ReloadSFX, 1f);
-     noammo = false; 
+    // Calculate reload time based on the inverse of WeaponType.ReloadSpeed
+    float reloadTime = 1.0f / WeaponType.ReloadTime;
+
+    yield return new WaitForSeconds(reloadTime);
+
+    if (totalammo < WeaponType.MaxClip)
     {
-        yield return new WaitForSeconds(WeaponType.ReloadTime);
-
- if     (totalammo < WeaponType.MaxClip)
-     {
-        
-         currentclip += totalammo;
-         totalammo -= BulletsFired;
-         BulletsFired = 0;
-         Reloading = false;
-     }
-
-else
-        {
-         currentclip += BulletsFired;
-         totalammo -= BulletsFired;
-         BulletsFired = 0;
-         Reloading = false;
-        }
-    
-       
-        }
+        currentclip += totalammo;
+        totalammo -= BulletsFired;
+        BulletsFired = 0;
+        Reloading = false;
+    }
+    else
+    {
+        currentclip += BulletsFired;
+        totalammo -= BulletsFired;
+        BulletsFired = 0;
+        Reloading = false;
+    }
 
 
     }//ef
