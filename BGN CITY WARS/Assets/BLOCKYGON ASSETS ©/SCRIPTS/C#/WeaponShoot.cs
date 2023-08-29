@@ -16,6 +16,7 @@ public class WeaponShoot : MonoBehaviour
     public bool noammo;
     private float lastshot = 0f;
     private float WeaponRange;
+    public float modifiedFireRate;
     public bool Fired;
     private bool started;
     public bool Canfire;
@@ -84,6 +85,8 @@ public class WeaponShoot : MonoBehaviour
     WeaponRange = WeaponType.WeaponRange;
     Shootpoint= GameObject.FindGameObjectWithTag("ShootPoint").transform;
     WeaponRange=WeaponType.WeaponRange;
+   
+    
     
 }
 void Update()
@@ -95,6 +98,8 @@ void Update()
   PlayerParent.GetComponent<WeaponStatus>().CurrentClip=currentclip;
   PlayerParent.GetComponent<WeaponStatus>().TotalAmmo=totalammo;
   PlayerParent.GetComponent<WeaponStatus>().NoAmmo=noammo;
+   modifiedFireRate = 1.0f / WeaponType.FireRate;
+
   
  // CHECK RETICLE HIT(NO SHOOTING)
 
@@ -153,7 +158,7 @@ void Update()
         { //canfire
 
 
-        if (ButtonFired == true && PV.IsMine && Time.time > lastshot+WeaponType.FireRate && currentclip >0 && !Reloading&&Canfire)
+        if (ButtonFired == true && PV.IsMine && Time.time > lastshot + modifiedFireRate && currentclip > 0 && !Reloading && Canfire)
         {
             AS.PlayOneShot(WeaponType.FireSFX, 1f);
 
