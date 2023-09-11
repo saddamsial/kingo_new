@@ -14,6 +14,7 @@ public class TakeDamage : MonoBehaviour
     private void Start()
     {
         pv = this.GetComponent<PhotonView>();
+        
 
     }
 
@@ -22,6 +23,7 @@ public class TakeDamage : MonoBehaviour
  {
     HPcap();
     SHIELDcap();
+    
  }
 
 
