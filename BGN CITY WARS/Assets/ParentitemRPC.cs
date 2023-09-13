@@ -6,8 +6,8 @@ using Photon.Pun;
 
 public class ParentitemRPC : MonoBehaviour
 {
-    public Transform ParentTransform;
     private PhotonView PV;
+    public GameObject instantiatedItem;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,14 +20,15 @@ public class ParentitemRPC : MonoBehaviour
     public void ParentItem()
     {
 
-        if (transform.parent == null)
-        transform.parent = ParentTransform;
+
+        instantiatedItem.transform.parent = gameObject.transform ;
 
         Debug.Log("PunRPc reached for Skin");
+
     }
     private void Update()
     {
-        PV.RPC("ParentItem", RpcTarget.AllBuffered);
+        PV.RPC("ParentItem", RpcTarget.All);
 
     }
 }
