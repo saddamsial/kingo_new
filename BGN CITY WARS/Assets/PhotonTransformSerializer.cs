@@ -21,12 +21,15 @@ public class PhotonTransformSerializer : MonoBehaviour, IPunObservable
             // We own this player: send local data to others
             stream.SendNext(transform.localPosition);
             stream.SendNext(transform.localRotation);
+            Debug.Log("SendingTransform");
         }
         else if (photonView != null)
         {
             // Network player, receive data
+           
             Vector3 receivedLocalPosition = (Vector3)stream.ReceiveNext();
             Quaternion receivedLocalRotation = (Quaternion)stream.ReceiveNext();
+            Debug.Log("ReceivingTransform");
 
             // Smoothly interpolate local position and rotation
             transform.localPosition = Vector3.Lerp(transform.localPosition, receivedLocalPosition, smoothingFactor);

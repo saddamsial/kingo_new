@@ -30,24 +30,32 @@ public bool ButtonFired;
 void OnEnable() 
 {
   weapontype=WeaponType.Weapontype;
-  PlayerParent=transform.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent;
+  
   //PlayerParent.GetComponent<PlayerActionsVar>().Weapontype=weapontype;
 }
      void Start()
      {
-      
+        Invoke("FindParent", .5f);
        PV =  this.GetComponent<PhotonView>();
        
 
       }
 
- 
-    void Update()
+ void FindParent()
     {
+        PlayerParent = transform.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent;
+        SwingPoint = PlayerParent.transform.Find("ShootPos");
+    }
+    void Update()
+
+     {
+        if(transform.parent!= null)
+        {
        PlayerParent.GetComponent<PlayerActionsVar>().Fired = Fired;
        Canfire =  PlayerParent.GetComponent<PlayerActionsVar>().canfire;
-  
-         if (Time.time > lastshot + 0.2f)
+        }
+
+        if (Time.time > lastshot + 0.2f)
          {     
          Fired = false;     
          }
@@ -63,8 +71,9 @@ void OnEnable()
             AS.PlayOneShot(WeaponType.FireSFX, 1f);
             Fired = true;
             Swing();             
-        }
-else if (ButtonFired==false)
+       
+            }
+            else if (ButtonFired==false)
 {
   return;
 }

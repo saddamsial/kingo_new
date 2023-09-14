@@ -53,9 +53,10 @@ public class WeaponShoot : MonoBehaviour
 
     private void OnEnable()
     {
-     PlayerParent = transform.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent;
-     weaponstatus=PlayerParent.GetComponent<WeaponStatus>();
-     PV = this.GetComponent<PhotonView>();
+   
+    
+        Invoke("FindParent", .5f);
+        PV = this.GetComponent<PhotonView>();
 
         collided = hit.collider;
 
@@ -76,6 +77,11 @@ public class WeaponShoot : MonoBehaviour
     bodyshotHit = false;
     headshotHit = false;
 
+    }
+    void FindParent()
+    {
+        PlayerParent = transform.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent;
+        weaponstatus = PlayerParent.GetComponent<WeaponStatus>();
     }
     private void Start() 
 {

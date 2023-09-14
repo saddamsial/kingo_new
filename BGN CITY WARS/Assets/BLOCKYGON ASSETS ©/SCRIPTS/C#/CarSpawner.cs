@@ -52,15 +52,17 @@ private VehicleCoolDown vehicleCoolDown;
 
 
 
-//set Player
-void Start()
-{
-    Player = this.transform;
+    //set Player
+    void Start()
+    {
+        Player = this.transform;
+        if (GameObject.FindGameObjectWithTag("Level Script") != null)
+        {
+            vehicleCoolDown = GameObject.FindGameObjectWithTag("Level Script").GetComponent<VehicleCoolDown>();
+            vehicleCoolDown.Player = this.gameObject;
 
-    vehicleCoolDown = GameObject.FindGameObjectWithTag("Level Script").GetComponent<VehicleCoolDown>();
-    vehicleCoolDown.Player = this.gameObject;
-    
-}
+        }
+    }
 
 
 
