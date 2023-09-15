@@ -14,6 +14,7 @@ public class PlayerActionsVar : MonoBehaviour
     public bool Fired;
     public bool IsReloading;
     public int Weapontype;
+    public int InventoryTrack;
 
 
     // Start is called before the first frame update
