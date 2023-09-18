@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 2959094627346249096}
   - component: {fileID: 2942148500365635639}
   - component: {fileID: 2216208603292154188}
+  - component: {fileID: 3792661632973538131}
   m_Layer: 0
   m_Name: item_477000
   m_TagString: weapon/active
@@ -238,3 +239,19 @@ MonoBehaviour:
   TPV: {fileID: 0}
   weapontype: 0
   ButtonFired: 0
+--- !u!114 &3792661632973538131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4347554148320109732}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2fe5546f775c47d2820aa5e8a715f53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _data:
+    _json: '{"nest":{"source":"Macro","macro":0,"embed":null}}'
+    _objectReferences:
+    - {fileID: 11400000, guid: 8c7ffe27e36de8242aad840c633c65eb, type: 2}

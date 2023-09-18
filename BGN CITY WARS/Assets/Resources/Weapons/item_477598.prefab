@@ -19594,6 +19594,7 @@ GameObject:
   - component: {fileID: 7528419446179618977}
   - component: {fileID: 4446476711951926975}
   - component: {fileID: 8051718158435958463}
+  - component: {fileID: 8053326579319569172}
   m_Layer: 0
   m_Name: item_477598
   m_TagString: weapon/active
@@ -19849,6 +19850,22 @@ MonoBehaviour:
   BulletDropVFX: {fileID: 5135081918156493200}
   SparkleVFX: {fileID: 7881419788462167541}
   TPV: {fileID: 0}
+--- !u!114 &8053326579319569172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8285721279282515020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2fe5546f775c47d2820aa5e8a715f53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _data:
+    _json: '{"nest":{"source":"Macro","macro":0,"embed":null}}'
+    _objectReferences:
+    - {fileID: 11400000, guid: 8c7ffe27e36de8242aad840c633c65eb, type: 2}
 --- !u!1 &8443620228865923863
 GameObject:
   m_ObjectHideFlags: 0
