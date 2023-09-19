@@ -8,12 +8,13 @@ public class CarSpawner : MonoBehaviour
 
 {//SC
 
-//Spawnvars
-public Transform VehiclePos;
+    //Spawnvars
+    [Header("Vehicle Spawn Settings")]
+    public Transform VehiclePos;
 public GameObject VehicleToSpawn;
 [SerializeField]
 private GameObject VehichleSpawned;
-
+ [Header("Player Spawn Settings")]
 public Transform Player;
 public Vector3 OffsetCheck;
 
@@ -36,9 +37,9 @@ public KeyCode Keybind;
 
 
 public LayerMask layerMask;
-
-//Timer for respawn
-public float SpawnTime=1f;
+    [Header("SpawnTime")]
+    //Timer for respawn
+    public float SpawnTime=1f;
 public bool ReadyToCool = false;
 public bool ReadyToSpawn = true;
 [SerializeField]
