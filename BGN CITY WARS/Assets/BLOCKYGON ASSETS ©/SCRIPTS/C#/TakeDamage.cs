@@ -11,6 +11,8 @@ public class TakeDamage : MonoBehaviour
     private PhotonView pv;
     public int LastDamageTook;
    public bool hurt;
+    [Header("CanvasEFX")]
+    public Transform DamageScreenEFX;
     private void Start()
     {
         pv = this.GetComponent<PhotonView>();
@@ -33,8 +35,9 @@ public class TakeDamage : MonoBehaviour
     LastDamageTook= Damage;
     
      hurt = true;
+        DamageScreenEFX.gameObject.SetActive(true);
 
-    if(pv!= null)
+    if (pv!= null)
     {
    
     
