@@ -26,7 +26,7 @@ public class TakeDamage : MonoBehaviour
     
  }
 
-
+        [PunRPC]
     public void Takedamage(int Damage)
 
     {//sf

@@ -6,10 +6,15 @@ public class PhotonSerializerBGN : MonoBehaviourPunCallbacks,IPunObservable
 {
     [SerializeField]
     private new PhotonView photonView;
-   
+    [Header("Player Status")]
+    public int HP;
+    public int Shield;
+    public int Stamina;
 
-  [Header("Skin")]
+
+    [Header("Skin")]
     public string SkinID;
+
     [Header("Weapon")]
     public int InventoryTrack;
     public int CurrentWeaponType;
@@ -31,7 +36,10 @@ public class PhotonSerializerBGN : MonoBehaviourPunCallbacks,IPunObservable
         Debug.Log("streamIsCalled");
         if (stream.IsWriting && photonView != null)
         {
-            
+            stream.SendNext(HP); //HPSync
+
+            stream.SendNext(Shield); //ShieldSync
+
             stream.SendNext(SkinID); //SkinSync
         
             stream.SendNext(InventoryTrack);    //InventoryTrackerSync
@@ -45,7 +53,11 @@ public class PhotonSerializerBGN : MonoBehaviourPunCallbacks,IPunObservable
         }
         else
         {
-            SkinID= (string)stream.ReceiveNext();  //other player SkinID
+            HP = (int)stream.ReceiveNext(); // other player HP
+
+            Shield = (int)stream.ReceiveNext(); // other player Shield
+
+            SkinID = (string)stream.ReceiveNext();  //other player SkinID
 
             InventoryTrack = (int)stream.ReceiveNext(); // other player Inventory
 

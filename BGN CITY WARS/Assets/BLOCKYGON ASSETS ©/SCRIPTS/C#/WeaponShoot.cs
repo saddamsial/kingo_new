@@ -10,12 +10,15 @@ public class WeaponShoot : MonoBehaviour
     /// variables///
     public WeaponDATA WeaponType;
     private WeaponStatus weaponstatus;
+    [Header("Ammo Settings")]
     public int currentclip;
     public int totalammo;
     public int BulletsFired = 0;
     public bool noammo;
     private float lastshot = 0f;
+  
     private float WeaponRange;
+    [Header("Firing Info")]
     public float modifiedFireRate;
     public bool Fired;
     private bool started;
@@ -29,6 +32,7 @@ public class WeaponShoot : MonoBehaviour
 [HideInInspector]
     public bool headshotHit;
     public Collider collided;
+    [Header("Weapon Settings")]
     [SerializeField]
     private LayerMask layermask;
     private Vector3  point;
@@ -41,6 +45,7 @@ public class WeaponShoot : MonoBehaviour
    
      private Transform PlayerParent;
     // VFX SPAWN
+    [Header("WeaponVFX")]
     public ParticleSystem BulletTrailVFX;
     public ParticleSystem BulletDropVFX;
     public GameObject SparkleVFX;
@@ -248,7 +253,7 @@ void Update()
     {return;}
   else
 
-     {   TPV = collided.transform.parent.GetComponentInParent<PhotonView>();
+     {   TPV = collided.transform.root.transform.GetChild(0).GetComponentInParent<PhotonView>();
          
         //bullet HOLE SPAWN 
         GameObject.Instantiate(WeaponType.BulletHoleVFX,hit.point,transform.localRotation);
@@ -290,11 +295,11 @@ void Update()
                }
                else RPCTYPE=RpcTarget.Others;
 
-                PV.RPC("Bodydamage", RPCTYPE);
+                       Bodydamage();
 
                 //  TPV = collided.GetComponent<PhotonView>();
 
-                Debug.Log("Real Player Detected-Body");
+                        Debug.Log("Real Player Detected-Body");
 
                 //Hit Reticle Enable
                 StartCoroutine(Hitreticle());
@@ -416,7 +421,7 @@ void Update()
 
     }//EF
 
-    [PunRPC]
+
     void Bodydamage()
     {//sf
 
@@ -424,9 +429,13 @@ void Update()
 
 
 
-      TakeDamage TDF = TPV.GetComponent<TakeDamage>();
+        //TakeDamage TDF = TPV.gameObject.transform.root.GetChild(0).GetComponent<TakeDamage>();
 
-        TDF.Takedamage(WeaponType.BodyDamage);
+        TPV.RPC("Takedamage", RpcTarget.All, WeaponType.BodyDamage);
+
+
+
+        // TDF.Takedamage(WeaponType.BodyDamage);
         Debug.Log("body reached");
         
 
