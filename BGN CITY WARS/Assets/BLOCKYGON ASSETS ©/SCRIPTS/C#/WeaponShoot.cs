@@ -8,30 +8,45 @@ using Photon.Pun;
 public class WeaponShoot : MonoBehaviour
 {
     /// variables///
-    public WeaponDATA WeaponType;
+    enum Datatype {[Tooltip("Pistols,AssaultRifles,ETC")]SingleRay, [Tooltip("Multiple Shots like ShotGun Style ")] MultiRay, [Tooltip("Slow travelong projectile Style like  Rockets ")] Projectile, [Tooltip("CloseRange Direct Contact like a fist or Sword ")] Melee }
+    [SerializeField] Datatype WeaponType;
+   // public WeaponDATA WeaponType;
     private WeaponStatus weaponstatus;
+    [Header("Weapon Specs")]
+    public float FireRate;
+    public float ReloadTime;
+    public int BodyDamage;
+    public int HeadDamage;
+    public float WeaponRange;
+
+    [Space(10)]
     [Header("Ammo Settings")]
+ 
     public int currentclip;
+    public int MaxClip;
     public int totalammo;
+    public int MaxAmmo;
     public int BulletsFired = 0;
     public bool noammo;
     private float lastshot = 0f;
-  
-    private float WeaponRange;
+    [Space(10)]
     [Header("Firing Info")]
-    public float modifiedFireRate;
-    public bool Fired;
-    private bool started;
     public bool Canfire;
-    public  bool Reloading;
+    private bool started;
+    public bool Fired;
     public bool ButtonFired;
+    public float modifiedFireRate;
+    [Space(10)]
+    [Header("Reload Info")]
+    public  bool Reloading;
     public bool ButtonReload;
+    public Collider collided;
+
 
 [HideInInspector]
     public bool bodyshotHit;
 [HideInInspector]
     public bool headshotHit;
-    public Collider collided;
     [Header("Weapon Settings")]
     [SerializeField]
     private LayerMask layermask;
@@ -40,17 +55,28 @@ public class WeaponShoot : MonoBehaviour
     private Transform Shootpoint;
     private RaycastHit hit;
     private RaycastHit hit2;
- 
-    public AudioSource AS;
-   
+
+    [Header("Weapon Audio")]
+    [SerializeField]
+    private AudioSource AS;
+    [SerializeField]
+    private AudioClip FireSFX;
+    [SerializeField]
+    private AudioClip BodyshotSFX;
+    [SerializeField]
+    private AudioClip HeadshotSFX;
+    [SerializeField]
+    private AudioClip ReloadSFX;
+
      private Transform PlayerParent;
     // VFX SPAWN
     [Header("WeaponVFX")]
     public ParticleSystem BulletTrailVFX;
     public ParticleSystem BulletDropVFX;
     public GameObject SparkleVFX;
+    public GameObject BulletHoleVFX;
 
-  
+
     //pun variables
     private PhotonView PV;
     public PhotonView TPV;
@@ -91,11 +117,11 @@ public class WeaponShoot : MonoBehaviour
     private void Start() 
 {
     
-    currentclip = WeaponType.MaxClip;
-    totalammo=WeaponType.MaxAmmo;
-    WeaponRange = WeaponType.WeaponRange;
+    currentclip = MaxClip;
+    totalammo=MaxAmmo;
+    //WeaponRange = WeaponType.WeaponRange;
     Shootpoint= GameObject.FindGameObjectWithTag("ShootPoint").transform;
-    WeaponRange=WeaponType.WeaponRange;
+    //WeaponRange=WeaponRange;
    
     
     
@@ -109,7 +135,7 @@ void Update()
   PlayerParent.GetComponent<WeaponStatus>().CurrentClip=currentclip;
   PlayerParent.GetComponent<WeaponStatus>().TotalAmmo=totalammo;
   PlayerParent.GetComponent<WeaponStatus>().NoAmmo=noammo;
-   modifiedFireRate = 1.0f / WeaponType.FireRate;
+   modifiedFireRate = 1.0f /FireRate;
 
   
  // CHECK RETICLE HIT(NO SHOOTING)
@@ -119,12 +145,12 @@ void Update()
 
     if (weaponstatus.MaxedAmmo)
     {
-       totalammo = WeaponType.MaxAmmo;
+       totalammo = MaxAmmo;
     }
         if(currentclip < 1 && totalammo == 0)  
         {
             noammo = true;
-            BulletsFired = WeaponType.MaxClip;      
+            BulletsFired =MaxClip;      
         }
         
         else 
@@ -138,7 +164,7 @@ void Update()
       //Reset BulletsFired Custom conditions(calculate the difference manually)
       if (totalammo== 0 )
       {
-        BulletsFired = WeaponType.MaxClip - currentclip;
+        BulletsFired =MaxClip - currentclip;
       }
 
 
@@ -154,9 +180,9 @@ void Update()
             currentclip = 0;
         }
 
-        if (currentclip >= WeaponType.MaxClip)
+        if (currentclip >=MaxClip)
 
-          {currentclip = WeaponType.MaxClip;}
+          {currentclip = MaxClip;}
 
         if (Time.time > lastshot + 0.2f)
         {     
@@ -171,7 +197,7 @@ void Update()
 
         if (ButtonFired == true && PV.IsMine && Time.time > lastshot + modifiedFireRate && currentclip > 0 && !Reloading && Canfire)
         {
-            AS.PlayOneShot(WeaponType.FireSFX, 1f);
+            AS.PlayOneShot(FireSFX, 1f);
 
              StartCoroutine(VFX());
 
@@ -205,7 +231,7 @@ void Update()
           StartCoroutine( Reload());
         }
         //Manual reload
-        if (ButtonReload && !Reloading && !noammo && currentclip < WeaponType.MaxClip && totalammo > 0) 
+        if (ButtonReload && !Reloading && !noammo && currentclip < MaxClip && totalammo > 0) 
         {
             StartCoroutine(Reload());
             
@@ -256,7 +282,7 @@ void Update()
      {   TPV = collided.transform.root.transform.GetChild(0).GetComponentInParent<PhotonView>();
          
         //bullet HOLE SPAWN 
-        GameObject.Instantiate(WeaponType.BulletHoleVFX,hit.point,transform.localRotation);
+        GameObject.Instantiate(BulletHoleVFX,hit.point,transform.localRotation);
        
         //Call Methods
  
@@ -286,7 +312,7 @@ void Update()
             return;
             else // other online player detect
             {
-                AS.PlayOneShot(WeaponType.BodyshotSFX, 1f);
+                AS.PlayOneShot(BodyshotSFX, 1f);
 
                RpcTarget RPCTYPE = new RpcTarget();
                if (TPV.IsMine && TPV.gameObject.tag == ("CAR"))
@@ -315,26 +341,26 @@ void Update()
             {
             TakeDamage takedamage = collided.transform.GetComponentInParent<TakeDamage>();
 
-                AS.PlayOneShot(WeaponType.BodyshotSFX, 1f);
+                AS.PlayOneShot(BodyshotSFX, 1f);
 
                 Debug.Log("AI Target Detected-Body");
 
                 //Hit Reticle Enable
                 StartCoroutine(Hitreticle());
-               takedamage.Takedamage(WeaponType.BodyDamage);
+               takedamage.Takedamage(BodyDamage);
 
             }
 
             else
              {
 
-             AS.PlayOneShot(WeaponType.BodyshotSFX, 1f);
+             AS.PlayOneShot(BodyshotSFX, 1f);
 
                 Debug.Log("Iron Target Detected-Body");
 
               TakeDamage takedamage = collided.transform.parent.GetComponent<TakeDamage>();
                 if (takedamage != null)
-               {takedamage.Takedamage(WeaponType.BodyDamage);}
+               {takedamage.Takedamage(BodyDamage);}
 
                 //Hit Reticle Enable
                 StartCoroutine(Hitreticle());
@@ -363,7 +389,7 @@ void Update()
             return;
             else // other online player detect
             {
-                AS.PlayOneShot(WeaponType.HeadshotSFX, 1f);
+                AS.PlayOneShot(HeadshotSFX, 1f);
 
                 PV.RPC("Headdamage", RpcTarget.Others);
 
@@ -386,13 +412,13 @@ void Update()
             {
             TakeDamage takedamage = collided.transform.parent.GetComponent<TakeDamage>();
 
-                AS.PlayOneShot(WeaponType.HeadshotSFX, 1f);
+                AS.PlayOneShot(HeadshotSFX, 1f);
 
                 Debug.Log("AI Target Detected-Head");
 
                 //Hit Reticle Enable
                 StartCoroutine(HitHeadreticle());
-               takedamage.Takedamage(WeaponType.HeadDamage);
+               takedamage.Takedamage(HeadDamage);
 
             }
 
@@ -400,7 +426,7 @@ void Update()
              {
                
 
-             AS.PlayOneShot(WeaponType.HeadshotSFX, 1f);
+             AS.PlayOneShot(HeadshotSFX, 1f);
 
                 Debug.Log("Iron Target Detected-Head");
 
@@ -431,7 +457,7 @@ void Update()
 
         //TakeDamage TDF = TPV.gameObject.transform.root.GetChild(0).GetComponent<TakeDamage>();
 
-        TPV.RPC("Takedamage", RpcTarget.All, WeaponType.BodyDamage);
+        TPV.RPC("Takedamage", RpcTarget.All, BodyDamage);
 
 
 
@@ -454,7 +480,7 @@ void Update()
 
         TakeDamage TDF = player.GetComponent<TakeDamage>();
 
-        TDF.Takedamage(WeaponType.HeadDamage);
+        TDF.Takedamage(HeadDamage);
         Debug.Log("head reached");
 
 
@@ -472,15 +498,15 @@ void Update()
     IEnumerator Reload()
 {
     Reloading = true;
-    AS.PlayOneShot(WeaponType.ReloadSFX, 1f);
+    AS.PlayOneShot(ReloadSFX, 1f);
     noammo = false;
 
     // Calculate reload time based on the inverse of WeaponType.ReloadSpeed
-    float reloadTime = 1.0f / WeaponType.ReloadTime;
+    float reloadTime = 1.0f / ReloadTime;
 
     yield return new WaitForSeconds(reloadTime);
 
-    if (totalammo < WeaponType.MaxClip)
+    if (totalammo < MaxClip)
     {
         currentclip += totalammo;
         totalammo -= BulletsFired;

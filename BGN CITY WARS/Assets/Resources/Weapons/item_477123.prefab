@@ -10012,16 +10012,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d0acd84067bdb9459e38ca6ebfb9789, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WeaponType: {fileID: 11400000, guid: 589f90c779e908047824cf315de82016, type: 2}
+  WeaponType: 0
+  FireRate: 0
+  ReloadTime: 0
+  BodyDamage: 0
+  HeadDamage: 0
+  WeaponRange: 0
   currentclip: 6
+  MaxClip: 0
   totalammo: 38
+  MaxAmmo: 0
   BulletsFired: 0
   noammo: 0
-  modifiedFireRate: 0
-  Fired: 0
   Canfire: 1
-  Reloading: 0
+  Fired: 0
   ButtonFired: 0
+  modifiedFireRate: 0
+  Reloading: 0
   ButtonReload: 0
   bodyshotHit: 0
   headshotHit: 0
@@ -10030,9 +10037,14 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   AS: {fileID: 2500711686273209249}
+  FireSFX: {fileID: 0}
+  BodyshotSFX: {fileID: 0}
+  HeadshotSFX: {fileID: 0}
+  ReloadSFX: {fileID: 0}
   BulletTrailVFX: {fileID: 0}
   BulletDropVFX: {fileID: 1489946963192701082}
   SparkleVFX: {fileID: 2096066870685968426}
+  BulletHoleVFX: {fileID: 0}
   TPV: {fileID: 0}
 --- !u!114 &-3764346624174189027
 MonoBehaviour:
