@@ -107,12 +107,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1434516027923425456}
-  m_LocalRotation: {x: -0.7299292, y: 0.6240224, z: 0.25715065, w: -0.10804208}
-  m_LocalPosition: {x: -0.00431, y: -0.0025, z: 0.00388}
+  m_LocalRotation: {x: -0.72992915, y: 0.6240224, z: 0.25715065, w: -0.10804203}
+  m_LocalPosition: {x: -0.0043099993, y: -0.0025000093, z: 0.003880006}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6068854247287426288}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -9.393, y: -148.857, z: 258.432}
 --- !u!198 &1608849838862526740
 ParticleSystem:
@@ -4979,7 +4979,7 @@ Transform:
   - {fileID: 1709573314059629219}
   - {fileID: 5151236945316395918}
   m_Father: {fileID: 6068854247287426288}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 86.477, y: -85.041, z: -281.78}
 --- !u!198 &3254366114933212087
 ParticleSystem:
@@ -14800,8 +14800,8 @@ Transform:
   m_LocalScale: {x: 25, y: 25, z: 25}
   m_Children:
   - {fileID: 1815013768153498972}
-  - {fileID: 6388730651611910112}
   - {fileID: 5299933499371950506}
+  - {fileID: 6388730651611910112}
   m_Father: {fileID: 3187530682378839956}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -19911,27 +19911,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d0acd84067bdb9459e38ca6ebfb9789, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WeaponType: {fileID: 11400000, guid: f83a8e753abd2d94c83eedfcb2b2c946, type: 2}
+  FireRate: 0
+  ReloadTime: 0
+  BodyDamage: 0
+  HeadDamage: 0
+  WeaponRange: 0
   currentclip: 1
+  MaxClip: 0
   totalammo: 35
+  MaxAmmo: 0
   BulletsFired: 1
   noammo: 0
-  modifiedFireRate: 0
-  Fired: 0
   Canfire: 1
-  Reloading: 0
+  Fired: 0
   ButtonFired: 0
+  modifiedFireRate: 0
+  Reloading: 0
   ButtonReload: 0
+  collided: {fileID: 0}
   bodyshotHit: 0
   headshotHit: 0
-  collided: {fileID: 0}
   layermask:
     serializedVersion: 2
     m_Bits: 512
   AS: {fileID: 4442986721643282976}
+  FireSFX: {fileID: 0}
+  BodyshotSFX: {fileID: 0}
+  HeadshotSFX: {fileID: 0}
+  ReloadSFX: {fileID: 0}
   BulletTrailVFX: {fileID: 0}
   BulletDropVFX: {fileID: 1608849838862526740}
   SparkleVFX: {fileID: 1884355036361148104}
+  BulletHoleVFX: {fileID: 0}
   TPV: {fileID: 0}
 --- !u!114 &6568243364576137530
 MonoBehaviour:

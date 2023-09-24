@@ -8,8 +8,8 @@ using Photon.Pun;
 public class WeaponShoot : MonoBehaviour
 {
     /// variables///
-    enum Datatype {[Tooltip("Pistols,AssaultRifles,ETC")]SingleRay, [Tooltip("Multiple Shots like ShotGun Style ")] MultiRay, [Tooltip("Slow travelong projectile Style like  Rockets ")] Projectile, [Tooltip("CloseRange Direct Contact like a fist or Sword ")] Melee }
-    [SerializeField] Datatype WeaponType;
+    //enum Datatype {[Tooltip("Pistols,AssaultRifles,ETC")]SingleRay, [Tooltip("Multiple Shots like ShotGun Style ")] MultiRay, [Tooltip("Slow travelong projectile Style like  Rockets ")] Projectile, [Tooltip("CloseRange Direct Contact like a fist or Sword ")] Melee }
+    //[SerializeField] Datatype WeaponType;
    // public WeaponDATA WeaponType;
     private WeaponStatus weaponstatus;
     [Header("Weapon Specs")]
@@ -76,10 +76,11 @@ public class WeaponShoot : MonoBehaviour
     public GameObject SparkleVFX;
     public GameObject BulletHoleVFX;
 
-
+    [Header("Debugs")]
     //pun variables
     private PhotonView PV;
-    public PhotonView TPV;
+    [SerializeField]
+    private PhotonView TPV;
 
 
     private void OnEnable()
@@ -282,7 +283,12 @@ void Update()
      {   TPV = collided.transform.root.transform.GetChild(0).GetComponentInParent<PhotonView>();
          
         //bullet HOLE SPAWN 
-        GameObject.Instantiate(BulletHoleVFX,hit.point,transform.localRotation);
+        if(BulletHoleVFX!=null)
+
+            {
+                GameObject.Instantiate(BulletHoleVFX, hit.point, transform.localRotation);
+            }
+       
        
         //Call Methods
  

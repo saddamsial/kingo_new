@@ -24677,35 +24677,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d0acd84067bdb9459e38ca6ebfb9789, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Weapontype: 1
-  FireRate: 0.5
-  ReloadTime: 0.5
-  BodyDamage: 27
-  HeadDamage: 35
-  MaxClip: 7
+  FireRate: 5.5
+  ReloadTime: 0.7
+  BodyDamage: 23
+  HeadDamage: 33
+  WeaponRange: 70
   currentclip: 7
-  totalammo: 90
-  MaxAmmo: 90
+  MaxClip: 8
+  totalammo: 876
+  MaxAmmo: 70
   BulletsFired: 0
   noammo: 0
   Canfire: 1
   Fired: 0
   ButtonFired: 0
-  WeaponRange: 0
-  modifiedFireRate: 0
+  modifiedFireRate: 0.5
   Reloading: 0
   ButtonReload: 0
+  collided: {fileID: 0}
   bodyshotHit: 0
   headshotHit: 0
-  collided: {fileID: 0}
   layermask:
     serializedVersion: 2
     m_Bits: 512
-  AS: {fileID: 7081173732150286042}
-  FireSFX: {fileID: 0}
-  BodyshotSFX: {fileID: 0}
-  HeadshotSFX: {fileID: 0}
-  ReloadSFX: {fileID: 0}
+  AS: {fileID: 0}
+  FireSFX: {fileID: 8300000, guid: 1ef9c6a0a89ba464d9b2a97c669e3071, type: 3}
+  BodyshotSFX: {fileID: 8300000, guid: 4c9b29de5bae56e4bac146d9df91072d, type: 3}
+  HeadshotSFX: {fileID: 8300000, guid: df4a2d45a93034a49983d0c0ceba9798, type: 3}
+  ReloadSFX: {fileID: 8300000, guid: 5b6e47c67fd83504482ce55de6bcd273, type: 3}
   BulletTrailVFX: {fileID: 0}
   BulletDropVFX: {fileID: 6425512136671046451}
   SparkleVFX: {fileID: 4447557755274342655}
