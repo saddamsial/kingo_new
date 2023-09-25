@@ -71,7 +71,22 @@ public void JoinRoom(string roomName)
 {
 PhotonNetwork.JoinRoom(roomName);
 }
+    public override void OnJoinRandomFailed(short returnCode, string message)
+    {
+        Debug.Log(message);
+    }
 
-  
+    public override void OnCreateRoomFailed(short returnCode, string message)
+    {
+        Debug.Log(message);
+    }
+
+    public override void OnDisconnected(DisconnectCause cause)
+    {
+        Debug.Log(cause);
+    }
+
+
+
 }
 
