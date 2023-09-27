@@ -15,8 +15,11 @@ public class TakeDamage : MonoBehaviour
     public Transform DamageScreenEFX;
     private void Start()
     {
+        int MaxHP = 100;
+        HP = MaxHP;
         pv = this.GetComponent<PhotonView>();
-        
+
+
 
     }
 
@@ -43,12 +46,12 @@ public class TakeDamage : MonoBehaviour
     
         if (Shield <= 0f & pv.IsMine)
         {
-            HP = HP - Damage;
+            HP -= Damage;
         }
 
         else
         {
-            Shield = Shield - Damage;
+            Shield -= Damage;
         }
 
                 
@@ -59,12 +62,12 @@ else
 
         if (Shield <= 0f )
         {
-            HP = HP - Damage;
+            HP -= Damage;
         }
 
         else
         {
-            Shield = Shield - Damage;
+            Shield  -= Damage;
         }
 
 
