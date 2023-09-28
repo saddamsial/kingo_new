@@ -4,144 +4,33 @@ using UnityEngine;
 using Unity.VisualScripting;
 using Photon;
 using Photon.Pun;
+using Photon.Realtime;
+using UnityEngine.UI;
 
-public class RPCCALLS : MonoBehaviour
-{
-
-    public bool IsAiming1;
-    public bool IsAIMING2;
-    public bool shoot1;
-    public bool shoot2;
-
-    public bool IsDead;
-    private PhotonView PV;
+public class RPCCALLS : MonoBehaviourPunCallbacks
+{ 
+    public Transform JoinedRoomMessage;
+    public Transform leftRoomMessage;
 
 
-
-
-    // RPC FOR OTHERS VARIABLES
-    private void Start()
-    {
-        GameObject player = this.gameObject;
-
-        PV = player.transform.parent.GetComponent<PhotonView>();
-
-        
-
-
-    }
-
-    //CHECK SYNCED VARIABLES AND CALL RPC.
-
-    void Update()
-    {
-        //AIMING 
-
-        if (IsAiming1 == true & PV.IsMine)
-
-        {
-
-            PV.RPC("ISAIMING", RpcTarget.Others);
-
-
-        }
-
-
-        if (IsAiming1 != true & PV.IsMine)
-        {
-
-            PV.RPC("ISNOTAIMING", RpcTarget.Others);
-        }
-
-
-        //FIRED
-
-        if (shoot1 == true & PV.IsMine)
-
-        {
-            PV.RPC("SHOOT1", RpcTarget.Others);
-
-        }
-        if (shoot1 != true & PV.IsMine)
-
-        {
-
-            PV.RPC("NOSHOOT", RpcTarget.Others);
-        }
-
-
-     //Die 
-       if (IsDead == true && PV.IsMine)
-       {
-
-     return;
-        
-       }
-       
-
-
-
-
-
-
-
-
-    }
-
-
-    //RPC FUNCTIOMS TO CALL IN OTHER PLAYERS.
-
+   
     [PunRPC]
-    void ISAIMING()
+    public void newPlayerJoined()
     {
-
-        IsAIMING2 = true;
-    }
-
-    [PunRPC]
-    void ISNOTAIMING()
-    {
-        IsAIMING2 = false;
-    }
-
-    [PunRPC]
-    void SHOOT1()
-    {
-        shoot2 = true;
+        JoinedRoomMessage.gameObject.SetActive(true);
 
     }
-
-    [PunRPC]
-    void NOSHOOT()
+    public override void OnPlayerEnteredRoom(Player newPlayer)
     {
-        shoot2 = false;
-
+        JoinedRoomMessage.gameObject.SetActive(true);
+    JoinedRoomMessage.GetComponent<Text>().text = newPlayer.NickName+ (" ")+JoinedRoomMessage.transform.name;
     }
 
-
-
-   [PunRPC]
-   void Die()
-   {
-
-   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    public override void OnPlayerLeftRoom(Player newPlayer)
+    {
+        leftRoomMessage.gameObject.SetActive(true);
+        leftRoomMessage.GetComponent<Text>().text = newPlayer.NickName + (" ") + leftRoomMessage.transform.name;
+    }
 
 
 
@@ -156,3 +45,7 @@ public class RPCCALLS : MonoBehaviour
 
 
 }
+
+
+
+
