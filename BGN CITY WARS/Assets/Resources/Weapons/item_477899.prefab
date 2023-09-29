@@ -19905,6 +19905,7 @@ MonoBehaviour:
   ReloadTime: 0.4
   BodyDamage: 100
   HeadDamage: 180
+  TotalDamageDealt: 0
   WeaponRange: 100
   currentclip: 8
   MaxClip: 8
@@ -19933,7 +19934,9 @@ MonoBehaviour:
   BulletDropVFX: {fileID: 6228200729031061357, guid: be133ffd3629c834ab5c6eb73425cd1a, type: 3}
   SparkleVFX: {fileID: 8288867099309119795, guid: be133ffd3629c834ab5c6eb73425cd1a, type: 3}
   BulletHoleVFX: {fileID: 0}
+  KillFeed: {fileID: 0}
   TPV: {fileID: 0}
+  KilledEnemy: 0
 --- !u!114 &6577813484040781325
 MonoBehaviour:
   m_ObjectHideFlags: 0

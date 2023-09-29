@@ -17,7 +17,10 @@ public class WeaponShoot : MonoBehaviour
     public float ReloadTime;
     public int BodyDamage;
     public int HeadDamage;
+    public int TotalDamageDealt;
     public float WeaponRange;
+    private int TargetHP;
+    private int TargetShield;
 
     [Space(10)]
     [Header("Ammo Settings")]
@@ -76,11 +79,14 @@ public class WeaponShoot : MonoBehaviour
     public GameObject SparkleVFX;
     public GameObject BulletHoleVFX;
 
-    [Header("Debugs")]
     //pun variables
+    [Header("Debugs")]
     private PhotonView PV;
+    public GameObject KillFeed;
     [SerializeField]
     private PhotonView TPV;
+    public bool KilledEnemy;
+
 
 
     private void OnEnable()
@@ -122,11 +128,12 @@ public class WeaponShoot : MonoBehaviour
     totalammo=MaxAmmo;
     //WeaponRange = WeaponType.WeaponRange;
     Shootpoint= GameObject.FindGameObjectWithTag("ShootPoint").transform;
-    //WeaponRange=WeaponRange;
-   
-    
-    
-}
+        //WeaponRange=WeaponRange;
+
+        KillFeed = GameObject.Find("KILL FEEDS").transform.GetChild(0).gameObject;
+
+
+    }
 void Update()
  {//update S
  //var sync with plaayer
@@ -138,6 +145,11 @@ void Update()
   PlayerParent.GetComponent<WeaponStatus>().NoAmmo=noammo;
    modifiedFireRate = 1.0f /FireRate;
 
+    if(TargetShield<1 && TotalDamageDealt >= 100)//ResetTotalDamage
+        {
+         
+            TotalDamageDealt = 0;
+        }
   
  // CHECK RETICLE HIT(NO SHOOTING)
 
@@ -464,11 +476,21 @@ void Update()
         //TakeDamage TDF = TPV.gameObject.transform.root.GetChild(0).GetComponent<TakeDamage>();
 
         TPV.RPC("Takedamage", RpcTarget.All, BodyDamage);
+        TargetHP = TPV.GetComponent<TakeDamage>().HP;
+        TargetShield = TPV.GetComponent<TakeDamage>().Shield;
+        if (TargetShield <= 0)
+        {
+         TotalDamageDealt += BodyDamage;
+        }
+        if (TargetShield <= 1 && TargetHP <= 1)
+        {
+            KillFeed.gameObject.SetActive(true);
+        }
 
 
 
-        // TDF.Takedamage(WeaponType.BodyDamage);
-        Debug.Log("body reached");
+            // TDF.Takedamage(WeaponType.BodyDamage);
+            Debug.Log("body reached");
         
 
 

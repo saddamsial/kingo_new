@@ -10,114 +10,83 @@ public class TakeDamage : MonoBehaviour
     public int Shield = 100;
     private PhotonView pv;
     public int LastDamageTook;
-   public bool hurt;
+    public bool hurt;
     [Header("CanvasEFX")]
     public Transform DamageScreenEFX;
+
     private void Start()
     {
         int MaxHP = 100;
         HP = MaxHP;
         pv = this.GetComponent<PhotonView>();
-
-
-
     }
 
+    private void Update()
+    {
+        HPcap();
+        SHIELDcap();
+    }
 
- private void Update() 
- {
-    HPcap();
-    SHIELDcap();
-    
- }
-
-        [PunRPC]
+    [PunRPC]
     public void Takedamage(int Damage)
-
-    {//sf
-    LastDamageTook= Damage;
-    
-     hurt = true;
+    {
+        LastDamageTook = Damage;
+        hurt = true;
         DamageScreenEFX.gameObject.SetActive(true);
 
-    if (pv!= null)
+        if (pv != null)
+        {
+            if (Shield <= 0f & pv.IsMine)
+            {
+                HP -= Damage;
+            }
+            else
+            {
+                if (Shield < Damage)
+                {
+                    int remainingDamage = Damage - Shield;
+                    Shield = 0;
+                    HP -= remainingDamage;
+                }
+                else
+                {
+                    Shield -= Damage;
+                }
+            }
+        }
+        else
+        {
+            if (Shield <= 0f)
+            {
+                HP -= Damage;
+            }
+            else
+            {
+                if (Shield < Damage)
+                {
+                    int remainingDamage = Damage - Shield;
+                    Shield = 0;
+                    HP -= remainingDamage;
+                }
+                else
+                {
+                    Shield -= Damage;
+                }
+            }
+        }
+    }
+
+    //when hp goes below 0 it sets back to 0
+    private void HPcap()
     {
-   
-    
-        if (Shield <= 0f & pv.IsMine)
-        {
-            HP -= Damage;
-        }
+        if (HP <= 0)
+            HP = 0;
+    }
 
-        else
-        {
-            Shield -= Damage;
-        }
-
-                
-}
-
-else 
-{
-
-        if (Shield <= 0f )
-        {
-            HP -= Damage;
-        }
-
-        else
-        {
-            Shield  -= Damage;
-        }
-
-
-
-}
-        
-                
-        
-
-        
-                
-
-
-
-
-
-    }//ef
-
-
-//when hp goes bellow 0 it sets back to 0
- private void HPcap()
- {
-    if (HP<= 0)
-    HP =0;
- }
-//same but for shield
- private void SHIELDcap()
- {
-    if (Shield<= 0)
-    Shield =0;
- }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    //same but for shield
+    private void SHIELDcap()
+    {
+        if (Shield <= 0)
+            Shield = 0;
+    }
 }
