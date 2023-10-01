@@ -1,6 +1,8 @@
 ﻿
 using Invector;
 using UnityEngine;
+using System.Collections;
+
 
 public class camera2 : MonoBehaviour
 {
@@ -70,6 +72,9 @@ public class camera2 : MonoBehaviour
     private Vector2 touchStartPos;
     private Vector2 touchCurrentPos;
     public bool Blocked;
+    private bool isShaking = false;
+    public float shakeAmount = 0.0f;
+    private Vector3 originalPosition;
 
     void Start()
     {
@@ -112,7 +117,14 @@ public class camera2 : MonoBehaviour
         }
 
         CameraMovement();
+        // Apply camera shake
+        if (isShaking)
+        {
+            Vector3 randomShake = Random.insideUnitSphere * shakeAmount;
+            transform.position = originalPosition + randomShake;
+        }
     }
+
 
     /// <summary>
     /// Set the target for the camera
@@ -218,6 +230,14 @@ public class camera2 : MonoBehaviour
         }
         //Check if target position with culling height applied is not blocked
         if (CullingRayCast(current_cPos, planePoints, out hitInfo, distance, cullingLayer, Color.cyan)) distance = Mathf.Clamp(cullingDistance, 0.0f, defaultDistance);
+
+        // Apply camera shake
+        if (isShaking)
+        {
+            Vector3 randomShake = Random.insideUnitSphere * shakeAmount;
+            current_cPos += randomShake;
+        }
+
         var lookPoint = current_cPos + targetLookAt.forward * 2f;
         lookPoint += (targetLookAt.right * Vector3.Dot(camDir * (distance), targetLookAt.right));
         targetLookAt.position = current_cPos;
@@ -230,6 +250,7 @@ public class camera2 : MonoBehaviour
         transform.rotation = rotation;
         movementSpeed = Vector2.zero;
     }
+
 
     /// <summary>
     /// Custom Raycast using NearClipPlanesPoints
@@ -301,5 +322,32 @@ public class camera2 : MonoBehaviour
         }
     }
 }
-    // ... (existing methods)
+
+
+    // New method to start camera shake
+    public void StartCameraShake(float amount, float duration)
+    {
+        isShaking = true;
+        shakeAmount = amount;
+        originalPosition = transform.position;
+
+        // Stop shaking after the specified duration
+        StartCoroutine(StopCameraShake(duration));
+    }
+
+    // Coroutine to stop camera shake after a specified duration
+    private IEnumerator StopCameraShake(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        isShaking = false;
+        transform.position = originalPosition;
+    }
+
+
+
+
+
+
+
+
 }
