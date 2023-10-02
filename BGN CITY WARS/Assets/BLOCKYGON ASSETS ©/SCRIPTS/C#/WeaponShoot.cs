@@ -76,7 +76,6 @@ public class WeaponShoot : MonoBehaviour
     [Header("WeaponVFX")]
     public ParticleSystem BulletTrailVFX;
     public ParticleSystem BulletDropVFX;
-    public GameObject SparkleVFX;
     public GameObject BulletHoleVFX;
 
     //pun variables
@@ -100,8 +99,6 @@ public class WeaponShoot : MonoBehaviour
 
         AS = GetComponent<AudioSource>();
         
-         //disable any active vfx uppon weapon switch
-         SparkleVFX.SetActive(false);
           // start reload after weapon pull//
         if ( currentclip < 1 && weaponstatus.NoAmmo != true)
         {
@@ -557,11 +554,7 @@ void Update()
         yield return new WaitForSeconds(0.15f);
 
         BulletTrailVFX.Play();
-        SparkleVFX.SetActive(true);
         BulletDropVFX.Play();
-        yield return new WaitForSeconds(0.15f);
-        SparkleVFX.SetActive(false);
-
     }
     // Hit Reticles Toggle
     IEnumerator Hitreticle()
