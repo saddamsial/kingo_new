@@ -34,7 +34,7 @@ public class TakeDamage : MonoBehaviour
         hurt = true;
         DamageScreenEFX.gameObject.SetActive(true);
 
-        if (pv != null)
+        if (HP > 0 && pv != null)
         {
             if (Shield <= 0f & pv.IsMine)
             {

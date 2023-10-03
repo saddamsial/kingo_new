@@ -330,7 +330,11 @@ void Update()
             return;
             else // other online player detect
             {
-                AS.PlayOneShot(BodyshotSFX, 1f);
+
+                        TargetHP = TPV.GetComponent<TakeDamage>().HP;
+                        TargetShield = TPV.GetComponent<TakeDamage>().Shield;
+
+                        AS.PlayOneShot(BodyshotSFX, 1f);
 
                RpcTarget RPCTYPE = new RpcTarget();
                if (TPV.IsMine && TPV.gameObject.tag == ("CAR"))
@@ -467,33 +471,40 @@ void Update()
 
 
     void Bodydamage()
-    {//sf
+    {
+        // ...
 
-        //GameObject player =  GameObject.FindGameObjectWithTag("Player");
-
-
-
-        //TakeDamage TDF = TPV.gameObject.transform.root.GetChild(0).GetComponent<TakeDamage>();
+        // Check if the target is already dead
+        if (TargetShield <= 0 && TargetHP < 1)
+        {
+            // Target is already dead, do not apply damage again
+            return;
+        }
 
         TPV.RPC("Takedamage", RpcTarget.All, BodyDamage);
         TargetHP = TPV.GetComponent<TakeDamage>().HP;
         TargetShield = TPV.GetComponent<TakeDamage>().Shield;
+
         if (TargetShield <= 0)
         {
-         TotalDamageDealt += BodyDamage;
+            TotalDamageDealt += BodyDamage;
         }
-        if (TargetShield <= 1 && TargetHP <= 1)
+
+        // Check again after updating TargetHP
+        if (TargetShield <= 0 && TargetHP < 1)
         {
             KillFeed.gameObject.SetActive(true);
-            Parentvariables.TotalRoomkillsTrack ++;
+            Parentvariables.TotalRoomkillsTrack++;
         }
+    
 
 
 
-            // TDF.Takedamage(WeaponType.BodyDamage);
-            Debug.Log("body reached");
-        
+    // TDF.Takedamage(WeaponType.BodyDamage);
+    Debug.Log("body reached");
 
+        TargetHP = TPV.GetComponent<TakeDamage>().HP;
+        TargetShield = TPV.GetComponent<TakeDamage>().Shield;
 
 
 
