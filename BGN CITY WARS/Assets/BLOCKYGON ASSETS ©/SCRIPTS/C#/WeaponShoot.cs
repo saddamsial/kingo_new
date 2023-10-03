@@ -12,6 +12,7 @@ public class WeaponShoot : MonoBehaviour
     //[SerializeField] Datatype WeaponType;
    // public WeaponDATA WeaponType;
     private WeaponStatus weaponstatus;
+    private PlayerActionsVar Parentvariables;
     [Header("Weapon Specs")]
     public float FireRate;
     public float ReloadTime;
@@ -84,8 +85,6 @@ public class WeaponShoot : MonoBehaviour
     public GameObject KillFeed;
     [SerializeField]
     private PhotonView TPV;
-    public bool KilledEnemy;
-
 
 
     private void OnEnable()
@@ -128,9 +127,11 @@ public class WeaponShoot : MonoBehaviour
         //WeaponRange=WeaponRange;
 
         KillFeed = GameObject.Find("KILL FEEDS").transform.GetChild(0).gameObject;
+        Parentvariables = PlayerParent.GetComponent<PlayerActionsVar>();
 
 
     }
+
 void Update()
  {//update S
  //var sync with plaayer
@@ -146,6 +147,8 @@ void Update()
         {
          
             TotalDamageDealt = 0;
+
+         
         }
   
  // CHECK RETICLE HIT(NO SHOOTING)
@@ -482,6 +485,7 @@ void Update()
         if (TargetShield <= 1 && TargetHP <= 1)
         {
             KillFeed.gameObject.SetActive(true);
+            Parentvariables.TotalRoomkillsTrack ++;
         }
 
 

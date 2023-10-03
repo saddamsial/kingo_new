@@ -26,13 +26,14 @@ public class PlayerScores : MonoBehaviourPunCallbacks, IPunObservable
             stream.SendNext(TotalRoomKills);   //room kills Track
             Debug.Log("after stream.SendNext(PlayerName +  stream.SendNext(TotalRoomKills");
         }
-       else // is Reading(otherplayers)
-        {
+        else if  (stream.IsReading) // is Reading(otherplayers)
+        { 
             Debug.Log("before TotalRoomKills = (int)stream.ReceiveNext" + "PlayerName = (string)stream.ReceiveNext");
-            TotalRoomKills = (int)stream.ReceiveNext(); // total room kills
             PlayerName = (string)stream.ReceiveNext();
+            TotalRoomKills = (int)stream.ReceiveNext(); // total room kills
             Debug.Log("TotalRoomKills = (int)stream.ReceiveNext" + "PlayerName = (string)stream.ReceiveNext");
         }
+
     }
 
 }
