@@ -10,7 +10,7 @@ public class PhotonSerializerBGN : MonoBehaviourPunCallbacks,IPunObservable
     public int HP;
     public int Shield;
     public int Stamina;
-
+   
 
     [Header("Skin")]
     public string SkinID;
@@ -23,7 +23,11 @@ public class PhotonSerializerBGN : MonoBehaviourPunCallbacks,IPunObservable
     public int LookIK;
     public int AimIK;
 
-
+    [Header("Scores")]
+    public int TotalRoomKills;
+    public int TotalGameKills;
+    public int TotalRoomDeaths;
+    public int TotalGameDeaths;
 
     private void Start()
     {
@@ -50,6 +54,9 @@ public class PhotonSerializerBGN : MonoBehaviourPunCallbacks,IPunObservable
 
             stream.SendNext(AimIK);    //AimIK
 
+            stream.SendNext(TotalRoomKills);   //room kills Track
+
+
         }
         else
         {
@@ -67,6 +74,7 @@ public class PhotonSerializerBGN : MonoBehaviourPunCallbacks,IPunObservable
 
             AimIK = (int)stream.ReceiveNext(); // other player aIMik
 
+            TotalRoomKills = (int)stream.ReceiveNext(); // total room kills
 
         }
     }
