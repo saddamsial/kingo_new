@@ -1,9 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 using Photon.Pun;
-public class PlayerScores : MonoBehaviourPunCallbacks,IPunObservable
+public class PlayerScores : MonoBehaviourPunCallbacks, IPunObservable
 {
+    [SerializeField]
     private new PhotonView photonView;
 
     private void Start()
@@ -19,15 +19,19 @@ public class PlayerScores : MonoBehaviourPunCallbacks,IPunObservable
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
-        if (stream.IsWriting && photonView != null) // is Writing(CurrentPlayer)
+        if (stream.IsWriting) // is Writing(CurrentPlayer)
         {
+            Debug.Log("before stream.SendNext(PlayerName +  stream.SendNext(TotalRoomKills");
             stream.SendNext(PlayerName);
             stream.SendNext(TotalRoomKills);   //room kills Track
+            Debug.Log("after stream.SendNext(PlayerName +  stream.SendNext(TotalRoomKills");
         }
        else // is Reading(otherplayers)
         {
+            Debug.Log("before TotalRoomKills = (int)stream.ReceiveNext" + "PlayerName = (string)stream.ReceiveNext");
             TotalRoomKills = (int)stream.ReceiveNext(); // total room kills
             PlayerName = (string)stream.ReceiveNext();
+            Debug.Log("TotalRoomKills = (int)stream.ReceiveNext" + "PlayerName = (string)stream.ReceiveNext");
         }
     }
 
