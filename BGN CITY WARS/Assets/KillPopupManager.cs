@@ -9,6 +9,7 @@ public class KillPopupManager : MonoBehaviour
 {
     // Start is called before the first frame update
     public float DestroyTime;
+    [SerializeField]
     private PhotonView PV;
     public string PlayerKiller;
     public string PlayerKilled;
@@ -17,7 +18,7 @@ public class KillPopupManager : MonoBehaviour
     private TextMeshProUGUI  TXT;
     void Start()
     {
-        PV = this.GetComponent<PhotonView>();
+     //   PV = gameObject.GetComponent<PhotonView>();
         Invoke("Destroy", DestroyTime);
         transform.parent =  GameObject.Find("KILLS NOTIFICATION").transform;
     }
@@ -25,7 +26,9 @@ public class KillPopupManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        TXT.text = PlayerKiller+" " + "Killed"+" " + PlayerKilled;
+        if (PV.IsMine)
+        { TXT.text = PlayerKiller + " " + "Killed" + " " + PlayerKilled; }
+   
     }
 
     void Destroy()
