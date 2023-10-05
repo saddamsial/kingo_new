@@ -12,14 +12,14 @@ public class KillPopupManager : MonoBehaviour
     private PhotonView PV;
     public string PlayerKiller;
     public string PlayerKilled;
+
     [SerializeField]
     private TextMeshProUGUI  TXT;
     void Start()
     {
         PV = this.GetComponent<PhotonView>();
         Invoke("Destroy", DestroyTime);
-       // TXT = this.GetComponent<TextMeshPro>();
-
+        transform.parent =  GameObject.Find("KILLS NOTIFICATION").transform;
     }
 
     // Update is called once per frame
