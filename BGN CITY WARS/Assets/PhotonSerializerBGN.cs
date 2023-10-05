@@ -7,6 +7,7 @@ public class PhotonSerializerBGN : MonoBehaviourPunCallbacks,IPunObservable
     [SerializeField]
     private new PhotonView photonView;
     [Header("Player Status")]
+    public string PlayerNickName;
     public int HP;
     public int Shield;
     public int Stamina;
@@ -27,7 +28,12 @@ public class PhotonSerializerBGN : MonoBehaviourPunCallbacks,IPunObservable
     private void Start()
     {
         photonView = GetComponent<PhotonView>();
+        PlayerNickName = PhotonNetwork.NickName;
     }
+
+    
+
+
 
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
@@ -35,6 +41,8 @@ public class PhotonSerializerBGN : MonoBehaviourPunCallbacks,IPunObservable
         Debug.Log("streamIsCalled");
         if (stream.IsWriting && photonView != null)
         {
+            stream.SendNext(PlayerNickName); //PlayerNickName
+
             stream.SendNext(HP); //HPSync
 
             stream.SendNext(Shield); //ShieldSync
@@ -55,6 +63,9 @@ public class PhotonSerializerBGN : MonoBehaviourPunCallbacks,IPunObservable
         }
         else
         {
+
+            PlayerNickName = (string)stream.ReceiveNext(); // other player PlayerNickName
+
             HP = (int)stream.ReceiveNext(); // other player HP
 
             Shield = (int)stream.ReceiveNext(); // other player Shield

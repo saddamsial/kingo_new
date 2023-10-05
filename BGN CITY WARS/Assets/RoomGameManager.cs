@@ -36,7 +36,7 @@ public class RoomGameManager : MonoBehaviour
         if (currentTime <= 0)
         {
             // Timer has reached zero, you can perform actions here
-            timerText.text = "Time's Up!";
+        
             // Optionally, you can stop the countdown or trigger other events.
         }
     }

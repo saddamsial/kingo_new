@@ -85,6 +85,7 @@ public class WeaponShoot : MonoBehaviour
     public GameObject KillFeed;
     [SerializeField]
     private PhotonView TPV;
+    private Transform KILLSNOTIFICATION;
 
 
     private void OnEnable()
@@ -128,7 +129,7 @@ public class WeaponShoot : MonoBehaviour
 
         KillFeed = GameObject.Find("KILL FEEDS").transform.GetChild(0).gameObject;
         Parentvariables = PlayerParent.GetComponent<PlayerActionsVar>();
-
+        KILLSNOTIFICATION = GameObject.Find("KILLS NOTIFICATION").transform;
 
     }
 
@@ -495,6 +496,11 @@ void Update()
         {
             KillFeed.gameObject.SetActive(true);
             Parentvariables.TotalRoomkillsTrack++;
+
+           GameObject Killpopupitem =  PhotonNetwork.Instantiate("KILLS POPUP ITEM", transform.position, Quaternion.identity); // spawn kill UI notification
+            Killpopupitem.transform.parent= KILLSNOTIFICATION;
+            Killpopupitem.GetComponent<KillPopupManager>().PlayerKilled = TPV.GetComponent<PhotonSerializerBGN>().PlayerNickName;
+            Killpopupitem.GetComponent<KillPopupManager>().PlayerKiller = PhotonNetwork.NickName ;
         }
     
 
