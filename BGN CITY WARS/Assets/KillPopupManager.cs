@@ -26,7 +26,7 @@ public class KillPopupManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (PV.IsMine)
+
         { TXT.text = PlayerKiller + " " + "Killed" + " " + PlayerKilled; }
    
     }

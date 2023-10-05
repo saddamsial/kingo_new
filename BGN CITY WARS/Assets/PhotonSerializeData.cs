@@ -7,7 +7,10 @@ public class PhotonSerializeData : MonoBehaviourPunCallbacks,IPunObservable
 {
     private KillPopupManager popup;
 
-
+    private void Start()
+    {
+        popup = this.GetComponent<KillPopupManager>();
+    }
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
