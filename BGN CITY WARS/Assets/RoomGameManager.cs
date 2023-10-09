@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Photon.Pun;
 
 
 
@@ -14,6 +15,8 @@ public class RoomGameManager : MonoBehaviour
     public Text timerText;
     public float RoundTime = 60.0f; // Set your countdown time in seconds here
     private float currentTime;
+    public GameObject WinnerAnnounceUI;
+    public List<GameObject> Players;
 
     void Start()
     {
@@ -36,8 +39,32 @@ public class RoomGameManager : MonoBehaviour
         if (currentTime <= 0)
         {
             // Timer has reached zero, you can perform actions here
-        
+
+            Players = new List<GameObject>(GameObject.FindGameObjectsWithTag("Player"));
+            int highestKills = 0; // Initialize the variable to store the highest kills.
+            GameObject playerWithHighestKills = null; // Initialize the variable to store the player with the highest kills.
+
+            foreach (GameObject player in Players)
+            {
+                // Assuming PlayerActionsVar has a variable called "TotalRoomkillsTrack"
+                int playerKills = player.GetComponent<PlayerActionsVar>().TotalRoomkillsTrack;
+
+                // Check if the current player has more kills than the current highest.
+                if (playerKills > highestKills)
+                {
+                    highestKills = playerKills;
+                    playerWithHighestKills = player;
+                }
+            }
+
+            // Set the player with the highest kills to the CurrentWinnner variable.
+            CurrentWinnner = playerWithHighestKills;
+
+
+
+            WinnerAnnounceUI.SetActive(true);
             // Optionally, you can stop the countdown or trigger other events.
+            currentTime = RoundTime;
         }
     }
 }
