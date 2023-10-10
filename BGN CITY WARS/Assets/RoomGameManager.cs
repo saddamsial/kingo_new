@@ -30,10 +30,11 @@ public class RoomGameManager : MonoBehaviour,IPunObservable
         { 
         // Update the timer
         currentTime -= Time.deltaTime;
-
+        }
         // Display the time as minutes and seconds
         float minutes = Mathf.Floor(currentTime / 60);
         float seconds = Mathf.RoundToInt(currentTime % 60);
+       
 
         // Update the UI text
         timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
@@ -58,7 +59,7 @@ public class RoomGameManager : MonoBehaviour,IPunObservable
                     highestKills = playerKills;
                     playerWithHighestKills = player;
                 }
-            }
+           
 
             // Set the player with the highest kills to the CurrentWinnner variable.
             CurrentWinnner = playerWithHighestKills;
