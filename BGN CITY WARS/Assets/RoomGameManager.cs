@@ -6,7 +6,7 @@ using Photon.Pun;
 
 
 
-public class RoomGameManager : MonoBehaviour
+public class RoomGameManager : MonoBehaviour,IPunObservable
 {
  [Header("GameWinner")]
     public GameObject CurrentWinnner;
@@ -26,6 +26,8 @@ public class RoomGameManager : MonoBehaviour
 
     void Update()
     {
+        if (PhotonNetwork.IsMasterClient)
+        { 
         // Update the timer
         currentTime -= Time.deltaTime;
 
@@ -65,7 +67,22 @@ public class RoomGameManager : MonoBehaviour
 
             WinnerAnnounceUI.SetActive(true);
             // Optionally, you can stop the countdown or trigger other events.
+
             currentTime = RoundTime;
+        }
+
+        }
+    }
+
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+      if(PhotonNetwork.IsMasterClient)
+        {
+            stream.SendNext(currentTime);
+        }
+      else
+        {
+            currentTime = (float)stream.ReceiveNext();
         }
     }
 }
