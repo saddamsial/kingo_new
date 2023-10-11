@@ -19680,6 +19680,7 @@ GameObject:
   - component: {fileID: 4581498264574481423}
   - component: {fileID: 1359082230313257038}
   - component: {fileID: 6568243364576137530}
+  - component: {fileID: -5769496486971561674}
   m_Layer: 0
   m_Name: item_477897
   m_TagString: weapon/active
@@ -19765,6 +19766,7 @@ MonoBehaviour:
   observableSearch: 2
   ObservedComponents:
   - {fileID: 109446563626819665}
+  - {fileID: -5769496486971561674}
   sceneViewId: 0
   InstantiationId: 1001
   isRuntimeInstantiated: 1
@@ -19915,6 +19917,7 @@ MonoBehaviour:
   ReloadTime: 0
   BodyDamage: 0
   HeadDamage: 0
+  TotalDamageDealt: 0
   WeaponRange: 0
   currentclip: 1
   MaxClip: 0
@@ -19941,8 +19944,8 @@ MonoBehaviour:
   ReloadSFX: {fileID: 0}
   BulletTrailVFX: {fileID: 0}
   BulletDropVFX: {fileID: 1608849838862526740}
-  SparkleVFX: {fileID: 1884355036361148104}
   BulletHoleVFX: {fileID: 0}
+  KillFeed: {fileID: 0}
   TPV: {fileID: 0}
 --- !u!114 &6568243364576137530
 MonoBehaviour:
@@ -19960,6 +19963,20 @@ MonoBehaviour:
     _json: '{"nest":{"source":"Macro","macro":0,"embed":null}}'
     _objectReferences:
     - {fileID: 11400000, guid: 8c7ffe27e36de8242aad840c633c65eb, type: 2}
+--- !u!114 &-5769496486971561674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4701234898195575142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d35e9c90482ce743bb30119bf367c84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Activate: 0
+  tranformref: {fileID: 6388730651611910112}
 --- !u!1 &5952789676337003322
 GameObject:
   m_ObjectHideFlags: 0

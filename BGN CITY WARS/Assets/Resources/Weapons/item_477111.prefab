@@ -24446,6 +24446,7 @@ GameObject:
   - component: {fileID: 675291337423936040}
   - component: {fileID: 2370699103502311669}
   - component: {fileID: -8410982796083830450}
+  - component: {fileID: -2018717290317218204}
   m_Layer: 0
   m_Name: item_477111
   m_TagString: weapon/active
@@ -24531,6 +24532,7 @@ MonoBehaviour:
   observableSearch: 2
   ObservedComponents:
   - {fileID: 4022048367339886098}
+  - {fileID: -2018717290317218204}
   sceneViewId: 0
   InstantiationId: 1001
   isRuntimeInstantiated: 1
@@ -24677,7 +24679,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d0acd84067bdb9459e38ca6ebfb9789, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FireRate: 5.5
+  FireRate: 3
   ReloadTime: 0.7
   BodyDamage: 23
   HeadDamage: 33
@@ -24727,6 +24729,20 @@ MonoBehaviour:
     _json: '{"nest":{"source":"Macro","macro":0,"embed":null}}'
     _objectReferences:
     - {fileID: 11400000, guid: 8c7ffe27e36de8242aad840c633c65eb, type: 2}
+--- !u!114 &-2018717290317218204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8598739232910823818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d35e9c90482ce743bb30119bf367c84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Activate: 0
+  tranformref: {fileID: 4273642920486741421}
 --- !u!1 &8961035947880282077
 GameObject:
   m_ObjectHideFlags: 0

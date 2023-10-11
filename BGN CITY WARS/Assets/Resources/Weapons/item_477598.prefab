@@ -19595,6 +19595,7 @@ GameObject:
   - component: {fileID: 4446476711951926975}
   - component: {fileID: 8051718158435958463}
   - component: {fileID: 8053326579319569172}
+  - component: {fileID: 8610927532202213951}
   m_Layer: 0
   m_Name: item_477598
   m_TagString: weapon/active
@@ -19683,6 +19684,7 @@ MonoBehaviour:
   observableSearch: 2
   ObservedComponents:
   - {fileID: 233316428214299305}
+  - {fileID: 8610927532202213951}
   sceneViewId: 0
   InstantiationId: 1005
   isRuntimeInstantiated: 1
@@ -19879,6 +19881,20 @@ MonoBehaviour:
     _json: '{"nest":{"source":"Macro","macro":0,"embed":null}}'
     _objectReferences:
     - {fileID: 11400000, guid: 8c7ffe27e36de8242aad840c633c65eb, type: 2}
+--- !u!114 &8610927532202213951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8285721279282515020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d35e9c90482ce743bb30119bf367c84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Activate: 0
+  tranformref: {fileID: 7120231364766305554}
 --- !u!1 &8443620228865923863
 GameObject:
   m_ObjectHideFlags: 0

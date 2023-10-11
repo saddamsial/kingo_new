@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 8151313191481995966}
   - component: {fileID: 3208603517598365294}
   - component: {fileID: -4352314423369389619}
+  - component: {fileID: -1319886807906150508}
   m_Layer: 0
   m_Name: item_477159
   m_TagString: weapon/active
@@ -102,6 +103,7 @@ MonoBehaviour:
   observableSearch: 2
   ObservedComponents:
   - {fileID: 5050441116452515885}
+  - {fileID: -1319886807906150508}
   sceneViewId: 0
   InstantiationId: 1004
   isRuntimeInstantiated: 1
@@ -298,6 +300,20 @@ MonoBehaviour:
     _json: '{"nest":{"source":"Macro","macro":0,"embed":null}}'
     _objectReferences:
     - {fileID: 11400000, guid: 8c7ffe27e36de8242aad840c633c65eb, type: 2}
+--- !u!114 &-1319886807906150508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 582522676592535795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d35e9c90482ce743bb30119bf367c84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Activate: 0
+  tranformref: {fileID: 7263857436706127405}
 --- !u!1 &1350014628167401105
 GameObject:
   m_ObjectHideFlags: 0
@@ -19973,7 +19989,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8288867099309119795}
   m_LocalRotation: {x: -0.5884627, y: -0.42310807, z: 0.1724531, w: -0.66704667}
-  m_LocalPosition: {x: -0.00519, y: 0.00625, z: 0.00418}
+  m_LocalPosition: {x: -0.0042, y: 0.00645, z: 0.00275}
   m_LocalScale: {x: 0.011996136, y: 0.011996136, z: 0.011996136}
   m_Children:
   - {fileID: 4607321097915278612}
