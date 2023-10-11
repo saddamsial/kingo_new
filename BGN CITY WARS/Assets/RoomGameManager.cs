@@ -26,11 +26,11 @@ public class RoomGameManager : MonoBehaviour,IPunObservable
 
     void Update()
     {
-        if (PhotonNetwork.IsMasterClient)
-        { 
+       // if (PhotonNetwork.IsMasterClient)
+     //   { 
         // Update the timer
         currentTime -= Time.deltaTime;
-        }
+      //  }
         // Display the time as minutes and seconds
         float minutes = Mathf.Floor(currentTime / 60);
         float seconds = Mathf.RoundToInt(currentTime % 60);
