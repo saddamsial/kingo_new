@@ -26,15 +26,15 @@ public class RoomGameManager : MonoBehaviour,IPunObservable
 
     void Update()
     {
-       // if (PhotonNetwork.IsMasterClient)
-     //   { 
+        // if (PhotonNetwork.IsMasterClient)
+        //   { 
         // Update the timer
         currentTime -= Time.deltaTime;
-      //  }
+        //  }
         // Display the time as minutes and seconds
         float minutes = Mathf.Floor(currentTime / 60);
         float seconds = Mathf.RoundToInt(currentTime % 60);
-       
+
 
         // Update the UI text
         timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
@@ -44,38 +44,45 @@ public class RoomGameManager : MonoBehaviour,IPunObservable
         {
             // Timer has reached zero, you can perform actions here
 
-            Players = new List<GameObject>(GameObject.FindGameObjectsWithTag("PlayerScoreItem"));
-            int highestKills = 0; // Initialize the variable to store the highest kills.
-            GameObject playerWithHighestKills = null; // Initialize the variable to store the player with the highest kills.
-
-            foreach (GameObject player in Players)
+            if (currentTime <= 0)
             {
-                // Assuming PlayerActionsVar has a variable called "TotalRoomkillsTrack"
-                int playerKills = player.GetComponent<PlayerScores>().TotalRoomKills;
+                Players = new List<GameObject>(GameObject.FindGameObjectsWithTag("PlayerScoreItem"));
+                int highestKills = 0;
+                GameObject playerWithHighestKills = null;
+                bool hasEqualKills = false; // Flag to track if any two players have equal kills
 
-                // Check if the current player has more kills than the current highest.
-                if (playerKills > highestKills)
+                foreach (GameObject player in Players)
                 {
-                    highestKills = playerKills;
-                    playerWithHighestKills = player;
+                    int playerKills = player.GetComponent<PlayerScores>().TotalRoomKills;
+
+                    if (playerKills > highestKills)
+                    {
+                        highestKills = playerKills;
+                        playerWithHighestKills = player;
+                        hasEqualKills = false; // Reset the flag when a higher kill count is found.
+                    }
+                    else if (playerKills == highestKills)
+                    {
+                        hasEqualKills = true; // Two players have equal kills.
+                    }
                 }
-           
 
-            // Set the player with the highest kills to the CurrentWinnner variable.
-            CurrentWinnner = playerWithHighestKills;
+                if (hasEqualKills)
+                {
+                    CurrentWinnner = null; // Set the winner to null if any two players have equal kills.
+                }
+                else
+                {
+                    CurrentWinnner = playerWithHighestKills; // Set the player with the highest kills as the winner.
+                }
 
-
-
-            WinnerAnnounceUI.SetActive(true);
-            // Optionally, you can stop the countdown or trigger other events.
-
-            currentTime = RoundTime;
-        }
-
+                WinnerAnnounceUI.SetActive(true);
+                currentTime = RoundTime;
+            }
         }
     }
 
-    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+        public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
       if(PhotonNetwork.IsMasterClient)
         {
