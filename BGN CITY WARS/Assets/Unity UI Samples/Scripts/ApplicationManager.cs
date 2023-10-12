@@ -12,4 +12,10 @@ public class ApplicationManager : MonoBehaviour {
 		Application.Quit();
 		#endif
 	}
+
+    private void Start()
+    {
+		Application.targetFrameRate = 60;
+
+    }
 }
