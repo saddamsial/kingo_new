@@ -4963,7 +4963,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6388730651611910112
 Transform:
   m_ObjectHideFlags: 0
@@ -4972,8 +4972,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1884355036361148104}
   m_LocalRotation: {x: -0.08117545, y: 0.70053864, z: -0.69795203, w: -0.12457662}
-  m_LocalPosition: {x: -0.00251, y: 0.01165, z: 0.00008}
-  m_LocalScale: {x: 0.0054928465, y: 0.005492848, z: 0.0054928483}
+  m_LocalPosition: {x: -0.00177, y: 0.04258, z: 0.00671}
+  m_LocalScale: {x: 0.017227778, y: 0.017227782, z: 0.017227786}
   m_Children:
   - {fileID: 2312053345985468401}
   - {fileID: 1709573314059629219}
@@ -5171,7 +5171,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.31372547, g: 1, b: 0.89790106, a: 0.5019608}
+      maxColor: {r: 1, g: 0.5240722, b: 0, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -10011,7 +10011,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.31372547, g: 1, b: 0.8166623, a: 0.5019608}
+      maxColor: {r: 1, g: 0.5240722, b: 0, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -15027,7 +15027,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.31372547, g: 1, b: 0.871298, a: 0.5019608}
+      maxColor: {r: 1, g: 0.5240722, b: 0, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -19727,7 +19727,7 @@ MonoBehaviour:
       TYPE","value":{"$content":"DEFAULT RETICLE","$type":"System.String"},"$version":"A"},{"name":"WEAPON
       UI","value":{"$content":0,"$type":"UnityEngine.Object"},"$version":"A"},{"name":"WEAPON
       TYPE","value":{"$content":2,"$type":"System.Int32"},"$version":"A"},{"name":"SCOPE","value":{"$content":true,"$type":"System.Boolean"},"$version":"A"},{"name":"RARITY","value":{"$content":"RARE","$type":"System.String"},"$version":"A"},{"name":"INVENTORY
-      SLOT","value":{"$content":"i:4","$type":"System.String"},"$version":"A"}],"$version":"A"},"$version":"A"}}'
+      SLOT","value":{"$content":"i:4","$type":"System.String"},"$version":"A"},{"name":"Melee","value":{"$content":false,"$type":"System.Boolean"},"$version":"A"}],"$version":"A"},"$version":"A"}}'
     _objectReferences:
     - {fileID: 21300000, guid: 1eeb8ea49edbead4bad05553f7eef4dd, type: 3}
 --- !u!114 &5058161509060544422
@@ -19908,27 +19908,27 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4701234898195575142}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1d0acd84067bdb9459e38ca6ebfb9789, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FireRate: 0
-  ReloadTime: 0
-  BodyDamage: 0
-  HeadDamage: 0
+  FireRate: 0.7
+  ReloadTime: 0.4
+  BodyDamage: 90
+  HeadDamage: 180
   TotalDamageDealt: 0
-  WeaponRange: 0
-  currentclip: 1
-  MaxClip: 0
-  totalammo: 35
-  MaxAmmo: 0
-  BulletsFired: 1
+  WeaponRange: 150
+  currentclip: 6
+  MaxClip: 6
+  totalammo: 175
+  MaxAmmo: 90
+  BulletsFired: 0
   noammo: 0
   Canfire: 1
   Fired: 0
   ButtonFired: 0
-  modifiedFireRate: 0
+  modifiedFireRate: 1.4285715
   Reloading: 0
   ButtonReload: 0
   collided: {fileID: 0}
@@ -19937,13 +19937,13 @@ MonoBehaviour:
   layermask:
     serializedVersion: 2
     m_Bits: 512
-  AS: {fileID: 4442986721643282976}
-  FireSFX: {fileID: 0}
-  BodyshotSFX: {fileID: 0}
-  HeadshotSFX: {fileID: 0}
-  ReloadSFX: {fileID: 0}
+  AS: {fileID: 0}
+  FireSFX: {fileID: 8300000, guid: c4bdd8a09a210434e847efc4c199130c, type: 3}
+  BodyshotSFX: {fileID: 8300000, guid: 4c9b29de5bae56e4bac146d9df91072d, type: 3}
+  HeadshotSFX: {fileID: 8300000, guid: df4a2d45a93034a49983d0c0ceba9798, type: 3}
+  ReloadSFX: {fileID: 8300000, guid: 27aab35ed4f366a4cac70c549db21d7c, type: 3}
   BulletTrailVFX: {fileID: 0}
-  BulletDropVFX: {fileID: 1608849838862526740}
+  BulletDropVFX: {fileID: 0}
   BulletHoleVFX: {fileID: 0}
   KillFeed: {fileID: 0}
   TPV: {fileID: 0}
@@ -20002,16 +20002,16 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5952789676337003322}
-  m_LocalRotation: {x: -0.5933305, y: 0.47102442, z: 0.48165756, w: 0.4405689}
-  m_LocalPosition: {x: -0.00212, y: 0.02209, z: 0.00448}
-  m_LocalScale: {x: 0.04, y: 0.04, z: 0.04}
+  m_LocalRotation: {x: -0.57101, y: 0.50286347, z: 0.44549558, w: 0.4718154}
+  m_LocalPosition: {x: -0.00496, y: 0.01565, z: -0.00029}
+  m_LocalScale: {x: 0.034507245, y: 0.034507245, z: 0.034507245}
   m_Children:
   - {fileID: 6310384967431844526}
   - {fileID: 3737203473517291733}
   - {fileID: 6068854247287426288}
   m_Father: {fileID: 8034018077176301529}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -84.542, y: 7.497, z: 90}
+  m_LocalEulerAnglesHint: {x: -99.295, y: 12.240997, z: 72.326}
 --- !u!33 &8848061925403039064
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -20284,7 +20284,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.39215684, g: 1, b: 0.850202, a: 0.23529412}
+      maxColor: {r: 1, g: 0.5240722, b: 0, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
