@@ -398,75 +398,92 @@ void Update()
         else return;
 
     } //EF
-   //check headshot
-     void HeadShot()
-    { //SF
+      //check headshot
+
+        void HeadShot()
+
+
+        { // SF
+
 
             if (collided != null && collided.name == "HIT BOX-HEAD")
 
-       {
-              Debug.Log (collided);
-            if (TPV != null)
-              //self shoot detect
-            if (TPV.IsMine)
-            return;
-            else // other online player detect
+
             {
-                AS.PlayOneShot(HeadshotSFX, 1f);
 
-                PV.RPC("Headdamage", RpcTarget.Others);
+                if (TPV != null)
+                    //self shoot detect
+                    if (TPV.IsMine && TPV.gameObject.tag != ("CAR"))
+                        return;
+                    else // other online player detect
+                    {
 
-                //  TPV = collided.GetComponent<PhotonView>();
+                        TargetHP = TPV.GetComponent<TakeDamage>().HP;
+                        TargetShield = TPV.GetComponent<TakeDamage>().Shield;
 
-                Debug.Log("Real Player Detected-Head");
+                        AS.PlayOneShot(BodyshotSFX, 1f);
 
-                //Hit Reticle Enable
-                StartCoroutine(HitHeadreticle());
+                        RpcTarget RPCTYPE = new RpcTarget();
+                        if (TPV.IsMine && TPV.gameObject.tag == ("CAR"))
+                        {
+                            RPCTYPE = RpcTarget.All;
+                        }
+                        else RPCTYPE = RpcTarget.Others;
+
+                        Headdamage();
+
+                        //  TPV = collided.GetComponent<PhotonView>();
+
+                        Debug.Log("Real Player Detected-HEAD");
+
+                        //Hit Reticle Enable
+                        StartCoroutine(Hitreticle());
+                    }
+
+
+
+                else if (collided.name == "HIT BOX-HEAD" && TPV == null)
+                {
+                    ///AI detct
+                    if (collided.CompareTag("AI"))
+
+                    {
+                        TakeDamage takedamage = collided.transform.GetComponentInParent<TakeDamage>();
+
+                        AS.PlayOneShot(BodyshotSFX, 1f);
+
+                        Debug.Log("AI Target Detected-HEAD");
+
+                        //Hit Reticle Enable
+                        StartCoroutine(Hitreticle());
+                        takedamage.Takedamage(HeadDamage);
+
+                    }
+
+                    else
+                    {
+
+                        AS.PlayOneShot(HeadshotSFX, 1f);
+
+                        Debug.Log("Iron Target Detected-hEAD");
+
+                        TakeDamage takedamage = collided.transform.parent.GetComponent<TakeDamage>();
+                        if (takedamage != null)
+                        { takedamage.Takedamage(HeadDamage); }
+
+                        //Hit Reticle Enable
+                        StartCoroutine(Hitreticle());
+
+
+                    }
+
+                }
+
             }
 
+            else return;
 
-
-            else if (collided.name == "HIT BOX-HEAD" && TPV == null)
-            {
-               
-                      ///AI detct
-            if(collided.CompareTag("AI"))
-             
-            {
-            TakeDamage takedamage = collided.transform.parent.GetComponent<TakeDamage>();
-
-                AS.PlayOneShot(HeadshotSFX, 1f);
-
-                Debug.Log("AI Target Detected-Head");
-
-                //Hit Reticle Enable
-                StartCoroutine(HitHeadreticle());
-               takedamage.Takedamage(HeadDamage);
-
-            }
-
-            else
-             {
-               
-
-             AS.PlayOneShot(HeadshotSFX, 1f);
-
-                Debug.Log("Iron Target Detected-Head");
-
-                //Hit Reticle Enable
-                StartCoroutine(HitHeadreticle());
-
-
-            }
-              
-            }
-
-        }
-
-        else return;
-
-    }
-
+        } //EF
 
     }//EF
 
@@ -515,20 +532,45 @@ void Update()
 
     }//ef
 
-    [PunRPC]
     void Headdamage()
-    {//sf
+    {
+        // ...
 
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        // Check if the target is already dead
+        if (TargetShield <= 0 && TargetHP < 1)
+        {
+            // Target is already dead, do not apply damage again
+            return;
+        }
+
+        TPV.RPC("Takedamage", RpcTarget.All, HeadDamage);
+        TargetHP = TPV.GetComponent<TakeDamage>().HP;
+        TargetShield = TPV.GetComponent<TakeDamage>().Shield;
+
+        if (TargetShield <= 0)
+        {
+            TotalDamageDealt += HeadDamage;
+        }
+
+        // Check again after updating TargetHP
+        if (TargetShield <= 0 && TargetHP < 1)
+        {
+            KillFeed.gameObject.SetActive(true);
+            Parentvariables.TotalRoomkillsTrack++;
+
+            GameObject Killpopupitem = PhotonNetwork.Instantiate("KILLS POPUP ITEM", transform.position, Quaternion.identity); // spawn kill UI notification
+            Killpopupitem.GetComponent<KillPopupManager>().PlayerKilled = TPV.GetComponent<PhotonSerializerBGN>().PlayerNickName;
+            Killpopupitem.GetComponent<KillPopupManager>().PlayerKiller = PhotonNetwork.NickName;
+        }
 
 
 
-        TakeDamage TDF = player.GetComponent<TakeDamage>();
 
-        TDF.Takedamage(HeadDamage);
-        Debug.Log("head reached");
+        // TDF.Takedamage(WeaponType.BodyDamage);
+        Debug.Log("hEAD reached");
 
-
+        TargetHP = TPV.GetComponent<TakeDamage>().HP;
+        TargetShield = TPV.GetComponent<TakeDamage>().Shield;
 
 
 
@@ -537,7 +579,7 @@ void Update()
 
 
 
-      /////Coroutines/////
+    /////Coroutines/////
 
     //Ammo & reload
     IEnumerator Reload()
