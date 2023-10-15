@@ -452,7 +452,7 @@ void Update()
                     {
                         TakeDamage takedamage = collided.transform.GetComponentInParent<TakeDamage>();
 
-                        AS.PlayOneShot(BodyshotSFX, 1f);
+                        AS.PlayOneShot(HeadshotSFX, 1f);
 
                         Debug.Log("AI Target Detected-HEAD");
 
