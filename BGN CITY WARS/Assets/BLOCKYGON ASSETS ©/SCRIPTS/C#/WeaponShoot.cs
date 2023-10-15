@@ -82,7 +82,8 @@ public class WeaponShoot : MonoBehaviour
     //pun variables
     [Header("Debugs")]
     private PhotonView PV;
-    public GameObject KillFeed;
+    private GameObject KillFeed;
+    private GameObject HeadShotKill;
     [SerializeField]
     private PhotonView TPV;
     
@@ -128,6 +129,7 @@ public class WeaponShoot : MonoBehaviour
         //WeaponRange=WeaponRange;
 
         KillFeed = GameObject.Find("KILL FEEDS").transform.GetChild(0).gameObject;
+        HeadShotKill = GameObject.Find("KILL FEEDS").transform.GetChild(1).gameObject;  
         Parentvariables = PlayerParent.GetComponent<PlayerActionsVar>();
       
 
@@ -555,7 +557,7 @@ void Update()
         // Check again after updating TargetHP
         if (TargetShield <= 0 && TargetHP < 1)
         {
-            KillFeed.gameObject.SetActive(true);
+            HeadShotKill.gameObject.SetActive(true);
             Parentvariables.TotalRoomkillsTrack++;
 
             GameObject Killpopupitem = PhotonNetwork.Instantiate("KILLS POPUP ITEM", transform.position, Quaternion.identity); // spawn kill UI notification
