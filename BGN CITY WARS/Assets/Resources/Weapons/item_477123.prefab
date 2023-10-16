@@ -23,14 +23,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 589797787770353147}
-  m_LocalRotation: {x: 0.5135623, y: -0.48605946, z: -0.48605946, w: 0.5135623}
-  m_LocalPosition: {x: 0.029060192, y: 0.021943796, z: 0.046759948}
+  m_LocalRotation: {x: 0.5135623, y: -0.48605943, z: -0.48605943, w: 0.5135623}
+  m_LocalPosition: {x: 0.029060187, y: 0.021943804, z: 0.04675994}
   m_LocalScale: {x: 28.57143, y: 28.57143, z: 28.57143}
   m_Children:
   - {fileID: 8200181720237430321}
   - {fileID: 3658923102486336922}
   - {fileID: 1084495092617064712}
-  m_Father: {fileID: 1627270801081469017}
+  m_Father: {fileID: 739696894036691511}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2096066870685968426
@@ -4906,6 +4906,39 @@ Transform:
   m_Father: {fileID: 3298108882368573227}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2517060467180727701
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 739696894036691511}
+  m_Layer: 3
+  m_Name: REVOLVER
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &739696894036691511
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2517060467180727701}
+  m_LocalRotation: {x: -0.51356226, y: 0.48605943, z: 0.48605943, w: 0.51356226}
+  m_LocalPosition: {x: -0.00569, y: 0.00098, z: 0.00328}
+  m_LocalScale: {x: 0.035, y: 0.035, z: 0.035}
+  m_Children:
+  - {fileID: 4537764770543266639}
+  - {fileID: 3298108882368573227}
+  - {fileID: 1627270801081469017}
+  m_Father: {fileID: 5600712012398421948}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -90, y: -50, z: 136.848}
 --- !u!1 &2729112337453416932
 GameObject:
   m_ObjectHideFlags: 0
@@ -9800,7 +9833,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1627270801081469017}
+  - {fileID: 739696894036691511}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10089,7 +10122,7 @@ GameObject:
   - component: {fileID: 214683429974515483}
   - component: {fileID: 1274523868081346459}
   m_Layer: 3
-  m_Name: BGN_REVOLVER
+  m_Name: BODY
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10102,14 +10135,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3802918007737792274}
-  m_LocalRotation: {x: -0.51356226, y: 0.48605943, z: 0.48605943, w: 0.51356226}
-  m_LocalPosition: {x: -0.00569, y: 0.00098, z: 0.00328}
-  m_LocalScale: {x: 0.035, y: 0.035, z: 0.035}
-  m_Children:
-  - {fileID: 4537764770543266639}
-  - {fileID: 3298108882368573227}
-  m_Father: {fileID: 5600712012398421948}
-  m_RootOrder: 0
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 739696894036691511}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: -90, y: -50, z: 136.848}
 --- !u!33 &214683429974515483
 MeshFilter:
@@ -10184,12 +10215,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6465104185019680235}
-  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0.0001, y: 0.0003, z: 0.0326}
-  m_LocalScale: {x: 1.0833529, y: 1.7914417, z: 1.1298313}
+  m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.70710677}
+  m_LocalPosition: {x: 0.00009999808, y: 0.00029999897, z: 0.0326}
+  m_LocalScale: {x: 1.0833532, y: 1.7914419, z: 1.1298312}
   m_Children:
   - {fileID: 7702376047125233972}
-  m_Father: {fileID: 1627270801081469017}
+  m_Father: {fileID: 739696894036691511}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
 --- !u!1 &6518715497693898125
