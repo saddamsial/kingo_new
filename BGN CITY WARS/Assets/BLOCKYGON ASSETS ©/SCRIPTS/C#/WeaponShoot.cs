@@ -423,7 +423,7 @@ void Update()
                         TargetHP = TPV.GetComponent<TakeDamage>().HP;
                         TargetShield = TPV.GetComponent<TakeDamage>().Shield;
 
-                        AS.PlayOneShot(BodyshotSFX, 1f);
+                        AS.PlayOneShot(HeadshotSFX, 1f);
 
                         RpcTarget RPCTYPE = new RpcTarget();
                         if (TPV.IsMine && TPV.gameObject.tag == ("CAR"))
