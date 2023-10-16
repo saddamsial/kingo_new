@@ -465,7 +465,7 @@ void Update()
                     else
                     {
 
-                        AS.PlayOneShot(HeadshotSFX, 1f);
+                        AS.PlayOneShot(HeadshotSFX, 2.5f);
 
                         Debug.Log("Iron Target Detected-hEAD");
 
