@@ -22,10 +22,10 @@ public class KillPopupManager : MonoBehaviour
         Invoke("Destroy", DestroyTime);
         Transform parentTransform = GameObject.Find("KILLS NOTIFICATION").transform;
         transform.SetParent(parentTransform, false);
+    }
 
-
-        // Update is called once per frame
-        void Update()
+    // Update is called once per frame
+    void Update()
     {
 
         { TXT.text = PlayerKiller + " " + "Killed" + " " + PlayerKilled; }
@@ -36,6 +36,6 @@ public class KillPopupManager : MonoBehaviour
     {
         PhotonNetwork.Destroy(PV.gameObject);
     }
-    }
+    
 
 }
