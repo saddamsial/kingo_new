@@ -339,7 +339,7 @@ void Update()
 
                         AS.PlayOneShot(BodyshotSFX, 1f);
 
-               RpcTarget RPCTYPE = new RpcTarget();
+               RpcTarget   RPCTYPE = new RpcTarget();
                if (TPV.IsMine && TPV.gameObject.tag == ("CAR"))
                {
                 RPCTYPE=RpcTarget.All;
