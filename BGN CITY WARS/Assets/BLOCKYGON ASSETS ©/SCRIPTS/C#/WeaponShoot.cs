@@ -495,11 +495,11 @@ void Update()
         // ...
 
         // Check if the target is already dead
-        if (TargetShield <= 0 && TargetHP < 1)
-        {
+      //  if (TargetShield <= 0 && TargetHP < 1)
+      //  {
             // Target is already dead, do not apply damage again
-            return;
-        }
+        //    return;
+      //  }
 
         TPV.RPC("Takedamage", RpcTarget.All, BodyDamage);
         TargetHP = TPV.GetComponent<TakeDamage>().HP;
