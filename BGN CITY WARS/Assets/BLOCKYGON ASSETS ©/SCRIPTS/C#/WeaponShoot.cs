@@ -20,7 +20,9 @@ public class WeaponShoot : MonoBehaviour
     public int HeadDamage;
     public int TotalDamageDealt;
     public float WeaponRange;
+    [SerializeField]
     private int TargetHP;
+    [SerializeField]
     private int TargetShield;
 
     [Space(10)]
@@ -346,7 +348,7 @@ void Update()
                }
                else RPCTYPE=RpcTarget.Others;
 
-                       Bodydamage();
+                        Invoke("Bodydamage",0.15f);
 
                 //  TPV = collided.GetComponent<PhotonView>();
 
@@ -492,14 +494,16 @@ void Update()
 
     void Bodydamage()
     {
-   
-
-      
-       if (TargetShield <= 0 && TargetHP < 1)
+        if (TargetHP < 1)
         {
+
             // Target is already dead, do not apply damage again
-           return;
-       }
+
+            // Reset TargetHP to 100
+            TargetHP = 100;
+            return;
+
+        }
 
         TPV.RPC("Takedamage", RpcTarget.All, BodyDamage);
         TargetHP = TPV.GetComponent<TakeDamage>().HP;
@@ -516,11 +520,12 @@ void Update()
             KillFeed.gameObject.SetActive(true);
             Parentvariables.TotalRoomkillsTrack++;
 
-           GameObject Killpopupitem =  PhotonNetwork.Instantiate("KILLS POPUP ITEM", transform.position, Quaternion.identity); // spawn kill UI notification
+            GameObject Killpopupitem = PhotonNetwork.Instantiate("KILLS POPUP ITEM", transform.position, Quaternion.identity); // spawn kill UI notification
             Killpopupitem.GetComponent<KillPopupManager>().PlayerKilled = TPV.GetComponent<PhotonSerializerBGN>().PlayerNickName;
-            Killpopupitem.GetComponent<KillPopupManager>().PlayerKiller = PhotonNetwork.NickName ;
+            Killpopupitem.GetComponent<KillPopupManager>().PlayerKiller = PhotonNetwork.NickName;
         }
     
+
 
 
 
@@ -559,7 +564,7 @@ void Update()
         {
             HeadShotKill.gameObject.SetActive(true);
             Parentvariables.TotalRoomkillsTrack++;
-
+            TargetHP = 100;
             GameObject Killpopupitem = PhotonNetwork.Instantiate("KILLS POPUP ITEM", transform.position, Quaternion.identity); // spawn kill UI notification
             Killpopupitem.GetComponent<KillPopupManager>().PlayerKilled = TPV.GetComponent<PhotonSerializerBGN>().PlayerNickName;
             Killpopupitem.GetComponent<KillPopupManager>().PlayerKiller = PhotonNetwork.NickName;
