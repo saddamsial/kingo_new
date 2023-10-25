@@ -88,7 +88,8 @@ public class WeaponShoot : MonoBehaviour
     private GameObject HeadShotKill;
     [SerializeField]
     private PhotonView TPV;
-    
+    [SerializeField]
+    private float DamageDelay;
 
 
     private void OnEnable()
@@ -335,9 +336,9 @@ void Update()
             return;
             else // other online player detect
             {
-
-                        TargetHP = TPV.GetComponent<TakeDamage>().HP;
-                        TargetShield = TPV.GetComponent<TakeDamage>().Shield;
+                 
+                 //       TargetHP = TPV.GetComponent<TakeDamage>().HP;
+                      //  TargetShield = TPV.GetComponent<TakeDamage>().Shield;
 
                         AS.PlayOneShot(BodyshotSFX, 1f);
 
@@ -348,7 +349,7 @@ void Update()
                }
                else RPCTYPE=RpcTarget.Others;
 
-                        Invoke("Bodydamage",0.15f);
+                        Invoke("Bodydamage",DamageDelay);
 
                 //  TPV = collided.GetComponent<PhotonView>();
 
@@ -493,29 +494,27 @@ void Update()
 
 
     void Bodydamage()
-    {
-        if (TargetHP < 1)
+    {    
+            TargetHP = TPV.GetComponent<TakeDamage>().HP;
+            TargetShield = TPV.GetComponent<TakeDamage>().Shield;
+
+       if (TargetHP>0)
         {
+            TPV.RPC("Takedamage", RpcTarget.All, BodyDamage);
 
-            // Target is already dead, do not apply damage again
-
-            // Reset TargetHP to 100
-            TargetHP = 100;
-            return;
-
+            if (TargetShield <= 0)
+            {
+                TotalDamageDealt += BodyDamage;
+            }
+        }
+        else
+        {
+            kill();      
         }
 
-        TPV.RPC("Takedamage", RpcTarget.All, BodyDamage);
-        TargetHP = TPV.GetComponent<TakeDamage>().HP;
-        TargetShield = TPV.GetComponent<TakeDamage>().Shield;
 
-        if (TargetShield <= 0)
-        {
-            TotalDamageDealt += BodyDamage;
-        }
-
-        // Check again after updating TargetHP
-        if (TargetShield <= 0 && TargetHP < 1)
+      
+      void kill()
         {
             KillFeed.gameObject.SetActive(true);
             Parentvariables.TotalRoomkillsTrack++;
@@ -524,12 +523,11 @@ void Update()
             Killpopupitem.GetComponent<KillPopupManager>().PlayerKilled = TPV.GetComponent<PhotonSerializerBGN>().PlayerNickName;
             Killpopupitem.GetComponent<KillPopupManager>().PlayerKiller = PhotonNetwork.NickName;
         }
-    
 
 
 
 
-    // TDF.Takedamage(WeaponType.BodyDamage);
+  
     Debug.Log("body reached");
 
         TargetHP = TPV.GetComponent<TakeDamage>().HP;
