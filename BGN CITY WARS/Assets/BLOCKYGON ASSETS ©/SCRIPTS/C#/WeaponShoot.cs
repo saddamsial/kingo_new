@@ -156,13 +156,18 @@ void Update()
 
          
         }
-  
- // CHECK RETICLE HIT(NO SHOOTING)
+
+        if (TargetHP < 1&& PV.IsMine)
+        { 
+            Kill();
+        }
+
+        // CHECK RETICLE HIT(NO SHOOTING)
 
 
-   //NO AMMO SET UP
+        //NO AMMO SET UP
 
-    if (weaponstatus.MaxedAmmo)
+        if (weaponstatus.MaxedAmmo)
     {
        totalammo = MaxAmmo;
     }
@@ -501,32 +506,15 @@ void Update()
        if (TargetHP>0)
         {
             TPV.RPC("Takedamage", RpcTarget.All, BodyDamage);
-
+   
             if (TargetShield <= 0)
             {
                 TotalDamageDealt += BodyDamage;
             }
         }
-        else
-        {
-            kill();      
-        }
-
-
-      
-      void kill()
-        {
-            KillFeed.gameObject.SetActive(true);
-            Parentvariables.TotalRoomkillsTrack++;
-
-            GameObject Killpopupitem = PhotonNetwork.Instantiate("KILLS POPUP ITEM", transform.position, Quaternion.identity); // spawn kill UI notification
-            Killpopupitem.GetComponent<KillPopupManager>().PlayerKilled = TPV.GetComponent<PhotonSerializerBGN>().PlayerNickName;
-            Killpopupitem.GetComponent<KillPopupManager>().PlayerKiller = PhotonNetwork.NickName;
-        }
-
-
-
-
+  
+        
+          
   
     Debug.Log("body reached");
 
@@ -536,6 +524,19 @@ void Update()
 
 
     }//ef
+
+
+    void Kill()
+    {
+        KillFeed.gameObject.SetActive(true);
+        Parentvariables.TotalRoomkillsTrack++;
+        TargetHP = 100;
+
+        GameObject Killpopupitem = PhotonNetwork.Instantiate("KILLS POPUP ITEM", transform.position, Quaternion.identity); // spawn kill UI notification
+        Killpopupitem.GetComponent<KillPopupManager>().PlayerKilled = TPV.GetComponent<PhotonSerializerBGN>().PlayerNickName;
+        Killpopupitem.GetComponent<KillPopupManager>().PlayerKiller = PhotonNetwork.NickName;
+    }
+
 
     void Headdamage()
     {
