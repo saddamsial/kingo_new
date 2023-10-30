@@ -10,7 +10,7 @@ public class WeaponShoot : MonoBehaviour
     /// variables///
     //enum Datatype {[Tooltip("Pistols,AssaultRifles,ETC")]SingleRay, [Tooltip("Multiple Shots like ShotGun Style ")] MultiRay, [Tooltip("Slow travelong projectile Style like  Rockets ")] Projectile, [Tooltip("CloseRange Direct Contact like a fist or Sword ")] Melee }
     //[SerializeField] Datatype WeaponType;
-   // public WeaponDATA WeaponType;
+    // public WeaponDATA WeaponType;
     private WeaponStatus weaponstatus;
     private PlayerActionsVar Parentvariables;
     [Header("Weapon Specs")]
@@ -27,7 +27,7 @@ public class WeaponShoot : MonoBehaviour
 
     [Space(10)]
     [Header("Ammo Settings")]
- 
+
     public int currentclip;
     public int MaxClip;
     public int totalammo;
@@ -44,19 +44,19 @@ public class WeaponShoot : MonoBehaviour
     public float modifiedFireRate;
     [Space(10)]
     [Header("Reload Info")]
-    public  bool Reloading;
+    public bool Reloading;
     public bool ButtonReload;
     public Collider collided;
 
 
-[HideInInspector]
+    [HideInInspector]
     public bool bodyshotHit;
-[HideInInspector]
+    [HideInInspector]
     public bool headshotHit;
     [Header("Weapon Settings")]
     [SerializeField]
     private LayerMask layermask;
-    private Vector3  point;
+    private Vector3 point;
     private Transform pos;
     private Transform Shootpoint;
     private RaycastHit hit;
@@ -74,7 +74,7 @@ public class WeaponShoot : MonoBehaviour
     [SerializeField]
     private AudioClip ReloadSFX;
 
-     private Transform PlayerParent;
+    private Transform PlayerParent;
     // VFX SPAWN
     [Header("WeaponVFX")]
     public ParticleSystem BulletTrailVFX;
@@ -94,27 +94,27 @@ public class WeaponShoot : MonoBehaviour
 
     private void OnEnable()
     {
-   
-    
+
+
         Invoke("FindParent", .5f);
         PV = this.GetComponent<PhotonView>();
 
         collided = hit.collider;
 
         AS = GetComponent<AudioSource>();
-        
-          // start reload after weapon pull//
-        if ( currentclip < 1 && weaponstatus.NoAmmo != true)
+
+        // start reload after weapon pull//
+        if (currentclip < 1 && weaponstatus.NoAmmo != true)
         {
             StartCoroutine(Reload());
         }
 
     }
-    private void OnDisable() 
+    private void OnDisable()
     {
-    Reloading = false;
-    bodyshotHit = false;
-    headshotHit = false;
+        Reloading = false;
+        bodyshotHit = false;
+        headshotHit = false;
 
     }
     void FindParent()
@@ -122,45 +122,41 @@ public class WeaponShoot : MonoBehaviour
         PlayerParent = transform.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent;
         weaponstatus = PlayerParent.GetComponent<WeaponStatus>();
     }
-    private void Start() 
-{
-    
-    currentclip = MaxClip;
-    totalammo=MaxAmmo;
-    //WeaponRange = WeaponType.WeaponRange;
-    Shootpoint= GameObject.FindGameObjectWithTag("ShootPoint").transform;
+    private void Start()
+    {
+
+        currentclip = MaxClip;
+        totalammo = MaxAmmo;
+        //WeaponRange = WeaponType.WeaponRange;
+        Shootpoint = GameObject.FindGameObjectWithTag("ShootPoint").transform;
         //WeaponRange=WeaponRange;
 
         KillFeed = GameObject.Find("KILL FEEDS").transform.GetChild(0).gameObject;
-        HeadShotKill = GameObject.Find("KILL FEEDS").transform.GetChild(1).gameObject;  
+        HeadShotKill = GameObject.Find("KILL FEEDS").transform.GetChild(1).gameObject;
         Parentvariables = PlayerParent.GetComponent<PlayerActionsVar>();
-      
+
 
     }
 
-void Update()
- {//update S
- //var sync with plaayer
-  PlayerParent.GetComponent<PlayerActionsVar>().Fired = Fired;
-  PlayerParent.GetComponent<PlayerActionsVar>().IsReloading=Reloading;
-  Canfire= PlayerParent.GetComponent<PlayerActionsVar>().canfire;
-  PlayerParent.GetComponent<WeaponStatus>().CurrentClip=currentclip;
-  PlayerParent.GetComponent<WeaponStatus>().TotalAmmo=totalammo;
-  PlayerParent.GetComponent<WeaponStatus>().NoAmmo=noammo;
-   modifiedFireRate = 1.0f /FireRate;
+    void Update()
+    {//update S
+     //var sync with plaayer
+        PlayerParent.GetComponent<PlayerActionsVar>().Fired = Fired;
+        PlayerParent.GetComponent<PlayerActionsVar>().IsReloading = Reloading;
+        Canfire = PlayerParent.GetComponent<PlayerActionsVar>().canfire;
+        PlayerParent.GetComponent<WeaponStatus>().CurrentClip = currentclip;
+        PlayerParent.GetComponent<WeaponStatus>().TotalAmmo = totalammo;
+        PlayerParent.GetComponent<WeaponStatus>().NoAmmo = noammo;
+        modifiedFireRate = 1.0f / FireRate;
 
-    if(TargetShield<1 && TotalDamageDealt >= 100)//ResetTotalDamage
+        if (TargetShield < 1 && TotalDamageDealt >= 100)//ResetTotalDamage
         {
-         
+
             TotalDamageDealt = 0;
 
-         
+
         }
 
-        if (TargetHP < 1&& PV.IsMine)
-        { 
-            Kill();
-        }
 
         // CHECK RETICLE HIT(NO SHOOTING)
 
@@ -168,28 +164,28 @@ void Update()
         //NO AMMO SET UP
 
         if (weaponstatus.MaxedAmmo)
-    {
-       totalammo = MaxAmmo;
-    }
-        if(currentclip < 1 && totalammo == 0)  
+        {
+            totalammo = MaxAmmo;
+        }
+        if (currentclip < 1 && totalammo == 0)
         {
             noammo = true;
-            BulletsFired =MaxClip;      
+            BulletsFired = MaxClip;
         }
-        
-        else 
-    {
+
+        else
         {
-            noammo = false;      
+            {
+                noammo = false;
+            }
         }
-    }
 
         pos = Camera.main.transform.GetChild(2);
-      //Reset BulletsFired Custom conditions(calculate the difference manually)
-      if (totalammo== 0 )
-      {
-        BulletsFired =MaxClip - currentclip;
-      }
+        //Reset BulletsFired Custom conditions(calculate the difference manually)
+        if (totalammo == 0)
+        {
+            BulletsFired = MaxClip - currentclip;
+        }
 
 
         //Ammo Clamp
@@ -204,38 +200,38 @@ void Update()
             currentclip = 0;
         }
 
-        if (currentclip >=MaxClip)
+        if (currentclip >= MaxClip)
 
-          {currentclip = MaxClip;}
+        { currentclip = MaxClip; }
 
         if (Time.time > lastshot + 0.2f)
-        {     
-           
-            Fired = false;      
+        {
+
+            Fired = false;
         }
 
 
-        if(Canfire)
+        if (Canfire)
         { //canfire
 
 
-        if (ButtonFired == true && PV.IsMine && Time.time > lastshot + modifiedFireRate && currentclip > 0 && !Reloading && Canfire)
-        {
-            AS.PlayOneShot(FireSFX, 1f);
+            if (ButtonFired == true && PV.IsMine && Time.time > lastshot + modifiedFireRate && currentclip > 0 && !Reloading && Canfire)
+            {
+                AS.PlayOneShot(FireSFX, 1f);
 
-             StartCoroutine(VFX());
+                StartCoroutine(VFX());
 
-             float nextActionTime = 0.0f;
-             float period = 5f;
-               if (Time.time > nextActionTime)
-               {
-                nextActionTime += period;
-                Shoot();
-               }
-           
-                      
+                float nextActionTime = 0.0f;
+                float period = 5f;
+                if (Time.time > nextActionTime)
+                {
+                    nextActionTime += period;
+                    Shoot();
+                }
 
-        }
+
+
+            }
 
 
         }//canfire
@@ -246,169 +242,169 @@ void Update()
             return;
         }
 
-     ///check reload conditions///
+        ///check reload conditions///
 
         //auto reload
 
-        if (currentclip == 0&!Reloading && ! noammo && totalammo > 0)
-        {
-          StartCoroutine( Reload());
-        }
-        //Manual reload
-        if (ButtonReload && !Reloading && !noammo && currentclip < MaxClip && totalammo > 0) 
+        if (currentclip == 0 & !Reloading && !noammo && totalammo > 0)
         {
             StartCoroutine(Reload());
-            
-        } 
+        }
+        //Manual reload
+        if (ButtonReload && !Reloading && !noammo && currentclip < MaxClip && totalammo > 0)
+        {
+            StartCoroutine(Reload());
+
+        }
 
 
     }//update E
 
 
 
-  void Shoot()
+    void Shoot()
 
     {
-        
-        started=true;
-       Fired = true;
-       //yield return new WaitForSeconds(0f);
+
+        started = true;
+        Fired = true;
+        //yield return new WaitForSeconds(0f);
         //track shots fired
-        BulletsFired +=1;
+        BulletsFired += 1;
 
         //subtract bullets
-        currentclip --;
+        currentclip--;
 
         //Reset FireRate
 
         lastshot = Time.time;
 
-      //  SparkleVFX.SetActive(false);
+        //  SparkleVFX.SetActive(false);
 
         //fire
         Physics.Raycast(Shootpoint.position, pos.forward, out hit, WeaponRange, layermask);
 
 
-     
-             collided = hit.collider;
 
-             point = (hit.point);
-             started=false;
-       
-       
+        collided = hit.collider;
 
-     
-     
-   if (collided == null)
-    {return;}
-  else
+        point = (hit.point);
+        started = false;
 
-     {   TPV = collided.transform.root.transform.GetChild(0).GetComponentInParent<PhotonView>();
-         
-        //bullet HOLE SPAWN 
-        if(BulletHoleVFX!=null)
+
+
+
+
+        if (collided == null)
+        { return; }
+        else
+
+        { TPV = collided.transform.root.transform.GetChild(0).GetComponentInParent<PhotonView>();
+
+            //bullet HOLE SPAWN 
+            if (BulletHoleVFX != null)
 
             {
                 GameObject.Instantiate(BulletHoleVFX, hit.point, transform.localRotation);
             }
-       
-       
-        //Call Methods
- 
-        BodyShot();
-
-        HeadShot();
-       
-
-    }
-
-    //check Bodyshot
-
-    void BodyShot()
 
 
-    { // SF
+            //Call Methods
 
-      
-        if (collided != null && collided.name == "HIT BOX-BODY")
+            BodyShot();
 
+            HeadShot();
 
-        {
-
-            if (TPV != null)
-              //self shoot detect
-            if (TPV.IsMine && TPV.gameObject.tag != ("CAR"))
-            return;
-            else // other online player detect
-            {
-                 
-                 //       TargetHP = TPV.GetComponent<TakeDamage>().HP;
-                      //  TargetShield = TPV.GetComponent<TakeDamage>().Shield;
-
-                        AS.PlayOneShot(BodyshotSFX, 1f);
-
-               RpcTarget   RPCTYPE = new RpcTarget();
-               if (TPV.IsMine && TPV.gameObject.tag == ("CAR"))
-               {
-                RPCTYPE=RpcTarget.All;
-               }
-               else RPCTYPE=RpcTarget.Others;
-
-                        Invoke("Bodydamage",DamageDelay);
-
-                //  TPV = collided.GetComponent<PhotonView>();
-
-                        Debug.Log("Real Player Detected-Body");
-
-                //Hit Reticle Enable
-                StartCoroutine(Hitreticle());
-            }
-
-
-
-            else if (collided.name == "HIT BOX-BODY" && TPV == null)
-            {
-                      ///AI detct
-            if(collided.CompareTag("AI"))
-             
-            {
-            TakeDamage takedamage = collided.transform.GetComponentInParent<TakeDamage>();
-
-                AS.PlayOneShot(BodyshotSFX, 1f);
-
-                Debug.Log("AI Target Detected-Body");
-
-                //Hit Reticle Enable
-                StartCoroutine(Hitreticle());
-               takedamage.Takedamage(BodyDamage);
-
-            }
-
-            else
-             {
-
-             AS.PlayOneShot(BodyshotSFX, 1f);
-
-                Debug.Log("Iron Target Detected-Body");
-
-              TakeDamage takedamage = collided.transform.parent.GetComponent<TakeDamage>();
-                if (takedamage != null)
-               {takedamage.Takedamage(BodyDamage);}
-
-                //Hit Reticle Enable
-                StartCoroutine(Hitreticle());
-
-
-            }
-              
-            }
 
         }
 
-        else return;
+        //check Bodyshot
 
-    } //EF
-      //check headshot
+        void BodyShot()
+
+
+        { // SF
+
+
+            if (collided != null && collided.name == "HIT BOX-BODY")
+
+
+            {
+
+                if (TPV != null)
+                    //self shoot detect
+                    if (TPV.IsMine && TPV.gameObject.tag != ("CAR"))
+                        return;
+                    else // other online player detect
+                    {
+
+                        //       TargetHP = TPV.GetComponent<TakeDamage>().HP;
+                        //  TargetShield = TPV.GetComponent<TakeDamage>().Shield;
+
+                        AS.PlayOneShot(BodyshotSFX, 1f);
+
+                        RpcTarget RPCTYPE = new RpcTarget();
+                        if (TPV.IsMine && TPV.gameObject.tag == ("CAR"))
+                        {
+                            RPCTYPE = RpcTarget.All;
+                        }
+                        else RPCTYPE = RpcTarget.Others;
+
+                        Invoke("Bodydamage", DamageDelay);
+
+                        //  TPV = collided.GetComponent<PhotonView>();
+
+                        Debug.Log("Real Player Detected-Body");
+
+                        //Hit Reticle Enable
+                        StartCoroutine(Hitreticle());
+                    }
+
+
+
+                else if (collided.name == "HIT BOX-BODY" && TPV == null)
+                {
+                    ///AI detct
+                    if (collided.CompareTag("AI"))
+
+                    {
+                        TakeDamage takedamage = collided.transform.GetComponentInParent<TakeDamage>();
+
+                        AS.PlayOneShot(BodyshotSFX, 1f);
+
+                        Debug.Log("AI Target Detected-Body");
+
+                        //Hit Reticle Enable
+                        StartCoroutine(Hitreticle());
+                        takedamage.Takedamage(BodyDamage);
+
+                    }
+
+                    else
+                    {
+
+                        AS.PlayOneShot(BodyshotSFX, 1f);
+
+                        Debug.Log("Iron Target Detected-Body");
+
+                        TakeDamage takedamage = collided.transform.parent.GetComponent<TakeDamage>();
+                        if (takedamage != null)
+                        { takedamage.Takedamage(BodyDamage); }
+
+                        //Hit Reticle Enable
+                        StartCoroutine(Hitreticle());
+
+
+                    }
+
+                }
+
+            }
+
+            else return;
+
+        } //EF
+          //check headshot
 
         void HeadShot()
 
@@ -499,43 +495,47 @@ void Update()
 
 
     void Bodydamage()
-    {    
-            TargetHP = TPV.GetComponent<TakeDamage>().HP;
-            TargetShield = TPV.GetComponent<TakeDamage>().Shield;
+    {
+        TargetHP = TPV.GetComponent<TakeDamage>().HP;
+        TargetShield = TPV.GetComponent<TakeDamage>().Shield;
 
-       if (TargetHP>0)
+        if (TargetHP > 0)
         {
             TPV.RPC("Takedamage", RpcTarget.All, BodyDamage);
-   
+
+            // Calculate the remaining HP after damage is applied
+            TargetHP = TPV.GetComponent<TakeDamage>().HP - BodyDamage;
+            TargetShield = TPV.GetComponent<TakeDamage>().Shield;
+
             if (TargetShield <= 0)
             {
                 TotalDamageDealt += BodyDamage;
             }
+
+            // Check for target HP and call Kill() when it's less than or equal to 0
+            if (TargetHP <= 0)
+            {
+                Kill();
+            }
         }
-  
-        
-          
-  
-    Debug.Log("body reached");
 
-        TargetHP = TPV.GetComponent<TakeDamage>().HP;
-        TargetShield = TPV.GetComponent<TakeDamage>().Shield;
-
-
-
-    }//ef
-
+        Debug.Log("body reached");
+    }
 
     void Kill()
     {
         KillFeed.gameObject.SetActive(true);
         Parentvariables.TotalRoomkillsTrack++;
-        TargetHP = 100;
+
+        // The following lines reset TargetHP, but this might not be necessary, depending on your implementation
+        // TargetHP = 100;
 
         GameObject Killpopupitem = PhotonNetwork.Instantiate("KILLS POPUP ITEM", transform.position, Quaternion.identity); // spawn kill UI notification
         Killpopupitem.GetComponent<KillPopupManager>().PlayerKilled = TPV.GetComponent<PhotonSerializerBGN>().PlayerNickName;
         Killpopupitem.GetComponent<KillPopupManager>().PlayerKiller = PhotonNetwork.NickName;
     }
+
+
 
 
     void Headdamage()
