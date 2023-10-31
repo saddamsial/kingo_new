@@ -11,7 +11,8 @@ public class PhotonSerializerBGN : MonoBehaviourPunCallbacks,IPunObservable
     public int HP;
     public int Shield;
     public int Stamina;
-   
+
+
 
     [Header("Skin")]
     public string SkinID;
@@ -23,6 +24,9 @@ public class PhotonSerializerBGN : MonoBehaviourPunCallbacks,IPunObservable
     [Header("IK")]
     public int LookIK;
     public int AimIK;
+
+    [Header("Weapon Status")]
+    public bool Fired;
 
 
     private void Start()
@@ -57,7 +61,7 @@ public class PhotonSerializerBGN : MonoBehaviourPunCallbacks,IPunObservable
 
             stream.SendNext(AimIK);    //AimIK
 
-           
+            stream.SendNext(Fired);    //FiredBool
 
 
         }
@@ -80,7 +84,7 @@ public class PhotonSerializerBGN : MonoBehaviourPunCallbacks,IPunObservable
 
             AimIK = (int)stream.ReceiveNext(); // other player aIMik
 
-         
+            Fired = (bool)stream.ReceiveNext(); // other player FiredBool
 
         }
     }
