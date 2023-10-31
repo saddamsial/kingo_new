@@ -63,7 +63,6 @@ public class WeaponShoot : MonoBehaviour
     private RaycastHit hit2;
 
     [Header("Weapon Audio")]
-    [SerializeField]
     private AudioSource AS;
     [SerializeField]
     private AudioClip FireSFX;
