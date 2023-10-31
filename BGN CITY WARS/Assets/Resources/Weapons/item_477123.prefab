@@ -9968,10 +9968,14 @@ MonoBehaviour:
       UI","value":{"$content":0,"$type":"UnityEngine.Object"},"$version":"A"},{"name":"WEAPON
       TYPE","value":{"$content":1,"$type":"System.Int32"},"$version":"A"},{"name":"SCOPE","value":{"$content":false,"$type":"System.Boolean"},"$version":"A"},{"name":"RARITY","value":{"$content":"COMMON","$type":"System.String"},"$version":"A"},{"name":"Melee","value":{"$content":false,"$type":"System.Boolean"},"$version":"A"},{"name":"INVENTORY
       SLOT","value":{"$content":"i:2","$type":"System.String"},"$version":"A"},{"name":"FIRE
-      SFX","value":{"$content":1,"$type":"UnityEngine.Object"},"$version":"A"}],"$version":"A"},"$version":"A"}}'
+      SFX","value":{"$content":1,"$type":"UnityEngine.Object"},"$version":"A"},{"name":"UNLOAD
+      SFX","value":{"$content":2,"$type":"UnityEngine.Object"},"$version":"A"},{"name":"LOAD
+      SFX","value":{"$content":3,"$type":"UnityEngine.Object"},"$version":"A"}],"$version":"A"},"$version":"A"}}'
     _objectReferences:
     - {fileID: 21300000, guid: 6831902e286e9864f8b8a9d649fa0830, type: 3}
     - {fileID: 8300000, guid: c398f312f60db834cbdc85fa64b77c52, type: 3}
+    - {fileID: 8300000, guid: 98842fcecde8c06459b52135febf894c, type: 3}
+    - {fileID: 8300000, guid: e3d0cd78ac42bab4cb7c844248e49898, type: 3}
 --- !u!114 &1386551080281389827
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10185,7 +10189,6 @@ MonoBehaviour:
   FireSFX: {fileID: 8300000, guid: c398f312f60db834cbdc85fa64b77c52, type: 3}
   BodyshotSFX: {fileID: 8300000, guid: 4c9b29de5bae56e4bac146d9df91072d, type: 3}
   HeadshotSFX: {fileID: 8300000, guid: df4a2d45a93034a49983d0c0ceba9798, type: 3}
-  ReloadSFX: {fileID: 8300000, guid: c8bfce49c32a0ba4f9d928b28b4363c7, type: 3}
   BulletTrailVFX: {fileID: 0}
   BulletDropVFX: {fileID: 2283749585340629679}
   BulletHoleVFX: {fileID: 0}

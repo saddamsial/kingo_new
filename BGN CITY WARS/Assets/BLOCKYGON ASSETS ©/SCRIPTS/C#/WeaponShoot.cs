@@ -71,8 +71,7 @@ public class WeaponShoot : MonoBehaviour
     private AudioClip BodyshotSFX;
     [SerializeField]
     private AudioClip HeadshotSFX;
-    [SerializeField]
-    private AudioClip ReloadSFX;
+
 
     private Transform PlayerParent;
     // VFX SPAWN
@@ -591,7 +590,6 @@ public class WeaponShoot : MonoBehaviour
     IEnumerator Reload()
 {
     Reloading = true;
-    AS.PlayOneShot(ReloadSFX, 1f);
     noammo = false;
 
     // Calculate reload time based on the inverse of WeaponType.ReloadSpeed

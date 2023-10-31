@@ -17,15 +17,5 @@ public class PlayerActionsVar : MonoBehaviour
     public int InventoryTrack;
     public int TotalRoomkillsTrack;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }
