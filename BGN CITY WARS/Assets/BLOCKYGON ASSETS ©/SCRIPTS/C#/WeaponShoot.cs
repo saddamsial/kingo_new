@@ -529,6 +529,19 @@ public class WeaponShoot : MonoBehaviour
         hasExecutedKill = false;
     }
 
+    void HeadKill()
+    {
+        HeadShotKill.gameObject.SetActive(true);
+        Parentvariables.TotalRoomkillsTrack++;
+
+
+        TargetHP = 100;
+
+        GameObject Killpopupitem = PhotonNetwork.Instantiate("KILLS POPUP ITEM", transform.position, Quaternion.identity); // spawn kill UI notification
+        Killpopupitem.GetComponent<KillPopupManager>().PlayerKilled = TPV.GetComponent<PhotonSerializerBGN>().PlayerNickName;
+        Killpopupitem.GetComponent<KillPopupManager>().PlayerKiller = PhotonNetwork.NickName;
+        hasExecutedKill = false;
+    }
 
 
     void Headdamage()
