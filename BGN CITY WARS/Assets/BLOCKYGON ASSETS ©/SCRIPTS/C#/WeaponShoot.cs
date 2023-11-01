@@ -84,10 +84,7 @@ public class WeaponShoot : MonoBehaviour
     private GameObject HeadShotKill;
     [SerializeField]
     private PhotonView TPV;
-    [SerializeField]
     private bool hasExecutedKill = false;
-
-    [SerializeField]
     private float DamageDelay;
     #endregion Variables
 
@@ -123,7 +120,8 @@ public class WeaponShoot : MonoBehaviour
     }
     private void Start()
     {
-
+        DamageDelay = 0.25f;
+        TargetHP = 100;
         currentclip = MaxClip;
         totalammo = MaxAmmo;
         //WeaponRange = WeaponType.WeaponRange;
@@ -506,6 +504,7 @@ public class WeaponShoot : MonoBehaviour
 
         if (TargetHP > 0)
         {
+            hasExecutedKill = false;
             TPV.RPC("Takedamage", RpcTarget.All, BodyDamage);
             StartCoroutine(UpdateTargetHP());
     
@@ -534,47 +533,22 @@ public class WeaponShoot : MonoBehaviour
 
     void Headdamage()
     {
-        // ...
-
-        // Check if the target is already dead
-        if (TargetShield <= 0 && TargetHP < 1)
-        {
-            // Target is already dead, do not apply damage again
-            return;
-        }
-
-        TPV.RPC("Takedamage", RpcTarget.All, HeadDamage);
         TargetHP = TPV.GetComponent<TakeDamage>().HP;
         TargetShield = TPV.GetComponent<TakeDamage>().Shield;
 
-        if (TargetShield <= 0)
+        if (TargetHP > 0)
         {
-            TotalDamageDealt += HeadDamage;
+            hasExecutedKill = false;
+            TPV.RPC("Takedamage", RpcTarget.All, HeadDamage);
+            StartCoroutine(UpdateTargetHP());
+
         }
 
-        // Check again after updating TargetHP
-        if (TargetShield <= 0 && TargetHP < 1)
-        {
-            HeadShotKill.gameObject.SetActive(true);
-            Parentvariables.TotalRoomkillsTrack++;
-            TargetHP = 100;
-            GameObject Killpopupitem = PhotonNetwork.Instantiate("KILLS POPUP ITEM", transform.position, Quaternion.identity); // spawn kill UI notification
-            Killpopupitem.GetComponent<KillPopupManager>().PlayerKilled = TPV.GetComponent<PhotonSerializerBGN>().PlayerNickName;
-            Killpopupitem.GetComponent<KillPopupManager>().PlayerKiller = PhotonNetwork.NickName;
-        }
-
-
-
-
-        // TDF.Takedamage(WeaponType.BodyDamage);
-        Debug.Log("hEAD reached");
-
+        Debug.Log("Head reached");
         TargetHP = TPV.GetComponent<TakeDamage>().HP;
         TargetShield = TPV.GetComponent<TakeDamage>().Shield;
+    }
 
-
-
-    }//ef
 
 
     #region /////Coroutines/////
