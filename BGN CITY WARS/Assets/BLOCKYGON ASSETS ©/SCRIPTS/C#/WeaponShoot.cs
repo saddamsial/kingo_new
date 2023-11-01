@@ -7,10 +7,8 @@ using Photon.Pun;
 
 public class WeaponShoot : MonoBehaviour
 {
-    /// variables///
-    //enum Datatype {[Tooltip("Pistols,AssaultRifles,ETC")]SingleRay, [Tooltip("Multiple Shots like ShotGun Style ")] MultiRay, [Tooltip("Slow travelong projectile Style like  Rockets ")] Projectile, [Tooltip("CloseRange Direct Contact like a fist or Sword ")] Melee }
-    //[SerializeField] Datatype WeaponType;
-    // public WeaponDATA WeaponType;
+
+    #region Variables
     private WeaponStatus weaponstatus;
     private PlayerActionsVar Parentvariables;
     [Header("Weapon Specs")]
@@ -87,8 +85,11 @@ public class WeaponShoot : MonoBehaviour
     [SerializeField]
     private PhotonView TPV;
     [SerializeField]
-    private float DamageDelay;
+    private bool hasExecutedKill = false;
 
+    [SerializeField]
+    private float DamageDelay;
+    #endregion Variables
 
     private void OnEnable()
     {
@@ -129,10 +130,11 @@ public class WeaponShoot : MonoBehaviour
         Shootpoint = GameObject.FindGameObjectWithTag("ShootPoint").transform;
         //WeaponRange=WeaponRange;
 
+        #region find  and assign kill pop up feeds.
         KillFeed = GameObject.Find("KILL FEEDS").transform.GetChild(0).gameObject;
         HeadShotKill = GameObject.Find("KILL FEEDS").transform.GetChild(1).gameObject;
         Parentvariables = PlayerParent.GetComponent<PlayerActionsVar>();
-
+        #endregion
 
     }
 
@@ -155,6 +157,11 @@ public class WeaponShoot : MonoBehaviour
 
         }
 
+        if (TargetHP == 0 && !hasExecutedKill && PV.IsMine)
+        {
+            Kill();
+            hasExecutedKill = true; // Set the flag to indicate the code has executed
+        }
 
         // CHECK RETICLE HIT(NO SHOOTING)
 
@@ -261,9 +268,9 @@ public class WeaponShoot : MonoBehaviour
 
 
     void Shoot()
-
+        
     {
-
+  
         started = true;
         Fired = true;
         //yield return new WaitForSeconds(0f);
@@ -348,7 +355,7 @@ public class WeaponShoot : MonoBehaviour
                         }
                         else RPCTYPE = RpcTarget.Others;
 
-                        Invoke("Bodydamage", DamageDelay);
+                        Bodydamage();
 
                         //  TPV = collided.GetComponent<PhotonView>();
 
@@ -493,31 +500,20 @@ public class WeaponShoot : MonoBehaviour
 
 
     void Bodydamage()
-    {
+    {      
         TargetHP = TPV.GetComponent<TakeDamage>().HP;
         TargetShield = TPV.GetComponent<TakeDamage>().Shield;
 
         if (TargetHP > 0)
         {
             TPV.RPC("Takedamage", RpcTarget.All, BodyDamage);
-
-            // Calculate the remaining HP after damage is applied
-            TargetHP = TPV.GetComponent<TakeDamage>().HP - BodyDamage;
-            TargetShield = TPV.GetComponent<TakeDamage>().Shield;
-
-            if (TargetShield <= 0)
-            {
-                TotalDamageDealt += BodyDamage;
-            }
-
-            // Check for target HP and call Kill() when it's less than or equal to 0
-            if (TargetHP <= 0)
-            {
-                Kill();
-            }
+            StartCoroutine(UpdateTargetHP());
+    
         }
 
         Debug.Log("body reached");
+        TargetHP = TPV.GetComponent<TakeDamage>().HP;
+        TargetShield = TPV.GetComponent<TakeDamage>().Shield;
     }
 
     void Kill()
@@ -525,14 +521,14 @@ public class WeaponShoot : MonoBehaviour
         KillFeed.gameObject.SetActive(true);
         Parentvariables.TotalRoomkillsTrack++;
 
-        // The following lines reset TargetHP, but this might not be necessary, depending on your implementation
-        // TargetHP = 100;
+     
+         TargetHP = 100;
 
         GameObject Killpopupitem = PhotonNetwork.Instantiate("KILLS POPUP ITEM", transform.position, Quaternion.identity); // spawn kill UI notification
         Killpopupitem.GetComponent<KillPopupManager>().PlayerKilled = TPV.GetComponent<PhotonSerializerBGN>().PlayerNickName;
         Killpopupitem.GetComponent<KillPopupManager>().PlayerKiller = PhotonNetwork.NickName;
+        hasExecutedKill = false;
     }
-
 
 
 
@@ -581,9 +577,7 @@ public class WeaponShoot : MonoBehaviour
     }//ef
 
 
-
-
-    /////Coroutines/////
+    #region /////Coroutines/////
 
     //Ammo & reload
     IEnumerator Reload()
@@ -634,6 +628,19 @@ public class WeaponShoot : MonoBehaviour
          yield return new WaitForSeconds(0.25f);
          headshotHit = false;
     }
+    IEnumerator UpdateTargetHP()
+    {
+        yield return new WaitForSeconds(DamageDelay);
+        TargetHP = TPV.GetComponent<TakeDamage>().HP;
+        TargetShield = TPV.GetComponent<TakeDamage>().Shield;
+   
+        if (TargetShield <= 0)
+        {
+            TotalDamageDealt += BodyDamage;
+        }
+       
 
 
+    }
+    #endregion 
 }//EC
