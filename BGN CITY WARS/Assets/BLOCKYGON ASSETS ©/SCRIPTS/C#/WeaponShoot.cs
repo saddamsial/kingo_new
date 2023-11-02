@@ -152,7 +152,6 @@ public class WeaponShoot : MonoBehaviour
 
             TotalDamageDealt = 0;
 
-
         }
 
         if (TargetHP == 0 && !hasExecutedKill && PV.IsMine)
@@ -272,7 +271,6 @@ public class WeaponShoot : MonoBehaviour
     }//update E
 
 
-
     void Shoot()
         
     {
@@ -306,7 +304,8 @@ public class WeaponShoot : MonoBehaviour
 
 
 
-        if (collided == null)
+        if (collided == null || collided.gameObject.layer == 0)
+
         { return; }
         else
 
@@ -552,7 +551,6 @@ public class WeaponShoot : MonoBehaviour
         hasExecutedKill = false;
     }
 
-
     void Headdamage()
     {
         TargetHP = TPV.GetComponent<TakeDamage>().HP;
@@ -570,8 +568,6 @@ public class WeaponShoot : MonoBehaviour
         TargetHP = TPV.GetComponent<TakeDamage>().HP;
         TargetShield = TPV.GetComponent<TakeDamage>().Shield;
     }
-
-
 
     #region /////Coroutines/////
 

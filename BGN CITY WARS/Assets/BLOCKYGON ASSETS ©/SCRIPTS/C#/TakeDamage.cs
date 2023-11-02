@@ -32,7 +32,11 @@ public class TakeDamage : MonoBehaviour
     {
         LastDamageTook = Damage;
         hurt = true;
-        DamageScreenEFX.gameObject.SetActive(true);
+        if (DamageScreenEFX.transform != null)
+        {
+            DamageScreenEFX.gameObject.SetActive(true);
+        }
+     
 
         if (HP > 0 && pv != null)
         {
