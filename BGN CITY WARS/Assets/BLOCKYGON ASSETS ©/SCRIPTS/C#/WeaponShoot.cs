@@ -18,10 +18,7 @@ public class WeaponShoot : MonoBehaviour
     public int HeadDamage;
     public int TotalDamageDealt;
     public float WeaponRange;
-    [SerializeField]
-    private int TargetHP;
-    [SerializeField]
-    private int TargetShield;
+
 
     [Space(10)]
     [Header("Ammo Settings")]
@@ -44,7 +41,7 @@ public class WeaponShoot : MonoBehaviour
     [Header("Reload Info")]
     public bool Reloading;
     public bool ButtonReload;
-    public Collider collided;
+
 
 
     [HideInInspector]
@@ -80,12 +77,15 @@ public class WeaponShoot : MonoBehaviour
     //pun variables
     [Header("Debugs")]
     private PhotonView PV;
+    private Collider collided;
     private GameObject KillFeed;
     private GameObject HeadShotKill;
-    [SerializeField]
+    private int TargetHP;
+    private int TargetShield;
     private PhotonView TPV;
     private bool hasExecutedKill = false;
     private float DamageDelay;
+    private int LastDamageType;
     #endregion Variables
 
     private void OnEnable()
@@ -157,8 +157,16 @@ public class WeaponShoot : MonoBehaviour
 
         if (TargetHP == 0 && !hasExecutedKill && PV.IsMine)
         {
-            Kill();
-            hasExecutedKill = true; // Set the flag to indicate the code has executed
+            if (LastDamageType == 0)
+            {
+                Kill();
+                hasExecutedKill = true; // Set the flag to indicate the code has executed
+            }
+            else if (LastDamageType == 1)
+                {
+                   HeadKill();
+                    hasExecutedKill = true; // Set the flag to indicate the code has executed
+                }
         }
 
         // CHECK RETICLE HIT(NO SHOOTING)
@@ -501,6 +509,7 @@ public class WeaponShoot : MonoBehaviour
     {      
         TargetHP = TPV.GetComponent<TakeDamage>().HP;
         TargetShield = TPV.GetComponent<TakeDamage>().Shield;
+        LastDamageType = 0;
 
         if (TargetHP > 0)
         {
@@ -548,7 +557,7 @@ public class WeaponShoot : MonoBehaviour
     {
         TargetHP = TPV.GetComponent<TakeDamage>().HP;
         TargetShield = TPV.GetComponent<TakeDamage>().Shield;
-
+        LastDamageType = 1;
         if (TargetHP > 0)
         {
             hasExecutedKill = false;
