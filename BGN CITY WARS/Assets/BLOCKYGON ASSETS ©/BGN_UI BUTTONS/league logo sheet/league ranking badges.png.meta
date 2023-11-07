@@ -120,7 +120,7 @@ TextureImporter:
       213: -6565133960077535756
     second: star outlined
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -137,10 +137,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -150,11 +152,11 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: -1
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -179,6 +181,8 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -190,6 +194,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -202,6 +207,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -214,6 +220,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -226,6 +233,20 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -1060,9 +1081,48 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-  spritePackingTag: 
+    nameFileIdTable:
+      Apex !: 7216856757553938507
+      Apex 2: -6181787979839202410
+      Apex 3: -8337231588457175771
+      Apex Master: -700902637956762300
+      Reckless  1: 5905695042936042639
+      Reckless  2: 8953491927952838496
+      Reckless 3: -8437542020464854760
+      Reckless Master: -8407158642598601141
+      Royal 1: -1423362307155817702
+      Royal 2: 9008696452681302198
+      Royal 3: 5256836705213373224
+      Royal Master: -4803803120546141548
+      Warrior 1: -7130466545738152379
+      Warrior 2: -8627524423435646347
+      Warrior 3: -4653859764305873539
+      Warrior master: 4598525517801427616
+      crown: 3164801363807911298
+      crown icon: -8374983830557122702
+      double sword: -8891121710982612988
+      double swordoutlined: -5001405862268373384
+      king skull outlined: 959095760701450324
+      league ranking badges_16: -1111688397222248151
+      league ranking badges_17: 1325235331323581328
+      league ranking badges_18: -7674222180953309315
+      league ranking badges_19: 3318959847571815663
+      league ranking badges_20: -4278077754012501277
+      league ranking badges_21: 5598673915718198281
+      league ranking badges_22: 7293229968393703995
+      league ranking badges_23: 1845602962236135492
+      league ranking badges_24: 1707139353641553355
+      league ranking badges_25: -4811025649047150911
+      league ranking badges_26: 8567441244291567878
+      league ranking badges_27: 7193853261943761836
+      skull: 7596708013840050179
+      skull outlined: -8342861843764351986
+      star: 5969817108542745434
+      star outlined: -6565133960077535756
+      sword single: -4709146985473462280
+      sword single outlined: -2903867913659748231
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
