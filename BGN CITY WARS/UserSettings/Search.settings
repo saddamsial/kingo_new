@@ -1,8 +1,8 @@
 trackSelection = true
+refreshSearchWindowsInPlayMode = false
 fetchPreview = true
-wantsMore = false
+defaultFlags = 0
 keepOpen = false
-itemIconSize = 1
 queryFolder = "Assets"
 onBoardingDoNotAskAgain = true
 showPackageIndexes = false
@@ -34,6 +34,9 @@ scopes = {
 	"m_SideBarSplitter.E264FEFE" = "288"
 	"m_DetailsPanelSplitter.E264FEFE" = "1536"
 	"currentGroup.E264FEFE" = "all"
+	"last_search.C87CA1ED" = ""
+	"OpenInspectorPreview.C87CA1ED" = "0"
+	"currentGroup.C87CA1ED" = "all"
 }
 providers = {
 	asset = {
@@ -96,10 +99,39 @@ providers = {
 		priority = 85
 		defaultAction = null
 	}
+	adb = {
+		active = false
+		priority = 2500
+		defaultAction = null
+	}
+	profilermarkers = {
+		active = false
+		priority = 100
+		defaultAction = null
+	}
+	performance = {
+		active = false
+		priority = 100
+		defaultAction = null
+	}
+}
+objectSelectors = {
 }
 recentSearches = [
 	"sasa"
 	"p: E"
 	"p: "
 ]
+searchItemFavorites = [
+]
 savedSearchesSortOrder = 0
+showSavedSearchPanel = false
+hideTabs = false
+expandedQueries = [
+]
+queryBuilder = false
+ignoredProperties = "id;name;classname;imagecontentshash"
+helperWidgetCurrentArea = "all"
+disabledIndexers = ""
+minIndexVariations = 2
+findProviderIndexHelper = true
