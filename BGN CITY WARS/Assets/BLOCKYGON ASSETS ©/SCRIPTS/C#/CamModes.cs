@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 public class CamModes : MonoBehaviour
 {
     public Camera Camera;
@@ -18,7 +19,7 @@ public class CamModes : MonoBehaviour
     private float currentspeedAMC;
 
     
-
+    
     private void Awake()
     {
        Camera = Camera.main;
@@ -26,6 +27,7 @@ public class CamModes : MonoBehaviour
     private void Start()
     {
         vars = GetComponent<PlayerActionsVar>();
+
     }
     void Update()
 
