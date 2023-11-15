@@ -8,6 +8,7 @@ public class IKGripLocator : MonoBehaviour
     public GameObject ActiveWeapon;
     private Transform Grip;
     private AimIK aimik;
+    private Transform SECONDARYGRIP;
 
     // Update is called once per frame
 
@@ -15,14 +16,16 @@ public class IKGripLocator : MonoBehaviour
     private void Start()
     {
         aimik = this.GetComponent<AimIK>();
+        
     }
+
     void Update()
     {
-        if (ActiveWeapon!=null)
+        if (ActiveWeapon != null)
         {
             Grip = ActiveWeapon.transform.GetChild(0).transform.Find("SECONDARY GRIP");
+
         }
-        
 
         if (Grip != null)
         {
