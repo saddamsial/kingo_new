@@ -12,8 +12,8 @@ namespace Unity.VisualScripting.Generated.PropertyProviders
 {
 	
 	
-	//[global::Unity.VisualScripting.SerializedPropertyProviderAttribute(typeof(global::UnityEngine.Rendering.Universal.StencilStateData))]
-	//public class PropertyProvider_UnityEngine_Rendering_Universal_StencilStateData : Unity.VisualScripting.SerializedPropertyProvider<UnityEngine.Rendering.Universal.StencilStateData>
-//	{
-//	}
+	[global::Unity.VisualScripting.SerializedPropertyProviderAttribute(typeof(global::UnityEngine.Rendering.Universal.StencilStateData))]
+	public class PropertyProvider_UnityEngine_Rendering_Universal_StencilStateData : Unity.VisualScripting.SerializedPropertyProvider<UnityEngine.Rendering.Universal.StencilStateData>
+	{
+	}
 }

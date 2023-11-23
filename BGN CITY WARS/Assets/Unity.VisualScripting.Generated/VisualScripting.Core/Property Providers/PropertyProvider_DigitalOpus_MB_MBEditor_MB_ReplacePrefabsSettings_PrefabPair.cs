@@ -12,8 +12,8 @@ namespace Unity.VisualScripting.Generated.PropertyProviders
 {
 	
 	
-//	[global::Unity.VisualScripting.SerializedPropertyProviderAttribute(typeof(global::DigitalOpus.MB.MBEditor.MB_ReplacePrefabsSettings.PrefabPair))]
-	//public class PropertyProvider_DigitalOpus_MB_MBEditor_MB_ReplacePrefabsSettings_PrefabPair : Unity.VisualScripting.SerializedPropertyProvider<DigitalOpus.MB.MBEditor.MB_ReplacePrefabsSettings.PrefabPair>
-//	{
+	[global::Unity.VisualScripting.SerializedPropertyProviderAttribute(typeof(global::DigitalOpus.MB.MBEditor.MB_ReplacePrefabsSettings.PrefabPair))]
+	public class PropertyProvider_DigitalOpus_MB_MBEditor_MB_ReplacePrefabsSettings_PrefabPair : Unity.VisualScripting.SerializedPropertyProvider<DigitalOpus.MB.MBEditor.MB_ReplacePrefabsSettings.PrefabPair>
+	{
 	}
-//
+}

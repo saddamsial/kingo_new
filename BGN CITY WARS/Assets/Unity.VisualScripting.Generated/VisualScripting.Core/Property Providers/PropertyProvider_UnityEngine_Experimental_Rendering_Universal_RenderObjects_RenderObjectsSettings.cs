@@ -12,8 +12,8 @@ namespace Unity.VisualScripting.Generated.PropertyProviders
 {
 	
 	
-//	[global::Unity.VisualScripting.SerializedPropertyProviderAttribute(typeof(global::UnityEngine.Experimental.Rendering.Universal.RenderObjects.RenderObjectsSettings))]
-//	public class PropertyProvider_UnityEngine_Experimental_Rendering_Universal_RenderObjects_RenderObjectsSettings : Unity.VisualScripting.SerializedPropertyProvider<UnityEngine.Experimental.Rendering.Universal.RenderObjects.RenderObjectsSettings>
-//	{
-	//}
+	[global::Unity.VisualScripting.SerializedPropertyProviderAttribute(typeof(global::UnityEngine.Experimental.Rendering.Universal.RenderObjects.RenderObjectsSettings))]
+	public class PropertyProvider_UnityEngine_Experimental_Rendering_Universal_RenderObjects_RenderObjectsSettings : Unity.VisualScripting.SerializedPropertyProvider<UnityEngine.Experimental.Rendering.Universal.RenderObjects.RenderObjectsSettings>
+	{
+	}
 }
