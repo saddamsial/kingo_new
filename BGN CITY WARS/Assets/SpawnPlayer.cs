@@ -11,6 +11,8 @@ public class SpawnPlayer : MonoBehaviour
     private Transform SpawnPoint;
     [SerializeField]
     private bool AutoSpawn;
+    [SerializeField]
+    private bool SpawnOffline;
 
     // Start is called before the first frame update
     private void Awake()
