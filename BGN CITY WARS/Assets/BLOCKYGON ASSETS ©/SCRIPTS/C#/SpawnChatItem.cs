@@ -12,6 +12,8 @@ public class SpawnChatItem : MonoBehaviour
     [SerializeField]
     private Transform Inputfield;
 
+
+
     private PhotonView PV;
     private GameObject MessageItem;
 
@@ -28,7 +30,7 @@ public class SpawnChatItem : MonoBehaviour
             PV.RPC("SetTXTmessage", RpcTarget.AllBuffered);
        if(PV.IsMine)
             {
-                Inputfield.GetComponent<TMP_InputField>().text = ""; // rerset field after send
+                ResetField(); // rerset field after send
             }
 
         }
@@ -38,5 +40,9 @@ public class SpawnChatItem : MonoBehaviour
     public void SetTXTmessage()
     {
         MessageItem.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = PhotonNetwork.NickName + " : " + Inputfield.GetComponent<TMP_InputField>().text;  // set chat item logic
+    }
+    public void ResetField()
+    {
+        Inputfield.GetComponent<TMP_InputField>().text = ""; 
     }
 }
