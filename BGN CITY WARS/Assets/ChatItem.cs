@@ -17,7 +17,7 @@ public class ChatItem : MonoBehaviour,IPunObservable
         PV = this.GetComponent<PhotonView>();
         if(transform.parent==null)
         {
-            transform.parent = GameObject.Find("MESSAGE ITEMS").transform;
+            transform.parent =  GameObject.Find("ROOM DATA").transform.GetChild(1).GetChild(5).GetChild(0).GetChild(0);
         }
         
      

@@ -28,11 +28,6 @@ public class SpawnChatItem : MonoBehaviour
         #region SetTXTmessage
         {
             PV.RPC("SetTXTmessage", RpcTarget.AllBuffered);
-       if(PV.IsMine)
-            {
-                ResetField(); // rerset field after send
-            }
-
         }
         #endregion
     }
@@ -41,8 +36,5 @@ public class SpawnChatItem : MonoBehaviour
     {
         MessageItem.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = PhotonNetwork.NickName + " : " + Inputfield.GetComponent<TMP_InputField>().text;  // set chat item logic
     }
-    public void ResetField()
-    {
-        Inputfield.GetComponent<TMP_InputField>().text = ""; 
-    }
+
 }
