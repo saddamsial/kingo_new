@@ -2,8 +2,13 @@
 using System.Collections;
 
 public class ApplicationManager : MonoBehaviour {
-	
 
+	[SerializeField]
+	private int GameFrameRate;
+	[SerializeField]
+	private int SleepTimeout;
+	[SerializeField]
+	private int brightness;
 	public void Quit () 
 	{
 		#if UNITY_EDITOR
@@ -15,7 +20,11 @@ public class ApplicationManager : MonoBehaviour {
 
     private void Start()
     {
-		Application.targetFrameRate = 60;
+		Application.targetFrameRate = GameFrameRate; //set FPS
 
-    }
+		Screen.sleepTimeout = SleepTimeout;
+		Screen.brightness = brightness;
+
+
+	}
 }
