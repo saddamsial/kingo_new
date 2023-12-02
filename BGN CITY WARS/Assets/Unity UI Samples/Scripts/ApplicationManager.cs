@@ -22,7 +22,7 @@ public class ApplicationManager : MonoBehaviour {
     {
 		Application.targetFrameRate = GameFrameRate; //set FPS
 
-		Screen.sleepTimeout = SleepTimeout;
+	
 		Screen.brightness = brightness;
 
 
