@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Photon.Pun;
+using UnityEngine.SceneManagement;
 
 
 
@@ -15,6 +16,9 @@ public class RoomGameManager : MonoBehaviour,IPunObservable
     public Text timerText;
     public float RoundTime = 60.0f; // Set your countdown time in seconds here
     private float currentTime;
+
+    [SerializeField]
+    private Transform LoadingScreen;
 
     public GameObject WinnerAnnounceUI;
     public List<GameObject> Players;
@@ -92,5 +96,12 @@ public class RoomGameManager : MonoBehaviour,IPunObservable
         {
             currentTime = (float)stream.ReceiveNext();
         }
+    }
+
+    public void BacktoMainMenu()
+    {
+        LoadingScreen.gameObject.SetActive(true);
+        SceneManager.LoadScene("MAIN MENU");
+
     }
 }
