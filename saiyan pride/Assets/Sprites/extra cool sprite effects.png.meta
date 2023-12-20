@@ -2256,7 +2256,7 @@ TextureImporter:
       213: 6097902474192148205
     second: extra cool sprite effects_750
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -2273,10 +2273,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -2315,6 +2317,8 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -2326,6 +2330,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -2338,6 +2343,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -2350,6 +2356,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -2362,6 +2369,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -2374,6 +2382,20 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -4426,9 +4448,106 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-  spritePackingTag: 
+    nameFileIdTable:
+      extra cool sprite effects_0: -6283568681640366916
+      extra cool sprite effects_1: -7281036072858684326
+      extra cool sprite effects_10: 4809344865038755929
+      extra cool sprite effects_11: 5633657467298899259
+      extra cool sprite effects_12: -4425424978732247846
+      extra cool sprite effects_13: -8140688419123580258
+      extra cool sprite effects_14: -1557102485446433294
+      extra cool sprite effects_15: 3242415346126046966
+      extra cool sprite effects_16: 6894901529313343650
+      extra cool sprite effects_17: 7866135116373330845
+      extra cool sprite effects_18: 96565829077910445
+      extra cool sprite effects_19: -1171945568965826295
+      extra cool sprite effects_2: -7566928115966055598
+      extra cool sprite effects_20: -3754695646267756349
+      extra cool sprite effects_21: -1632904147395926469
+      extra cool sprite effects_22: 5740812014220183437
+      extra cool sprite effects_23: -4891433289431857525
+      extra cool sprite effects_24: 3094924829641171327
+      extra cool sprite effects_25: 2913169610442485379
+      extra cool sprite effects_26: 2232499374654257282
+      extra cool sprite effects_27: 3979478059934775745
+      extra cool sprite effects_28: -6731237664897129750
+      extra cool sprite effects_29: 1293153868989010248
+      extra cool sprite effects_3: -8184030018749069826
+      extra cool sprite effects_30: 2357971596514219638
+      extra cool sprite effects_31: 5380365022137413187
+      extra cool sprite effects_32: -975993224265306688
+      extra cool sprite effects_33: -219833169480663379
+      extra cool sprite effects_34: 5702635713372710219
+      extra cool sprite effects_35: -9072644947262389746
+      extra cool sprite effects_36: 8269160591479100182
+      extra cool sprite effects_37: 7493496984804468089
+      extra cool sprite effects_38: -6993268332856102272
+      extra cool sprite effects_39: -4582779817275321655
+      extra cool sprite effects_4: -8779196912164169890
+      extra cool sprite effects_40: -981531279582145003
+      extra cool sprite effects_41: -6801592027777210318
+      extra cool sprite effects_42: 3831931282853842360
+      extra cool sprite effects_43: 5554034218271928220
+      extra cool sprite effects_44: 1462158222024928643
+      extra cool sprite effects_45: 8112301867518456548
+      extra cool sprite effects_46: -3397794005026540930
+      extra cool sprite effects_47: -5200619027768796864
+      extra cool sprite effects_48: -1893020376900499599
+      extra cool sprite effects_49: -4882779139575560422
+      extra cool sprite effects_5: -7350691495711173479
+      extra cool sprite effects_50: -2379432718292926105
+      extra cool sprite effects_51: -4850414839497837129
+      extra cool sprite effects_52: 1263267409798098044
+      extra cool sprite effects_53: 5469373597790373018
+      extra cool sprite effects_54: 4812092230150784921
+      extra cool sprite effects_55: 3868330221315601490
+      extra cool sprite effects_56: -3668053955869244881
+      extra cool sprite effects_57: -5992391931663421014
+      extra cool sprite effects_58: -8922965325581287573
+      extra cool sprite effects_59: 3036971652328578306
+      extra cool sprite effects_6: 7502803039316972542
+      extra cool sprite effects_60: 373218162498101904
+      extra cool sprite effects_61: 6317272918606098474
+      extra cool sprite effects_62: 954469988605565600
+      extra cool sprite effects_63: -4464437137051320765
+      extra cool sprite effects_64: -2134313203127554244
+      extra cool sprite effects_65: -7986635376732294409
+      extra cool sprite effects_66: 6669731148323285147
+      extra cool sprite effects_67: -7856682947357087164
+      extra cool sprite effects_68: -7823280700277554273
+      extra cool sprite effects_69: 4454259512634865645
+      extra cool sprite effects_7: 8425032325769787729
+      extra cool sprite effects_70: 6134365064566452114
+      extra cool sprite effects_71: -7338201823740664638
+      extra cool sprite effects_72: 5307090957385662319
+      extra cool sprite effects_73: -1307326522841377381
+      extra cool sprite effects_74: -4086305964608358115
+      extra cool sprite effects_75: 4728873453401272672
+      extra cool sprite effects_76: -3838025904824536105
+      extra cool sprite effects_77: -8308810676947788052
+      extra cool sprite effects_78: 7967179827974564282
+      extra cool sprite effects_79: -1581315874703125406
+      extra cool sprite effects_8: -8382146909223134115
+      extra cool sprite effects_80: 8092146330401509591
+      extra cool sprite effects_81: 8302896624256837801
+      extra cool sprite effects_82: 700095535646745711
+      extra cool sprite effects_83: -1206494645216775550
+      extra cool sprite effects_84: -3890614217647618630
+      extra cool sprite effects_85: -5573155318192855916
+      extra cool sprite effects_86: -3261091797778525612
+      extra cool sprite effects_87: 64191890025423774
+      extra cool sprite effects_88: 6210745697440022645
+      extra cool sprite effects_89: 674114438722264902
+      extra cool sprite effects_9: 5496805922386487060
+      extra cool sprite effects_90: -838025989995885206
+      extra cool sprite effects_91: -115097249076037710
+      extra cool sprite effects_92: -357063661760270036
+      extra cool sprite effects_93: 2581606832968352249
+      extra cool sprite effects_94: -7278472725979121850
+      extra cool sprite effects_95: -312039956539740969
+      extra cool sprite effects_96: -6146973270472901811
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

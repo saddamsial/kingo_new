@@ -93,7 +93,7 @@ TextureImporter:
       213: -8319756102783973103
     second: NAMEK SPRITE SHEET_29
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -110,10 +110,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -152,6 +154,8 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -163,6 +167,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -175,6 +180,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -187,6 +193,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -199,6 +206,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -211,6 +219,20 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -856,9 +878,39 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-  spritePackingTag: 
+    nameFileIdTable:
+      NAMEK SPRITE SHEET_0: -7021112276817817165
+      NAMEK SPRITE SHEET_1: 5654565097625703316
+      NAMEK SPRITE SHEET_10: -5901562380509235571
+      NAMEK SPRITE SHEET_11: 399111536913593223
+      NAMEK SPRITE SHEET_12: -7052278483015274707
+      NAMEK SPRITE SHEET_13: -2474385500296292162
+      NAMEK SPRITE SHEET_14: 5547426963780844269
+      NAMEK SPRITE SHEET_15: 6273540029949410476
+      NAMEK SPRITE SHEET_16: 3108425577807645300
+      NAMEK SPRITE SHEET_17: 3359576008010287222
+      NAMEK SPRITE SHEET_18: -2823530114286558940
+      NAMEK SPRITE SHEET_19: 4675643781438882002
+      NAMEK SPRITE SHEET_2: -3184227833779373308
+      NAMEK SPRITE SHEET_20: -4577574406939141825
+      NAMEK SPRITE SHEET_21: -6048156449249003081
+      NAMEK SPRITE SHEET_22: 3235145624322060012
+      NAMEK SPRITE SHEET_23: -5986062155553677030
+      NAMEK SPRITE SHEET_24: -5330656413805643978
+      NAMEK SPRITE SHEET_25: -3537005622233143601
+      NAMEK SPRITE SHEET_26: -1911461758023511069
+      NAMEK SPRITE SHEET_27: 6624581107731177863
+      NAMEK SPRITE SHEET_28: 3754018828433426456
+      NAMEK SPRITE SHEET_29: -8319756102783973103
+      NAMEK SPRITE SHEET_3: 1086218259205614484
+      NAMEK SPRITE SHEET_4: 7637513469421479532
+      NAMEK SPRITE SHEET_5: -1392829991498610973
+      NAMEK SPRITE SHEET_6: -7864812774786513347
+      NAMEK SPRITE SHEET_7: -8759405735961519596
+      NAMEK SPRITE SHEET_8: -7440675024782210465
+      NAMEK SPRITE SHEET_9: -1438426904033517052
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

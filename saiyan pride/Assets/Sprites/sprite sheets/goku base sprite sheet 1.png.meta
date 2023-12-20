@@ -459,7 +459,7 @@ TextureImporter:
       213: 5597554589842820218
     second: goku base sprite sheet_151
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -476,10 +476,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -518,6 +520,8 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -529,6 +533,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -541,6 +546,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -553,6 +559,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -565,6 +572,20 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -3772,9 +3793,161 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-  spritePackingTag: 
+    nameFileIdTable:
+      ENERGY3 1: 8778158188741665795
+      ENERGY3 2: -776927314183868800
+      ENERGY3 3: 5441098039424383592
+      ENERGY3 4: 3048269701497083913
+      ENERGY3 5: 2758952636782021612
+      ENERGY3 6: 7855200184528623816
+      ENERGY3 6.5: -6947134902032582116
+      GOKU BASE PFP: 5065988467192032345
+      charge 1: 1329100559234186758
+      charge 2: -7588637940234654115
+      charge 3: -4971450134438550701
+      charge 4: 6102820924704142272
+      goku base sprite sheet_1: -4663776002612598445
+      goku base sprite sheet_10: -1892798505167814283
+      goku base sprite sheet_100: -2368523529317325052
+      goku base sprite sheet_101: 3496456783001086436
+      goku base sprite sheet_102: 4430957387467881986
+      goku base sprite sheet_103: -6473845232562689748
+      goku base sprite sheet_104: 700540242094383945
+      goku base sprite sheet_105: 4253700723612354271
+      goku base sprite sheet_106: 7640052405087037627
+      goku base sprite sheet_107: 6116280426713293288
+      goku base sprite sheet_108: -5816711812153853841
+      goku base sprite sheet_109: 8517434108623399957
+      goku base sprite sheet_11: 2008284968244985992
+      goku base sprite sheet_110: 8236600738603533726
+      goku base sprite sheet_111: -7546654366180081847
+      goku base sprite sheet_112: -1062881979313697776
+      goku base sprite sheet_113: -4493442688954733028
+      goku base sprite sheet_114: 2278665584941158345
+      goku base sprite sheet_122: -6603217802188300536
+      goku base sprite sheet_123: -1047955764597881468
+      goku base sprite sheet_124: 1240937913835477967
+      goku base sprite sheet_125: -5813160988632792241
+      goku base sprite sheet_126: -547149617691554205
+      goku base sprite sheet_127: -115346337230925017
+      goku base sprite sheet_128: -7364540011494621016
+      goku base sprite sheet_129: 1611008857224514564
+      goku base sprite sheet_13: -7406252622245517634
+      goku base sprite sheet_130: 9195540207237626088
+      goku base sprite sheet_131: 5611449212017197009
+      goku base sprite sheet_132: 5013391149810949337
+      goku base sprite sheet_133: -6583564233971025685
+      goku base sprite sheet_134: -3244527407688997752
+      goku base sprite sheet_135: -1761280163110011557
+      goku base sprite sheet_136: 4074401630591510890
+      goku base sprite sheet_137: 2311918783991258199
+      goku base sprite sheet_138: -1478805859817847419
+      goku base sprite sheet_139: 4808271465797559665
+      goku base sprite sheet_140: 2541919783515891657
+      goku base sprite sheet_141: -7734248009719478837
+      goku base sprite sheet_142: 2880663555912970722
+      goku base sprite sheet_143: -1303491283785888175
+      goku base sprite sheet_144: -4530240452824168415
+      goku base sprite sheet_145: -7786956817505430658
+      goku base sprite sheet_146: 7838480421014245118
+      goku base sprite sheet_147: -3816336144118478404
+      goku base sprite sheet_148: -1418332645762759459
+      goku base sprite sheet_149: 6430945547208082772
+      goku base sprite sheet_15: -3040290846606757742
+      goku base sprite sheet_150: -2868741382698983806
+      goku base sprite sheet_151: 5597554589842820218
+      goku base sprite sheet_16: -8210283017338162085
+      goku base sprite sheet_17: 1378660903916369652
+      goku base sprite sheet_18: -2185958600079030479
+      goku base sprite sheet_19: -4078688991945497211
+      goku base sprite sheet_2: -1922107713525073613
+      goku base sprite sheet_20: -3314234355760585291
+      goku base sprite sheet_22: 4368268554742506965
+      goku base sprite sheet_23: -1347110985672121520
+      goku base sprite sheet_24: -1161057855170374193
+      goku base sprite sheet_25: -1747994443061082538
+      goku base sprite sheet_26: 4939539501239039898
+      goku base sprite sheet_27: -3580386723655230828
+      goku base sprite sheet_28: -7366937338512389960
+      goku base sprite sheet_29: -8299652506435347961
+      goku base sprite sheet_3: 594787211278310097
+      goku base sprite sheet_30: 3610087334153622739
+      goku base sprite sheet_31: 802766410734405309
+      goku base sprite sheet_32: 8750044620683159431
+      goku base sprite sheet_33: -7051503250960245408
+      goku base sprite sheet_34: 429086034875904525
+      goku base sprite sheet_35: -4103538626860744722
+      goku base sprite sheet_36: 1663073545187720333
+      goku base sprite sheet_37: -16602531614930631
+      goku base sprite sheet_38: -1580142092131657559
+      goku base sprite sheet_39: 7034119815186179990
+      goku base sprite sheet_4: 2301476003303445710
+      goku base sprite sheet_40: 4263584191321764154
+      goku base sprite sheet_41: -3160537763565844649
+      goku base sprite sheet_42: -1536148230299207617
+      goku base sprite sheet_43: 5563793353792649314
+      goku base sprite sheet_44: 2839250853286589074
+      goku base sprite sheet_45: 9004530602054057015
+      goku base sprite sheet_46: 3293677032584193325
+      goku base sprite sheet_47: -5186954715467676915
+      goku base sprite sheet_48: -9131869250948449459
+      goku base sprite sheet_49: -1198969408564403290
+      goku base sprite sheet_5: 1641889942485450601
+      goku base sprite sheet_50: -8821534898717476834
+      goku base sprite sheet_51: -2968289506221858063
+      goku base sprite sheet_52: -9124946450030592175
+      goku base sprite sheet_53: -1120267492396998405
+      goku base sprite sheet_54: -4721015107805597956
+      goku base sprite sheet_55: -5339756314768649931
+      goku base sprite sheet_56: -4631854560918920525
+      goku base sprite sheet_57: 5624659371157519047
+      goku base sprite sheet_58: 6420524861823022643
+      goku base sprite sheet_59: -4481576568012337582
+      goku base sprite sheet_6: -3287111701092542503
+      goku base sprite sheet_60: -6674470224104563592
+      goku base sprite sheet_61: -7550168503963277399
+      goku base sprite sheet_62: 831492662449818660
+      goku base sprite sheet_63: -1908411886465108618
+      goku base sprite sheet_64: 2286047703634011005
+      goku base sprite sheet_65: -2785635206055067204
+      goku base sprite sheet_66: -4977998105879452380
+      goku base sprite sheet_67: -620242199041726925
+      goku base sprite sheet_68: 5977315851392845048
+      goku base sprite sheet_69: 9030376589516552670
+      goku base sprite sheet_7: -8340458310606114505
+      goku base sprite sheet_70: 8526434202576501853
+      goku base sprite sheet_71: -5165454624514384428
+      goku base sprite sheet_72: 566406275005333762
+      goku base sprite sheet_73: 3243773902182975361
+      goku base sprite sheet_74: 2507084418566700946
+      goku base sprite sheet_75: 8293435693173939854
+      goku base sprite sheet_76: -8489089528208830103
+      goku base sprite sheet_77: -5411409006984628113
+      goku base sprite sheet_78: 4427116682030567376
+      goku base sprite sheet_79: -2794500881294600141
+      goku base sprite sheet_8: 1239546834492025108
+      goku base sprite sheet_80: -3787112883664981114
+      goku base sprite sheet_81: 1923326149842216464
+      goku base sprite sheet_82: 5281556176453759392
+      goku base sprite sheet_83: 1354421472998829279
+      goku base sprite sheet_84: -6674615671998717984
+      goku base sprite sheet_85: 5572766647130030434
+      goku base sprite sheet_87: 1136334364063376860
+      goku base sprite sheet_88: -2107101054765474388
+      goku base sprite sheet_89: -2226857337808001982
+      goku base sprite sheet_9: -4539775696365358962
+      goku base sprite sheet_90: -3306769844794157156
+      goku base sprite sheet_91: -8278900075028197114
+      goku base sprite sheet_92: 1224578436257416365
+      goku base sprite sheet_93: -7201752243534551865
+      goku base sprite sheet_94: -5149804354120611285
+      goku base sprite sheet_95: -2748704660810899745
+      goku base sprite sheet_96: 3373855105543588053
+      goku base sprite sheet_97: 3193786613975502175
+      goku base sprite sheet_98: 8018348427253120053
+      goku base sprite sheet_99: -4723741712292836337
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

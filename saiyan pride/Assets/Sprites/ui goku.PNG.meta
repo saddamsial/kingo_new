@@ -837,7 +837,7 @@ TextureImporter:
       213: 1643768558134813307
     second: ui goku_30
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -854,10 +854,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -867,8 +869,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -889,11 +891,15 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -905,6 +911,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -917,6 +924,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -929,6 +937,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -941,6 +950,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -953,6 +963,20 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -3473,7 +3497,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 81b5c8e85df52a0e0800000000000000
-      internalID: -2260138692162331880
+      internalID: -3346141171498164322
       vertices: []
       indices: 
       edges: []
@@ -3494,7 +3518,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: d2172693cba00f250800000000000000
-      internalID: 5976288509053530413
+      internalID: 6643817837365566935
       vertices: []
       indices: 
       edges: []
@@ -3599,7 +3623,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 8f9fe1fc004ca5a90800000000000000
-      internalID: -7324326336210732552
+      internalID: -2730227011442679263
       vertices: []
       indices: 
       edges: []
@@ -3845,9 +3869,146 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-  spritePackingTag: 
+    nameFileIdTable:
+      fly up 2: 4245232372966925209
+      fly up 3: 3913490141144812641
+      fly up 4: -9181636846807860654
+      fly up1: -8426074169492117779
+      idl1: -941688765135549844
+      idl2: 2055345515900296823
+      idl3: 8207672907978162370
+      idl4: -2730227011442679263
+      intro1: 3607930840720577662
+      intro2: -266221550151199223
+      intro3: -7578934224907918977
+      intro4: 2001340026553153706
+      move for3: 4757212314240056514
+      move for4: 1893722117043496324
+      movefor1: -7473359193725488594
+      movefor2: 7575635066995801974
+      ui goku_0: 305195559119136526
+      ui goku_101: -7776791490308410880
+      ui goku_102: -4053363436879700597
+      ui goku_103: -3040721704993793287
+      ui goku_104: -12461566386126677
+      ui goku_11: -2329509057450880331
+      ui goku_115: 3124994559077422884
+      ui goku_116: 3595549770997172734
+      ui goku_117: 8667502096016852885
+      ui goku_118: 4145755508838945835
+      ui goku_119: -6200807924450542115
+      ui goku_12: -3346141171498164322
+      ui goku_120: 6654947075690228867
+      ui goku_121: 7108874282364344654
+      ui goku_122: -7905384141106626491
+      ui goku_123: 3307559992389739488
+      ui goku_124: -7374104142360311024
+      ui goku_125: 2495260462544541291
+      ui goku_126: -2916899230630696565
+      ui goku_127: 630591317090526320
+      ui goku_128: 7809460230213049441
+      ui goku_129: 5906186403949880709
+      ui goku_13: 6643817837365566935
+      ui goku_137: 6507861900533745581
+      ui goku_14: 819848000379721072
+      ui goku_147: -1127265306263065151
+      ui goku_148: 7446594650310259859
+      ui goku_149: 2051023517599409836
+      ui goku_15: 3575511714254583386
+      ui goku_150: -2919059096590309438
+      ui goku_151: 8602104546345856337
+      ui goku_16: 6662040855017334054
+      ui goku_160: -7136203499830523422
+      ui goku_163: -1445519863493004740
+      ui goku_164: 3484730690879982867
+      ui goku_165: 2406873562540222347
+      ui goku_166: -7261061805971562155
+      ui goku_167: 5206815765560875422
+      ui goku_168: 1119405531586024234
+      ui goku_169: 6359863041062803325
+      ui goku_17: -4749548844936109503
+      ui goku_170: -5105429964587858773
+      ui goku_171: -4062284061304170667
+      ui goku_172: -873744244262229374
+      ui goku_173: 5325657959686783669
+      ui goku_174: -8750753565494547882
+      ui goku_175: -1927801325089827481
+      ui goku_176: 220412060256642957
+      ui goku_177: -3127167802808748612
+      ui goku_178: 1637369803475180389
+      ui goku_179: -4680217896669784976
+      ui goku_18: -8860217206334658544
+      ui goku_180: -452294872274879976
+      ui goku_181: 6573920935037030080
+      ui goku_182: -969379290601948873
+      ui goku_183: -4082273184020758273
+      ui goku_184: 4656770558290648627
+      ui goku_185: 1484840060701938616
+      ui goku_186: 622510696017548558
+      ui goku_187: 7559204997055499428
+      ui goku_188: 6901042709899863446
+      ui goku_19: -4875216459650878955
+      ui goku_2: 7117541333202200206
+      ui goku_20: 5087225461413116773
+      ui goku_205: 9060292119873583382
+      ui goku_206: 8442739333213009032
+      ui goku_207: 5891463989314199719
+      ui goku_208: 2107671828391619922
+      ui goku_21: 5401186369619225385
+      ui goku_219: -5011063879504291170
+      ui goku_22: -7036225991214243800
+      ui goku_220: 6960543784143008184
+      ui goku_221: -1556253715939992748
+      ui goku_222: -8564223417054502620
+      ui goku_223: -7970236923955097269
+      ui goku_224: -6529152836550092297
+      ui goku_23: -7007569007901040460
+      ui goku_231: -1986444167591663563
+      ui goku_232: 98881681815551389
+      ui goku_233: 5657106246690008279
+      ui goku_234: -8254255967683351060
+      ui goku_235: 3036406776923021962
+      ui goku_24: -4026982384690528176
+      ui goku_244: -3149137265280788
+      ui goku_245: 7917400004154710632
+      ui goku_246: 254956475514387190
+      ui goku_247: 5098374179412338435
+      ui goku_248: -6177665130026583134
+      ui goku_249: 2589637012943911760
+      ui goku_25: 1578151727588288834
+      ui goku_250: 153582157746120339
+      ui goku_251: 2153187459857663556
+      ui goku_252: -1551883415438590361
+      ui goku_253: 6882966952826064753
+      ui goku_254: 1209165262598984755
+      ui goku_255: 7144052794861782759
+      ui goku_256: 3711390827449353088
+      ui goku_257: -7952141137608912095
+      ui goku_258: -2465725761030782682
+      ui goku_259: -3951386045911201757
+      ui goku_26: -581304672852463368
+      ui goku_260: 7021095416818264030
+      ui goku_27: 1480563228401943472
+      ui goku_28: 3490474051973053276
+      ui goku_29: -4643534272799985006
+      ui goku_30: 1643768558134813307
+      ui goku_34: 3872178872268623832
+      ui goku_37: 3770563054505020122
+      ui goku_38: 7660564920370340912
+      ui goku_4: 3578536508385900920
+      ui goku_42: 6940692779932698651
+      ui goku_43: -2262525392413298754
+      ui goku_44: -762311643122004089
+      ui goku_45: 2123465725109145427
+      ui goku_47: -7180144532410642451
+      ui goku_48: -7268383235991241286
+      ui goku_5: -5559701271293336657
+      ui goku_6: 4601776807884108381
+      ui goku_67: 1804567919700880423
+      ui goku_7: -1310152734281755660
+      ui goku_8: 1675704624870188927
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

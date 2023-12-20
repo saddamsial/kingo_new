@@ -321,7 +321,7 @@ TextureImporter:
       213: -43684297898221264
     second: 931202004339_95
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -338,10 +338,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -351,8 +353,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -373,11 +375,15 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -389,6 +395,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -401,6 +408,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -413,6 +421,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -425,6 +434,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -437,6 +447,20 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -2201,7 +2225,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: f6435966c693e2160800000000000000
-      internalID: 7002597608348005487
+      internalID: -7604562205308803314
       vertices: []
       indices: 
       edges: []
@@ -2222,7 +2246,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 441cbd186246b86f0800000000000000
-      internalID: -681340802066300604
+      internalID: -4438799306808093306
       vertices: []
       indices: 
       edges: []
@@ -2243,7 +2267,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 80803d036a66dfeb0800000000000000
-      internalID: -4684475173425707000
+      internalID: -7111038728372651797
       vertices: []
       indices: 
       edges: []
@@ -2264,7 +2288,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 9ba4740c1888fb490800000000000000
-      internalID: -7728308344686425415
+      internalID: 2999757886316777677
       vertices: []
       indices: 
       edges: []
@@ -2285,7 +2309,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 329444557da319520800000000000000
-      internalID: 2707009547549296931
+      internalID: -4660339513451618420
       vertices: []
       indices: 
       edges: []
@@ -2306,7 +2330,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 6de596f38e7f407d0800000000000000
-      internalID: -2952962878779859242
+      internalID: 2201873007163512872
       vertices: []
       indices: 
       edges: []
@@ -2327,7 +2351,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 824c91710f8343850800000000000000
-      internalID: 6355767577957483560
+      internalID: -6582924266815068075
       vertices: []
       indices: 
       edges: []
@@ -2348,7 +2372,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 730e187dea8a7c730800000000000000
-      internalID: 4019366661344845879
+      internalID: 5956810342260139935
       vertices: []
       indices: 
       edges: []
@@ -2369,7 +2393,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 61462b28694cfcdd0800000000000000
-      internalID: -2463534320431504362
+      internalID: -7996340641286455274
       vertices: []
       indices: 
       edges: []
@@ -2390,7 +2414,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: f25472ef372e127e0800000000000000
-      internalID: -1791902188903643857
+      internalID: -3675802249274469313
       vertices: []
       indices: 
       edges: []
@@ -2468,9 +2492,105 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-  spritePackingTag: 
+    nameFileIdTable:
+      931202004339_0: 8457992823825904338
+      931202004339_1: 7111911009135409354
+      931202004339_10: -9132521376243283034
+      931202004339_11: -4094160461832442592
+      931202004339_12: -6896578709748149573
+      931202004339_13: -598610481383643549
+      931202004339_14: 5812614263593847342
+      931202004339_15: -1375947966608487403
+      931202004339_16: -6493442568435238072
+      931202004339_17: -7845677859502435496
+      931202004339_18: 7339098260037419017
+      931202004339_19: -5122170521012362661
+      931202004339_2: 2807142703233579460
+      931202004339_20: -2602764214338192556
+      931202004339_21: -5578163294656013317
+      931202004339_22: -6859991190518337963
+      931202004339_23: 4434629877568443928
+      931202004339_24: -3406781629108866910
+      931202004339_25: -5161240850042143442
+      931202004339_26: -9014951067548444671
+      931202004339_27: -6172111137568630865
+      931202004339_28: -4900615148293153942
+      931202004339_29: -6876015078114584924
+      931202004339_3: 3337693211536731614
+      931202004339_30: -1614615950543903819
+      931202004339_31: 2973074621545274406
+      931202004339_32: -8589218589366103533
+      931202004339_33: 8448083357448696310
+      931202004339_34: -6639912637961170096
+      931202004339_35: -8423384602273117056
+      931202004339_36: 5956640478828473651
+      931202004339_37: -2044346515729041905
+      931202004339_38: 3046808867117569509
+      931202004339_39: 6929815916426205880
+      931202004339_4: -2898450678481529516
+      931202004339_40: -7943715094190013278
+      931202004339_41: 6691646284829653676
+      931202004339_42: 1612817557840180933
+      931202004339_43: 5163680487729185123
+      931202004339_44: -828894458763745193
+      931202004339_45: 6998039525711762568
+      931202004339_46: 64407198092977009
+      931202004339_47: 4084054620207958750
+      931202004339_48: 3074977179638389182
+      931202004339_49: 2969909487694743023
+      931202004339_5: 5684356327028235578
+      931202004339_50: 2292518851978069026
+      931202004339_51: 5137959306387288175
+      931202004339_52: -2718302343256776540
+      931202004339_53: -493615683678913575
+      931202004339_54: 1113572747484957103
+      931202004339_55: 5878130455314159438
+      931202004339_56: -498083664061935396
+      931202004339_57: 4705946299972601644
+      931202004339_58: -4317870577022974732
+      931202004339_59: 8005852106503008941
+      931202004339_6: -2766658329639058000
+      931202004339_60: 1406792761991992768
+      931202004339_61: -569695986595283769
+      931202004339_62: -2087092474188373125
+      931202004339_63: 8850959929386241940
+      931202004339_64: 349979250248847819
+      931202004339_65: 2332531635858271896
+      931202004339_66: 8901548516463131636
+      931202004339_67: 3515425168883705522
+      931202004339_68: 8174121515131313305
+      931202004339_69: -32180978125446408
+      931202004339_7: 6763804999446913505
+      931202004339_70: -7978237530691378605
+      931202004339_71: 5956810342260139935
+      931202004339_72: -7996340641286455274
+      931202004339_73: -3675802249274469313
+      931202004339_74: -6582924266815068075
+      931202004339_75: 2201873007163512872
+      931202004339_76: -4660339513451618420
+      931202004339_77: 2999757886316777677
+      931202004339_78: -7521759199197886
+      931202004339_79: -7604562205308803314
+      931202004339_8: 7059616432384887475
+      931202004339_80: -4438799306808093306
+      931202004339_81: -7111038728372651797
+      931202004339_82: 1408458167967963373
+      931202004339_83: 596598545562260813
+      931202004339_84: -6625765211476613659
+      931202004339_85: 1756805169317592177
+      931202004339_86: 3313096980760026531
+      931202004339_87: 1052153189502006690
+      931202004339_88: 8779146927850330973
+      931202004339_89: 6009016792480100615
+      931202004339_9: -5539073267285680339
+      931202004339_90: 3855962876948366589
+      931202004339_91: 2382499976798080691
+      931202004339_92: -4941224669383734203
+      931202004339_93: -2602785266653018954
+      931202004339_94: 4305809339981600315
+      931202004339_95: -43684297898221264
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

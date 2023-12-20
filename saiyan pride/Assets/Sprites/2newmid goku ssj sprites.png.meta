@@ -342,7 +342,7 @@ TextureImporter:
       213: 7529505138325655010
     second: 2newmid goku ssj sprites_112
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -359,10 +359,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -372,8 +374,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -394,11 +396,15 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -410,6 +416,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -422,6 +429,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -434,6 +442,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -446,6 +455,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -458,6 +468,20 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -2825,9 +2849,121 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-  spritePackingTag: 
+    nameFileIdTable:
+      2newmid goku ssj sprites_0: 6352295823428390735
+      2newmid goku ssj sprites_1: 2961704559601261451
+      2newmid goku ssj sprites_10: -2275203893257191374
+      2newmid goku ssj sprites_100: -6576604669309567151
+      2newmid goku ssj sprites_101: -5319855619116956747
+      2newmid goku ssj sprites_102: -4007222015459927439
+      2newmid goku ssj sprites_103: 406779678963540183
+      2newmid goku ssj sprites_104: 5811909253891425704
+      2newmid goku ssj sprites_105: 6093466453341014303
+      2newmid goku ssj sprites_106: 3818687690433948800
+      2newmid goku ssj sprites_107: 2694095683713300043
+      2newmid goku ssj sprites_108: -3555358316241924386
+      2newmid goku ssj sprites_109: -1866724973464784245
+      2newmid goku ssj sprites_11: 9042725695350784978
+      2newmid goku ssj sprites_110: 6283488741636896652
+      2newmid goku ssj sprites_111: -6550932389048625629
+      2newmid goku ssj sprites_112: 7529505138325655010
+      2newmid goku ssj sprites_12: 4678111332835421305
+      2newmid goku ssj sprites_13: 912371383117686302
+      2newmid goku ssj sprites_14: -3888834300686760521
+      2newmid goku ssj sprites_15: 3229326361959581358
+      2newmid goku ssj sprites_16: -4611288730725232870
+      2newmid goku ssj sprites_17: 2409993554451044753
+      2newmid goku ssj sprites_18: -7507647563112175748
+      2newmid goku ssj sprites_19: 8407038842461890691
+      2newmid goku ssj sprites_2: -6196540142729399917
+      2newmid goku ssj sprites_20: -5233057880070914421
+      2newmid goku ssj sprites_21: 3848187620916128123
+      2newmid goku ssj sprites_22: 5218739243034990259
+      2newmid goku ssj sprites_23: 2019072635162941431
+      2newmid goku ssj sprites_24: 564059481463905245
+      2newmid goku ssj sprites_25: -4630219586604054515
+      2newmid goku ssj sprites_26: 1329664912124460738
+      2newmid goku ssj sprites_27: 6090158267004074464
+      2newmid goku ssj sprites_28: -4806953484830650558
+      2newmid goku ssj sprites_29: 7576596387514012380
+      2newmid goku ssj sprites_3: -8109909445250853748
+      2newmid goku ssj sprites_30: -5088649729355751616
+      2newmid goku ssj sprites_31: -8509279013476811185
+      2newmid goku ssj sprites_32: -3624805646132647134
+      2newmid goku ssj sprites_33: 7826713167908107747
+      2newmid goku ssj sprites_34: -3233655728313429826
+      2newmid goku ssj sprites_35: -7450873513356752011
+      2newmid goku ssj sprites_36: 2799524353337799093
+      2newmid goku ssj sprites_37: 3522667564588017500
+      2newmid goku ssj sprites_38: -8642267918073458180
+      2newmid goku ssj sprites_39: -5838378048074948735
+      2newmid goku ssj sprites_4: -823111001523727804
+      2newmid goku ssj sprites_40: 6875688627859744885
+      2newmid goku ssj sprites_41: 2272524566028572944
+      2newmid goku ssj sprites_42: -4826682194288447236
+      2newmid goku ssj sprites_43: 6905622494764222991
+      2newmid goku ssj sprites_44: -5199594537547741849
+      2newmid goku ssj sprites_45: 8828927612552058811
+      2newmid goku ssj sprites_46: 9222777842444313645
+      2newmid goku ssj sprites_47: -3468531142241825926
+      2newmid goku ssj sprites_48: -9109173526540510934
+      2newmid goku ssj sprites_49: -6287504433160504758
+      2newmid goku ssj sprites_5: -2886757064084832862
+      2newmid goku ssj sprites_50: 2975062813438110470
+      2newmid goku ssj sprites_51: 7243510434171329810
+      2newmid goku ssj sprites_52: -4748740901991222997
+      2newmid goku ssj sprites_53: 3253228767360072639
+      2newmid goku ssj sprites_54: -37380297908269552
+      2newmid goku ssj sprites_55: -3520432462692801572
+      2newmid goku ssj sprites_56: -255256859838413256
+      2newmid goku ssj sprites_57: -2013700767773039947
+      2newmid goku ssj sprites_58: 103628655015284520
+      2newmid goku ssj sprites_59: 3449548919532387751
+      2newmid goku ssj sprites_6: -7913967939795269542
+      2newmid goku ssj sprites_60: 6496093311683610024
+      2newmid goku ssj sprites_61: -7445826515372595603
+      2newmid goku ssj sprites_62: 5060088657885407570
+      2newmid goku ssj sprites_63: -2334371600958826535
+      2newmid goku ssj sprites_64: 578403505050947967
+      2newmid goku ssj sprites_65: 6743738551604614280
+      2newmid goku ssj sprites_66: 3626847089227697491
+      2newmid goku ssj sprites_67: -2928424061742736107
+      2newmid goku ssj sprites_68: -1514445021646022517
+      2newmid goku ssj sprites_69: 1615168434386959532
+      2newmid goku ssj sprites_7: -8947267236267983713
+      2newmid goku ssj sprites_70: -7102709330352390263
+      2newmid goku ssj sprites_71: 735487816529434545
+      2newmid goku ssj sprites_72: -1009665910419585190
+      2newmid goku ssj sprites_73: 375188267377481032
+      2newmid goku ssj sprites_74: 1837428124263950586
+      2newmid goku ssj sprites_75: -7325811657787529622
+      2newmid goku ssj sprites_76: 5706207672187895631
+      2newmid goku ssj sprites_77: 928866823603183946
+      2newmid goku ssj sprites_78: 3424493141888402926
+      2newmid goku ssj sprites_79: 7709784071063394940
+      2newmid goku ssj sprites_8: 5896841420637291974
+      2newmid goku ssj sprites_80: -949693266601243268
+      2newmid goku ssj sprites_81: 517355645580166293
+      2newmid goku ssj sprites_82: -3037324570797790489
+      2newmid goku ssj sprites_83: 7744375733412246313
+      2newmid goku ssj sprites_84: -8391398437458581211
+      2newmid goku ssj sprites_85: -1381245216782838761
+      2newmid goku ssj sprites_86: -8916135670465501110
+      2newmid goku ssj sprites_87: -5031313259571133997
+      2newmid goku ssj sprites_88: 8080140928649129763
+      2newmid goku ssj sprites_89: -7053000479781014892
+      2newmid goku ssj sprites_9: -2665517846781343084
+      2newmid goku ssj sprites_90: -8656124980532354748
+      2newmid goku ssj sprites_91: -4543034944910597654
+      2newmid goku ssj sprites_92: 7050755335178721779
+      2newmid goku ssj sprites_93: -5173991655074957134
+      2newmid goku ssj sprites_95: -5184908786353300520
+      2newmid goku ssj sprites_96: 8465525555687572
+      2newmid goku ssj sprites_97: -2174121836839418086
+      2newmid goku ssj sprites_98: -2929618569896044582
+      2newmid goku ssj sprites_99: -2792926339677658729
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

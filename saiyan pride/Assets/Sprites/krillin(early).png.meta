@@ -288,7 +288,7 @@ TextureImporter:
       213: -302833190070050002
     second: krillin(early)_94
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -305,10 +305,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -318,8 +320,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -340,11 +342,15 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -356,6 +362,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -368,6 +375,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -380,6 +388,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -392,6 +401,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -404,6 +414,20 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -2351,9 +2375,101 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-  spritePackingTag: 
+    nameFileIdTable:
+      krillin(early)_0: -218536155164474305
+      krillin(early)_1: 436924996167627345
+      krillin(early)_10: -4813746934299509608
+      krillin(early)_11: 7887198143575537117
+      krillin(early)_12: 7654234320930950079
+      krillin(early)_13: -4192296599637747843
+      krillin(early)_14: 4589781919759179145
+      krillin(early)_15: -1019173016571583276
+      krillin(early)_16: -4476895852688216914
+      krillin(early)_17: -8549255048481209646
+      krillin(early)_18: 7033030234736145387
+      krillin(early)_19: 9217288040885119992
+      krillin(early)_2: 7809465392336213360
+      krillin(early)_20: -6967473379635393749
+      krillin(early)_22: 6343690536010413157
+      krillin(early)_23: 8421283113003529551
+      krillin(early)_24: 8033263214799394613
+      krillin(early)_27: -4169651505815774063
+      krillin(early)_28: -7123510988390340481
+      krillin(early)_29: 3694168278273952673
+      krillin(early)_3: -36950814721420325
+      krillin(early)_30: 5421343166265655727
+      krillin(early)_31: -2018345945789133612
+      krillin(early)_32: 2464995644599066568
+      krillin(early)_33: 8367430926735910210
+      krillin(early)_34: 1845195551378962159
+      krillin(early)_35: -6667234118353612362
+      krillin(early)_36: -7456821696344178496
+      krillin(early)_37: -7068644755110617722
+      krillin(early)_38: -4859024004460324146
+      krillin(early)_39: -38146489961877244
+      krillin(early)_4: 7044747839307389064
+      krillin(early)_40: -4673566435718357335
+      krillin(early)_41: 6989182306429513734
+      krillin(early)_42: 2300445280300627851
+      krillin(early)_43: 6474032616781597762
+      krillin(early)_44: -2048664499696604266
+      krillin(early)_45: 6758968969886160461
+      krillin(early)_46: -768420009617626139
+      krillin(early)_47: 4766793718166174845
+      krillin(early)_48: 3599059619872642846
+      krillin(early)_49: -896196274110324501
+      krillin(early)_5: -8550190108613996526
+      krillin(early)_50: 6156476060026479598
+      krillin(early)_51: 4623262551385355670
+      krillin(early)_52: 8976411073442593776
+      krillin(early)_53: 8063584181984416032
+      krillin(early)_54: -7842862542238228855
+      krillin(early)_55: 4618287212972795847
+      krillin(early)_56: 3121308132335861074
+      krillin(early)_57: -525696277746721092
+      krillin(early)_58: -7232567214225371711
+      krillin(early)_59: 1971073566300304215
+      krillin(early)_6: 5278757813441742159
+      krillin(early)_60: 3214385617254281244
+      krillin(early)_61: -2731813969644327067
+      krillin(early)_62: -7092755345447892780
+      krillin(early)_63: 7999936562170442793
+      krillin(early)_64: 6666985310143621316
+      krillin(early)_65: 363994379541825489
+      krillin(early)_66: 3862712724844036820
+      krillin(early)_67: -3899578038513194153
+      krillin(early)_68: -1957192210913684951
+      krillin(early)_69: -5848125601610972365
+      krillin(early)_7: -2349700203068997938
+      krillin(early)_70: 5277019956717232215
+      krillin(early)_71: 1000111591791877644
+      krillin(early)_72: -4774404583435324122
+      krillin(early)_73: 605580061237752677
+      krillin(early)_74: 5047936983402427520
+      krillin(early)_75: -9218728936272153263
+      krillin(early)_76: -6461197862742936023
+      krillin(early)_77: 1001079128026678260
+      krillin(early)_78: 1244647024069710693
+      krillin(early)_79: -1386339561055096175
+      krillin(early)_8: 138974078942646302
+      krillin(early)_80: 5757304969884645172
+      krillin(early)_81: 7156384026412409412
+      krillin(early)_82: 399722323774991779
+      krillin(early)_83: -8577616266451248586
+      krillin(early)_84: 3277630596999646369
+      krillin(early)_85: 1174308811256065806
+      krillin(early)_86: 2885576557114260256
+      krillin(early)_87: 1866713107039311803
+      krillin(early)_88: 6502628580304148964
+      krillin(early)_89: -552368644652440366
+      krillin(early)_9: -2053086907475323703
+      krillin(early)_90: 1091573718256425048
+      krillin(early)_91: 8955211473163191255
+      krillin(early)_92: 8861698296330941340
+      krillin(early)_93: -8353813596183373568
+      krillin(early)_94: -302833190070050002
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

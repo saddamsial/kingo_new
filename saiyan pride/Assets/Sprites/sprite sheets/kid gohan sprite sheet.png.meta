@@ -213,7 +213,7 @@ TextureImporter:
       213: 6892970078589420987
     second: kid gohan sprite sheet_69
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -230,10 +230,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -243,8 +245,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -265,11 +267,15 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -281,6 +287,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -293,6 +300,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -305,6 +313,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -317,6 +326,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -329,6 +339,20 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -1415,9 +1439,60 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-  spritePackingTag: 
+    nameFileIdTable:
+      kid gohan sprite sheet_0: -980782820114489675
+      kid gohan sprite sheet_1: 4341453335775619230
+      kid gohan sprite sheet_10: 1075927798209195700
+      kid gohan sprite sheet_11: 7332563437091769315
+      kid gohan sprite sheet_12: 3588692692944041685
+      kid gohan sprite sheet_13: 5804624497862440982
+      kid gohan sprite sheet_14: -2099991646599429293
+      kid gohan sprite sheet_17: -6083521661337249189
+      kid gohan sprite sheet_18: 2253337278132651967
+      kid gohan sprite sheet_19: 6929944397183044795
+      kid gohan sprite sheet_2: -4879875988906993282
+      kid gohan sprite sheet_20: -7313826237191141404
+      kid gohan sprite sheet_22: -2432428146616970760
+      kid gohan sprite sheet_23: -8425350976165624545
+      kid gohan sprite sheet_24: 547411086392081127
+      kid gohan sprite sheet_25: 7660652253938944497
+      kid gohan sprite sheet_26: -2696761266675283017
+      kid gohan sprite sheet_27: -2887798602943976601
+      kid gohan sprite sheet_28: -4634061661983864496
+      kid gohan sprite sheet_3: -2379724982542096393
+      kid gohan sprite sheet_30: -4175536496360237885
+      kid gohan sprite sheet_31: -2339017405800686806
+      kid gohan sprite sheet_32: 7505540081357929294
+      kid gohan sprite sheet_33: -8119576840855928500
+      kid gohan sprite sheet_34: 8582568232109618302
+      kid gohan sprite sheet_35: -8311862286552336152
+      kid gohan sprite sheet_36: -3420275831660438818
+      kid gohan sprite sheet_37: 3388430008130451738
+      kid gohan sprite sheet_38: 8338415985321129638
+      kid gohan sprite sheet_39: -1240489765896260211
+      kid gohan sprite sheet_4: 3656212102797786012
+      kid gohan sprite sheet_40: 1323657048143286799
+      kid gohan sprite sheet_41: 3163569905502753824
+      kid gohan sprite sheet_42: 308892644636264076
+      kid gohan sprite sheet_43: -1143624836084824086
+      kid gohan sprite sheet_44: 4087789014860343482
+      kid gohan sprite sheet_45: 1548101448076038936
+      kid gohan sprite sheet_46: 397742993606164051
+      kid gohan sprite sheet_5: -6825138462564592843
+      kid gohan sprite sheet_51: 5914725495992355169
+      kid gohan sprite sheet_56: 7984886570525025950
+      kid gohan sprite sheet_57: 825400955457985288
+      kid gohan sprite sheet_58: -8202311526161562895
+      kid gohan sprite sheet_59: -7520243800478557090
+      kid gohan sprite sheet_60: 6966821490151733683
+      kid gohan sprite sheet_61: -8400407642859956679
+      kid gohan sprite sheet_62: 1577494799926448922
+      kid gohan sprite sheet_63: 2818973027802113316
+      kid gohan sprite sheet_64: 8708753990694160998
+      kid gohan sprite sheet_7: -9222855171831306357
+      kid gohan sprite sheet_8: 6093830449788044111
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

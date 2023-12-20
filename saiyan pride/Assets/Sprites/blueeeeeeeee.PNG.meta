@@ -447,7 +447,7 @@ TextureImporter:
       213: -1389279401337982692
     second: IMG_4479_147
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -464,10 +464,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -477,8 +479,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -499,11 +501,15 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -515,6 +521,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -527,6 +534,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -539,6 +547,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -551,6 +560,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -563,6 +573,20 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -3266,9 +3290,137 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-  spritePackingTag: 
+    nameFileIdTable:
+      IMG_4479_0: -9118624029684929513
+      IMG_4479_1: -8145306222790742147
+      IMG_4479_10: 8350364789056150067
+      IMG_4479_100: 2891147904723290880
+      IMG_4479_101: 511385810413872123
+      IMG_4479_102: 7679301849793686011
+      IMG_4479_103: 4554728545253576467
+      IMG_4479_104: -4818204136442177260
+      IMG_4479_105: -5910317475558473342
+      IMG_4479_106: 7881511218007208121
+      IMG_4479_107: 1708770492759692054
+      IMG_4479_108: 7086841720123769951
+      IMG_4479_109: -2436120731527800036
+      IMG_4479_110: 1644338017214640536
+      IMG_4479_111: -7928594187942687579
+      IMG_4479_112: -267556326288492784
+      IMG_4479_113: 6135831074367616609
+      IMG_4479_114: 4073780782471026946
+      IMG_4479_115: -2783943239741462467
+      IMG_4479_116: -8241179161883948725
+      IMG_4479_117: 950694500976449254
+      IMG_4479_118: -1034834634455678222
+      IMG_4479_119: 1679844015056709196
+      IMG_4479_120: 3302985958561785122
+      IMG_4479_121: 6883261463115725036
+      IMG_4479_122: 1915276633206623089
+      IMG_4479_123: 8368191153199244311
+      IMG_4479_124: -2899310838955015111
+      IMG_4479_125: 420686781331032623
+      IMG_4479_126: 1395343810305736357
+      IMG_4479_127: 2207371232332614287
+      IMG_4479_128: -5895597592653653760
+      IMG_4479_129: 4210582805991339513
+      IMG_4479_130: 5490094481437316668
+      IMG_4479_131: 6594215184625700220
+      IMG_4479_132: 4902326780801964155
+      IMG_4479_133: -2623726290647973500
+      IMG_4479_144: -602910729269008692
+      IMG_4479_145: 2027746625832828334
+      IMG_4479_146: -9168423204418253195
+      IMG_4479_147: -1389279401337982692
+      IMG_4479_2: 8294977128230780455
+      IMG_4479_20: -3816371383802626020
+      IMG_4479_21: -1543402134096807814
+      IMG_4479_22: 9024963061516494422
+      IMG_4479_23: -3651512473928354503
+      IMG_4479_24: -7571332932482271877
+      IMG_4479_25: 3709337461349920713
+      IMG_4479_26: -3898935555364443524
+      IMG_4479_27: -3636112209844714085
+      IMG_4479_28: -2019249480493122082
+      IMG_4479_29: 8035514857988000355
+      IMG_4479_3: -7418497437563758726
+      IMG_4479_30: 8753942582322437985
+      IMG_4479_31: -9204528077492057394
+      IMG_4479_32: 1731998636370254899
+      IMG_4479_33: 870683451384809457
+      IMG_4479_34: 5352996716928540269
+      IMG_4479_35: 7718612826489454565
+      IMG_4479_36: -7620357149525292580
+      IMG_4479_37: 3819888293613504973
+      IMG_4479_38: 1449060852931912800
+      IMG_4479_39: -2664720820530352478
+      IMG_4479_4: 693085062503593147
+      IMG_4479_40: 4787406183830932120
+      IMG_4479_41: -1799386026247734696
+      IMG_4479_42: 5363901925012660676
+      IMG_4479_43: 8063074072116773436
+      IMG_4479_44: 5872840890260822117
+      IMG_4479_45: 3948896368271849991
+      IMG_4479_46: 4771651259375569491
+      IMG_4479_47: -6541211385664320169
+      IMG_4479_48: 6962628993315356232
+      IMG_4479_49: -6706462675893450012
+      IMG_4479_5: 7051768807239105990
+      IMG_4479_50: 8375948251375195878
+      IMG_4479_51: 5547036497281425040
+      IMG_4479_52: 3345246221944999333
+      IMG_4479_53: 4364164824040829546
+      IMG_4479_54: 6864698275268470642
+      IMG_4479_55: 6308512263533763872
+      IMG_4479_56: 3226535989480521847
+      IMG_4479_57: -3600412490657862975
+      IMG_4479_58: 2931123607784783607
+      IMG_4479_59: -243157970855105716
+      IMG_4479_6: -8675106755954823471
+      IMG_4479_60: -2580735397732288465
+      IMG_4479_61: 7306608219760271637
+      IMG_4479_62: 6574008882807474913
+      IMG_4479_63: 4560744889931484483
+      IMG_4479_64: 1311531970454367254
+      IMG_4479_65: -1881233347835373658
+      IMG_4479_66: 1116681283031732197
+      IMG_4479_67: -7092818001072863993
+      IMG_4479_68: -7145940141484679987
+      IMG_4479_69: 4320211472838769642
+      IMG_4479_7: 2838176459790652868
+      IMG_4479_70: 1091385907142656244
+      IMG_4479_71: 6380606831623165715
+      IMG_4479_72: 5326214447616714075
+      IMG_4479_73: 359546251708397659
+      IMG_4479_74: -2713133719620665336
+      IMG_4479_75: -1098432297930016804
+      IMG_4479_76: -1395575774264721453
+      IMG_4479_77: 6260537330301490773
+      IMG_4479_78: 8030187207342269314
+      IMG_4479_79: 4216385635623750578
+      IMG_4479_8: 9006894582906585384
+      IMG_4479_80: 3553608220948933382
+      IMG_4479_81: -6915080502574217690
+      IMG_4479_82: -2303596461969920349
+      IMG_4479_83: 9099398011242683917
+      IMG_4479_84: -3079284563638710402
+      IMG_4479_85: 7145303258245263961
+      IMG_4479_86: 9024016615236032423
+      IMG_4479_87: -2286222502537378973
+      IMG_4479_88: -5158277388718192242
+      IMG_4479_89: -2214159310863099239
+      IMG_4479_9: -7807660038584159830
+      IMG_4479_90: 4713879604793371389
+      IMG_4479_91: -6091682709887781600
+      IMG_4479_92: -112479064103910297
+      IMG_4479_93: -290265954889588188
+      IMG_4479_94: 701715646419198534
+      IMG_4479_95: -5474290400468815418
+      IMG_4479_96: -8754467424201091089
+      IMG_4479_97: -4015719676935391640
+      IMG_4479_99: -9017903474677183733
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

@@ -228,7 +228,7 @@ TextureImporter:
       213: 3277399901619370164
     second: frieza first form_74
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -245,10 +245,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -258,8 +260,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -280,11 +282,15 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -296,6 +302,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -308,6 +315,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -320,6 +328,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -332,6 +341,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -344,6 +354,20 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -1934,9 +1958,84 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-  spritePackingTag: 
+    nameFileIdTable:
+      frieza first form_0: 3846755924022045732
+      frieza first form_1: -7898594473590318152
+      frieza first form_10: -6594742386873606056
+      frieza first form_11: -5989241770876276436
+      frieza first form_12: 8862439733212461152
+      frieza first form_13: -4903917644915173704
+      frieza first form_14: -2224997434989677692
+      frieza first form_15: -782381061311814554
+      frieza first form_16: -511735451877453985
+      frieza first form_17: 5895118117824192569
+      frieza first form_18: -39854311941405489
+      frieza first form_19: -8234555020659006025
+      frieza first form_2: 793107229704282448
+      frieza first form_20: 835859733629700686
+      frieza first form_21: -1868167839585800995
+      frieza first form_22: -3848772348858048712
+      frieza first form_23: -3492729772111569433
+      frieza first form_24: -3748197936975417867
+      frieza first form_25: 6333088445657400560
+      frieza first form_26: 2090973769265194898
+      frieza first form_27: -6884118043898864498
+      frieza first form_28: -7356737266762625858
+      frieza first form_29: 7149541277675371681
+      frieza first form_3: -882329445960230891
+      frieza first form_30: 892983915308660819
+      frieza first form_31: 5744607826977076108
+      frieza first form_32: 2620740681398794397
+      frieza first form_33: 3000784811977077730
+      frieza first form_34: -6501900764171848487
+      frieza first form_35: 3483734243032877052
+      frieza first form_36: -1498334951451988657
+      frieza first form_37: -2087736232796969155
+      frieza first form_38: -4982889295103278945
+      frieza first form_39: -1188622992621564983
+      frieza first form_4: -8418742244922692131
+      frieza first form_40: 6426674696541018160
+      frieza first form_41: -4234208406426189761
+      frieza first form_42: 3472681109414699641
+      frieza first form_43: -3258936863881308138
+      frieza first form_44: 6405516565829408042
+      frieza first form_45: -4456327780000494443
+      frieza first form_46: -4964666400857859837
+      frieza first form_47: -3405718220805713609
+      frieza first form_48: 5322216908580823386
+      frieza first form_49: 7101686579536587931
+      frieza first form_5: -83202005824449909
+      frieza first form_50: 3361405416387633160
+      frieza first form_51: 2618866178913292340
+      frieza first form_52: -7599805456476825976
+      frieza first form_53: -7816949902435049464
+      frieza first form_54: 9125054357098581535
+      frieza first form_55: 5879360185737924494
+      frieza first form_56: -4653807889266862688
+      frieza first form_57: 9087450245307637401
+      frieza first form_58: -156300962303925158
+      frieza first form_59: -7996849174277978513
+      frieza first form_6: -8201591709766654524
+      frieza first form_60: -8400222071573491006
+      frieza first form_61: -5745944865545525750
+      frieza first form_62: 8493929593408976887
+      frieza first form_63: 482110795026209355
+      frieza first form_64: -4175479502927534957
+      frieza first form_65: -4227093031166827263
+      frieza first form_66: -5117068660274656809
+      frieza first form_67: 6758366521399247206
+      frieza first form_68: 3086935843752624197
+      frieza first form_69: 5911243391165870213
+      frieza first form_7: 7225323449979081981
+      frieza first form_70: 8534752598351345325
+      frieza first form_71: -7297234161836880532
+      frieza first form_72: 4717582922813458053
+      frieza first form_73: -6231290232954337682
+      frieza first form_74: 3277399901619370164
+      frieza first form_8: 3224153741648384056
+      frieza first form_9: 8156227845363997822
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

@@ -276,7 +276,7 @@ TextureImporter:
       213: -2764398423316897354
     second: kid gohan _90
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -293,10 +293,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -306,8 +308,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -328,11 +330,15 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -344,6 +350,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -356,6 +363,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -368,6 +376,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -380,6 +389,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -392,6 +402,20 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 16384
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -2003,9 +2027,85 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-  spritePackingTag: 
+    nameFileIdTable:
+      kid gohan _0: -2710488652672248992
+      kid gohan _1: -5587005737426424178
+      kid gohan _10: -3178667421438331911
+      kid gohan _2: -4838402796748843733
+      kid gohan _24: -3082896588537377538
+      kid gohan _25: 2493932970054614878
+      kid gohan _26: 2616399617689734428
+      kid gohan _27: 4477453224145578075
+      kid gohan _28: 8178887098476895576
+      kid gohan _29: 337496526856454883
+      kid gohan _3: -812277214220594041
+      kid gohan _30: 1821537538313542618
+      kid gohan _31: 4051291164557928215
+      kid gohan _32: -4717692603410766296
+      kid gohan _33: -2633334936948105723
+      kid gohan _34: 2315893726584786855
+      kid gohan _35: -2766231060418350024
+      kid gohan _36: -6105364450347196885
+      kid gohan _37: 8771048621018352087
+      kid gohan _38: -1708696561898485992
+      kid gohan _39: 4367926741768781495
+      kid gohan _4: -1723903949417907455
+      kid gohan _40: -1892222885401593939
+      kid gohan _41: -1139019823691863594
+      kid gohan _42: -7801956218823185383
+      kid gohan _43: 4027169985294127252
+      kid gohan _44: 9146704487677985968
+      kid gohan _45: 8978802889439363951
+      kid gohan _46: 2352347567714179753
+      kid gohan _47: -8664684301697657747
+      kid gohan _48: 4913880252609310535
+      kid gohan _49: -4952168036202727470
+      kid gohan _5: 8939161535620329822
+      kid gohan _50: -1909002637790508048
+      kid gohan _51: 5618731689362314781
+      kid gohan _52: 3854414990059459720
+      kid gohan _53: 2553989346725314895
+      kid gohan _54: -6437039892034930645
+      kid gohan _55: -7059963887915938531
+      kid gohan _56: 3005529452492024849
+      kid gohan _57: -5933667234704501831
+      kid gohan _58: -6971547579786579129
+      kid gohan _59: -2645860785098400521
+      kid gohan _6: 6371326948809654352
+      kid gohan _60: -4154203942198607223
+      kid gohan _61: -1730371771416380524
+      kid gohan _62: -4579806585267445256
+      kid gohan _63: 3572697310587127375
+      kid gohan _64: 4557606975832599978
+      kid gohan _65: -6727988792498482386
+      kid gohan _66: -1672708974200311663
+      kid gohan _67: 544350369790269840
+      kid gohan _68: 7090585804791602077
+      kid gohan _69: -1950022888472094203
+      kid gohan _7: 8462551073268672304
+      kid gohan _70: 9209299807414709824
+      kid gohan _71: 2703050565231239470
+      kid gohan _72: 7559936502562587806
+      kid gohan _73: -2065179837290982892
+      kid gohan _74: 7016083664745575050
+      kid gohan _75: 8584157842069975868
+      kid gohan _76: -5331971300363970830
+      kid gohan _77: -4335301923239737981
+      kid gohan _78: 3284827103909916625
+      kid gohan _79: -7941570982561252006
+      kid gohan _8: 2243065535204470981
+      kid gohan _80: 8554562731939341797
+      kid gohan _81: 6783047581256834538
+      kid gohan _82: -5238638641337782970
+      kid gohan _83: -7827484279824032962
+      kid gohan _84: -727178641633501324
+      kid gohan _85: -8535894073541936744
+      kid gohan _86: -5695060877746557932
+      kid gohan _87: -106697503177757167
+      kid gohan _9: -498536175333882163
+      kid gohan _90: -2764398423316897354
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

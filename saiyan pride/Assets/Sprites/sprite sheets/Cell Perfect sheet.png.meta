@@ -1011,7 +1011,7 @@ TextureImporter:
       213: 1795399417954379145
     second: Cell Perfect sheet_15
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -1028,10 +1028,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -1070,6 +1072,8 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -1081,6 +1085,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -1093,6 +1098,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -1105,6 +1111,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -1117,6 +1124,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -1129,6 +1137,20 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -4084,9 +4106,149 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-  spritePackingTag: 
+    nameFileIdTable:
+      Cell Perfect sheet_0: 6386735458586457104
+      Cell Perfect sheet_1: 2080817377233569100
+      Cell Perfect sheet_10: 5495139350718031604
+      Cell Perfect sheet_11: -885739263775982432
+      Cell Perfect sheet_12: 131385393638867793
+      Cell Perfect sheet_13: -2782639307195782990
+      Cell Perfect sheet_14: -5608554196438623266
+      Cell Perfect sheet_15: 1795399417954379145
+      Cell Perfect sheet_2: -4309479400811481453
+      Cell Perfect sheet_3: -3195570741491359871
+      Cell Perfect sheet_4: 4907722863492940660
+      Cell Perfect sheet_5: 8154618654109215327
+      Cell Perfect sheet_6: 2538732465688840310
+      Cell Perfect sheet_7: -1089984994910503318
+      Cell Perfect sheet_8: 6100271992580858875
+      Cell Perfect sheet_9: 8837607153740957866
+      PERFECT CELL PFP: 932025938441618209
+      PERFECT CELL PFP 2: -9036296045118384642
+      perfect cell sprite sheet_0: -117785326088973529
+      perfect cell sprite sheet_10: 495903935995634041
+      perfect cell sprite sheet_100: 2788911929345066672
+      perfect cell sprite sheet_101: 4796186388953194677
+      perfect cell sprite sheet_102: 7063536773445596818
+      perfect cell sprite sheet_103: -1466950212647407274
+      perfect cell sprite sheet_104: -7926868387932296491
+      perfect cell sprite sheet_105: -4991378986162777976
+      perfect cell sprite sheet_106: -8251521243018873090
+      perfect cell sprite sheet_107: -7553728054934671645
+      perfect cell sprite sheet_108: -159205387091181443
+      perfect cell sprite sheet_109: -3024805709193441938
+      perfect cell sprite sheet_11: -7834360550781935041
+      perfect cell sprite sheet_110: -2115196419647031615
+      perfect cell sprite sheet_111: 8798193348776765127
+      perfect cell sprite sheet_112: 2990933342702257298
+      perfect cell sprite sheet_116: -1554460452068144430
+      perfect cell sprite sheet_117: -401767795552780649
+      perfect cell sprite sheet_118: 4043000594446917390
+      perfect cell sprite sheet_119: 107423624527526341
+      perfect cell sprite sheet_12: 5661961714734252601
+      perfect cell sprite sheet_120: 6754093791325459045
+      perfect cell sprite sheet_121: -8503655770974977250
+      perfect cell sprite sheet_122: -468827902310537496
+      perfect cell sprite sheet_123: -2266777120191257508
+      perfect cell sprite sheet_124: 5169064583538644057
+      perfect cell sprite sheet_125: -3391204169221283205
+      perfect cell sprite sheet_126: -3068130626627747578
+      perfect cell sprite sheet_127: 4318499906633665748
+      perfect cell sprite sheet_128: 5949104709487388210
+      perfect cell sprite sheet_129: 5507911981011053772
+      perfect cell sprite sheet_13: 5660900045386241819
+      perfect cell sprite sheet_130: -7894954078357047069
+      perfect cell sprite sheet_14: -2607852709129697130
+      perfect cell sprite sheet_15: -1339405297111903586
+      perfect cell sprite sheet_16: 3183743924914168399
+      perfect cell sprite sheet_17: 8527377046644876674
+      perfect cell sprite sheet_18: 1541700860937904068
+      perfect cell sprite sheet_19: -4654185308995232768
+      perfect cell sprite sheet_20: 8205305083862658823
+      perfect cell sprite sheet_21: -5643924738239540013
+      perfect cell sprite sheet_22: 6517254598993647679
+      perfect cell sprite sheet_23: 7583789899101699693
+      perfect cell sprite sheet_24: 2945946008205656701
+      perfect cell sprite sheet_25: 8214684081168834688
+      perfect cell sprite sheet_26: 1435697760130102430
+      perfect cell sprite sheet_27: -5968505037159760108
+      perfect cell sprite sheet_28: -7192204692244094658
+      perfect cell sprite sheet_29: 1291864580388289989
+      perfect cell sprite sheet_3: 6645143479506772538
+      perfect cell sprite sheet_30: 9186681390077156021
+      perfect cell sprite sheet_31: 2241374613978171820
+      perfect cell sprite sheet_32: 8517429422348339145
+      perfect cell sprite sheet_33: 6270673319741460948
+      perfect cell sprite sheet_34: -5326687529109360304
+      perfect cell sprite sheet_35: -4452769532460512626
+      perfect cell sprite sheet_36: 5357378237340980834
+      perfect cell sprite sheet_37: -206487751136786939
+      perfect cell sprite sheet_38: -5759430293938779784
+      perfect cell sprite sheet_39: 8074750255006360677
+      perfect cell sprite sheet_4: 7855182991804170668
+      perfect cell sprite sheet_40: -3845077672684099938
+      perfect cell sprite sheet_41: 6631702965303019376
+      perfect cell sprite sheet_42: -8519235541257190818
+      perfect cell sprite sheet_43: 7929894681675909080
+      perfect cell sprite sheet_44: -5652331016956910177
+      perfect cell sprite sheet_45: -3853932796885985406
+      perfect cell sprite sheet_46: 6679050172501218695
+      perfect cell sprite sheet_47: 7067741387323859644
+      perfect cell sprite sheet_48: -3427918589049706649
+      perfect cell sprite sheet_49: -6978416468427133114
+      perfect cell sprite sheet_5: 8789426714577162295
+      perfect cell sprite sheet_50: 9082276959874439995
+      perfect cell sprite sheet_51: -5833730883504078222
+      perfect cell sprite sheet_52: -8251786402599148360
+      perfect cell sprite sheet_53: -5170421738298292790
+      perfect cell sprite sheet_54: 4876220722304856321
+      perfect cell sprite sheet_55: -4187176858641381733
+      perfect cell sprite sheet_56: -741923256652354342
+      perfect cell sprite sheet_57: 7124105500455578997
+      perfect cell sprite sheet_58: 4373870543901413114
+      perfect cell sprite sheet_59: 4498793802054891549
+      perfect cell sprite sheet_6: 8806383216202535078
+      perfect cell sprite sheet_60: 7846939351052292514
+      perfect cell sprite sheet_61: 7273628776874946274
+      perfect cell sprite sheet_62: 5605775816409277126
+      perfect cell sprite sheet_63: -2780406021766188233
+      perfect cell sprite sheet_64: -3272838243296914866
+      perfect cell sprite sheet_65: 8594908689243064480
+      perfect cell sprite sheet_66: -5599385271884076924
+      perfect cell sprite sheet_67: 2447593084631630897
+      perfect cell sprite sheet_68: -5992929996046178210
+      perfect cell sprite sheet_69: -7362676046969169864
+      perfect cell sprite sheet_7: 945934983923546116
+      perfect cell sprite sheet_70: 6456584792802956297
+      perfect cell sprite sheet_71: -904888781590801646
+      perfect cell sprite sheet_72: -8622078681056976909
+      perfect cell sprite sheet_73: -3041440674255316998
+      perfect cell sprite sheet_74: 753016964648608368
+      perfect cell sprite sheet_75: 7164109957851757467
+      perfect cell sprite sheet_76: 6623945412644509184
+      perfect cell sprite sheet_77: -1779372964468685352
+      perfect cell sprite sheet_8: -2972239451056383726
+      perfect cell sprite sheet_82: 5976774671758923723
+      perfect cell sprite sheet_83: -6288735583539808877
+      perfect cell sprite sheet_84: -2448204839787328438
+      perfect cell sprite sheet_85: -7775780677661733030
+      perfect cell sprite sheet_86: -5084319941769519966
+      perfect cell sprite sheet_87: -3892749891647337912
+      perfect cell sprite sheet_88: -5780913522731482550
+      perfect cell sprite sheet_89: 470786389074548779
+      perfect cell sprite sheet_9: -6877820520597429631
+      perfect cell sprite sheet_90: -6166570420342853684
+      perfect cell sprite sheet_91: 4625395744772019220
+      perfect cell sprite sheet_92: 6499692931635996588
+      perfect cell sprite sheet_93: -5024023720232131772
+      perfect cell sprite sheet_94: 3769356296634315160
+      perfect cell sprite sheet_95: -4098566363477140129
+      perfect cell sprite sheet_96: 7321586410695597376
+      perfect cell sprite sheet_97: -8428919491295910935
+      perfect cell sprite sheet_98: -6187220131225825973
+      perfect cell sprite sheet_99: -8010539906128855770
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

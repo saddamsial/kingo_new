@@ -42,7 +42,7 @@ TextureImporter:
       213: -7166296761807719681
     second: full 2
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -59,10 +59,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -101,6 +103,8 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -112,6 +116,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -124,6 +129,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -136,6 +142,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -148,6 +155,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -160,6 +168,20 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -181,7 +203,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 929c8a6c50bbf3690800000000000000
-      internalID: -7620166411005408983
+      internalID: 3518776755983967324
       vertices: []
       indices: 
       edges: []
@@ -202,7 +224,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 361d938b3fb8da150800000000000000
-      internalID: 5885514166927216995
+      internalID: -7620166411005408983
       vertices: []
       indices: 
       edges: []
@@ -223,7 +245,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 79d0f96dfd6219cc0800000000000000
-      internalID: -3706138275528897129
+      internalID: 1697022196727996250
       vertices: []
       indices: 
       edges: []
@@ -244,7 +266,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: e6d2316a2ea2ffe40800000000000000
-      internalID: 5692315606956846446
+      internalID: -6514979465229138799
       vertices: []
       indices: 
       edges: []
@@ -265,7 +287,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: a425ec6d5e1e21860800000000000000
-      internalID: 7499304706792903242
+      internalID: 7371284223438216708
       vertices: []
       indices: 
       edges: []
@@ -286,7 +308,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: ff23b6550133c8c90800000000000000
-      internalID: -7166296761807719681
+      internalID: 6790652550813586850
       vertices: []
       indices: 
       edges: []
@@ -301,9 +323,15 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-  spritePackingTag: 
+    nameFileIdTable:
+      empty 1: 3518776755983967324
+      empty 2: -7620166411005408983
+      full 1: -6514979465229138799
+      full 2: 6790652550813586850
+      half empty 1: 1697022196727996250
+      half empty 2: 7371284223438216708
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
