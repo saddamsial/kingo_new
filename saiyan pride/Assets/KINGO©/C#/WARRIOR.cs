@@ -6,6 +6,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "SETTINGS", menuName = "saiyan pride/WARRIOR", order = 0)]
 public class WARRIOR : ScriptableObject
 {
+    public AnimatorOverrideController CharacterAnimator;
     public Sprite UIframe;
     public string Name;
     public float DefaultSpeed;
