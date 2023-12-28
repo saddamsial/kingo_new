@@ -16,8 +16,9 @@ public class WARRIOR : ScriptableObject
     public float Energy;
     public float MaxHP;
     public float MaxEnergy;
-    public int NextForm;
     public int PrevForm;
+    public int CurrentForm;
+    public int NextForm;
     public int ChargePower;
     public Vector2 WarriorSize;
     public GameObject Aura;
