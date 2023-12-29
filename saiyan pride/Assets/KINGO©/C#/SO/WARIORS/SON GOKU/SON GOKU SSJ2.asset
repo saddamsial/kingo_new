@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8927738e935674f41b523551c3768be8, type: 3}
+  m_Name: SON GOKU SSJ2
+  m_EditorClassIdentifier: 
+  CharacterAnimator: {fileID: 22100000, guid: 3acf420e88047444b876f752e2626859, type: 2}
+  UIframe: {fileID: -100298741, guid: bc0548e22dc0ade48bbb49b2e2da5186, type: 3}
+  Name: SON GOKU SSJ2
+  DefaultSpeed: 400
+  FireSpeed: 0
+  RegenrateHPspeed: 0
+  HP: 1.5
+  Energy: 1
+  MaxHP: 0
+  MaxEnergy: 0
+  PrevForm: 0
+  CurrentForm: 1
+  NextForm: 2
+  ChargePower: 2
+  WarriorSize: {x: 1, y: 1}
+  Aura: {fileID: 0}
+  FullPowerAura: {fileID: 0}
+  Energy1: {fileID: 0}
+  Energy2: {fileID: 0}
+  Energy3: {fileID: 0}
+  EnergyS: {fileID: 0}
+  Entrances:
+  - {fileID: 8300000, guid: ab0b9a44b3498e04e987376648258f54, type: 3}
+  Wins:
+  - {fileID: 8300000, guid: ab0b9a44b3498e04e987376648258f54, type: 3}
+  attacks:
+  - {fileID: 8300000, guid: aad7226dd8f09494bb0d85f38f47aaad, type: 3}
+  - {fileID: 8300000, guid: 763d72f09bb170c4a8b4127690a93fe5, type: 3}
+  - {fileID: 8300000, guid: 321e59a895efa46489dbb995eebe91d8, type: 3}
+  - {fileID: 8300000, guid: 321e59a895efa46489dbb995eebe91d8, type: 3}
+  Energycalls:
+  - {fileID: 8300000, guid: ab0b9a44b3498e04e987376648258f54, type: 3}
+  Charge:
+  - {fileID: 8300000, guid: 2b3cd70fa52020541ba1e26f00729b35, type: 3}
+  FullPower:
+  - {fileID: 8300000, guid: ab0b9a44b3498e04e987376648258f54, type: 3}
+  Hurts:
+  - {fileID: 8300000, guid: fb897e70483d1a9468c7ba4cce3504f9, type: 3}
