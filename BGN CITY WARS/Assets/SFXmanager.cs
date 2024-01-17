@@ -14,6 +14,9 @@ public class SFXmanager : MonoBehaviour
     [SerializeField]
     private AudioClip[] punchClips;
 
+    [SerializeField]
+    private AudioClip[] WaterSplash;
+
 
     private void Start()
     {
@@ -40,7 +43,7 @@ public class SFXmanager : MonoBehaviour
             int randomIndex = Random.Range(0, punchClips.Length);
 
             // Play the selected punch sound
-            AudioSource.PlayClipAtPoint(punchClips[randomIndex], transform.position);
+            AS.PlayOneShot(punchClips[randomIndex]);
         }
         else
         {
@@ -50,13 +53,14 @@ public class SFXmanager : MonoBehaviour
 
     public void PlayRandomStepSFX()
     {
-        if (punchClips.Length > 0)
+        if (StepClips.Length > 0)
         {
             // Choose a random index from the array
             int randomIndex = Random.Range(0, StepClips.Length);
 
             // Play the selected punch sound
-            AudioSource.PlayClipAtPoint(StepClips[randomIndex], transform.position);
+            AS.PlayOneShot(StepClips[randomIndex]);
+           
         }
         else
         {
@@ -64,6 +68,23 @@ public class SFXmanager : MonoBehaviour
         }
     }
 
+
+    public void PlayRandomSplashSFX()
+    {
+        if (WaterSplash.Length > 0)
+        {
+            // Choose a random index from the array
+            int randomIndex = Random.Range(0, WaterSplash.Length);
+
+            // Play the selected punch sound
+            AS.PlayOneShot(WaterSplash[randomIndex]);
+
+        }
+        else
+        {
+            Debug.LogError("No StepClips clips available in the array.");
+        }
+    }
 
     #endregion
 

@@ -31,13 +31,13 @@ public class InitiateData : MonoBehaviour
 
             #region GameSettings
             //Audio
-            PlayerPrefs.SetFloat("Music Volume", 0.5f);
-            PlayerPrefs.SetFloat("SFX Volume", .75f);
+            PlayerPrefs.SetFloat("Settings_Music Volume", 0.5f);
+            PlayerPrefs.SetFloat("Settings_SFX Volume", .75f);
 
             //Camera
-            PlayerPrefs.SetInt("CamMode", 0);
-            PlayerPrefs.SetFloat("GeneralSens", 0.25f);
-            PlayerPrefs.SetFloat("ScopeSens", 0.15f);
+            PlayerPrefs.SetInt("Settings_CamMode", 0);
+            PlayerPrefs.SetFloat("Settings_GeneralSens", 0.25f);
+            PlayerPrefs.SetFloat("Settings_ScopeSens", 0.15f);
 
 
             #endregion
@@ -66,15 +66,13 @@ public class InitiateData : MonoBehaviour
         }
     }
 
-    public void PrintTest()
+    public void PrintTest(string key)
     {
-        Debug.Log("Printed UserStats_PlayerName " + PlayerPrefs.GetString("UserStats_PlayerName"));
-        Debug.Log("Printed LVL " + PlayerPrefs.GetInt("LVL"));
-        Debug.Log("Printed FirstTime " + PlayerPrefs.GetInt("FirstTime"));
+        Debug.Log(PlayerPrefs.GetString(key));
+
+        Debug.Log(PlayerPrefs.GetInt(key));
+        Debug.Log(PlayerPrefs.GetFloat(key));
+
     }
 
-
-
-
-
-}
+    }
