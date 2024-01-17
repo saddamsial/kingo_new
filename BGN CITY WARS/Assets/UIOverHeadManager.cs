@@ -8,7 +8,7 @@ public class UIOverHeadManager : MonoBehaviour
     public TMPro.TextMeshProUGUI UINameDisplay;
     void Start()
     {
-        UINameDisplay.text = PhotonNetwork.NickName;
+        Invoke("UpdateUINameDisplay",0.01f);
     }
     public void UpdateUINameDisplay()
     {
