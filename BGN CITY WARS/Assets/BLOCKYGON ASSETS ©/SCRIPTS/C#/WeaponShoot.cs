@@ -73,6 +73,7 @@ public class WeaponShoot : MonoBehaviour
     public ParticleSystem BulletTrailVFX;
     public ParticleSystem BulletDropVFX;
     public GameObject BulletHoleVFX;
+    private GameObject CameraMain;
 
     //pun variables
     [Header("Debugs")]
@@ -98,6 +99,7 @@ public class WeaponShoot : MonoBehaviour
         collided = hit.collider;
 
         AS = GetComponent<AudioSource>();
+        CameraMain = Camera.main.gameObject;
 
         // start reload after weapon pull//
         if (currentclip < 1 && weaponstatus.NoAmmo != true)
@@ -190,7 +192,7 @@ public class WeaponShoot : MonoBehaviour
             }
         }
 
-        pos = Camera.main.transform.GetChild(2);
+        pos = CameraMain.transform.GetChild(2);
         //Reset BulletsFired Custom conditions(calculate the difference manually)
         if (totalammo == 0)
         {
