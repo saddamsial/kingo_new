@@ -17,6 +17,9 @@ public class SFXmanager : MonoBehaviour
     [SerializeField]
     private AudioClip[] WaterSplash;
 
+    [SerializeField]
+    private AudioClip[] LadderClimb;
+
 
     private void Start()
     {
@@ -68,7 +71,6 @@ public class SFXmanager : MonoBehaviour
         }
     }
 
-
     public void PlayRandomSplashSFX()
     {
         if (WaterSplash.Length > 0)
@@ -82,10 +84,26 @@ public class SFXmanager : MonoBehaviour
         }
         else
         {
-            Debug.LogError("No StepClips clips available in the array.");
+            Debug.LogError("No WaterSplash clips available in the array.");
         }
     }
 
+    public void PlayLadderClimb()
+    {
+        if (LadderClimb.Length > 0)
+        {
+            // Choose a random index from the array
+            int randomIndex = Random.Range(0, LadderClimb.Length);
+
+            // Play the selected punch sound
+            AS.PlayOneShot(LadderClimb[randomIndex]);
+
+        }
+        else
+        {
+            Debug.LogError("No LadderClimb clips available in the array.");
+        }
+    }
     #endregion
 
 
