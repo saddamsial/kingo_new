@@ -87,12 +87,13 @@ public class WeaponShoot : MonoBehaviour
     private bool hasExecutedKill = false;
     private float DamageDelay;
     private int LastDamageType;
+    private GameObject HitReticleCrosshair;
     #endregion Variables
 
     private void OnEnable()
     {
 
-
+        HitReticleCrosshair = GameObject.Find("DEFAULT RETICLE").transform.GetChild(5).gameObject;
         Invoke("FindParent", .5f);
         PV = this.GetComponent<PhotonView>();
 
@@ -128,6 +129,7 @@ public class WeaponShoot : MonoBehaviour
         totalammo = MaxAmmo;
         //WeaponRange = WeaponType.WeaponRange;
         Shootpoint = GameObject.FindGameObjectWithTag("ShootPoint").transform;
+
         //WeaponRange=WeaponRange;
 
         #region find  and assign kill pop up feeds.
@@ -368,8 +370,7 @@ public class WeaponShoot : MonoBehaviour
 
                         Debug.Log("Real Player Detected-Body");
 
-                        //Hit Reticle Enable
-                        StartCoroutine(Hitreticle());
+                        HitReticleCrosshair.SetActive(true);
                     }
 
 
@@ -387,7 +388,7 @@ public class WeaponShoot : MonoBehaviour
                         Debug.Log("AI Target Detected-Body");
 
                         //Hit Reticle Enable
-                        StartCoroutine(Hitreticle());
+                        HitReticleCrosshair.SetActive(true);
                         takedamage.Takedamage(BodyDamage);
 
                     }
@@ -404,7 +405,7 @@ public class WeaponShoot : MonoBehaviour
                         { takedamage.Takedamage(BodyDamage); }
 
                         //Hit Reticle Enable
-                        StartCoroutine(Hitreticle());
+                        HitReticleCrosshair.SetActive(true);
 
 
                     }
@@ -455,7 +456,7 @@ public class WeaponShoot : MonoBehaviour
                         Debug.Log("Real Player Detected-HEAD");
 
                         //Hit Reticle Enable
-                        StartCoroutine(Hitreticle());
+                        HitReticleCrosshair.SetActive(true);
                     }
 
 
@@ -473,7 +474,7 @@ public class WeaponShoot : MonoBehaviour
                         Debug.Log("AI Target Detected-HEAD");
 
                         //Hit Reticle Enable
-                        StartCoroutine(Hitreticle());
+                        HitReticleCrosshair.SetActive(true);
                         takedamage.Takedamage(HeadDamage);
 
                     }
@@ -490,7 +491,7 @@ public class WeaponShoot : MonoBehaviour
                         { takedamage.Takedamage(HeadDamage); }
 
                         //Hit Reticle Enable
-                        StartCoroutine(Hitreticle());
+                        HitReticleCrosshair.SetActive(true);
 
 
                     }
@@ -610,18 +611,8 @@ public class WeaponShoot : MonoBehaviour
         BulletDropVFX.Play();
     }
     // Hit Reticles Toggle
-    IEnumerator Hitreticle()
-    {
-      bodyshotHit = true;
-        yield return new WaitForSeconds(0.25f);
-      bodyshotHit = false;
-    }
-    IEnumerator HitHeadreticle()
-    {
-         headshotHit = true;
-         yield return new WaitForSeconds(0.25f);
-         headshotHit = false;
-    }
+
+
     IEnumerator UpdateTargetHP()
     {
         yield return new WaitForSeconds(DamageDelay);
