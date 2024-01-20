@@ -93,7 +93,7 @@ public class WeaponShoot : MonoBehaviour
     private void OnEnable()
     {
 
-        HitReticleCrosshair = GameObject.Find("DEFAULT RETICLE").transform.GetChild(5).gameObject;
+        HitReticleCrosshair = GameObject.Find("DEFAULT RETICLE").transform.GetChild(1).gameObject;
         Invoke("FindParent", .5f);
         PV = this.GetComponent<PhotonView>();
 
