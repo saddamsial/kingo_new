@@ -572,6 +572,12 @@ public class WeaponShoot : MonoBehaviour
         TargetShield = TPV.GetComponent<TakeDamage>().Shield;
     }
 
+
+    public void AmmoRefil()
+    {
+        totalammo = MaxAmmo;
+    }
+
     #region /////Coroutines/////
 
     //Ammo & reload
