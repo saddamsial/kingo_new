@@ -74,6 +74,8 @@ public class WeaponShoot : MonoBehaviour
     public ParticleSystem BulletDropVFX;
     public GameObject BulletHoleVFX;
     private GameObject CameraMain;
+    private GameObject ScopeUI;
+    private Animator ScopeAnimator;
 
     //pun variables
     [Header("Debugs")]
@@ -92,8 +94,14 @@ public class WeaponShoot : MonoBehaviour
 
     private void OnEnable()
     {
+        #region CrosshairSetUp
+        Transform DefaultReticle;
+        DefaultReticle = GameObject.Find("DEFAULT RETICLE").transform;
+        HitReticleCrosshair = DefaultReticle.transform.GetChild(1).gameObject;
+        ScopeUI = DefaultReticle.transform.GetChild(3).gameObject;
+        ScopeAnimator = ScopeUI.GetComponent<Animator>();
+        #endregion
 
-        HitReticleCrosshair = GameObject.Find("DEFAULT RETICLE").transform.GetChild(1).gameObject;
         Invoke("FindParent", .5f);
         PV = this.GetComponent<PhotonView>();
 
@@ -276,12 +284,14 @@ public class WeaponShoot : MonoBehaviour
 
 
     void Shoot()
-        
+
     {
-  
+        #region AtShootActions !!!! ^
+        ScopeAnimator.SetTrigger("fired");
         started = true;
         Fired = true;
-        //yield return new WaitForSeconds(0f);
+        #endregion
+    
         //track shots fired
         BulletsFired += 1;
 
@@ -328,8 +338,9 @@ public class WeaponShoot : MonoBehaviour
             BodyShot();
 
             HeadShot();
-
-
+            #region AfterShootActions
+            //ScopeAnimator.SetBool("fired", false);
+            #endregion
         }
 
         //check Bodyshot
