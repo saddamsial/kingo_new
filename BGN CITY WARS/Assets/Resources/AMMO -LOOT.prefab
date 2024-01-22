@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 3738884123805743680}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -173.983, y: 8.751, z: -759.845}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -70,7 +70,7 @@ Transform:
   m_GameObject: {fileID: 3738884125511972737}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.661, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -108,7 +108,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.13272849, y: 0.13272868, z: 0.13272868}
+  m_LocalScale: {x: 0.10263976, y: 0.10263993, z: 0.10263993}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3738884125511871393}
@@ -303,7 +303,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 0.5767993, b: 0, a: 1}
+      maxColor: {r: 1, g: 0.618424, b: 0.0990566, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -941,7 +941,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 114.87
+      scalar: 10
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -5122,6 +5122,8 @@ GameObject:
   - component: {fileID: 6590515245768507654}
   - component: {fileID: 4337684085205569508}
   - component: {fileID: 3862038822257847937}
+  - component: {fileID: 5435080034669981163}
+  - component: {fileID: 905884614492236980}
   m_Layer: 0
   m_Name: default
   m_TagString: Untagged
@@ -5137,13 +5139,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4337684085205569507}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.1532023, y: 0.95184803, z: 0.042197075, w: -0.26217133}
-  m_LocalPosition: {x: -0.01, y: 0.019, z: 0.01}
+  m_LocalRotation: {x: 0.000000021073427, y: 3.552713e-15, z: 0.17798072, w: 0.984034}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.1063164, y: 1.1063164, z: 1.1063163}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3738884125511871393}
-  m_LocalEulerAnglesHint: {x: 0, y: 210.799, z: -18.287}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 20.504}
 --- !u!33 &7661621957170242962
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -5229,3 +5231,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PickupSFX: {fileID: 8300000, guid: 6a1cbce439eb7db4d8f563f3063ed101, type: 3}
   RespawnTime: 60
+--- !u!114 &5435080034669981163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4337684085205569507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e741851cba3ad425c91ecf922cc6b379, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _data:
+    _json: '{"declarations":{"Kind":"Object","collection":{"$content":[],"$version":"A"},"$version":"A"}}'
+    _objectReferences: []
+--- !u!114 &905884614492236980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4337684085205569507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2fe5546f775c47d2820aa5e8a715f53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _data:
+    _json: '{"nest":{"source":"Embed","macro":null,"embed":{"variables":{"Kind":"Flow","collection":{"$content":[],"$version":"A"},"$version":"A"},"controlInputDefinitions":[],"controlOutputDefinitions":[],"valueInputDefinitions":[],"valueOutputDefinitions":[],"title":null,"summary":null,"pan":{"x":29.0,"y":141.0},"zoom":1.0,"elements":[{"coroutine":false,"defaultValues":{},"position":{"x":-204.0,"y":60.0},"guid":"2cfc2cb3-59ee-4d72-91bf-b179c6126eb3","$version":"A","$type":"Unity.VisualScripting.Update","$id":"10"},{"chainable":false,"parameterNames":["eulers","relativeTo"],"member":{"name":"Rotate","parameterTypes":["UnityEngine.Vector3","UnityEngine.Space"],"targetType":"UnityEngine.Transform","targetTypeName":"UnityEngine.Transform","$version":"A"},"defaultValues":{"target":null,"%eulers":{"x":0.0,"y":0.0,"z":0.0,"$type":"UnityEngine.Vector3"},"%relativeTo":{"$content":"World","$type":"UnityEngine.Space"}},"position":{"x":-41.0,"y":36.0},"guid":"2c3a6618-a932-4375-b375-0f3b3b8c03e4","$version":"A","$type":"Unity.VisualScripting.InvokeMember","$id":"12"},{"defaultValues":{"input":{"x":0.0,"y":20.0,"z":0.0,"$type":"UnityEngine.Vector3"}},"position":{"x":-260.0,"y":139.0},"guid":"ec496082-1d1d-4b0c-9fb9-db226627880b","$version":"A","$type":"Unity.VisualScripting.Vector3PerSecond","$id":"16"},{"sourceUnit":{"$ref":"10"},"sourceKey":"trigger","destinationUnit":{"$ref":"12"},"destinationKey":"enter","guid":"f8b28dec-26b3-4bbd-bdef-f1d9014ef91a","$type":"Unity.VisualScripting.ControlConnection"},{"sourceUnit":{"$ref":"16"},"sourceKey":"output","destinationUnit":{"$ref":"12"},"destinationKey":"%eulers","guid":"062e485f-0a71-4ae3-9be9-5a2b41243721","$type":"Unity.VisualScripting.ValueConnection"}],"$version":"A"}}}'
+    _objectReferences: []

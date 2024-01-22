@@ -93,4 +93,9 @@ public class TakeDamage : MonoBehaviour
         if (Shield <= 0)
             Shield = 0;
     }
+    [PunRPC]
+    public void RestoreHP()
+    {
+        HP = 100;
+    }
 }
