@@ -339,7 +339,7 @@ public class WeaponShoot : MonoBehaviour
 
             HeadShot();
             #region AfterShootActions
-            //ScopeAnimator.SetBool("fired", false);
+    
             #endregion
         }
 
