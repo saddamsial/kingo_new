@@ -11,6 +11,8 @@ public class TakeDamage : MonoBehaviour
     private PhotonView pv;
     public int LastDamageTook;
     public bool hurt;
+    [SerializeField]
+    private UIBarRefresh Refreshbar;
     [Header("CanvasEFX")]
     public Transform DamageScreenEFX;
 
@@ -21,11 +23,6 @@ public class TakeDamage : MonoBehaviour
         pv = this.GetComponent<PhotonView>();
     }
 
-    private void Update()
-    {
-        HPcap();
-        SHIELDcap();
-    }
 
     [PunRPC]
     public void Takedamage(int Damage)
@@ -42,7 +39,7 @@ public class TakeDamage : MonoBehaviour
         {
             if (Shield <= 0f & pv.IsMine)
             {
-                HP -= Damage;
+                HP -= Damage;   Refreshbar.UpdateHP(HP);
             }
             else
             {
@@ -50,7 +47,7 @@ public class TakeDamage : MonoBehaviour
                 {
                     int remainingDamage = Damage - Shield;
                     Shield = 0;
-                    HP -= remainingDamage;
+                    HP -= remainingDamage;           HPcap();   Refreshbar.UpdateHP(HP); 
                 }
                 else
                 {
@@ -62,7 +59,7 @@ public class TakeDamage : MonoBehaviour
         {
             if (Shield <= 0f)
             {
-                HP -= Damage;
+                HP -= Damage;                            HPcap(); Refreshbar.UpdateHP(HP);
             }
             else
             {
@@ -70,11 +67,11 @@ public class TakeDamage : MonoBehaviour
                 {
                     int remainingDamage = Damage - Shield;
                     Shield = 0;
-                    HP -= remainingDamage;
+                    HP -= remainingDamage;       HPcap();  Refreshbar.UpdateHP(HP);
                 }
                 else
                 {
-                    Shield -= Damage;
+                    Shield -= Damage; 
                 }
             }
         }
@@ -96,6 +93,6 @@ public class TakeDamage : MonoBehaviour
     [PunRPC]
     public void RestoreHP()
     {
-        HP = 100;
+        HP = 100; Refreshbar.UpdateHP(HP);
     }
 }
