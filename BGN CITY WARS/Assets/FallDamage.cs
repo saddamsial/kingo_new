@@ -1,13 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+
 
 public class FallDamage : MonoBehaviour
 {
-    // Start is called before the first frame update
+    private CharacterController CH;
     void Start()
     {
-        
+     CH =   gameObject.GetComponent<CharacterController>();
     }
 
     // Update is called once per frame
