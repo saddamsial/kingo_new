@@ -1,14 +1,11 @@
 ﻿using UnityEngine;
-using System.Collections;
+using Photon.Pun;
 
 public class ApplicationManager : MonoBehaviour {
 
 	[SerializeField]
 	private int GameFrameRate;
 	[SerializeField]
-	private int SleepTimeout;
-	[SerializeField]
-	private int brightness;
 	public void Quit () 
 	{
 		#if UNITY_EDITOR
@@ -22,8 +19,10 @@ public class ApplicationManager : MonoBehaviour {
     {
 		Application.targetFrameRate = GameFrameRate; //set FPS
 
+		PhotonNetwork.GameVersion = Application.version;
+		Debug.Log("AppVersion" + PhotonNetwork.GameVersion);
 	
-		Screen.brightness = brightness;
+
 
 
 	}
