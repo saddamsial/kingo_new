@@ -22,6 +22,7 @@ public class ApplicationManager : MonoBehaviour {
 		PhotonNetwork.GameVersion = Application.version;
 		Debug.Log("AppVersion" + PhotonNetwork.GameVersion);
 	
+	
 
 
 
