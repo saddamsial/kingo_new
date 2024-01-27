@@ -13,8 +13,8 @@ public class TakeDamage : MonoBehaviour
     public bool hurt;
     [SerializeField]
     private UIBarRefresh Refreshbar;
-    [Header("CanvasEFX")]
-    public Transform DamageScreenEFX;
+    [Header("Event")]
+    public Transform ActivateEvent;
 
     private void Start()
     {
@@ -29,9 +29,9 @@ public class TakeDamage : MonoBehaviour
     {
         LastDamageTook = Damage;
         hurt = true;
-        if (DamageScreenEFX.transform != null)
+        if (ActivateEvent.transform != null)
         {
-            DamageScreenEFX.gameObject.SetActive(true);
+            ActivateEvent.gameObject.SetActive(true);
         }
      
 
