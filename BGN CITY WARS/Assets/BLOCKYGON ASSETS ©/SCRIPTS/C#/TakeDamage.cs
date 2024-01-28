@@ -11,7 +11,7 @@ public class TakeDamage : MonoBehaviour
     private PhotonView pv;
     public int LastDamageTook;
     [SerializeField]
-    private bool MaxHPbyDefault;
+    private bool MaxHPStart;
     public bool hurt;
     [SerializeField]
     private UIBarRefresh Refreshbar;
@@ -21,7 +21,7 @@ public class TakeDamage : MonoBehaviour
     private void Start()
     {
         int MaxHP = 100;
-        if(MaxHPbyDefault)
+        if(MaxHPStart)
         {
             HP = MaxHP;
         }
