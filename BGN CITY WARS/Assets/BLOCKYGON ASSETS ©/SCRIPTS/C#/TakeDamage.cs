@@ -10,6 +10,8 @@ public class TakeDamage : MonoBehaviour
     public int Shield = 100;
     private PhotonView pv;
     public int LastDamageTook;
+    [SerializeField]
+    private bool MaxHPbyDefault;
     public bool hurt;
     [SerializeField]
     private UIBarRefresh Refreshbar;
@@ -19,7 +21,11 @@ public class TakeDamage : MonoBehaviour
     private void Start()
     {
         int MaxHP = 100;
-        HP = MaxHP;
+        if(MaxHPbyDefault)
+        {
+            HP = MaxHP;
+        }
+     
         pv = this.GetComponent<PhotonView>();
     }
 
