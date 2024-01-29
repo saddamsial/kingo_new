@@ -10,7 +10,7 @@ public class IKGripLocator : MonoBehaviour
     private AimIK aimik;
     private Transform SECONDARYGRIP;
 
-    // Update is called once per frame
+
 
 
     private void Start()
