@@ -101,7 +101,7 @@ public class WeaponShoot : MonoBehaviour
         ScopeUI = DefaultReticle.transform.GetChild(3).gameObject;
         ScopeAnimator = ScopeUI.GetComponent<Animator>();
         #endregion
-
+        Parentvariables = PlayerParent.GetComponent<PlayerActionsVar>();
         Invoke("FindParent", .5f);
         PV = this.GetComponent<PhotonView>();
 
@@ -138,7 +138,6 @@ public class WeaponShoot : MonoBehaviour
         //WeaponRange = WeaponType.WeaponRange;
         Shootpoint = GameObject.FindGameObjectWithTag("ShootPoint").transform;
           AmmoMessage = GameObject.Find("AMMO MESSAGE").GetComponent<TextMeshProUGUI>();
-        Parentvariables = PlayerParent.GetComponent<PlayerActionsVar>();
         Parentvariables.Fired = Fired;
 
         #region find  and assign kill pop up feeds.
