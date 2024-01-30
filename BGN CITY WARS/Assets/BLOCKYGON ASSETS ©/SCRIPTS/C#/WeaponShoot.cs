@@ -138,13 +138,13 @@ public class WeaponShoot : MonoBehaviour
         //WeaponRange = WeaponType.WeaponRange;
         Shootpoint = GameObject.FindGameObjectWithTag("ShootPoint").transform;
           AmmoMessage = GameObject.Find("AMMO MESSAGE").GetComponent<TextMeshProUGUI>();
-        //WeaponRange=WeaponRange;
+        Parentvariables = PlayerParent.GetComponent<PlayerActionsVar>();
+        Parentvariables.Fired = Fired;
 
         #region find  and assign kill pop up feeds.
         KillFeed = GameObject.Find("KILL FEEDS").transform.GetChild(0).gameObject;
         HeadShotKill = GameObject.Find("KILL FEEDS").transform.GetChild(1).gameObject;
-        Parentvariables = PlayerParent.GetComponent<PlayerActionsVar>();
-        Parentvariables.Fired = Fired;
+
         #endregion
 
     }
