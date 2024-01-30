@@ -1,10 +1,7 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using Unity.VisualScripting;
-using Photon;
 using Photon.Pun;
-
+using TMPro;
 public class WeaponShoot : MonoBehaviour
 {
 
@@ -90,6 +87,8 @@ public class WeaponShoot : MonoBehaviour
     private float DamageDelay;
     private int LastDamageType;
     private GameObject HitReticleCrosshair;
+    private TextMeshProUGUI AmmoMessage;
+
     #endregion Variables
 
     private void OnEnable()
@@ -137,13 +136,14 @@ public class WeaponShoot : MonoBehaviour
         totalammo = MaxAmmo;
         //WeaponRange = WeaponType.WeaponRange;
         Shootpoint = GameObject.FindGameObjectWithTag("ShootPoint").transform;
-
+          AmmoMessage = GameObject.Find("AMMO MESSAGE").GetComponent<TextMeshProUGUI>();
         //WeaponRange=WeaponRange;
 
         #region find  and assign kill pop up feeds.
         KillFeed = GameObject.Find("KILL FEEDS").transform.GetChild(0).gameObject;
         HeadShotKill = GameObject.Find("KILL FEEDS").transform.GetChild(1).gameObject;
         Parentvariables = PlayerParent.GetComponent<PlayerActionsVar>();
+        Parentvariables.Fired = Fired;
         #endregion
 
     }
@@ -151,12 +151,10 @@ public class WeaponShoot : MonoBehaviour
     void Update()
     {//update S
      //var sync with plaayer
-        PlayerParent.GetComponent<PlayerActionsVar>().Fired = Fired;
-        PlayerParent.GetComponent<PlayerActionsVar>().IsReloading = Reloading;
         Canfire = PlayerParent.GetComponent<PlayerActionsVar>().canfire;
         PlayerParent.GetComponent<WeaponStatus>().CurrentClip = currentclip;
         PlayerParent.GetComponent<WeaponStatus>().TotalAmmo = totalammo;
-        PlayerParent.GetComponent<WeaponStatus>().NoAmmo = noammo;
+
         modifiedFireRate = 1.0f / FireRate;
 
         if (TargetShield < 1 && TotalDamageDealt >= 100)//ResetTotalDamage
@@ -191,14 +189,14 @@ public class WeaponShoot : MonoBehaviour
         }
         if (currentclip < 1 && totalammo == 0)
         {
-            noammo = true;
+            noammo = true;        PlayerParent.GetComponent<WeaponStatus>().NoAmmo = true; AmmoMessage.color = Color.red;     AmmoMessage.text = ("Out Of Ammo");
             BulletsFired = MaxClip;
         }
 
         else
         {
             {
-                noammo = false;
+                noammo = false;      PlayerParent.GetComponent<WeaponStatus>().NoAmmo = false;    AmmoMessage.text = (""); 
             }
         }
 
@@ -230,6 +228,7 @@ public class WeaponShoot : MonoBehaviour
         {
 
             Fired = false;
+           Parentvariables.Fired = false;
         }
 
 
@@ -290,8 +289,9 @@ public class WeaponShoot : MonoBehaviour
         ScopeAnimator.SetTrigger("fired");
         started = true;
         Fired = true;
+        Parentvariables.Fired = true;
         #endregion
-    
+
         //track shots fired
         BulletsFired += 1;
 
@@ -304,7 +304,7 @@ public class WeaponShoot : MonoBehaviour
 
         //  SparkleVFX.SetActive(false);
 
-        //fire
+        // Fire RayCast//
         Physics.Raycast(Shootpoint.position, pos.forward, out hit, WeaponRange, layermask);
 
 
@@ -339,7 +339,7 @@ public class WeaponShoot : MonoBehaviour
 
             HeadShot();
             #region AfterShootActions
-    
+     
             #endregion
         }
 
@@ -594,11 +594,15 @@ public class WeaponShoot : MonoBehaviour
     //Ammo & reload
     IEnumerator Reload()
 {
-    Reloading = true;
-    noammo = false;
+    Reloading = true;           PlayerParent.GetComponent<PlayerActionsVar>().IsReloading = true;
 
-    // Calculate reload time based on the inverse of WeaponType.ReloadSpeed
-    float reloadTime = 1.0f / ReloadTime;
+        noammo = false;
+
+        AmmoMessage.color = new Color(255f, 178f, 255f);    AmmoMessage.text= ("Reloading..");  
+
+
+                // Calculate reload time based on the inverse of WeaponType.ReloadSpeed
+        float reloadTime = 1.0f / ReloadTime;
 
     yield return new WaitForSeconds(reloadTime);
 
@@ -607,15 +611,16 @@ public class WeaponShoot : MonoBehaviour
         currentclip += totalammo;
         totalammo -= BulletsFired;
         BulletsFired = 0;
-        Reloading = false;
-    }
+        Reloading = false;     AmmoMessage.text = ("");
+        }
     else
     {
         currentclip += BulletsFired;
         totalammo -= BulletsFired;
         BulletsFired = 0;
-        Reloading = false;
-    }
+        Reloading = false;                   PlayerParent.GetComponent<PlayerActionsVar>().IsReloading = false;
+        AmmoMessage.text = (""); AmmoMessage.color = new Color(255f, 178f, 255f);
+        }
 
 
     }//ef
