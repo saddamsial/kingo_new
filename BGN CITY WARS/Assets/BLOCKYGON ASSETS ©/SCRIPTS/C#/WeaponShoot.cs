@@ -25,6 +25,7 @@ public class WeaponShoot : MonoBehaviour
     public int totalammo;
     public int MaxAmmo;
     public int BulletsFired = 0;
+    public bool Lowammo;
     public bool noammo;
     private float lastshot = 0f;
     [Space(10)]
@@ -180,53 +181,10 @@ public class WeaponShoot : MonoBehaviour
 
         // CHECK RETICLE HIT(NO SHOOTING)
 
-
-        //NO AMMO SET UP
-
-        if (weaponstatus.MaxedAmmo)
-        {
-            totalammo = MaxAmmo;
-        }
-        if (currentclip < 1 && totalammo == 0)
-        {
-            noammo = true;        PlayerParent.GetComponent<WeaponStatus>().NoAmmo = true; AmmoMessage.color = Color.red;     AmmoMessage.text = ("Out Of Ammo");
-            BulletsFired = MaxClip;
-        }
-
-        else
-        {
-            {
-                noammo = false;      PlayerParent.GetComponent<WeaponStatus>().NoAmmo = false;    AmmoMessage.text = (""); 
-            }
-        }
-
         pos = CameraMain.transform.GetChild(2);
-        //Reset BulletsFired Custom conditions(calculate the difference manually)
-        if (totalammo == 0)
-        {
-            BulletsFired = MaxClip - currentclip;
-        }
-
-
-        //Ammo Clamp
-        if (totalammo <= 0)
-        {
-            totalammo = 0;
-        }
-
-        //Clip Clamp
-        if (currentclip <= 0)
-        {
-            currentclip = 0;
-        }
-
-        if (currentclip >= MaxClip)
-
-        { currentclip = MaxClip; }
-
+  
         if (Time.time > lastshot + 0.2f)
         {
-
             Fired = false;
            Parentvariables.Fired = false;
         }
@@ -234,7 +192,6 @@ public class WeaponShoot : MonoBehaviour
 
         if (Canfire)
         { //canfire
-
 
             if (ButtonFired == true && PV.IsMine && Time.time > lastshot + modifiedFireRate && currentclip > 0 && !Reloading && Canfire)
             {
@@ -249,12 +206,7 @@ public class WeaponShoot : MonoBehaviour
                     nextActionTime += period;
                     Shoot();
                 }
-
-
-
             }
-
-
         }//canfire
 
 
@@ -314,8 +266,8 @@ public class WeaponShoot : MonoBehaviour
         point = (hit.point);
         started = false;
 
-
-
+        //UpdateAmmoAfterShoot
+        AmmoRefresh();
 
 
         if (collided == null || collided.gameObject.layer == 0)
@@ -589,6 +541,59 @@ public class WeaponShoot : MonoBehaviour
         totalammo = MaxAmmo;
     }
 
+    private void AmmoRefresh()
+    {
+        #region NO AMMO SET UP
+        //NO AMMO SET UP
+
+        if (weaponstatus.MaxedAmmo)
+        {
+            totalammo = MaxAmmo;
+        }
+        if (currentclip < 1 && totalammo == 0)
+        {
+            noammo = true; PlayerParent.GetComponent<WeaponStatus>().NoAmmo = true; AmmoMessage.color = Color.red; AmmoMessage.text = ("Out Of Ammo");
+            BulletsFired = MaxClip;
+        }
+
+        else
+        {
+            {
+                noammo = false; PlayerParent.GetComponent<WeaponStatus>().NoAmmo = false; AmmoMessage.text = ("");
+            }
+        }
+        #endregion
+
+        #region RESET BULLETS FIRED
+        //Reset BulletsFired Custom conditions(calculate the difference manually)
+        if (totalammo == 0)
+        {
+            BulletsFired = MaxClip - currentclip;
+        }
+
+
+        #endregion
+
+        #region AMMO CLAMP
+        if (totalammo <= 0)
+        {
+            totalammo = 0;
+        }
+        #endregion
+
+        #region CLIP CLAMP
+        //Clip Clamp
+        if (currentclip <= 0)
+        {
+            currentclip = 0;
+        }
+
+        if (currentclip >= MaxClip)
+
+        { currentclip = MaxClip; }
+        #endregion
+    }
+
     #region /////Coroutines/////
 
     //Ammo & reload
@@ -598,7 +603,7 @@ public class WeaponShoot : MonoBehaviour
 
         noammo = false;
 
-        AmmoMessage.color = new Color(255f, 178f, 255f);    AmmoMessage.text= ("Reloading..");  
+        AmmoMessage.color = Color.yellow;    AmmoMessage.text= ("Reloading..");  
 
 
                 // Calculate reload time based on the inverse of WeaponType.ReloadSpeed
@@ -612,6 +617,7 @@ public class WeaponShoot : MonoBehaviour
         totalammo -= BulletsFired;
         BulletsFired = 0;
         Reloading = false;     AmmoMessage.text = ("");
+        AmmoRefresh();
         }
     else
     {
@@ -620,6 +626,7 @@ public class WeaponShoot : MonoBehaviour
         BulletsFired = 0;
         Reloading = false;                   PlayerParent.GetComponent<PlayerActionsVar>().IsReloading = false;
         AmmoMessage.text = (""); AmmoMessage.color = new Color(255f, 178f, 255f);
+        AmmoRefresh();
         }
 
 
