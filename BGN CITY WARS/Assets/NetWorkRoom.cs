@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class NetWorkRoom : MonoBehaviourPunCallbacks
 
 {
-    public GameObject IconDisconnect;
+
 
     public override void OnDisconnected(DisconnectCause cause)
     {
