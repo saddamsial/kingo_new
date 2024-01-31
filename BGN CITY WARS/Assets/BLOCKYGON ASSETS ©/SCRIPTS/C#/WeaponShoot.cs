@@ -547,6 +547,7 @@ public class WeaponShoot : MonoBehaviour
     public void AmmoRefil()
     {
         totalammo = MaxAmmo;  noammo = false;
+        AmmoRefresh();
     }
 
     private void AmmoRefresh()
