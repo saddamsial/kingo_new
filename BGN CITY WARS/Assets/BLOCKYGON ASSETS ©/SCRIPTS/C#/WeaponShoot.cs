@@ -577,7 +577,7 @@ public class WeaponShoot : MonoBehaviour
         if(totalammo ==0 && currentclip <MaxClip&&!noammo )
         {
             Lowammo = true;
-            AmmoMessage.text = ("Low Ammo");
+            AmmoMessage.color = Color.yellow;  AmmoMessage.text = ("Low Ammo"); 
         }
         #endregion
 
@@ -621,7 +621,7 @@ public class WeaponShoot : MonoBehaviour
 
      noammo = false;
 
-        AmmoMessage.color = Color.yellow;    AmmoMessage.text= ("Reloading..");  
+        AmmoMessage.color = Color.white;    AmmoMessage.text= ("Reloading..");  
 
 
                 // Calculate reload time based on the inverse of WeaponType.ReloadSpeed
