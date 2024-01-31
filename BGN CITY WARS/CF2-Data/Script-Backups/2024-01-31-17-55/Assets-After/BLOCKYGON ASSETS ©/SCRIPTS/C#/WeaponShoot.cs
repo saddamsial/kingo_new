@@ -34,10 +34,12 @@ public class WeaponShoot : MonoBehaviour
     public bool Canfire;
     private bool started;
     public bool Fired;
+    public bool ButtonFired;
     public float modifiedFireRate;
     [Space(10)]
     [Header("Reload Info")]
     public bool Reloading;
+    public bool ButtonReload;
 
 
 
@@ -230,7 +232,7 @@ public class WeaponShoot : MonoBehaviour
             StartCoroutine(Reload());
         }
         //Manual reload
-        if (ControlFreak2.CF2Input.GetKey(KeyCode.R) && !Reloading && !noammo && currentclip < MaxClip && totalammo > 0)
+        if (ButtonReload && !Reloading && !noammo && currentclip < MaxClip && totalammo > 0)
         {
             StartCoroutine(Reload());
 

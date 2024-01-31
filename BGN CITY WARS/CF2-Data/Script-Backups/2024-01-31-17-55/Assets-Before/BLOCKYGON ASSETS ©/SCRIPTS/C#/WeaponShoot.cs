@@ -34,10 +34,12 @@ public class WeaponShoot : MonoBehaviour
     public bool Canfire;
     private bool started;
     public bool Fired;
+    public bool ButtonFired;
     public float modifiedFireRate;
     [Space(10)]
     [Header("Reload Info")]
     public bool Reloading;
+    public bool ButtonReload;
 
 
 
@@ -199,7 +201,7 @@ public class WeaponShoot : MonoBehaviour
         if (Canfire)
         { //canfire
 
-            if (ControlFreak2.CF2Input.GetMouseButton(0) == true && PV.IsMine && Time.time > lastshot + modifiedFireRate && currentclip > 0 && !Reloading && Canfire)
+            if (Input.GetMouseButton(0) == true && PV.IsMine && Time.time > lastshot + modifiedFireRate && currentclip > 0 && !Reloading && Canfire)
             {
                 AS.PlayOneShot(FireSFX, 1f);
 
@@ -230,7 +232,7 @@ public class WeaponShoot : MonoBehaviour
             StartCoroutine(Reload());
         }
         //Manual reload
-        if (ControlFreak2.CF2Input.GetKey(KeyCode.R) && !Reloading && !noammo && currentclip < MaxClip && totalammo > 0)
+        if (ButtonReload && !Reloading && !noammo && currentclip < MaxClip && totalammo > 0)
         {
             StartCoroutine(Reload());
 
