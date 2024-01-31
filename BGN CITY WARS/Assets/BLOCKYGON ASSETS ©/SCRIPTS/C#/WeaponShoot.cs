@@ -574,7 +574,7 @@ public class WeaponShoot : MonoBehaviour
         #endregion
 
         #region LOW AMMO SET UP
-        if(totalammo ==0 && currentclip <MaxClip )
+        if(totalammo ==0 && currentclip <MaxClip&&!noammo )
         {
             Lowammo = true;
             AmmoMessage.text = ("Low Ammo");
