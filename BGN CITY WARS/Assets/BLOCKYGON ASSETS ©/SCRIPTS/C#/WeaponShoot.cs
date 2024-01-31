@@ -634,8 +634,8 @@ public class WeaponShoot : MonoBehaviour
         currentclip += totalammo;
         totalammo -= BulletsFired;
         BulletsFired = 0;
-        Reloading = false;    
-        AmmoRefresh();
+        Reloading = false;          PlayerParent.GetComponent<PlayerActionsVar>().IsReloading = false;
+            AmmoRefresh();
         }
     else
     {
