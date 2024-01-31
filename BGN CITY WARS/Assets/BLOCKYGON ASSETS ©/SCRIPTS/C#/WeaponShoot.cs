@@ -7,6 +7,7 @@ public class WeaponShoot : MonoBehaviour
 
     #region Variables
     private WeaponStatus weaponstatus;
+    [SerializeField]
     private PlayerActionsVar Parentvariables;
     [Header("Weapon Specs")]
     public float FireRate;
@@ -101,21 +102,28 @@ public class WeaponShoot : MonoBehaviour
         ScopeUI = DefaultReticle.transform.GetChild(3).gameObject;
         ScopeAnimator = ScopeUI.GetComponent<Animator>();
         #endregion
-        Parentvariables = PlayerParent.GetComponent<PlayerActionsVar>();
+  
+        AS = GetComponent<AudioSource>();
+
+        #region find  and assign kill pop up feeds.
+        KillFeed = GameObject.Find("KILL FEEDS").transform.GetChild(0).gameObject;
+        HeadShotKill = GameObject.Find("KILL FEEDS").transform.GetChild(1).gameObject;
+
+        #endregion
         Invoke("FindParent", .5f);
         PV = this.GetComponent<PhotonView>();
-
+        AmmoRefresh();
         collided = hit.collider;
-
-        AS = GetComponent<AudioSource>();
-        CameraMain = Camera.main.gameObject;
+   
+      
+    
 
         // start reload after weapon pull//
         if (currentclip < 1 && weaponstatus.NoAmmo != true)
         {
             StartCoroutine(Reload());
         }
-
+     
     }
     private void OnDisable()
     {
@@ -128,6 +136,12 @@ public class WeaponShoot : MonoBehaviour
     {
         PlayerParent = transform.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent.parent;
         weaponstatus = PlayerParent.GetComponent<WeaponStatus>();
+        Parentvariables = PlayerParent.GetComponent<PlayerActionsVar>();
+        Parentvariables.Fired = Fired;
+
+
+
+
     }
     private void Start()
     {
@@ -135,16 +149,10 @@ public class WeaponShoot : MonoBehaviour
         TargetHP = 100;
         currentclip = MaxClip;
         totalammo = MaxAmmo;
-        //WeaponRange = WeaponType.WeaponRange;
+        AmmoMessage = GameObject.Find("AMMO MESSAGE").GetComponent<TextMeshProUGUI>();
         Shootpoint = GameObject.FindGameObjectWithTag("ShootPoint").transform;
-          AmmoMessage = GameObject.Find("AMMO MESSAGE").GetComponent<TextMeshProUGUI>();
-        Parentvariables.Fired = Fired;
+        CameraMain = Camera.main.gameObject;   pos = CameraMain.transform.GetChild(2);
 
-        #region find  and assign kill pop up feeds.
-        KillFeed = GameObject.Find("KILL FEEDS").transform.GetChild(0).gameObject;
-        HeadShotKill = GameObject.Find("KILL FEEDS").transform.GetChild(1).gameObject;
-
-        #endregion
 
     }
 
@@ -154,6 +162,10 @@ public class WeaponShoot : MonoBehaviour
         Canfire = PlayerParent.GetComponent<PlayerActionsVar>().canfire;
         PlayerParent.GetComponent<WeaponStatus>().CurrentClip = currentclip;
         PlayerParent.GetComponent<WeaponStatus>().TotalAmmo = totalammo;
+
+
+     
+
 
         modifiedFireRate = 1.0f / FireRate;
 
@@ -178,9 +190,6 @@ public class WeaponShoot : MonoBehaviour
                 }
         }
 
-        // CHECK RETICLE HIT(NO SHOOTING)
-
-        pos = CameraMain.transform.GetChild(2);
   
         if (Time.time > lastshot + 0.2f)
         {
@@ -537,7 +546,7 @@ public class WeaponShoot : MonoBehaviour
 
     public void AmmoRefil()
     {
-        totalammo = MaxAmmo;
+        totalammo = MaxAmmo;  noammo = false;
     }
 
     private void AmmoRefresh()
@@ -563,6 +572,14 @@ public class WeaponShoot : MonoBehaviour
         }
         #endregion
 
+        #region LOW AMMO SET UP
+        if(totalammo ==0 && currentclip <MaxClip )
+        {
+            Lowammo = true;
+            AmmoMessage.text = ("Low Ammo");
+        }
+        #endregion
+
         #region RESET BULLETS FIRED
         //Reset BulletsFired Custom conditions(calculate the difference manually)
         if (totalammo == 0)
@@ -572,6 +589,7 @@ public class WeaponShoot : MonoBehaviour
 
 
         #endregion
+
 
         #region AMMO CLAMP
         if (totalammo <= 0)
@@ -600,7 +618,7 @@ public class WeaponShoot : MonoBehaviour
 {
     Reloading = true;           PlayerParent.GetComponent<PlayerActionsVar>().IsReloading = true;
 
-        noammo = false;
+     noammo = false;
 
         AmmoMessage.color = Color.yellow;    AmmoMessage.text= ("Reloading..");  
 
@@ -615,7 +633,7 @@ public class WeaponShoot : MonoBehaviour
         currentclip += totalammo;
         totalammo -= BulletsFired;
         BulletsFired = 0;
-        Reloading = false;     AmmoMessage.text = ("");
+        Reloading = false;    
         AmmoRefresh();
         }
     else
