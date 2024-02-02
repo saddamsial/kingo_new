@@ -9,8 +9,6 @@ namespace Cinemachine.Examples
         public bool useCharacterForward = false;
         public bool lockToCameraForward = false;
         public float turnSpeed = 10f;
-        public KeyCode sprintJoystick = KeyCode.JoystickButton2;
-        public KeyCode sprintKeyboard = KeyCode.Space;
 
         private float turnSpeedMultiplier;
         private float speed = 0f;
@@ -57,9 +55,7 @@ namespace Cinemachine.Examples
 
          //   anim.SetFloat("Direction", direction);
 
-            // set sprinting
-            isSprinting = ((Input.GetKey(sprintJoystick) || Input.GetKey(sprintKeyboard)) && input != Vector2.zero && direction >= 0f);
-        //    anim.SetBool("isSprinting", isSprinting);
+   
 
             // Update target direction relative to the camera view (or not if the Keep Direction option is checked)
             UpdateTargetDirection();
@@ -91,16 +87,7 @@ namespace Cinemachine.Examples
                 // determine the direction the player will face based on input and the referenceTransform's right and forward directions
                 targetDirection = input.x * right + input.y * forward;
             }
-            else
-            {
-                turnSpeedMultiplier = 0.2f;
-                var forward = transform.TransformDirection(Vector3.forward);
-                forward.y = 0;
 
-                //get the right-facing direction of the referenceTransform
-                var right = transform.TransformDirection(Vector3.right);
-                targetDirection = input.x * right + Mathf.Abs(input.y) * forward;
-            }
         }
     }
 
