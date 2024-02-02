@@ -39,6 +39,14 @@ public class MainCharacterController : MonoBehaviour
     private CharacterController CharController;
     private Transform MainCamera;
     private Vector3 targetDirection;
+    [Space(3)]
+    [Header("JumpingSystem")]
+    public bool isGrounded;
+    [SerializeField]
+    private float jumpHeight = 5f;
+    public float gravity = 9.8f;
+    private Vector3 velocity;
+
 
     #endregion
     void Start()
@@ -64,11 +72,6 @@ public class MainCharacterController : MonoBehaviour
         {
             FreeMode();
         }
-
-
-
-
-   
 
 
         void CombatMode()
@@ -146,9 +149,40 @@ public class MainCharacterController : MonoBehaviour
 
         }
 
+        Jump();
+    }
 
+    void Jump()
+    {
+        isGrounded = CharController.isGrounded;
+
+        if (isGrounded && velocity.y < 0)
+        {
+            velocity.y = -2f; // Ensure you are grounded to avoid gravity accumulation
+        }
+
+        float horizontalInput = joystick.GetVector().x;
+        float verticalInput = joystick.GetVector().y;
+
+        Vector3 moveDirection = transform.right * horizontalInput + transform.forward * verticalInput;
+
+        if (ControlFreak2.CF2Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        {
+            // Calculate the jump velocity based on jump height
+            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+
+            // Add the forward force if moving forward
+            velocity += moveDirection * 5f;
+        }
+
+        // Apply gravity to pull the character down
+        velocity.y += gravity * Time.deltaTime;
+
+        // Move the character
+        CharController.Move(velocity * Time.deltaTime);
     }
 }
+
 
 
 
